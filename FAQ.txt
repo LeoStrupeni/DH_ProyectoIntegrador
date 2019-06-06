@@ -1,0 +1,97 @@
+Sobre tu cuenta
+
+	¿Cómo creo una cuenta?
+		Haz clic en botón de Registro que se encuentra en la pate superior de la pantalla.
+		Completa el formulario de registro.
+		Luego vas a recibir un mail con la confirmación.
+		Listo ya estas registrado
+		
+	Tengo problemas para acceder a mi cuenta. ¿Qué hago?	
+		Hay varias razones por las que puedes tener problemas al iniciar sesión. 
+		
+		Veo un mensaje de "información de inicio de sesión incorrecta. Vuelve a intentarlo"	
+			1. Recuerde que la contraseña es sensible a mayúsculas. Asegúrate de que la tecla Bloq Mayús está desactivada
+			2. Crea una nueva Contraseña.
+			3. Si sigues teniendo problemas, borra todas las contraseñas guardadas automáticamente. Esto garantizará que tu computadora o tu navegador no introduzcan de forma automática unas credenciales no válidas.
+		
+		Veo un mensaje de “no se pudo crear una cuenta nueva con esta información. Si ya tienes una cuenta, inicia sesión”.
+			Si recibes este error, significa que estás usando la página de creación de una cuenta en vez de la página de iniciar sesión.
+		
+		Olvidé mi contraseña
+		
+		Seleccione loguearse y luego ¿Olvidaste tu contraseña? 
+		Ingrese la dirección de correo electrónico asociada a tu cuenta.
+		Un correo electrónico será enviado a su bandeja de entrada - asegúrese de comprobar su carpeta de correo no deseado y las "Promociones" y pestañas 'sociales', si utiliza Gmail.
+		Haga clic en el enlace del correo electrónico. Cuando lo hayas hecho, por favor siga las instrucciones para crear una nueva contraseña.
+
+		Recuerde que la contraseña es sensible a mayúsculas, por lo que si  utilizas letras en mayúscula, debes utilizar letras mayúsculas al iniciar sesión en futuras ocasiones. 
+		Además, recuerda, no dar ninguna información personal, como tu contraseña.
+		
+
+	Quiero recibir ofertas y recomendaciones de productos ¿Qué es lo que tengo que hacer?
+		Si querés recibir información y promociones de forma exclusiva no dudes en inscribirte en nuestro Newsletter! 
+		El envío de emails promocionales será realizado solo con tu consentimiento y podrás desactivar esta opción en cualquier momento.
+	
+
+Compras
+
+	¿Tengo que registrarme para realizar una compra? 
+		Sí, para realizar una compra es necesario que estés registrado. Podés hacerlo una vez que ya hayas llenado tu carrito!
+
+	¿Cómo efectúo una compra?
+
+		Paso 1: Para cargar los productos en tu carrito hacé click en el botón que dice “Comprar” , que aparece debajo de cada uno. 
+				Para eliminar productos de tu carrito, podes hacerlo clickeando en la “X” que figura al lado del detalle de compra.
+				Para cambiar las cantidades del producto elegido, hacelo directamente desde el carrito de compras, clickeando en “+” o “-” según lo que desees. 
+				Una vez que hayas seleccionado todos los que desees, clickeá en “Finalizar compra” para avanzar en tu pedido. 
+
+		Paso 2: Seleccionas el domicilio de entrega 
+
+		Paso 3: Realizas el Pago
+				Clickeando en “Ir a Pagar” vas a ser re-direccionado a la página de Mercado Pago para realizar de forma segura el pago.
+
+		Paso 4: Confirmación de compra 
+				Vas a estar recibiendo un mail con la confirmación de tu compra y datos para el seguimiento de tu pedido. 
+
+		Paso 5: Confirmación de despacho 
+				Una vez que tu compra sea despachada, vas a recibir un mail con el número de seguimiento. 
+				
+	¿Hay un mínimo o maximo de productos para comprar?  
+		No, podés elegir la cantidad que quieras y combinarlos como prefieras! 
+
+	¿Puedo modificar mi compra una vez finalizada? 
+		No, una vez que tu orden está terminada ya no es posible sumarle más productos. 
+	
+	¿Puedo cambiar el domicilio de entrega?
+		No es posible cambiar la dirección una vez finalizada la compra.
+	
+	¿Qué opciones tengo para pagar?
+		Vos elegís con qué medio de pago hacerlo, dentro de las opciones que ofrezca la empresa proveedora del servicio.
+
+	¿Qué pasa si no puedo ir a retirar el pedido?
+		En el caso de que sea otra la persona que retire tu compra, deberá contar con una autorización del titular y fotocopia del DNI del titular. ¿Qué debe decir la autorización?
+
+			- Nombre y Apellido del titular
+			- DNI del titular
+			- Nombre y Apellido del autorizado
+			- DNI del autorizado
+			- Número/s de envío que autoriza a retirar
+
+Envío y retiro de productos
+
+	¿Cuál es el plazo, lugar y horario que puedo retirar mi compra?
+		En al seccion de domicilio de entrega usted podra configurar todos los detalles necesarios para recibir su pedido
+		
+	¿Cómo coordino el envío de mi producto?
+		Una vez confirmado el pago, el vendedor se contactara con usted para confirmar los datos de envio de los productos.
+		
+	Mis productos no me llegaron. ¿Que hago?
+		Si usted realizo el pago y sus productos no le llegan se le reintegrara a su cuenta el saldo.
+		Tenga en cuenta que el pago no se libera hasta que usted no reciba el producto y confirme su recepcion.
+		
+	Me llegaron mi productos, pero no confirme recepcion. 
+		Si no pudo confirmar la rececpcion de los productos y no realizo un reclamo sobre la compra. 
+		Al vendedor se le acreditara el pago 24hs luego de la fecha en la que este confirmo haberlo entregado. 
+
+Atención al cliente
+	Si querés contactarnos completa el formulario de contacto, estamos para lo que necesites!
