@@ -3,6 +3,12 @@
 * {
     box-sizing: border-box;
 }
+
+.fondo { 
+  width: auto; 
+  background-color: goldenrod;
+  }
+
 .clearfix::after {
     content: "";
     clear: both;
@@ -29,8 +35,6 @@
 .col-12 {width: 100%;}
 /* ---------------------------------------------------------- */
 
-
-
 /* Alto de fila del mismo tamaño de su contenedor*/
 .fila {
     min-height: 50px;
@@ -50,11 +54,9 @@
 /* Clases propias del estilo de la página */
 /* -----------------------------------------------------------*/
 .contenedor{
-  width: 70%;
-  height: 80%;
-  margin: 60px auto;
+  width: 80%;
+  margin: 0 auto;
   border: 3px solid red;
-  padding: 10px;
 }
 
 .logo, .navegacion{
@@ -62,8 +64,7 @@
 }
 
 .contenido{
-  height: 200px;
-  background: rgb(131, 131, 0);
+  height: 300px;
 }
 .main {
   margin: 10px 0;
@@ -89,4 +90,10 @@
   min-height: 50px;
   height: 100%;
   background: rgb(0, 34, 128); 
+}
+
+
+.img-car{
+  max-width: 100%;
+  height: auto;
 }
