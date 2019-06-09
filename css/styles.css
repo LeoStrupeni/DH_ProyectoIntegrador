@@ -1,4 +1,38 @@
 body{
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 10px auto;
+  background-image: url("../images/fondo.jpg"); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  /*Descargado de http://www.hdfondos.eu/imagen/92048/doblado-madera-4k-fondo-de-pantalla */
+}
+
+.padding-rl-0{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(255, 255, 255);
+}
+
+
+.login {
+  width: 100%;
+  margin: 5% 0;
+}
+
+.logo {
+  max-height: 150px;
+}
+
+.form-inline .form-control {
+  width: 100%;
+
+}
+
+.jumbotron {
+  background-color: rgba(0, 0, 0, 0);
+  color: white
 }
