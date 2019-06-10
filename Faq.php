@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
-<?php include ("head.php") ?>
+<?php 
+      $nombre = "Preguntas Frecuentes";
+      include ("head.php") 
+?>
+
 <body>
 
+<div class="container">
   <div class="row">
-    <div class="col-12 text-right">
-      <div class="col-8">
-        <h2 class="text-light">Sobre tu cuenta</h2>
-      </div>
-      <div class="col-4">
-        <a href="index.php">Volver a Pagina Inicio</a>  
-      </div>
+    <div class="col-12 col-md-8 text-light h2">
+      <u>Preguntas Frecuentes</u>
+    </div>
+    <div class="col-12 col-md-4 text-right">
+      <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
+    </div>
+  </div>
+  <br><br>
+</div>
+
+<div class="container">
+  <div class="row">
+     
+    <div class="col-12">
+      <h2 class="text-light">Sobre tu  cuenta</h2>
     </div>
 
     <div class="col-12">
@@ -71,12 +84,13 @@
       
         <div class="card">
           <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Quiero recibir ofertas y recomendaciones de productos ¿Qué es lo que tengo que hacer?
+            <h3 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                ¿Como me inscribo para recibir ofertas y recomendaciones de productos?
               </button>
-            </h2>
+            </h3>
           </div>
+
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
               Si querés recibir información y promociones de forma exclusiva no dudes en inscribirte en nuestro Newsletter! 
@@ -84,6 +98,8 @@
             </div>
           </div>
         </div>
+
+
 
        </div>
     </div>
@@ -329,7 +345,7 @@
     </div>
 
   </div>
- 
+</div> 
 
 <?php include ("Script-B.php") ?> 
 

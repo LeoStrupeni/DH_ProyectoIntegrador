@@ -2,7 +2,10 @@
 
 <html>
 
-<?php include ("head.php") ?>
+<?php 
+        $nombre = "Titulo";
+        include ("head.php") 
+?>
 
 <body>
 

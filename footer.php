@@ -1,34 +1,26 @@
-<div class="row text-center">
-    <div class="col-12 ">
-        <section class="mailing-list-section">
-            <h3 class="heading">NEWSLETTER</h3>
-            <p class="message">Dejanos tu mail para recibir promociones</p>
-            <form action="" method="post" name="subscribe-form" class="">
-                <div class="input-wrapper">
-                    <input type="email" class="mailchimp-input" value="" name="email" placeholder="Ingresá tu mail">
-                </div>
-            </form>
-        </section>
+<div class="container">
+    <div class="row justify-content-md-center p-3 bg-dark text-white">
+        <div class="col-md-auto">
+            <div class="h4">NEWSLETTER</div>
+        </div>
+        <div class="col-md-auto">
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+        </div>
+
+        <div class="list-group list-group-horizontal">
+
+            <a href="Contacto.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Contacto</a>
+            <a href="Faq.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Preguntas Frecuentes</a>
+            <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Politicas de privacidad</a>
+            <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Terminos y Condiciones</a>
+
+        </div>
+
     </div>
 
-    <div class="card">
-        <div class="card-header text-center">
-            <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-                <a class="nav-link active" href="Contacto.php">Contacto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="Faq.php">Preguntas Frecuentes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Politicas de privacidad</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Terminos y Condiciones</a>
-            </li>
-            </ul>
-        </div>
-    </div>
 </div>
+
 
 
