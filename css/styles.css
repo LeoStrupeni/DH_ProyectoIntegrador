@@ -40,3 +40,9 @@ body{
 .mailing-list-section {
   background-color: aqua;
 }
+
+
+/* PERFIL DE USUARIO */
+img.perfil {
+  width: 15%
+}
