@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row justify-content-md-center p-3 bg-dark text-white">
+    <div class="row justify-content-md-center p-3 bg-transparent text-white">
         <div class="col-md-auto">
             <div class="h4">NEWSLETTER</div>
         </div>
