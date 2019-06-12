@@ -1,6 +1,6 @@
 <div class="row">
       <div class="col-2">
-        <img src="images/Drinks-42.svg" alt="logo" class="logo">
+         <img src="images/Drinks-42.svg" alt="logo" class="logo">
       </div>
 
       <div class="col-8 padding-rl-0">
@@ -82,7 +82,9 @@
           <button type="button" class="btn btn-primary login">Login</button>
         </div>
         <div class="col-12">
-          <button type="button" class="btn btn-primary login">Registrate</button>
+          <button type="button" class="btn btn-primary login">
+            <a href="register.php" style="text-decoration:none;color:white;">Registrate</a>
+          </button>
         </div>
       </div>
     </div>
