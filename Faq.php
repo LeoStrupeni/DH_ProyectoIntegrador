@@ -2,7 +2,7 @@
 <html>
 <?php 
       $nombre = "Preguntas Frecuentes";
-      include ("head.php") 
+      include ("html/head.php") 
 ?>
 
 <body>
@@ -347,7 +347,7 @@
   </div>
 </div> 
 
-<?php include ("Script-B.php") ?> 
+<?php include ("html/Script-B.php") ?> 
 
 </body>
 

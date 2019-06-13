@@ -19,7 +19,7 @@ body{
 
 
 .login {
-  width: 100%;
+  width: 90%;
   margin: 5% 0;
 }
 
@@ -47,29 +47,35 @@ img.perfil {
 /* FORMULARIO CONTACTO */
 
 /* .cajaformulario{
-  background-color: transparent;
-  position: absolute;
-  left: 400px; 
-  padding-left: 20px;
-  padding-right: 40px;}*/
+background-color: transparent;
+position: absolute;
+left: 400px; 
+padding-left: 20px;
+padding-right: 40px;}*/
 
-  .btn-contacto{
-    font-size: 15px;
-    color: white;
-    background-color: gold;
-    border-radius: 10px;
-    width: 280px;
-    float: left;
-    padding: 4px;
-    margin: 3px;
-  }
+.btn-contacto{
+  font-size: 15px;
+  color: white;
+  background-color: gold;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.segundoboton{
+  background-color: grey;
+  color: gold;
+}
+
+.ingreso{
+  width: 50%;
   
-  .segundoboton{
-    background-color: grey;
-    color: gold;
-  }
+}
 
-  .ingreso{
-    width: 50%;
-    
-  }
+/*LOGIN*/
+.margen-sup {
+  min-height: 50px;
+}
+
+.bg-black{
+  background-color: rgba(0, 0, 0,0.5)
+}

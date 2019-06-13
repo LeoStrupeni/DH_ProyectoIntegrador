@@ -4,18 +4,18 @@
 
 <?php 
         $nombre = "Titulo";
-        include ("head.php") 
+        include ("html/head.php") 
 ?>
 
 <body>
 
-<?php include ("Menu-Nav.php") ?>
+<?php include ("html/Menu-Nav.php") ?>
 
-<?php include ("Main.php") ?> 
+<?php include ("html/Main.php") ?> 
 
-<?php include ("footer.php") ?>    
+<?php include ("html/footer.php") ?>    
 
-<?php include ("Script-B.php") ?> 
+<?php include ("html/Script-B.php") ?> 
 
 </body>
 
