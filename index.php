@@ -2,20 +2,20 @@
 
 <html>
 
-<?php 
-        $nombre = "Titulo";
-        include ("html/head.php") 
+<?php
+$nombre = "Titulo";
+require_once "shared/header.php"
 ?>
 
 <body>
 
-<?php include ("html/Menu-Nav.php") ?>
+        <?php require_once "shared/nav.php" ?>
 
-<?php include ("html/Main.php") ?> 
+        <?php require_once "html/main.php" ?>
 
-<?php include ("html/footer.php") ?>    
+        <?php require_once "shared/footer.php" ?>
 
-<?php include ("html/Script-B.php") ?> 
+        <?php require_once "shared/bts-js.php" ?>
 
 </body>
 

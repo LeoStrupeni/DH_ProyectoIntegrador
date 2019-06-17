@@ -1,66 +1,51 @@
 <!DOCTYPE html>
-<?php 
-        $nombre = "Registro";
-        include ("html/head.php") 
+<?php
+$nombre = "Registro";
+require_once "shared/header.php";
+require_once "php/funciones.php";
+
+$nombreDefault = "";
+$emailDefault = "";
+$fechaDefault = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $errores = validarRegistracion($_POST);
+
+    if (empty($errores)) {
+        $usuario = armarUsuario($_POST);
+        registrar($usuario);
+    }
+
+    $nombreDefault = $_POST["nombre"];
+    $emailDefault = $_POST["email"];
+    $fechaDefault = $_POST["fecnac"];
+}
 ?>
-    <body class="text-light">
-        <div class="container">
-            <div class="row">
-                <div class="col text-right">
-                    <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
-                </div>
+
+<body class="text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col text-right">
+                <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
             </div>
         </div>
-        <?php
-            // PARA PROCESAR FORMULARIO 
-            
-            // Comprobamos si nos llega los datos por POST
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // Funciones Para Validar
-                /*valida si un texto no esta vacío*/
-                function validar_requerido(string $texto): bool
-                {
-                    return !(trim($texto) == '');
-                }
-                /*valida si es número  entero y mayor a 18*/                
-                function validarEdad() {
-                    return (is_integer($_POST["edad"]) || ($_POST["edad"]) >=18);
-                }
-                /*valida si el texto tiene un formato válido de E-Mail*/
-                function validar_email(string $texto): bool
-                {
-                    return (filter_var($texto, FILTER_VALIDATE_EMAIL) === FALSE) ? False : True;
-                }
-                // Variables
-                $errores = [];
-                $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
-                $edad = isset($_POST['edad']) ? $_POST['edad'] : null;
-                $email = isset($_POST['email']) ? $_POST['email'] : null;
-                // Validaciones
-                // Nombre
-                if (!validar_requerido($nombre)) {
-                    $errores[] = 'El campo Nombre es obligatorio.';
-                }
-                // Edad
-                if (!validarEdad($edad)==true) {
-                    $errores[] = 'Ingresa tu edad en números, si eres mayor de 18 años.';                
-                }                    
-            }
-       ?>
-        <!-- Mostramos errores por HTML -->
-        <?php if (isset($errores)): ?>
+    </div>
+
+    <!-- Mostramos errores por HTML en la cabecera de la pagina-->
+    <?php if (isset($errores)) : ?>
         <ul class="errores">
-            <?php 
-                foreach ($errores as $error) {
-                    echo '<li>' . $error . '</li>';
-                } 
-            ?> 
+            <?php
+            foreach ($errores as $error) {
+                echo '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> ' . $error . '</div>';
+            }
+            ?>
         </ul>
-        <?php endif; ?>
-        <!-- Formulario -->
-       
-        <div class="container mt-5">
-        <div class="card bg-black"style="max-width: 760px;">
+    <?php endif; ?>
+
+    <!-- Formulario -->
+    <div class="container mt-5">
+        <div class="card bg-black" style="max-width: 760px;">
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
@@ -73,27 +58,23 @@
                         </div>
                         <div class="form-group">
                             <label for="nombre">NOMBRE: </label>
-                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese su Nombre">
+                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese su nombre">
                         </div>
                         <div class="form-group">
                             <label for="nombre">FEC. NACIMIENTO: </label>
-                            <input type="date" name="FECNAC" class="form-control"> 
-                        </div>
-                        <div class="form-group">
-                            <label for="edad">EDAD: </label>
-                            <input type="text" name="edad" class="form-control" placeholder="Ingrese su Edad"> 
+                            <input type="date" name="fecnac" class="form-control">
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-secondary active">ENTRAR</button>
                         </div>
-                        
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-        <?php include ("html/Script-B.php") ?> 
+    <?php require_once "shared/bts-js.php" ?>
 
-    </body>
+</body>
+
 </html>
