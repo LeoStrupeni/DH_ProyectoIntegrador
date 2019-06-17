@@ -1,8 +1,7 @@
 body{
   max-width: 1000px;
   margin: 10px auto;
-  /*background-image: url("../images/test.jpg");*/
-  background-color: rgb(221, 181, 129);
+  background-image: url("../images/test.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat; 
   background-attachment: fixed;

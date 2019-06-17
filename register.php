@@ -32,17 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
     </div>
 
-    <!-- Mostramos errores por HTML en la cabecera de la pagina-->
-    <?php if (isset($errores)) : ?>
-        <ul class="errores">
-            <?php
-            foreach ($errores as $error) {
-                echo '<div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i> ' . $error . '</div>';
-            }
-            ?>
-        </ul>
-    <?php endif; ?>
-
     <!-- Formulario -->
     <div class="container mt-5">
         <div class="card bg-black" style="max-width: 760px;">
@@ -54,15 +43,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <form action="register.php" class="text-light form ml-4 mr-4" method="post">
                         <div class="form-group">
                             <label for="email">EMAIL: </label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="<?= $emailDefault; ?>">
+                            <?php if (isset($errores["email"])) {mostrarErroresEnFormulario($errores["email"]);} ?>
                         </div>
                         <div class="form-group">
                             <label for="nombre">NOMBRE: </label>
-                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese su nombre">
+                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese su nombre" value="<?= $nombreDefault; ?>">
+                            <?php if (isset($errores["nombre"])) {mostrarErroresEnFormulario($errores["nombre"]);} ?>
                         </div>
                         <div class="form-group">
                             <label for="nombre">FEC. NACIMIENTO: </label>
-                            <input type="date" name="fecnac" class="form-control">
+                            <input type="date" name="fecnac" class="form-control" value="<?= $fechaDefault; ?>">
+                            <?php if (isset($errores["fecnac"])) {mostrarErroresEnFormulario($errores["fecnac"]);} ?>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-secondary active">ENTRAR</button>

@@ -5,7 +5,7 @@ function validarRegistracion($datos) {
   $errores = [];
 
   if (strlen($datos["nombre"]) < 3 || trim($datos["nombre"]) == "") {
-    $errores["name"] = "Ingrese un nombre de más de 3 caracteres";
+    $errores["nombre"] = "Ingrese un nombre de más de 3 caracteres";
   }
 
   if ($datos["fecnac"] == "") {
@@ -87,4 +87,8 @@ function validarEdad($fecnac, $edad = 18)
     return true;
 }
 
-?>
+function mostrarErroresEnFormulario($error){
+
+  echo '<div class="alert alert-danger mt-1"><i class="fas fa-exclamation-circle"></i> ' . $error . '</div>';
+
+}
