@@ -8,6 +8,14 @@ require_once "shared/header.php"
 ?>
 
 <body>
+    <div class="container">
+        <div class="row">
+            <div class="col text-right">
+                <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-5">
         <div class="card bg-black" style="max-width: 760px;">
             <div class="row no-gutters">
