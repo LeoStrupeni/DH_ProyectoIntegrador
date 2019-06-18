@@ -11,7 +11,7 @@ require_once "shared/header.php"
 
         <?php require_once "shared/nav.php" ?>
 
-        <?php require_once "html/main.php" ?>
+        <?php require_once "shared/main.php" ?>
 
         <?php require_once "shared/footer.php" ?>
 
