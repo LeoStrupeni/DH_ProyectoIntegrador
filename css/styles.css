@@ -24,9 +24,13 @@ body{
 }
 
 .logo {
-  max-height: 150px;
+  max-height: 125px;
 }
 
+.btn-cart {
+  width: 30%;
+  margin: 2% 0;
+}
 
 /****  CUERPO PAGINA PRINCIPAL   ****/
 
