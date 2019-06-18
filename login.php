@@ -2,13 +2,22 @@
 
 <html>
 
-<?php 
-        $nombre = "Login";
-        include ("html/head.php") 
+<?php
+$nombre = "Login";
+require_once "shared/header.php"
 ?>
-    <body>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col text-right">
+                <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-5">
-        <div class="card bg-black"style="max-width: 760px;">
+        <div class="card bg-black" style="max-width: 760px;">
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
@@ -24,20 +33,17 @@
                             <input type="password" name="password" id="password" class="form-control">
                         </div>
                         <div>
-                            <input type="checkbox" name="Recordar" value="recuerdo" checked>Recordame   
+                            <input type="checkbox" name="Recordar" value="recuerdo" checked>Recordame
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-secondary active">ENTRAR</button>
                         </div>
-                        
                     </form>
                 </div>
             </div>
         </div>
     </div>
-        <?php include ("html/Script-B.php") ?> 
-    </body>
+    <?php require_once "shared/bts-js.php" ?>
+</body>
+
 </html>
-
-
-

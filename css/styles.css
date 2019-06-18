@@ -1,7 +1,7 @@
 body{
   max-width: 1000px;
   margin: 10px auto;
-  background-image: url("../images/fondo.jpg"); 
+  background-image: url("../images/test.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat; 
   background-attachment: fixed;
@@ -19,8 +19,8 @@ body{
 
 
 .login {
-  width: 90%;
-  margin: 5% 0;
+  width: 70%;
+  margin: 2% 0;
 }
 
 /* CAROUSEL CUERPO */
