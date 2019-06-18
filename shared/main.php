@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-1">
     <div class="col">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -11,27 +11,27 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/img1.gif" class="d-block" alt="...">
+                    <img src="images/img1.gif" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/img1.jpg" class="d-block" alt="...">
+                    <img src="images/img1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/img2.jpg" class="d-block" alt="...">
+                    <img src="images/img2.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/img3.jpg" class="d-block" alt="...">
+                    <img src="images/img3.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/img4.jpg" class="d-block" alt="...">
+                    <img src="images/img4.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="carousel-item">
-                    <img src="images/img5.jpg" class="d-block" alt="...">
+                    <img src="images/img5.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
             </div>
@@ -45,7 +45,8 @@
             </a> -->
         </div>
     </div>   
-
+</div>   
+<div class="row">
     <div class="col">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">

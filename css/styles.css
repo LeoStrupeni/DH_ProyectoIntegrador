@@ -1,5 +1,4 @@
 body{
-  max-width: 1000px;
   margin: 10px auto;
   background-image: url("../images/test.jpg");
   background-size: 100% 100%;
@@ -38,7 +37,6 @@ body{
 
 .carousel-inner img {
   height: 300px;
-  margin: 0 auto;
   opacity: 0.6;
   filter: alpha(opacity=60); /* For IE8 and earlier */
 }
@@ -83,4 +81,31 @@ img.perfil {
 .bg-black{
   background-color: rgba(0, 0, 0,0.5)
 }
+
+
+@media (min-width: 576px) and (max-width: 767px){
+  .container {
+    max-width: 767px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+  .container {
+    max-width: 991px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px){
+  .container {
+    max-width: 1199px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
 
