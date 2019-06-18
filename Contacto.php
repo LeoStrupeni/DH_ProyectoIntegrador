@@ -12,7 +12,7 @@ require_once "shared/head.php"
             </div>
         </div>
 
-        <div class="col-8 bg-transparent mx-auto">
+        <div class="col bg-transparent mx-auto">
             <div class="h1 text-center text-light">Contacto</div>
 
             <form action="contact.php" method="post" class="mx-auto text-light ">
