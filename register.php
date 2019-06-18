@@ -44,21 +44,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="form-group">
                             <label for="email">EMAIL: </label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="<?= $emailDefault; ?>">
-                            <?php if (isset($errores["email"])) {mostrarErroresEnFormulario($errores["email"]);} ?>
                         </div>
                         <div class="form-group">
                             <label for="nombre">NOMBRE: </label>
                             <input type="text" name="nombre" class="form-control" placeholder="Ingrese su nombre" value="<?= $nombreDefault; ?>">
-                            <?php if (isset($errores["nombre"])) {mostrarErroresEnFormulario($errores["nombre"]);} ?>
                         </div>
                         <div class="form-group">
                             <label for="nombre">FEC. NACIMIENTO: </label>
                             <input type="date" name="fecnac" class="form-control" value="<?= $fechaDefault; ?>">
-                            <?php if (isset($errores["fecnac"])) {mostrarErroresEnFormulario($errores["fecnac"]);} ?>
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-secondary active">ENTRAR</button>
                         </div>
+                        <?php if(isset($errores)) {foreach ($errores as $error) {mostrarErroresEnFormulario($error);}} ?>
                     </form>
                 </div>
             </div>
