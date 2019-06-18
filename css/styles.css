@@ -5,23 +5,30 @@ body{
   background-size: 100% 100%;
   background-repeat: no-repeat; 
   background-attachment: fixed;
-  /*Descargado de http://www.hdfondos.eu/imagen/92048/doblado-madera-4k-fondo-de-pantalla */
 }
 
-.padding-rl-0{
-  padding-right: 0px;
-  padding-left: 0px;
+.form-inline .form-control {
+  width: 100%;
+
 }
 
+
+/****  BARRA NAVEGACION   ****/
 .navbar-light .navbar-nav .nav-link {
   color: rgb(255, 255, 255);
 }
 
-
-.login {
+.btn-nav {
   width: 70%;
   margin: 2% 0;
 }
+
+.logo {
+  max-height: 150px;
+}
+
+
+/****  CUERPO PAGINA PRINCIPAL   ****/
 
 /* CAROUSEL CUERPO */
 .container-fluid {
@@ -31,18 +38,9 @@ body{
 
 .carousel-inner img {
   height: 300px;
-  opacity: 0.8;
-  filter: alpha(opacity=80); /* For IE8 and earlier */
-}
-
-
-.logo {
-  max-height: 150px;
-}
-
-.form-inline .form-control {
-  width: 100%;
-
+  margin: 0 auto;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
 .jumbotron {
@@ -51,20 +49,13 @@ body{
 }
 
 
-/* PERFIL DE USUARIO */
+/**** PERFIL DE USUARIO ****/
 img.perfil {
   width: 15%
 }
 
 
-/* FORMULARIO CONTACTO */
-
-/* .cajaformulario{
-background-color: transparent;
-position: absolute;
-left: 400px; 
-padding-left: 20px;
-padding-right: 40px;}*/
+/**** FORMULARIO CONTACTO ****/
 
 .btn-contacto{
   font-size: 15px;
@@ -84,7 +75,7 @@ padding-right: 40px;}*/
   
 }
 
-/*LOGIN*/
+/**** PAGINA LOGIN ****/
 .margen-sup {
   min-height: 50px;
 }

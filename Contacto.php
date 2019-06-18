@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $nombre = "Contacto";
-require_once "shared/header.php"
+require_once "shared/head.php"
 ?>
 
 <body>

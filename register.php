@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $nombre = "Registro";
-require_once "shared/header.php";
+require_once "shared/head.php";
 require_once "php/funciones.php";
 
 $nombreDefault = "";

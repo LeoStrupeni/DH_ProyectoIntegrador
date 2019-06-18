@@ -4,9 +4,9 @@
   </div>
 
   <div class="col-6 col-md-2 p-0 text-center">
-    <a href="login.php" class="btn btn-success login">Login</a>
-    <a href="register.php" class="btn btn-success login">Registrate</a>
-    <a href="perfil.php" class="btn btn-success login">Perfil</a>
+    <a href="login.php" class="btn btn-success btn-nav">Login</a>
+    <a href="register.php" class="btn btn-success btn-nav">Registrate</a>
+    <a href="perfil.php" class="btn btn-success btn-nav">Perfil</a>
   </div>
 
   <div class="col-12 col-md-8">
@@ -81,3 +81,4 @@
       </div>
     </div>
   </div>
+</div>
