@@ -29,7 +29,7 @@ require_once "shared/head.php"
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono</label>
-                    <input class="form-control" id="telefono" type="tel" name="telefono" value="" pattern="3416772339" title="Ingresá tu celular con el formato 3416772339" placeholder="Tu teléfono" required>
+                    <input class="form-control" id="telefono" type="tel" name="telefono" value="" pattern="[1-9]{10}" title="Ingresá tu celular con el formato 3416772339" placeholder="Tu teléfono" required>
                 </div>
                 <div class="form-group">
                     <label for="porque"><b>Mensaje</b></label>
