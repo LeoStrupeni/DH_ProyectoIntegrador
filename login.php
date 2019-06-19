@@ -23,7 +23,7 @@ require_once "shared/head.php"
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
                 </div>
                 <div class="col-md-6 m-auto">
-                    <form action="index.php" class="text-light form ml-4 mr-4">
+                    <form action="index.php" class="text-light form ml-4 mr-4" method="POST">
                         <div class="form-group">
                             <label for="email">EMAIL</label>
                             <input type="email" name="email" id="email" class="form-control">
