@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html>
-
 <?php
 $nombre = "Login";
 require_once "shared/head.php"
@@ -17,7 +15,7 @@ require_once "shared/head.php"
     </div>
 
     <div class="container mt-5">
-        <div class="card bg-black m-auto"  style="max-width: 760px;">
+        <div class="card bg-black m-auto" style="max-width: 760px;">
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
@@ -43,7 +41,9 @@ require_once "shared/head.php"
             </div>
         </div>
     </div>
+
     <?php require_once "shared/bts-js.php" ?>
+    
 </body>
 
 </html>

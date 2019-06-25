@@ -56,7 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-secondary active">ENTRAR</button>
                         </div>
-                        <?php if(isset($errores)) {foreach ($errores as $error) {mostrarErroresEnFormulario($error);}} ?>
+                        <?php if (isset($errores)) {
+                            foreach ($errores as $error) {
+                                mostrarErroresEnFormulario($error);
+                            }
+                        } ?>
                     </form>
                 </div>
             </div>
