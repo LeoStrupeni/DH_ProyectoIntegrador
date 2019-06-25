@@ -2,7 +2,7 @@
 <html>
 <?php
 $nombre = "Preguntas Frecuentes";
-require_once "shared/header.php"
+require_once "shared/head.php"
 ?>
 
 <body>
@@ -41,9 +41,9 @@ require_once "shared/header.php"
 
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
-                Haz clic en botón de Registro que se encuentra en la pate superior de la pantalla.
-                Completa el formulario de registro.
-                Luego vas a recibir un mail con la confirmación.
+                Haz clic en botón de Registro que se encuentra en la pate superior de la pantalla.<br>
+                Completa el formulario de registro.<br>
+                Luego vas a recibir un mail con la confirmación.<br>
                 Listo ya estas registrado
               </div>
             </div>
@@ -59,24 +59,24 @@ require_once "shared/header.php"
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div class="card-body">
-                Hay varias razones por las que puedes tener problemas al iniciar sesión.
-
-                Veo un mensaje de "información de inicio de sesión incorrecta. Vuelve a intentarlo"
-                1. Recuerde que la contraseña es sensible a mayúsculas. Asegúrate de que la tecla Bloq Mayús está desactivada
-                2. Crea una nueva Contraseña.
-                3. Si sigues teniendo problemas, borra todas las contraseñas guardadas automáticamente. Esto garantizará que tu computadora o tu navegador no introduzcan de forma automática unas credenciales no válidas.
-
-                Veo un mensaje de “no se pudo crear una cuenta nueva con esta información. Si ya tienes una cuenta, inicia sesión”.
-                Si recibes este error, significa que estás usando la página de creación de una cuenta en vez de la página de iniciar sesión.
-
-                Olvidé mi contraseña
-
-                Seleccione loguearse y luego ¿Olvidaste tu contraseña?
-                Ingrese la dirección de correo electrónico asociada a tu cuenta.
-                Un correo electrónico será enviado a su bandeja de entrada - asegúrese de comprobar su carpeta de correo no deseado y las "Promociones" y pestañas 'sociales', si utiliza Gmail.
-                Haga clic en el enlace del correo electrónico. Cuando lo hayas hecho, por favor siga las instrucciones para crear una nueva contraseña.
-
-                Recuerde que la contraseña es sensible a mayúsculas, por lo que si utilizas letras en mayúscula, debes utilizar letras mayúsculas al iniciar sesión en futuras ocasiones.
+                Hay varias razones por las que puedes tener problemas al iniciar sesión.<br>
+                <br>
+                Veo un mensaje de "información de inicio de sesión incorrecta. Vuelve a intentarlo"<br>
+                1. Recuerde que la contraseña es sensible a mayúsculas. Asegúrate de que la tecla Bloq Mayús está desactivada<br>
+                2. Crea una nueva Contraseña.<br>
+                3. Si sigues teniendo problemas, borra todas las contraseñas guardadas automáticamente. Esto garantizará que tu computadora o tu navegador no introduzcan de forma automática unas credenciales no válidas.<br>
+                <br>
+                Veo un mensaje de “no se pudo crear una cuenta nueva con esta información. Si ya tienes una cuenta, inicia sesión”.<br>
+                Si recibes este error, significa que estás usando la página de creación de una cuenta en vez de la página de iniciar sesión.<br>
+                <br>
+                Olvidé mi contraseña<br>
+                <br>
+                Seleccione loguearse y luego ¿Olvidaste tu contraseña?<br>
+                Ingrese la dirección de correo electrónico asociada a tu cuenta.<br>
+                Un correo electrónico será enviado a su bandeja de entrada - asegúrese de comprobar su carpeta de correo no deseado y las "Promociones" y pestañas 'sociales', si utiliza Gmail.<br>
+                Haga clic en el enlace del correo electrónico. Cuando lo hayas hecho, por favor siga las instrucciones para crear una nueva contraseña.<br>
+                <br>
+                Recuerde que la contraseña es sensible a mayúsculas, por lo que si utilizas letras en mayúscula, debes utilizar letras mayúsculas al iniciar sesión en futuras ocasiones.<br>
                 Además, recuerda, no dar ninguna información personal, como tu contraseña.
               </div>
             </div>
@@ -93,7 +93,7 @@ require_once "shared/header.php"
 
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div class="card-body">
-                Si querés recibir información y promociones de forma exclusiva no dudes en inscribirte en nuestro Newsletter!
+                Si querés recibir información y promociones de forma exclusiva no dudes en inscribirte en nuestro Newsletter!<br>
                 El envío de emails promocionales será realizado solo con tu consentimiento y podrás desactivar esta opción en cualquier momento.
               </div>
             </div>
@@ -138,20 +138,20 @@ require_once "shared/header.php"
 
             <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionExample">
               <div class="card-body">
-                Paso 1: Para cargar los productos en tu carrito hacé click en el botón que dice “Comprar” , que aparece debajo de cada uno.
-                Para eliminar productos de tu carrito, podes hacerlo clickeando en la “X” que figura al lado del detalle de compra.
-                Para cambiar las cantidades del producto elegido, hacelo directamente desde el carrito de compras, clickeando en “+” o “-” según lo que desees.
-                Una vez que hayas seleccionado todos los que desees, clickeá en “Finalizar compra” para avanzar en tu pedido.
-
-                Paso 2: Seleccionas el domicilio de entrega
-
-                Paso 3: Realizas el Pago
-                Clickeando en “Ir a Pagar” vas a ser re-direccionado a la página de Mercado Pago para realizar de forma segura el pago.
-
-                Paso 4: Confirmación de compra
-                Vas a estar recibiendo un mail con la confirmación de tu compra y datos para el seguimiento de tu pedido.
-
-                Paso 5: Confirmación de despacho
+                Paso 1: Para cargar los productos en tu carrito hacé click en el botón que dice “Comprar” , que aparece debajo de cada uno.<br>
+                Para eliminar productos de tu carrito, podes hacerlo clickeando en la “X” que figura al lado del detalle de compra.<br>
+                Para cambiar las cantidades del producto elegido, hacelo directamente desde el carrito de compras, clickeando en “+” o “-” según lo que desees.<br>
+                Una vez que hayas seleccionado todos los que desees, clickeá en “Finalizar compra” para avanzar en tu pedido.<br>
+                <br>
+                Paso 2: Seleccionas el domicilio de entrega<br>
+                <br>
+                Paso 3: Realizas el Pago<br>
+                Clickeando en “Ir a Pagar” vas a ser re-direccionado a la página de Mercado Pago para realizar de forma segura el pago.<br>
+                <br>
+                Paso 4: Confirmación de compra<br>
+                Vas a estar recibiendo un mail con la confirmación de tu compra y datos para el seguimiento de tu pedido.<br>
+                <br>
+                Paso 5: Confirmación de despacho<br>
                 Una vez que tu compra sea despachada, vas a recibir un mail con el número de seguimiento.
               </div>
             </div>
@@ -232,11 +232,11 @@ require_once "shared/header.php"
 
             <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
               <div class="card-body">
-                En el caso de que sea otra la persona que retire tu compra, deberá contar con una autorización del titular y fotocopia del DNI del titular. ¿Qué debe decir la autorización?
-                - Nombre y Apellido del titular
-                - DNI del titular
-                - Nombre y Apellido del autorizado
-                - DNI del autorizado
+                En el caso de que sea otra la persona que retire tu compra, deberá contar con una autorización del titular y fotocopia del DNI del titular. ¿Qué debe decir la autorización?<br>
+                - Nombre y Apellido del titular<br>
+                - DNI del titular<br>
+                - Nombre y Apellido del autorizado<br>
+                - DNI del autorizado<br>
                 - Número/s de envío que autoriza a retirar
               </div>
             </div>
@@ -293,7 +293,7 @@ require_once "shared/header.php"
             </div>
             <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordionExample">
               <div class="card-body">
-                Si usted realizo el pago y sus productos no le llegan se le reintegrara a su cuenta el saldo.
+                Si usted realizo el pago y sus productos no le llegan se le reintegrara a su cuenta el saldo.<br>
                 Tenga en cuenta que el pago no se libera hasta que usted no reciba el producto y confirme su recepcion.
               </div>
             </div>
@@ -309,7 +309,7 @@ require_once "shared/header.php"
             </div>
             <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordionExample">
               <div class="card-body">
-                Si no pudo confirmar la rececpcion de los productos y no realizo un reclamo sobre la compra.
+                Si no pudo confirmar la rececpcion de los productos y no realizo un reclamo sobre la compra.<br>
                 Al vendedor se le acreditara el pago 24hs luego de la fecha en la que este confirmo haberlo entregado.
               </div>
             </div>

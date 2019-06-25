@@ -4,7 +4,7 @@
 
 <?php
 $nombre = "Login";
-require_once "shared/header.php"
+require_once "shared/head.php"
 ?>
 
 <body>
@@ -17,13 +17,13 @@ require_once "shared/header.php"
     </div>
 
     <div class="container mt-5">
-        <div class="card bg-black" style="max-width: 760px;">
+        <div class="card bg-black m-auto"  style="max-width: 760px;">
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
                 </div>
                 <div class="col-md-6 m-auto">
-                    <form action="index.php" class="text-light form ml-4 mr-4">
+                    <form action="index.php" class="text-light form ml-4 mr-4" method="POST">
                         <div class="form-group">
                             <label for="email">EMAIL</label>
                             <input type="email" name="email" id="email" class="form-control">

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $nombre = "Contacto";
-require_once "shared/header.php"
+require_once "shared/head.php"
 ?>
 
 <body>
@@ -12,7 +12,7 @@ require_once "shared/header.php"
             </div>
         </div>
 
-        <div class="col-8 bg-transparent mx-auto">
+        <div class="col bg-transparent mx-auto">
             <div class="h1 text-center text-light">Contacto</div>
 
             <form action="contact.php" method="post" class="mx-auto text-light ">
@@ -29,7 +29,7 @@ require_once "shared/header.php"
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono</label>
-                    <input class="form-control" id="telefono" type="tel" name="telefono" value="" pattern="3416772339" title="Ingresá tu celular con el formato 3416772339" placeholder="Tu teléfono" required>
+                    <input class="form-control" id="telefono" type="tel" name="telefono" value="" pattern="[1-9]{10}" title="Ingresá tu celular con el formato 3416772339" placeholder="Tu teléfono" required>
                 </div>
                 <div class="form-group">
                     <label for="porque"><b>Mensaje</b></label>

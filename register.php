@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 $nombre = "Registro";
-require_once "shared/header.php";
+require_once "shared/head.php";
 require_once "php/funciones.php";
 
 $nombreDefault = "";
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <!-- Formulario -->
     <div class="container mt-5">
-        <div class="card bg-black" style="max-width: 760px;">
+        <div class="card bg-black m-auto" style="max-width: 760px;">
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
