@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
 $nombre = "Perfil usuario";
-require_once "shared/head.php" ?>
+require_once "shared/head.php"
+?>
 
 <body>
 
@@ -18,7 +19,9 @@ require_once "shared/head.php" ?>
                     <img src="images/profile-placeholder.png" alt="Perfil" class="img-fluid mx-auto d-block rounded-circle perfil">
                 </div>
                 <div class="col-sm-12">
-                    <h1 class="text-center">Hola, $USERNAME <?/* SESSION["nombre"]; */?></h1>
+                    <h1 class="text-center">Hola, $USERNAME
+                        <? /* SESSION["nombre"]; */?>
+                    </h1>
                 </div>
             </div>
 

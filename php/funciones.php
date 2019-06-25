@@ -1,6 +1,7 @@
 <?php
 
-function validarRegistracion($datos) {
+function validarRegistracion($datos)
+{
 
   $errores = [];
 
@@ -10,46 +11,47 @@ function validarRegistracion($datos) {
 
   if ($datos["fecnac"] == "") {
     $errores["fecnac"] = "Ingrese su fecha de nacimiento";
-  }
-  else if (validarEdad($datos["fecnac"]) == false) {
+  } else if (validarEdad($datos["fecnac"]) == false) {
     $errores["fecnac"] = "Debes ser mayor de 18 años";
   }
 
   if ($datos["email"] == "") {
     $errores["email"] = "Ingrese su email";
-  }
-  else if (filter_var($datos["email"], FILTER_VALIDATE_EMAIL) == false) {
+  } else if (filter_var($datos["email"], FILTER_VALIDATE_EMAIL) == false) {
     $errores["email"] = "Su email no es válido";
   }
-  
+
 
   return $errores;
 }
 
-function armarUsuario($datos) {
+function armarUsuario($datos)
+{
   return [
     "id" => proximoId(),
     "nombre" => ucfirst($datos["nombre"]),
     "email" => $datos["email"],
     "fecnac" => $datos["fecnac"],
-      ];
+  ];
 }
 
-function proximoId() {
+function proximoId()
+{
 
   $usuarios = traerTodosLosUsuarios();
 
   if (empty($usuarios)) {
     return 1;
   }
-  
+
   $ultimoUsuario = end($usuarios);
 
-  
+
   return $ultimoUsuario["id"] + 1;
 }
 
-function traerTodosLosUsuarios() {
+function traerTodosLosUsuarios()
+{
 
   $archivo = file_get_contents("usuarios.json");
 
@@ -62,7 +64,8 @@ function traerTodosLosUsuarios() {
   return $usuarios;
 }
 
-function registrar($usuario) {
+function registrar($usuario)
+{
   $usuarios = traerTodosLosUsuarios();
 
   $usuarios[] = $usuario;
@@ -74,21 +77,20 @@ function registrar($usuario) {
 
 function validarEdad($fecnac, $edad = 18)
 {
-    
-    if(is_string($fecnac)) {
-        $fecnac = strtotime($fecnac);
-    }
 
-   
-    if(time() - $fecnac < $edad * 31536000)  {
-        return false;
-    }
+  if (is_string($fecnac)) {
+    $fecnac = strtotime($fecnac);
+  }
 
-    return true;
+
+  if (time() - $fecnac < $edad * 31536000) {
+    return false;
+  }
+
+  return true;
 }
 
-function mostrarErroresEnFormulario($error){
-
+function mostrarErroresEnFormulario($error)
+{
   echo '<div class="alert alert-danger mt-1"><i class="fas fa-exclamation-circle"></i> ' . $error . '</div>';
-
 }
