@@ -9,7 +9,7 @@
 
       <div class="col-sm-8 text-center">
         <?php
-        if ($_SERVER['REQUEST_METHOD'] == $_POST) {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           echo '<a href="perfil.php" class="btn btn-success btn-nav">Perfil</a>';
           echo '<button class="btn btn-light btn-lg btn-nav" type="submit">
                 <i class="fas fa-shopping-cart"></i>
