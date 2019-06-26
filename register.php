@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="es" dir="ltr">
 <?php
 $nombre = "Registro";
 require_once "shared/head.php";
@@ -47,11 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                         <div class="form-group">
                             <label for="nombre">NOMBRE: </label>
-                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese su nombre" value="<?= $nombreDefault; ?>">
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su nombre" value="<?= $nombreDefault; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="nombre">FEC. NACIMIENTO: </label>
-                            <input type="date" name="fecnac" class="form-control" value="<?= $fechaDefault; ?>">
+                            <label for="fecnac">FEC. NACIMIENTO: </label>
+                            <input type="date" name="fecnac" id="fecnac" class="form-control" value="<?= $fechaDefault; ?>">
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-secondary active">ENTRAR</button>

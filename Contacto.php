@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="es" dir="ltr">
 <?php
 $nombre = "Contacto";
 require_once "shared/head.php"
@@ -21,7 +22,7 @@ require_once "shared/head.php"
                 </div>
                 <div class="form-group">
                     <label for="nombre">Nombre </label>
-                    <input type="text" name="nombre" class="form-control" placeholder="Tu nombre" required>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Tu nombre" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -33,7 +34,7 @@ require_once "shared/head.php"
                 </div>
                 <div class="form-group">
                     <label for="porque"><b>Mensaje</b></label>
-                    <textarea name="porque" class="form-control" rows="3"></textarea>
+                    <textarea name="porque" id="porque" class="form-control" rows="3"></textarea>
                 </div>
 
                 <div class="row">

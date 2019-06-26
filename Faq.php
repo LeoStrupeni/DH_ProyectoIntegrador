@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" dir="ltr">
 <?php
 $nombre = "Preguntas Frecuentes";
 require_once "shared/head.php"
@@ -28,7 +28,7 @@ require_once "shared/head.php"
 
       <div class="col-12">
 
-        <div class="accordion" id="accordionExample">
+        <div class="accordion">
 
           <div class="card">
             <div class="card-header" id="headingOne">
@@ -109,7 +109,7 @@ require_once "shared/head.php"
       </div>
 
       <div class="col-12">
-        <div class="accordion" id="accordionExample">
+        <div class="accordion">
 
           <div class="card">
             <div class="card-header" id="headingfour">
@@ -250,7 +250,7 @@ require_once "shared/head.php"
 
       <div class="col-12">
 
-        <div class="accordion" id="accordionExample">
+        <div class="accordion">
 
           <div class="card">
             <div class="card-header" id="headingEleven">
@@ -323,7 +323,7 @@ require_once "shared/head.php"
 
       <div class="col-12">
 
-        <div class="accordion" id="accordionExample">
+        <div class="accordion">
 
           <div class="card">
             <div class="card-header" id="headingFiveteen">

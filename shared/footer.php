@@ -4,7 +4,7 @@
     </div>
 
     <div class="col-8 m-auto form-group">
-        <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Ingrese su email">
+        <input type="email" class="form-control" placeholder="Ingrese su email">
     </div>
 </div>
 
