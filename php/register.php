@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
 <?php
-$nombre = "Registro";
-require_once "shared/head.php";
+
 require_once "php/funciones.php";
 
 $nombreDefault = "";
@@ -24,24 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<body class="text-light">
+   <!-- Formulario -->
     <div class="container">
-        <div class="row">
-            <div class="col text-right">
-                <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Formulario -->
-    <div class="container mt-5">
-        <div class="card bg-black m-auto" style="max-width: 760px;">
+        <div class="card bg-black">
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
                 </div>
-                <div class="col-md-6 m-auto">
-                    <form action="register.php" class="text-light form ml-4 mr-4" method="post">
+                <div class="col-md-6">
+                    <form action="register.php" class="text-light form ml-1" method="post">
                         <div class="form-group">
                             <label for="email">EMAIL: </label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="<?= $emailDefault; ?>">
@@ -67,9 +55,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </div>
-
-    <?php require_once "shared/bts-js.php" ?>
-
-</body>
-
-</html>

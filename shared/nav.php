@@ -1,52 +1,44 @@
-<?php
-require_once "shared/nav-xs.php";
-require_once "shared/nav-sm-md.php";
-require_once "shared/nav-lg.php";
-?>
-
-<div class="row">
-  <div class="col">
-    <nav class="navbar navbar-expand-md navbar-light bg-transparent">
-      <button class="navbar-toggler btn bg-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="text-light dropdown-toggle">Menu</span>
+<div class="row m-2">
+  <div class="col-4 col-sm-4 col-md-4 col-lg-3">
+    <div class="btn-group" role="group">
+      <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Menu
       </button>
-
-      <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>Cervezas</strong>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Opcion</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>Vinos</strong>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Opcion</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>Blancas</strong>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Opcion</a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <strong>Aperitivos</strong>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Opcion</a>
-            </div>
-          </li>
-        </ul>
+      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <a class="dropdown-item" href="#">Cervezas</a>
+        <a class="dropdown-item" href="#">Vinos</a>
+        <a class="dropdown-item" href="#">Blancas</a>
+        <a class="dropdown-item" href="#">Aperitivos</a>
       </div>
-    </nav>
+    </div>
   </div>
-</div>
+
+  <div class="col-8 col-sm-8 col-md-8 col-lg-6">
+    <form class="form-inline">
+      <div class="col-8 p-0 text-right">
+        <input class="form-control" type="search" placeholder="Busqueda" aria-label="Search">
+      </div>
+      <div class="col-4">
+        <button class="btn btn-secondary" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>  
+
+  <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+    <?php
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        echo '<a href="perfil.php" class="btn btn-secondary">Perfil</a>';
+        echo '<button class="btn btn-dark" type="submit">
+                  <i class="fas fa-shopping-cart"></i>
+                </button>';
+      } else {
+        require_once "php/modal-nav.php";
+      }
+    ?>
+  </div>
+
+
+      
+    

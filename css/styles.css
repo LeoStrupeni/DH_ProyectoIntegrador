@@ -1,36 +1,34 @@
+.container {
+  margin:0;
+  max-width: 100%;
+}
+
 body{
-  max-width: 1100px;
-  margin: 10px auto;
-  background-image: url("../images/test.jpg");
+  background-image: url("../images/fondo2.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat; 
   background-attachment: fixed;
 }
 
-.form-inline .form-control {
-  width: 100%;
-
-}
-
-
 /****  BARRA NAVEGACION   ****/
-.navbar-light .navbar-nav .nav-link {
-  color: rgb(255, 255, 255);
+
+.bg-dark {
+  background-color: transparent!important;
 }
 
-.btn-nav {
-  width: 70%;
-  margin: 2% 0;
+.form-inline .form-control {
+  width: 80%;
 }
 
-.logo {
-  max-height: 100px;
+.navbar-dark .navbar-toggler {
+  color: white;
+  background-color: gray;
 }
 
-.btn-cart {
-  width: 30%;
-  margin: 2% 0;
+.navbar-toggler-icon{
+  color:white;
 }
+
 
 /****  CUERPO PAGINA PRINCIPAL   ****/
 
@@ -41,8 +39,8 @@ body{
 }
 
 .carousel-inner img {
-  height: 300px;
-  opacity: 0.6;
+  height: 400px;
+  opacity: 0.8;
   filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
@@ -87,74 +85,13 @@ img.perfil {
   background-color: rgba(0, 0, 0,0.5)
 }
 
-/**** PAGINA PRODUCTOS ****/
-h2,p{
+.modal-content {
+  background-color: rgba(255, 252, 56, 0.8);
+}
+
+
+/**** FOOTER ****/
+.btn-foot{
+  min-width: 250px;
   color: white;
-  }
-  
-  .row.productos{
-      margin: 3em;
-      float: left;
-            
-  }
-  
-  .img-fluid.img-thumbnail {
-      margin-bottom: 2em;
-  }
-  
-  .btn.btn-success{
-      margin-bottom: 2em;
-  }
-
-  
-  a{
-      transition: background-color .5s;
-      text-decoration: none;
-   }
-    
-  a:hover{
-      text-decoration: none;
-      
-  }
-  
-  /**** PAGINA MODAL PRODUCTO ****/
-
-    .btn.btn-success.align-middle{
-      margin: 0;
-    }
-
-    .table.table-bordered{
-    color:white;
-    }
-#precio{
-  color: green;
-  font-size: 2em;
-
 }
-
-@media (min-width: 576px) and (max-width: 767px){
-  .container {
-    max-width: 767px;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px){
-  .container {
-    max-width: 991px;
-  }
-}
-
-@media (min-width: 992px) and (max-width: 1199px){
-  .container {
-    max-width: 1199px;
-    margin: 0;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1100px;
-  }
-}
-
-
