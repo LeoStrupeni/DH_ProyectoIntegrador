@@ -30,11 +30,11 @@
                 <?php foreach ($productos as $producto){ ?>
                         <div class="col-md-6 col-lg-4 text-center"  ><a href="#" class="prueba" data-toggle="modal" data-target="#modalNombre">
                         <img alt="" src="images/<?=$producto["foto"]?>" class="img-fluid img-thumbnail"/>
-                        <!-- <h2>
+                        <h2>
                         <?=$producto["nombreDelProducto"]?></h2>
-                        </h2> -->
+                        </h2>
                         <p>
-                        <?=$producto["descripcion"]?></p>
+                        <!-- <?=$producto["descripcion"]?></p> -->
                         <p>
                         </a>
                         </p> <a href="#" class="btn btn-success" type="button">COMPRAR <?=$producto["precio"]?></a>
