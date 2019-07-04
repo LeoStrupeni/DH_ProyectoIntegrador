@@ -31,8 +31,8 @@
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo '<a href="perfil.php" class="btn btn-secondary">Perfil</a>';
         echo '<button class="btn btn-dark" type="submit">
-                  <i class="fas fa-shopping-cart"></i>
-                </button>';
+                <a href="Cart.php"><i class="fas fa-shopping-cart"></i></a>
+              </button>';
       } else {
         require_once "php/modal-nav.php";
       }
