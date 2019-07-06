@@ -1,6 +1,8 @@
 <?php
-include "php/conexion.php";
-include "carrito.php";
+include 'global/config.php';
+include 'global/conexion.php';
+
+include 'ShopCart.php';
 ?>
 
 <!DOCTYPE html >
@@ -16,57 +18,58 @@ require_once "shared/head.php"
     <?php require_once "shared/nav.php" ?>
     <hr>
     <div class="container">
-        <br>
-        <div class="alert alert-secondary" role="alert">
-            <?php echo $mensaje;?>
-            <a href="" class="badge badge-secondary">Ver Carrito</a>
+        <br>    
+        <div class="alert alert-secondary">
+            <?=$mensaje?>
+            <a href="ShopViewCart.php" class="badge badge-success"> Ver Carrito</a>
         </div>
         <div class="row">
-            <?php
-                $consulta = $pdo -> prepare("Select * from tblproductos");
-                $consulta->execute();
-                $productos = $consulta->fetchall(PDO::FETCH_ASSOC);
+            <?php 
+                $sentencia=$pdo->prepare('SELECT * FROM productos');
+                $sentencia->execute();
+                $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);               
             ?>
+            <?php foreach ($listaProductos as $producto) :?>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-1">
+                <div class="card text-center">
+                    <img 
+                    title = "<?=$producto['Name']?>"
+                    alt="<?=$producto['Name']?>" 
+                    class="card-img-top p-1 m-auto"
+                    src=<?='images/Bebidas/'.$producto['imagen']?>
+                    data-toggle="popover"
+                    data-trigger="hover"
+                    data-content="<?=$producto['Descripcion']?>"
+                    height="225px">
+                    <div class="card-body">
+                        <h6 class="card-title"><?=$producto['Name']?></h6>
+                        <h5 class="card-title"><?=$producto['Precio']?></h5>    
 
-            <?php foreach ($productos as $producto) :?>
-            
-                <div class="col-3">
-                    <div class="card bg-transparent border-0">
-                        <img title=<?=$producto['Nombre']?> alt=<?=$producto['Nombre']?> class="card-img-top w-50 m-auto" src=<?='images/'.$producto['Imagen']?> data-toggle="popover" data-placement="right" data-trigger="hover" data-content=<?=$producto['Descripcion']?>>
-                        <div class="card-body text-center">
-                            <h5 class="card-title mb-0"><?=$producto['Nombre']?></h5> <br>
-                            <p class="card-text">Precio: $ <?=$producto['Precio']?></p>
+                        <form method="post" action="">
+                            <input type="hidden" name="id" id="id" value="<?=openssl_encrypt($producto['idProductos'],COD,KEY)?>">
+                            <input type="hidden" name="nombre" id="nombre" value="<?=openssl_encrypt($producto['Name'],COD,KEY)?>">
+                            <input type="hidden" name="precio" id="precio" value="<?=openssl_encrypt($producto['Precio'],COD,KEY)?>">
+                            <input type="hidden" name="cantidad" id="cantidad" value="<?=openssl_encrypt(1,COD,KEY)?>"> 
 
-                            <form action="shop.php" method="post">
-                                <input type="text" name="id" id="id" value="<?= $producto['ID'] ?>">
-                                <input type="text" name="nombre" id="nombre" value="<?=$producto['Nombre']?>">
-                                <input type="text" name="precio" id="precio" value="<?=$producto['Precio']?>">
-                                <input type="text" name="cantidad" id="cantidad" value="<?= 1?>">
-                                
-                                <button class="btn btn-primary" name="btnAccion" values="Agregar" type="submit">
-                                    Agregar al carrito
-                                </button>
-                            </form>
+                            <button class="btn btn-primary" type="submit" name="btnAccion" value="Agregar">
+                                Agregar al Carrito
+                            </button>                            
+                        </form>
 
 
-                            
-                        </div>
+
                     </div>
                 </div>
+            </div>
             <?php endforeach; ?>
-            
         </div>
-
     </div>
-    <?php require_once "shared/bts-js.php" ?>   
 
     <script>
         $(function () {
-        $('.example-popover').popover({
-            container: 'body'
-        })
-        })
-    </script>    
+            $('[data-toggle="popover"]').popover()
+        });
+    </script>
 
 </body>
 

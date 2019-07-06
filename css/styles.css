@@ -8,7 +8,7 @@ body{
   background-size: 100% 100%;
   background-repeat: no-repeat; 
   background-attachment: fixed; */
-  background: linear-gradient(to bottom, #006666 0%, #99ccff 100%);
+  background: black;
 }
 
 /****  BARRA NAVEGACION   ****/
@@ -100,6 +100,7 @@ img.perfil {
 
 .card-img-top {
   width: 60%;
+  opacity: 0.9;
 }
 
 .card-title{
@@ -107,3 +108,8 @@ img.perfil {
   white-space:nowrap;
   text-overflow: ellipsis;
 } 
+
+.card {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+}
