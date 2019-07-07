@@ -30,6 +30,10 @@ body{
   color:white;
 }
 
+.btn-nav{
+  width: 100px;
+}
+
 
 /****  CUERPO PAGINA PRINCIPAL   ****/
 
@@ -83,11 +87,11 @@ img.perfil {
 }
 
 .bg-black{
-  background-color: rgba(0, 0, 0,0.5)
+  background-color: rgba(0, 0, 0,0.8)
 }
 
 .modal-content {
-  background-color: rgba(255, 252, 56, 0.8);
+  background-color: rgba(0, 0, 0,0.1);
 }
 
 
@@ -96,7 +100,6 @@ img.perfil {
   min-width: 250px;
   color: white;
 }
-
 
 .card-img-top {
   width: 60%;
@@ -113,3 +116,4 @@ img.perfil {
   background-color: rgba(255, 255, 255, 0.4);
   border: none;
 }
+

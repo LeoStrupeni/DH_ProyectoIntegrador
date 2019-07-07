@@ -38,7 +38,15 @@ require_once "shared/head.php"
                         <td width="15%" class="text-center"><?=$producto['Cantidad']?></td>
                         <td width="20%" class="text-center"><?=$producto['Precio']?></td>
                         <td width="20%" class="text-center"><?=number_format($producto['Precio']*$producto['Cantidad'],2)?></td>
-                        <td width="5%"><button class="btn btn-danger" type="button">Eliminar</button></td>
+                        <td width="5%">
+                    
+                        <form method="post" action="">
+                            <input type="hidden" name="id" id="id" value="<?=openssl_encrypt($producto['ID'],COD,KEY)?>">
+                            <button class="btn btn-danger" type="submit" name="btnAccion" value="Eliminar">Eliminar</button>
+                        </form>
+                    
+                        
+                        </td>
                     </tr>
                     
                     <?php $total=$total+($producto['Precio']*$producto['Cantidad']);?>

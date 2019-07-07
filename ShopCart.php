@@ -47,6 +47,18 @@ if(isset($_POST['btnAccion'])){
 
             $mensaje=print_r($_SESSION,true);
         break;
+
+        case "Eliminar":
+            if(is_numeric(openssl_decrypt($_POST['id'],COD,KEY))){
+                $ID=openssl_decrypt($_POST['id'],COD,KEY);
+                foreach($_SESSION['CARRITO'] as $key => $producto){
+                    if($producto['ID']==$ID){
+                        unset($_SESSION['CARRITO'][$key]);
+                        echo "<script>Alert('Elemento Borrado ...')</script>";
+                    }
+                }                
+            }else{$mensaje.='Error, ID incorrecto'."<br>";}
+
     }
 }
 

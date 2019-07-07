@@ -29,7 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
                 </div>
                 <div class="col-md-6">
-                    <form action="register.php" class="text-light form ml-1" method="post">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <form action="register.php" class="text-light form p-1" method="post">
                         <div class="form-group">
                             <label for="email">EMAIL: </label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="<?= $emailDefault; ?>">
