@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-07-2019 a las 22:05:33
+-- Tiempo de generación: 07-07-2019 a las 21:50:34
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -150,17 +150,45 @@ CREATE TABLE `usuarios_perfil` (
 --
 
 CREATE TABLE `ventas` (
-  `idVentas` int(11) NOT NULL,
-  `Fecha` date DEFAULT NULL,
-  `Producto_id` varchar(45) DEFAULT NULL,
-  `Cantidad` tinyint(4) DEFAULT NULL,
-  `Precio` decimal(10,0) DEFAULT NULL,
-  `Usuario_Id` int(11) DEFAULT NULL,
-  `Productos_Marcas_idMarcas` int(11) NOT NULL,
-  `Carrito_idCarrito` int(11) NOT NULL,
-  `Carrito_Productos_idProductos` int(11) NOT NULL,
-  `Carrito_Productos_Marcas_idMarcas` int(11) NOT NULL
+  `IdVentas` int(11) NOT NULL,
+  `ClaveTransaccion` varchar(250) NOT NULL,
+  `DatosPago` text NOT NULL,
+  `Fecha` datetime NOT NULL,
+  `Correo` varchar(5000) NOT NULL,
+  `Total` decimal(60,2) NOT NULL,
+  `Status` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`IdVentas`, `ClaveTransaccion`, `DatosPago`, `Fecha`, `Correo`, `Total`, `Status`) VALUES
+(1, '12345678910', '', '2019-01-01 00:00:00', 'prueba@dh.com.ar', '1999.00', 'pendiente'),
+(2, '12345678910', '', '2019-01-01 00:00:00', 'prueba@dh.com.ar', '1999.00', 'pendiente'),
+(3, 'ppvli1rfuhrcpca103e5p22bon', '', '2019-07-07 16:09:28', 'prueba@dh.com', '199.99', 'pendiente');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventasdetalles`
+--
+
+CREATE TABLE `ventasdetalles` (
+  `IdVentaDetalle` int(11) NOT NULL,
+  `IDVENTA` int(11) NOT NULL,
+  `IDPRODUCTO` int(11) NOT NULL,
+  `PRECIOUNITARIO` decimal(20,2) NOT NULL,
+  `CANTIDAD` int(11) NOT NULL,
+  `DESCARGADO` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `ventasdetalles`
+--
+
+INSERT INTO `ventasdetalles` (`IdVentaDetalle`, `IDVENTA`, `IDPRODUCTO`, `PRECIOUNITARIO`, `CANTIDAD`, `DESCARGADO`) VALUES
+(1, 2, 1, '1000.00', 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -215,7 +243,15 @@ ALTER TABLE `usuarios_perfil`
 -- Indices de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  ADD PRIMARY KEY (`idVentas`,`Productos_Marcas_idMarcas`,`Carrito_idCarrito`,`Carrito_Productos_idProductos`,`Carrito_Productos_Marcas_idMarcas`);
+  ADD PRIMARY KEY (`IdVentas`);
+
+--
+-- Indices de la tabla `ventasdetalles`
+--
+ALTER TABLE `ventasdetalles`
+  ADD PRIMARY KEY (`IdVentaDetalle`),
+  ADD KEY `IDVENTA` (`IDVENTA`),
+  ADD KEY `IDPRODUCTO` (`IDPRODUCTO`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -232,6 +268,29 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `usuarios`
   MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `IdVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `ventasdetalles`
+--
+ALTER TABLE `ventasdetalles`
+  MODIFY `IdVentaDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `ventasdetalles`
+--
+ALTER TABLE `ventasdetalles`
+  ADD CONSTRAINT `ventasdetalles_ibfk_1` FOREIGN KEY (`IDVENTA`) REFERENCES `ventas` (`IdVentas`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ventasdetalles_ibfk_2` FOREIGN KEY (`IDPRODUCTO`) REFERENCES `productos` (`idProductos`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

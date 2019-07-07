@@ -58,6 +58,23 @@ require_once "shared/head.php"
                         <td align="right"><h3 class="text-center"><?=number_format($total,2)?></h3></td>
                         <td></td>
                     </tr>
+
+                    <tr>
+                        <td colspan="5">
+                            <form method="post" action="pagar.php">
+                                <div class="alert alert-success">
+                                    <div class="form-group">
+                                        <label for="my-input">Correo de contacto: </label>
+                                        <input id="email" name="email" class="form-control" type="email" required>
+                                    </div>
+                                    <small id="emailHelp" class="form-text text-muted">Confirmacion de envio</small>
+                                </div>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit" value="proceder" name="btnAccion">Proceder a Pagar</button>
+                            </form>
+                          
+                        </td>
+                    </tr>
+                    
                 </tbody>
             </table>
 

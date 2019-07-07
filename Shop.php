@@ -19,10 +19,14 @@ require_once "shared/head.php"
     <hr>
     <div class="container">
         <br>    
-        <div class="alert alert-secondary">
-            <?=$mensaje?>
-            <a href="ShopViewCart.php" class="badge badge-success"> Ver Carrito</a>
-        </div>
+        
+        <?php if($mensaje!="") :?>
+            <div class="alert alert-secondary">
+                <?=$mensaje?>
+                <a href="ShopViewCart.php" class="badge badge-success"> Ver Carrito</a>
+            </div>
+        <?php endif;?>
+        
         <div class="row">
             <?php 
                 $sentencia=$pdo->prepare('SELECT * FROM productos');
