@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-07-2019 a las 21:50:34
+-- Tiempo de generación: 08-07-2019 a las 18:53:19
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -156,17 +156,36 @@ CREATE TABLE `ventas` (
   `Fecha` datetime NOT NULL,
   `Correo` varchar(5000) NOT NULL,
   `Total` decimal(60,2) NOT NULL,
-  `Status` varchar(200) NOT NULL
+  `Estado` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`IdVentas`, `ClaveTransaccion`, `DatosPago`, `Fecha`, `Correo`, `Total`, `Status`) VALUES
-(1, '12345678910', '', '2019-01-01 00:00:00', 'prueba@dh.com.ar', '1999.00', 'pendiente'),
-(2, '12345678910', '', '2019-01-01 00:00:00', 'prueba@dh.com.ar', '1999.00', 'pendiente'),
-(3, 'ppvli1rfuhrcpca103e5p22bon', '', '2019-07-07 16:09:28', 'prueba@dh.com', '199.99', 'pendiente');
+INSERT INTO `ventas` (`IdVentas`, `ClaveTransaccion`, `DatosPago`, `Fecha`, `Correo`, `Total`, `Estado`) VALUES
+(4, '1234567', '', '2019-01-01 00:00:00', 'leo@leo.com', '100.00', 'Pendiente'),
+(5, '1234567', '', '2019-01-01 00:00:00', 'leo@leo.com', '100.00', 'Pendiente'),
+(6, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 12:24:42', 'leonardo.strupeni@gmail.com', '574.99', 'Pendiente'),
+(7, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 12:36:49', 'juanpedro@lpaaa.com.ar', '439.48', 'Pendiente'),
+(8, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 12:39:05', 'juanpedro@lpaaa.com.ar', '439.48', 'Pendiente'),
+(9, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:06:13', 'leonardo.strupeni@gmail.com', '219.99', 'Pendiente'),
+(10, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:09:04', 'leonardo.strupeni@gmail.com', '774.98', 'Pendiente'),
+(11, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:10:20', 'juanpedro@lpaaa.com.ar', '774.98', 'Pendiente'),
+(12, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:10:27', 'juanpedro@lpaaa.com.ar', '774.98', 'Pendiente'),
+(13, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:11:00', 'juan@easy.com', '574.99', 'Pendiente'),
+(14, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:11:32', 'juan@easy.com', '574.99', 'Pendiente'),
+(15, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:16:48', 'juan@easy.com', '574.99', 'Pendiente'),
+(16, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:17:35', 'juanpedro@lpaaa.com.ar', '459.97', 'Pendiente'),
+(17, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:22:36', 'juan@easy.com', '199.99', 'Pendiente'),
+(18, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:23:54', 'juan@easy.com', '199.99', 'Pendiente'),
+(19, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:24:17', 'juan@easy.com', '199.99', 'Pendiente'),
+(20, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:24:52', 'juan@easy.com', '199.99', 'Pendiente'),
+(21, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:29:32', 'juan@easy.com', '199.99', 'Pendiente'),
+(22, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:02', 'juan@easy.com', '199.99', 'Pendiente'),
+(23, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:24', 'juan@easy.com', '199.99', 'Pendiente'),
+(24, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:36', 'juan@easy.com', '199.99', 'Pendiente'),
+(25, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:52', 'juan@easy.com', '199.99', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -188,7 +207,19 @@ CREATE TABLE `ventasdetalles` (
 --
 
 INSERT INTO `ventasdetalles` (`IdVentaDetalle`, `IDVENTA`, `IDPRODUCTO`, `PRECIOUNITARIO`, `CANTIDAD`, `DESCARGADO`) VALUES
-(1, 2, 1, '1000.00', 1, 0);
+(5, 15, 2, '574.99', 1, 0),
+(6, 16, 1, '129.99', 1, 0),
+(7, 16, 3, '199.99', 1, 0),
+(8, 16, 7, '129.99', 1, 0),
+(9, 17, 3, '199.99', 1, 0),
+(10, 18, 3, '199.99', 1, 0),
+(11, 19, 3, '199.99', 1, 0),
+(12, 20, 3, '199.99', 1, 0),
+(13, 21, 3, '199.99', 1, 0),
+(14, 22, 3, '199.99', 1, 0),
+(15, 23, 3, '199.99', 1, 0),
+(16, 24, 3, '199.99', 1, 0),
+(17, 25, 3, '199.99', 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -273,13 +304,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `IdVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IdVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `ventasdetalles`
 --
 ALTER TABLE `ventasdetalles`
-  MODIFY `IdVentaDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `IdVentaDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas
