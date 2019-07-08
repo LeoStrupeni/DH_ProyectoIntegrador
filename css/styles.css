@@ -4,11 +4,11 @@
 }
 
 body{
-  /* background-image: url("../images/fondo2.jpg");
+  background-image: url("../images/Fondo-1.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat; 
-  background-attachment: fixed; */
-  background: black;
+  background-attachment: fixed;
+
 }
 
 /****  BARRA NAVEGACION   ****/
@@ -101,19 +101,12 @@ img.perfil {
   color: white;
 }
 
-.card-img-top {
-  width: 60%;
-  opacity: 0.9;
-}
-
-.card-title{
-  overflow:hidden;
-  white-space:nowrap;
-  text-overflow: ellipsis;
+.cortar{
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+  overflow:hidden; 
 } 
 
-.card {
-  background-color: rgba(255, 255, 255, 0.4);
-  border: none;
+.table-secondary{
+  opacity: 0.9;
 }
-

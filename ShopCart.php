@@ -16,9 +16,8 @@ if(isset($_POST['btnAccion'])){
                 $mensaje.="Ok Nombre: ".$nombre."<br>";
             }else{$mensaje.='Error, algo pasa con el Nombre'."<br>"; break;}
 
-            if (is_numeric(openssl_decrypt($_POST['cantidad'],COD,KEY))){
-                $cantidad=openssl_decrypt($_POST['cantidad'],COD,KEY);
-                $mensaje.="Ok Cantidad; ".$cantidad."<br>";
+            if (is_numeric($_POST['cantidad'])){
+                $mensaje.="Ok Cantidad; ".$_POST['cantidad']."<br>";
             }else{$mensaje.='Error, algo paso con la cantidad'."<br>"; break;}
 
             if (is_numeric(openssl_decrypt($_POST['precio'],COD,KEY))){
@@ -30,7 +29,7 @@ if(isset($_POST['btnAccion'])){
                 $producto=array(
                     'ID'=>$ID,
                     'Nombre'=>$nombre,
-                    'Cantidad'=>$cantidad,
+                    'Cantidad'=>$_POST['cantidad'],
                     'Precio'=>$precio
                 );
                 $_SESSION['CARRITO'][0]=$producto;
@@ -40,15 +39,16 @@ if(isset($_POST['btnAccion'])){
                 $idProductos=array_column($_SESSION['CARRITO'],"ID");
 
                 if(in_array($ID,$idProductos)){
-                    echo "<script>alert('El producto ya se encuentra en el carrito')</script>";
-                    $mensaje="";
+                    
+                    $mensaje="El producto ya se encuentra en el carrito";
+                    var_dump($_SESSION['CARRITO']);
                 }else{
                 
                 $numeroProductos=count($_SESSION['CARRITO']);
                 $producto=array(
                     'ID'=>$ID,
                     'Nombre'=>$nombre,
-                    'Cantidad'=>$cantidad,
+                    'Cantidad'=>$_POST['cantidad'],
                     'Precio'=>$precio
                 );
                 $_SESSION['CARRITO'][$numeroProductos]=$producto;
