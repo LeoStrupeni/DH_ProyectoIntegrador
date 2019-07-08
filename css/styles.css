@@ -1,36 +1,39 @@
+.container {
+  margin:0;
+  max-width: 100%;
+}
+
 body{
-  max-width: 1100px;
-  margin: 10px auto;
-  background-image: url("../images/test.jpg");
+  /* background-image: url("../images/fondo2.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat; 
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background: black;
+}
+
+/****  BARRA NAVEGACION   ****/
+
+.bg-dark {
+  background-color: transparent!important;
 }
 
 .form-inline .form-control {
-  width: 100%;
-
+  width: 80%;
 }
 
-
-/****  BARRA NAVEGACION   ****/
-.navbar-light .navbar-nav .nav-link {
-  color: rgb(255, 255, 255);
+.navbar-dark .navbar-toggler {
+  color: white;
+  background-color: gray;
 }
 
-.btn-nav {
-  width: 70%;
-  margin: 2% 0;
+.navbar-toggler-icon{
+  color:white;
 }
 
-.logo {
-  max-height: 100px;
+.btn-nav{
+  width: 100px;
 }
 
-.btn-cart {
-  width: 30%;
-  margin: 2% 0;
-}
 
 /****  CUERPO PAGINA PRINCIPAL   ****/
 
@@ -41,8 +44,8 @@ body{
 }
 
 .carousel-inner img {
-  height: 300px;
-  opacity: 0.6;
+  height: 400px;
+  opacity: 0.8;
   filter: alpha(opacity=60); /* For IE8 and earlier */
 }
 
@@ -84,33 +87,33 @@ img.perfil {
 }
 
 .bg-black{
-  background-color: rgba(0, 0, 0,0.5)
+  background-color: rgba(0, 0, 0,0.8)
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0,0.1);
 }
 
 
-@media (min-width: 576px) and (max-width: 767px){
-  .container {
-    max-width: 767px;
-  }
+/**** FOOTER ****/
+.btn-foot{
+  min-width: 250px;
+  color: white;
 }
 
-@media (min-width: 768px) and (max-width: 991px){
-  .container {
-    max-width: 991px;
-  }
+.card-img-top {
+  width: 60%;
+  opacity: 0.9;
 }
 
-@media (min-width: 992px) and (max-width: 1199px){
-  .container {
-    max-width: 1199px;
-    margin: 0;
-  }
-}
+.card-title{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+} 
 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1100px;
-  }
+.card {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
 }
-
 

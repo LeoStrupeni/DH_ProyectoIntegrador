@@ -1,7 +1,5 @@
-<!DOCTYPE html>
 <?php
-$nombre = "Registro";
-require_once "shared/head.php";
+
 require_once "php/funciones.php";
 
 $nombreDefault = "";
@@ -23,35 +21,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<body class="text-light">
+   <!-- Formulario -->
     <div class="container">
-        <div class="row">
-            <div class="col text-right">
-                <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Formulario -->
-    <div class="container mt-5">
-        <div class="card bg-black m-auto" style="max-width: 760px;">
+        <div class="card bg-black">
             <div class="row no-gutters">
                 <div class="col-md-6">
                     <img src="images/Bienvenida.jpg" class="card-img" alt="...">
                 </div>
-                <div class="col-md-6 m-auto">
-                    <form action="register.php" class="text-light form ml-4 mr-4" method="post">
+                <div class="col-md-6">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <form action="register.php" class="text-light form p-1" method="post">
                         <div class="form-group">
                             <label for="email">EMAIL: </label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="<?= $emailDefault; ?>">
                         </div>
                         <div class="form-group">
                             <label for="nombre">NOMBRE: </label>
-                            <input type="text" name="nombre" class="form-control" placeholder="Ingrese su nombre" value="<?= $nombreDefault; ?>">
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su nombre" value="<?= $nombreDefault; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="nombre">FEC. NACIMIENTO: </label>
-                            <input type="date" name="fecnac" class="form-control" value="<?= $fechaDefault; ?>">
+                            <label for="fecnac">FEC. NACIMIENTO: </label>
+                            <input type="date" name="fecnac" id="fecnac" class="form-control" value="<?= $fechaDefault; ?>">
                         </div>
                         <div class="form-group text-center">
                             <button type="submit" class="btn btn-secondary active">ENTRAR</button>
@@ -66,9 +58,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
     </div>
-
-    <?php require_once "shared/bts-js.php" ?>
-
-</body>
-
-</html>

@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 
-<html>
+<html lang="es" dir="ltr">
 
 <?php
 $nombre = "Titulo";

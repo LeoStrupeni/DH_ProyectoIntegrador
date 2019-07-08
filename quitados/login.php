@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es" dir="ltr">
 <?php
 $nombre = "Login";
 require_once "shared/head.php"

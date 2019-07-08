@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="es" dir="ltr">
 <?php
 $nombre = "Perfil usuario";
 require_once "shared/head.php"
