@@ -9,11 +9,13 @@ require_once "shared/head.php"
 
   <div class="container">
     <div class="row">
-      <div class="col-12 col-md-8 text-light h2">
-        <u>Preguntas Frecuentes</u>
+      <div class="col-12 col-md-8">
+        <h2 class="display-4">
+          Preguntas Frecuentes
+        </h2>
       </div>
       <div class="col-12 col-md-4 text-right">
-        <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
+        <a class="" href="index.php">Volver a Pagina Inicio</a>
       </div>
     </div>
     <br><br>
@@ -23,7 +25,7 @@ require_once "shared/head.php"
     <div class="row">
 
       <div class="col-12">
-        <h2 class="text-light">Sobre tu cuenta</h2>
+        <h2 class="">Sobre tu cuenta</h2>
       </div>
 
       <div class="col-12">
@@ -33,7 +35,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingOne">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                   ¿Cómo creo una cuenta?
                 </button>
               </h3>
@@ -52,7 +54,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingTwo">
               <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <button class="btn btn-link text-reset collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   Tengo problemas para acceder a mi cuenta. ¿Qué hago?
                 </button>
               </h2>
@@ -85,7 +87,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingThree">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
                   ¿Como me inscribo para recibir ofertas y recomendaciones de productos?
                 </button>
               </h3>
@@ -105,7 +107,7 @@ require_once "shared/head.php"
       </div>
 
       <div class="col-12">
-        <h2 class="text-light">Compras</h2>
+        <h2 class="">Compras</h2>
       </div>
 
       <div class="col-12">
@@ -114,7 +116,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingfour">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true" aria-controls="collapsefour">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true" aria-controls="collapsefour">
                   ¿Tengo que registrarme para realizar una compra?
                 </button>
               </h3>
@@ -130,7 +132,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingfive">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="true" aria-controls="collapsefive">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="true" aria-controls="collapsefive">
                   ¿Cómo efectúo una compra?
                 </button>
               </h3>
@@ -160,7 +162,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingsix">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsesix" aria-expanded="true" aria-controls="collapsesix">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapsesix" aria-expanded="true" aria-controls="collapsesix">
                   ¿Hay un mínimo o maximo de productos para comprar?
                 </button>
               </h3>
@@ -176,7 +178,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingSeven">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
                   ¿Puedo modificar mi compra una vez finalizada?
                 </button>
               </h3>
@@ -192,7 +194,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingEight">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
                   ¿Puedo cambiar el domicilio de entrega?
                 </button>
               </h3>
@@ -208,7 +210,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingNine">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="true" aria-controls="collapseNine">
                   ¿Qué opciones tengo para pagar?
                 </button>
               </h3>
@@ -224,7 +226,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingTen">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
                   ¿Qué pasa si no puedo ir a retirar el pedido?
                 </button>
               </h3>
@@ -245,7 +247,7 @@ require_once "shared/head.php"
       </div>
 
       <div class="col-12">
-        <h2 class="text-light">Envío y retiro de productos</h2>
+        <h2 class="">Envío y retiro de productos</h2>
       </div>
 
       <div class="col-12">
@@ -255,7 +257,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingEleven">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="true" aria-controls="collapseEleven">
                   ¿Cuál es el plazo, lugar y horario que puedo retirar mi compra?
                 </button>
               </h3>
@@ -271,7 +273,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingTwelve">
               <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                <button class="btn btn-link text-reset collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
                   ¿Cómo coordino el envío de mi producto?
                 </button>
               </h2>
@@ -286,7 +288,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingThirteen">
               <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                <button class="btn btn-link text-reset collapsed" type="button" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
                   Mis productos no me llegaron. ¿Que hago?
                 </button>
               </h2>
@@ -302,7 +304,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingFourteen">
               <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                <button class="btn btn-link text-reset collapsed" type="button" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
                   Me llegaron mi productos, pero no confirme recepcion.
                 </button>
               </h2>
@@ -318,7 +320,7 @@ require_once "shared/head.php"
       </div>
 
       <div class="col-12">
-        <h2 class="text-light">Atención al cliente</h2>
+        <h2 class="">Atención al cliente</h2>
       </div>
 
       <div class="col-12">
@@ -328,7 +330,7 @@ require_once "shared/head.php"
           <div class="card">
             <div class="card-header" id="headingFiveteen">
               <h3 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFiveteen" aria-expanded="true" aria-controls="collapseFiveteen">
+                <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseFiveteen" aria-expanded="true" aria-controls="collapseFiveteen">
                   Contactenos
                 </button>
               </h3>
