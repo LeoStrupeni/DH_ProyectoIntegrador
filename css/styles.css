@@ -4,17 +4,21 @@
 }
 
 body{
-  background-image: url("../images/Fondo-1.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat; 
-  background-attachment: fixed;
-
+  background-color: rgb(230, 227, 223);
 }
 
 /****  BARRA NAVEGACION   ****/
 
+.nav-1 {
+  background-color: rgb(49, 49, 49);
+}
+
+.nav-2 {
+  background-color: #D7B377;
+}
+
 .bg-dark {
-  background-color: transparent!important;
+  /*background-color: transparent!important;*/
 }
 
 .form-inline .form-control {
@@ -26,7 +30,7 @@ body{
   background-color: gray;
 }
 
-.navbar-toggler-icon{
+.navbar-toggler-icon, .btn-search{
   color:white;
 }
 
@@ -34,14 +38,14 @@ body{
   width: 100px;
 }
 
+.btn-user, .btn-search, .btn-modal {
+  background-color: rgb(49, 49, 49);
+  color: rgb(218, 214, 214);
+}
 
 /****  CUERPO PAGINA PRINCIPAL   ****/
 
 /* CAROUSEL CUERPO */
-.container-fluid {
-  height: 90%;
-  width: 100%;
-}
 
 .carousel-inner img {
   height: 400px;
@@ -63,6 +67,11 @@ img.perfil {
 
 /**** FORMULARIO CONTACTO ****/
 
+.cuerpo-contacto{
+  margin-right: 12rem;
+  margin-left: 12rem;
+}
+
 .btn-contacto{
   font-size: 15px;
   color: white;
@@ -78,7 +87,6 @@ img.perfil {
 
 .ingreso{
   width: 50%;
-  
 }
 
 /**** PAGINA LOGIN ****/
@@ -98,7 +106,29 @@ img.perfil {
 /**** FOOTER ****/
 .btn-foot{
   min-width: 250px;
-  color: white;
+  color: black;
+  font-weight: bold;
+  border: 0;
+}
+
+.card-title{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+} 
+
+.card {
+  background-color: rgba(215, 180, 119, 0.767);
+  border: none;
+}
+
+.footer-trademark {
+  height: 70px;
+  background-color: rgb(49, 49, 49);
+}
+
+.footer-1, .btn-foot{
+  background-color: #D7B377;
 }
 
 .cortar{
