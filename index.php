@@ -1,4 +1,4 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 
 <html lang="es" dir="ltr">
 
@@ -7,16 +7,24 @@ $nombre = "Titulo";
 require_once "shared/head.php"
 ?>
 
+
+
 <body>
-        <div class="container">
-                <?php require_once "shared/nav.php" ?>
+        <?php require_once "shared/nav-test.php" ?>
+
+        <div class="container-fluid">
 
                 <?php require_once "shared/main.php" ?>
 
+                <?php require_once "shared/bts-js.php" ?>
+
                 <?php require_once "shared/footer.php" ?>
 
-                <?php require_once "shared/bts-js.php" ?>
         </div>
+
+
 </body>
+
+
 
 </html>

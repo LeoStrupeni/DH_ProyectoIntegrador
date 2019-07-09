@@ -15,7 +15,7 @@ require_once "shared/head.php"
 ?>
 
 <body>
-    <?php require_once "shared/nav.php" ?>
+    <?php require_once "shared/nav-test.php" ?>
     <hr>
     <div class="container">
         <br>    

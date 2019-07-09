@@ -1,4 +1,4 @@
-<div class="row mt-1">
+<div class="row">
     <div class="col p-0">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -50,10 +50,9 @@
     <div class="col">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 text-center">Fluid jumbotron</h1>
-                <p class="lead text-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                <h1 class="display-4 text-center text-dark">Lorem ipsum</h1>
+                <p class="lead text-center text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non. Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
             </div>
         </div>
-
     </div>
 </div>

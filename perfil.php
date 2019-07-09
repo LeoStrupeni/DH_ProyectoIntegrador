@@ -21,7 +21,7 @@ require_once "shared/head.php"
                 </div>
                 <div class="col-sm-12">
                     <h1 class="text-center">Hola, $USERNAME
-                        <? /* SESSION["nombre"]; */?>
+                        <? /* SESSION["nombre"]; */ ?>
                     </h1>
                 </div>
             </div>
@@ -112,4 +112,4 @@ require_once "shared/head.php"
         <?php require_once "shared/bts-js.php" ?>
     </body>
 
-    </html>
+</html>
