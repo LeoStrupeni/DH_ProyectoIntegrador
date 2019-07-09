@@ -15,7 +15,7 @@ require_once "shared/head.php"
         </h2>
       </div>
       <div class="col-12 col-md-4 text-right">
-        <a class="" href="index.php">Volver a Pagina Inicio</a>
+        <a class="text-reset" href="index.php">Volver a Pagina Inicio</a>
       </div>
     </div>
     <br><br>
