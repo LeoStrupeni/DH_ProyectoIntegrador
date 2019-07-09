@@ -4,10 +4,6 @@
 }
 
 body{
-  /* background-image: url("../images/fondo2.jpg");
-  background-size: 100% 100%;
-  background-repeat: no-repeat; 
-  background-attachment: fixed; */
   background-color: rgb(230, 227, 223);
 }
 
@@ -133,4 +129,18 @@ img.perfil {
 
 .footer-1, .btn-foot{
   background-color: #D7B377;
+}
+
+.cortar{
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+  overflow:hidden; 
+} 
+
+.table-secondary{
+  opacity: 0.9;
+}
+
+.table td{
+  vertical-align: inherit;
 }
