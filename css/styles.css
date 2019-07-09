@@ -110,3 +110,7 @@ img.perfil {
 .table-secondary{
   opacity: 0.9;
 }
+
+.table td{
+  vertical-align: inherit;
+}
