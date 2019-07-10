@@ -8,7 +8,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light nav-2 pl-5">
 
-        <div class="col-8 pl-5">
+        <div class="col-12 col-sm-4 col-md-6 col-lg-8 col-xl-8">
 
             <div class="text-center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBebidas" aria-controls="navBebidas" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
 
 
 
-        <div class="col-4 text-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4 text-center">
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo    '<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">

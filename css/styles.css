@@ -4,11 +4,15 @@
 }
 
 body{
-  background-color: rgb(230, 227, 223);
+  /* background-color: rgb(230, 227, 223); */
+  background-image: url("../images/Fondo-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover
 }
 
-/****  BARRA NAVEGACION   ****/
 
+/****  BARRA NAVEGACION   ****/
 .nav-1 {
   background-color: rgb(49, 49, 49);
 }
@@ -18,7 +22,7 @@ body{
 }
 
 .bg-dark {
-  /*background-color: transparent!important;*/
+  background-color: transparent!important;
 }
 
 .form-inline .form-control {
@@ -54,7 +58,7 @@ body{
 }
 
 .jumbotron {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(255, 255, 255, 0);
   color: white
 }
 
@@ -118,9 +122,14 @@ img.perfil {
 } 
 
 .card {
-  background-color: rgba(215, 180, 119, 0.767);
+  background-color: rgba(215, 180, 119, 0.7);
   border: none;
 }
+
+.card-body{
+  background-color: rgba(215, 180, 119, 1);
+}
+
 
 .footer-trademark {
   height: 70px;
@@ -138,7 +147,7 @@ img.perfil {
 } 
 
 .table-secondary{
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .table td{

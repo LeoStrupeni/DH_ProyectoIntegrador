@@ -50,8 +50,8 @@
     <div class="col">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 text-center text-dark">Lorem ipsum</h1>
-                <p class="lead text-center text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non. Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
+                <h1 class="display-4 text-center text-white">Lorem ipsum</h1>
+                <p class="lead text-center text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non. Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
             </div>
         </div>
     </div>

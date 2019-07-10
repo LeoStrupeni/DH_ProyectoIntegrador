@@ -10,7 +10,7 @@ require_once "shared/head.php"
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-8">
-        <h2 class="display-4">
+        <h2 class="display-4 text-center">
           Preguntas Frecuentes
         </h2>
       </div>

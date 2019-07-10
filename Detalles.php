@@ -17,17 +17,12 @@ require_once "shared/head.php"
 <body>
     <?php require_once "shared/nav.php" ?>
     <div class="container">
-        <div class="row">
             <?php 
                 $sentencia=$pdo->prepare('SELECT * FROM productos where `idProductos`='.$_POST['id']);
                 $sentencia->execute();
                 $producto=$sentencia->fetch(PDO::FETCH_ASSOC);   
             ?>
-            <div class="col">
-                <h3 class="text-center text-white"><?=$producto['Name']?></h3>
-            </div>
-        </div>
-        
+
         <div class="row">
             <div class="col-12 col-sm-3">
                 <img src="<?='images/Bebidas/'.$producto['imagen']?>" class="rounded mx-auto d-block" alt="Responsive image">
@@ -36,6 +31,11 @@ require_once "shared/head.php"
             <div class="col-12 col-sm-9">
                 
                 <table class="table table-sm table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2"class="text-center h5"><?=$producto['Name']?></th>
+                    </tr>
+                </thead>
                     <tbody>
                         <tr>
                             <th scope="row">Descripcion</th>
