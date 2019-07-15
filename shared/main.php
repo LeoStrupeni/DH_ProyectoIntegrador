@@ -56,3 +56,30 @@
         </div>
     </div>
 </div>
+
+<?php 
+    $sentencia=$pdo->prepare('SELECT * FROM productos where idProductos<7');
+    $sentencia->execute();
+    $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);               
+?>
+
+
+<div class="row m-auto">
+    <?php foreach ($listaProductos as $producto) :?>
+        <div class="col-4">
+            <div class="card bg-transparent mb-2">
+                <img title = "<?=$producto['Name']?>" alt="<?=$producto['Name']?>" src=<?='images/Bebidas/'.$producto['imagen']?> class="card-img m-auto">
+                <div class="card-img-overlay text-right">
+                    <form method="post" action="detalles.php">
+                        <input type="hidden" name="id" id="id" value="<?=$producto['idProductos']?>">
+                        <button class="btn btn-warning" type="submit" name="" value="">
+                            + Detalles
+                        </button>
+                    </form>                               
+                </div>
+            </div>
+        </div>
+    <?php endforeach;?>
+    
+
+</div>
