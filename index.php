@@ -1,3 +1,11 @@
+
+<?php
+include 'global/config.php';
+include 'global/conexion.php';
+
+include 'ShopCart.php';
+?>
+
 <!DOCTYPE html>
 
 <html lang="es" dir="ltr">
