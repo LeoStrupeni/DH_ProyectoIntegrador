@@ -74,12 +74,12 @@ include 'ShopCart.php';
                             </td> -->
                             <td width="20%" class="text-center">
                                 <form method="post" action="shop.php">
-                                    <input type="text" name="id" id="id" value="<?=openssl_encrypt($producto['idProductos'],COD,KEY)?>">
-                                    <input type="text" name="nombre" id="nombre" value="<?=openssl_encrypt($producto['Name'],COD,KEY)?>">
-                                    <input type="text" name="precio" id="precio" value="<?=openssl_encrypt($producto['Precio'],COD,KEY)?>">
+                                    <input type="hidden" name="id" id="id" value="<?=openssl_encrypt($producto['idProductos'],COD,KEY)?>">
+                                    <input type="hidden" name="nombre" id="nombre" value="<?=openssl_encrypt($producto['Name'],COD,KEY)?>">
+                                    <input type="hidden" name="precio" id="precio" value="<?=openssl_encrypt($producto['Precio'],COD,KEY)?>">
                                     <button class="btn btn-primary w-100 m-1" type="submit" name="btnAccion" value="Agregar">
                                         Agregar
-                                    </button>r
+                                    </button>   
                                 </form>
                                 <form method="post" action="detalles.php">
                                     <input type="hidden" name="id" id="id" value="<?=$producto['idProductos']?>">

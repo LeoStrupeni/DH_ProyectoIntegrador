@@ -66,7 +66,7 @@
 
 <div class="row m-auto">
     <?php foreach ($listaProductos as $producto) :?>
-        <div class="col-4">
+        <div class="col-12 col-md-6 col-lg-4">
             <div class="card bg-transparent mb-2">
                 <img title = "<?=$producto['Name']?>" alt="<?=$producto['Name']?>" src=<?='images/Bebidas/'.$producto['imagen']?> class="card-img m-auto">
                 <div class="card-img-overlay text-right">

@@ -50,9 +50,9 @@ include 'ShopCart.php';
                         <?php foreach ($_SESSION['CARRITO'] as $key => $producto) : ?>
                             <tr>
                                 <td width="40%"><?= $producto['Nombre'] ?></td>
-                                <td width="15%" class="text-center"><?=$producto['Cantidad']?></td>
+                                <td width="15%" class="text-center">1</td>
                                 <td width="20%" class="text-center"><?= $producto['Precio'] ?></td>
-                                <td width="20%" class="text-center"><?= number_format($producto['Precio'] * $producto['Cantidad'], 2) ?></td>
+                                <td width="20%" class="text-center"><?= number_format($producto['Precio'] * 1, 2) ?></td>
                                 <td width="5%">
 
                                     <form method="post" action="">
@@ -64,7 +64,7 @@ include 'ShopCart.php';
                                 </td>
                             </tr>
 
-                            <?php $total = $total + ($producto['Precio'] * $producto['Cantidad']); ?>
+                            <?php $total = $total + ($producto['Precio'] * 1); ?>
 
                         <?php endforeach; ?>
 

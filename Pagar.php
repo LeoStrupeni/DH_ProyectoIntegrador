@@ -11,7 +11,7 @@ if ($_POST) {
     $correo = $_POST['email'];
 
     foreach ($_SESSION['CARRITO'] as $key => $producto) {
-        $total = $total + ($producto['Precio'] * $producto['Cantidad']);
+        $total = $total + ($producto['Precio'] * 1);
     }
 
     $sentencia = $pdo->prepare("INSERT INTO `ventas` (`IdVentas`, `ClaveTransaccion`, `DatosPago`, `Fecha`, `Correo`, `Total`, `Estado`) 
@@ -29,7 +29,7 @@ if ($_POST) {
         $sentenciadetalle->bindValue(":idVenta", $idVenta);
         $sentenciadetalle->bindValue(":idProducto", $producto['ID']);
         $sentenciadetalle->bindValue(":precioUni", $producto['Precio']);
-        $sentenciadetalle->bindValue(":cantidad", $producto['Cantidad']);
+        $sentenciadetalle->bindValue(":cantidad", 1);
         $sentenciadetalle->execute();
     }
 }
