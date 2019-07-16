@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-07-2019 a las 21:36:10
+-- Tiempo de generación: 16-07-2019 a las 23:37:17
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -280,7 +280,8 @@ INSERT INTO `ventas` (`IdVentas`, `ClaveTransaccion`, `DatosPago`, `Fecha`, `Cor
 (22, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:02', 'juan@easy.com', 0, '199.99', 'Pendiente'),
 (23, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:24', 'juan@easy.com', 0, '199.99', 'Pendiente'),
 (24, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:36', 'juan@easy.com', 0, '199.99', 'Pendiente'),
-(25, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:52', 'juan@easy.com', 0, '199.99', 'Pendiente');
+(25, 'ca6m9l5oa9o6nnflk1v8p4qvko', '', '2019-07-08 13:30:52', 'juan@easy.com', 0, '199.99', 'Pendiente'),
+(26, '00n0pnr6vcqh92cl4dg0aajsrl', '', '2019-07-09 21:01:53', 'ana@ana.com.ar', 0, '1099.00', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -314,7 +315,8 @@ INSERT INTO `ventasdetalles` (`IdVentaDetalle`, `IDVENTA`, `IDPRODUCTO`, `PRECIO
 (14, 22, 3, '199.99', 1, 0),
 (15, 23, 3, '199.99', 1, 0),
 (16, 24, 3, '199.99', 1, 0),
-(17, 25, 3, '199.99', 1, 0);
+(17, 25, 3, '199.99', 1, 0),
+(18, 26, 1, '1099.00', 1, 0);
 
 --
 -- Índices para tablas volcadas
@@ -422,7 +424,7 @@ ALTER TABLE `dom_pais`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `idProductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idProductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `prod_categorias`
@@ -458,13 +460,13 @@ ALTER TABLE `usuarios_tipodoc`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `IdVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `IdVentas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `ventasdetalles`
 --
 ALTER TABLE `ventasdetalles`
-  MODIFY `IdVentaDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `IdVentaDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restricciones para tablas volcadas
