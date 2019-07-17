@@ -11,7 +11,7 @@
         <div class="col-12 col-sm-4 col-md-6 col-lg-8 col-xl-8">
 
             <div class="text-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBebidas" aria-controls="navBebidas" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler mb-2" type="button" data-toggle="collapse" data-target="#navBebidas" aria-controls="navBebidas" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>

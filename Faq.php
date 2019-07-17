@@ -10,12 +10,12 @@ require_once "shared/head.php"
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-8">
-        <h2 class="display-4 text-center">
+        <h2 class="display-4 text-center text-white">
           Preguntas Frecuentes
         </h2>
       </div>
       <div class="col-12 col-md-4 text-right">
-        <a class="text-reset" href="index.php">Volver a Pagina Inicio</a>
+        <a class="text-white" href="index.php">Volver a Pagina Inicio</a>
       </div>
     </div>
     <br><br>
@@ -25,7 +25,7 @@ require_once "shared/head.php"
     <div class="row">
 
       <div class="col-12">
-        <h2 class="">Sobre tu cuenta</h2>
+        <h2 class="text-white">Sobre tu cuenta</h2>
       </div>
 
       <div class="col-12">
