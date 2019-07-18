@@ -1,70 +1,68 @@
 <?php
 session_start();
 
-$mensaje="";
+$mensaje='';
 
-if(isset($_POST['btnAccion'])){
-    switch($_POST['btnAccion']) {
+if(isset($_GET['btnAccion'])){
+    switch($_GET['btnAccion']) {
         case 'Agregar':
-            if(is_numeric(openssl_decrypt($_POST['id'],COD,KEY))){
-                $ID=openssl_decrypt($_POST['id'],COD,KEY);
-                $mensaje.='Ok ID: '.$ID."<br>";
-            }else{$mensaje.='Error, ID incorrecto'."<br>";}
-            
-            if (is_string(openssl_decrypt($_POST['nombre'],COD,KEY))){
-                $nombre=openssl_decrypt($_POST['nombre'],COD,KEY);
-                $mensaje.="Ok Nombre: ".$nombre."<br>";
-            }else{$mensaje.='Error, algo pasa con el Nombre'."<br>"; break;}
-
-            if (is_numeric(openssl_decrypt($_POST['precio'],COD,KEY))){
-                $precio=openssl_decrypt($_POST['precio'],COD,KEY);
-                $mensaje.="Ok Precio: ".$precio."<br>";
-            }else{$mensaje.='Error, algo pasa con el precio'."<br>"; break;}
-
             if (!isset($_SESSION['CARRITO'])){
+                $sentencia=$pdo->prepare('SELECT * FROM productos where idProductos='.$_GET['id']);
+                $sentencia->execute();
+                $eleccion=$sentencia->fetch(PDO::FETCH_ASSOC);   
+                
                 $producto=array(
-                    'ID'=>$ID,
-                    'Nombre'=>$nombre,
-                    'Precio'=>$precio
-                );
+                    'ID'=>$eleccion['idProductos'],
+                    'Nombre'=>$eleccion['Name'],
+                    'Cantidad'=>$_GET['cantidad'],
+                    'Precio'=>$eleccion['Precio']
+                );                   
+
                 $_SESSION['CARRITO'][0]=$producto;
                 $mensaje="Producto agregado al carrito";
+                $_SESSION['mensaje']=$mensaje;
             }  else {
 
                 $idProductos=array_column($_SESSION['CARRITO'],"ID");
 
-                if(in_array($ID,$idProductos)){
-                    
-                    $mensaje="El producto ya se encuentra en el carrito";
-                    var_dump($_SESSION['CARRITO']);
+                if(in_array($_GET['id'],$idProductos)){                    
+                    $_SESSION['mensaje']="El producto ya se encuentra en el carrito";
                 }else{
                 
                 $numeroProductos=count($_SESSION['CARRITO']);
+                $sentencia=$pdo->prepare('SELECT * FROM productos where idProductos='.$_GET['id']);
+                $sentencia->execute();
+                $eleccion=$sentencia->fetch(PDO::FETCH_ASSOC);   
+                
                 $producto=array(
-                    'ID'=>$ID,
-                    'Nombre'=>$nombre,
-                    'Cantidad'=>1,
-                    'Precio'=>$precio
-                );
+                    'ID'=>$eleccion['idProductos'],
+                    'Nombre'=>$eleccion['Name'],
+                    'Cantidad'=>$_GET['cantidad'],
+                    'Precio'=>$eleccion['Precio']
+                );   
+
                 $_SESSION['CARRITO'][$numeroProductos]=$producto;
                 $mensaje="Producto agregado al carrito";
+                $_SESSION['mensaje']=$mensaje;
                 }
             }
-
-            // $mensaje=print_r($_SESSION,true);
-             
+            header("Location: shop.php");    
         break;
 
         case "Eliminar":
-            if(is_numeric(openssl_decrypt($_POST['id'],COD,KEY))){
-                $ID=openssl_decrypt($_POST['id'],COD,KEY);
+            if(is_numeric($_GET['id'])){
+                $ID=$_GET['id'];
                 foreach($_SESSION['CARRITO'] as $key => $producto){
                     if($producto['ID']==$ID){
                         unset($_SESSION['CARRITO'][$key]);
                         echo "<script>Alert('Elemento Borrado ...')</script>";
                     }
-                }                
+                }               
             }else{$mensaje.='Error, ID incorrecto'."<br>";}
+            header("Location: ShopViewCart.php"); 
 
     }
+
+
+    
 }

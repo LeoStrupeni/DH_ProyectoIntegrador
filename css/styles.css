@@ -2,14 +2,15 @@
   margin:0;
   max-width: 100%;
 }
-
+/*
 body{
-  /* background-color: rgb(230, 227, 223); */
-  background-image: url("../images/Fondo-1.jpg");
+  background-color: rgb(230, 227, 223);
+   background-image: url("../images/Fondo-1.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover
+  background-size: cover 
 }
+*/
 
 
 /****  BARRA NAVEGACION   ****/
@@ -53,20 +54,25 @@ body{
 
 .carousel-inner img {
   height: 400px;
-  opacity: 0.8;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
+  /* opacity: 0.8;
+  filter: alpha(opacity=60); For IE8 and earlier */
 }
 
 .jumbotron {
-  background-color: rgba(255, 255, 255, 0);
-  color: white
+  background-color: #D7B377;
 }
 
 .card-img{
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 200px;
+  max-height: 200px;
   width: 50%;
   opacity: 0.9;
+}
+
+.card-img-overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 /**** PERFIL DE USUARIO ****/

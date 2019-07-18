@@ -15,10 +15,10 @@ require_once "shared/head.php"
 ?>  
 
 <body>
-    <?php require_once "shared/nav.php" ?>
+    <?php require_once "shared/nav-test.php" ?>
     <div class="container">
             <?php 
-                $sentencia=$pdo->prepare('SELECT * FROM productos where `idProductos`='.$_POST['id']);
+                $sentencia=$pdo->prepare('SELECT * FROM productos where `idProductos`='.$_GET['id']);
                 $sentencia->execute();
                 $producto=$sentencia->fetch(PDO::FETCH_ASSOC);   
             ?>
