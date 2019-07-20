@@ -26,7 +26,7 @@
                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Aperitivos</a>
                 </div>
 
-                <form class="form-inline my-2 my-lg-0 mx-auto" action="shop.php" method="post">
+                <form class="form-inline my-2 my-lg-0 mx-auto" action="Busqueda.php" method="post">
                     <input class="form-control mr-sm-2" type="search" placeholder="Busqueda" aria-label="Search">
                     <button class="btn btn-search my-2 my-sm-0" type="submit">
                         <i class="fas fa-search"></i>
@@ -48,7 +48,7 @@
                                 <a href="perfil.php" class="btn btn-nav btn-user">Perfil</a>
                             </div>
                             <div class="btn-group mr-2 btn-nav" role="group" aria-label="Second group">
-                                <a class="btn btn-warning" href="ShopViewCart.php">
+                                <a class="btn btn-warning" href="Carrito.php">
                                     <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </div>
