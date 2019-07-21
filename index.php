@@ -1,3 +1,9 @@
+
+<?php
+include 'global/config.php';
+include 'global/conexion.php';
+?>
+
 <!DOCTYPE html>
 
 <html lang="es" dir="ltr">

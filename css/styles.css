@@ -2,13 +2,18 @@
   margin:0;
   max-width: 100%;
 }
-
+/*
 body{
   background-color: rgb(230, 227, 223);
+   background-image: url("../images/Fondo-1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover 
 }
+*/
+
 
 /****  BARRA NAVEGACION   ****/
-
 .nav-1 {
   background-color: rgb(49, 49, 49);
 }
@@ -18,7 +23,7 @@ body{
 }
 
 .bg-dark {
-  /*background-color: transparent!important;*/
+  background-color: transparent!important;
 }
 
 .form-inline .form-control {
@@ -49,15 +54,26 @@ body{
 
 .carousel-inner img {
   height: 400px;
-  opacity: 0.8;
-  filter: alpha(opacity=60); /* For IE8 and earlier */
+  /* opacity: 0.8;
+  filter: alpha(opacity=60); For IE8 and earlier */
 }
 
 .jumbotron {
-  background-color: rgba(0, 0, 0, 0);
-  color: white
+  background-color: #D7B377;
 }
 
+.card-img{
+  min-height: 200px;
+  max-height: 200px;
+  width: 50%;
+  opacity: 0.9;
+}
+
+.card-img-overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 
 /**** PERFIL DE USUARIO ****/
 img.perfil {
@@ -118,9 +134,14 @@ img.perfil {
 } 
 
 .card {
-  background-color: rgba(215, 180, 119, 0.767);
+  background-color: rgba(215, 180, 119, 0.7);
   border: none;
 }
+
+.card-body{
+  background-color: rgba(215, 180, 119, 1);
+}
+
 
 .footer-trademark {
   height: 70px;
@@ -138,7 +159,7 @@ img.perfil {
 } 
 
 .table-secondary{
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .table td{

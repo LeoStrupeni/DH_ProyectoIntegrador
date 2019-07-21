@@ -8,18 +8,18 @@ require_once "shared/head.php"
 <body>
     <div class="container">
         <div class="row">
-            <div class="col text-right">
+            <div class="col text-right text-white">
                 <a class="text-reset" href="index.php">Volver a Pagina Inicio</a>
             </div>
         </div>
 
         <div class="row">
             <div class="col cuerpo-contacto">
-                <div class="h1 text-center">Contacto</div>
+                <div class="h1 text-center text-white">Contacto</div>
 
                 <form action="contact.php" method="POST">
                     <div class="form-group">
-                        <b class="">Dejanos tus datos y nos pondremos en contacto con vos</b>
+                        <b class="text-white">Dejanos tus datos y nos pondremos en contacto con vos</b>
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre </label>
@@ -49,8 +49,6 @@ require_once "shared/head.php"
                 </form>
             </div>
         </div>
-
-        <?php require_once "shared/footer.php" ?>
 
     </div>
 </body>

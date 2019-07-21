@@ -8,10 +8,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-light nav-2 pl-5">
 
-        <div class="col-8 pl-5">
+        <div class="col-12 col-sm-4 col-md-6 col-lg-8 col-xl-8">
 
             <div class="text-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navBebidas" aria-controls="navBebidas" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler mb-2" type="button" data-toggle="collapse" data-target="#navBebidas" aria-controls="navBebidas" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
@@ -26,7 +26,7 @@
                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Aperitivos</a>
                 </div>
 
-                <form class="form-inline my-2 my-lg-0 mx-auto" action="shop.php" method="post">
+                <form class="form-inline my-2 my-lg-0 mx-auto" action="Busqueda.php" method="post">
                     <input class="form-control mr-sm-2" type="search" placeholder="Busqueda" aria-label="Search">
                     <button class="btn btn-search my-2 my-sm-0" type="submit">
                         <i class="fas fa-search"></i>
@@ -40,7 +40,7 @@
 
 
 
-        <div class="col-4 text-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4 text-center">
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo    '<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
@@ -48,7 +48,7 @@
                                 <a href="perfil.php" class="btn btn-nav btn-user">Perfil</a>
                             </div>
                             <div class="btn-group mr-2 btn-nav" role="group" aria-label="Second group">
-                                <a class="btn btn-warning" href="ShopViewCart.php">
+                                <a class="btn btn-warning" href="Carrito.php">
                                     <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </div>

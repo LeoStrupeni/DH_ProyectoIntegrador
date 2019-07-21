@@ -47,12 +47,39 @@
     </div>   
 </div>   
 <div class="row">
-    <div class="col">
+    <div class="col p-0">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 text-center text-dark">Lorem ipsum</h1>
-                <p class="lead text-center text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non. Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
+                <h1 class="display-4 text-center">Lorem ipsum</h1>
+                <p class="lead text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non. Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
             </div>
         </div>
     </div>
+</div>
+
+<?php 
+    $sentencia=$pdo->prepare('SELECT * FROM productos where idProductos<9');
+    $sentencia->execute();
+    $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);               
+?>
+
+
+<div class="row">
+    <?php foreach ($listaProductos as $producto) :?>
+        <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
+            <div class="card bg-transparent mb-1 border border-dark rounded-lg">
+                <img title = "<?=$producto['Name']?>" alt="<?=$producto['Name']?>" src=<?='images/Bebidas/'.$producto['imagen'].'.jpg'?> class="card-img m-auto p-1">
+                <div class="card-img-overlay text-right">
+                    <form method="get" action="detalles.php">
+                        <input type="hidden" name="id" id="id" value="<?=$producto['idProductos']?>">
+                        <button class="btn btn-warning" type="submit" name="" value="">
+                            + Detalles
+                        </button>
+                    </form>                               
+                </div>
+            </div>
+        </div>
+    <?php endforeach;?>
+    
+
 </div>

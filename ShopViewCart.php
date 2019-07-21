@@ -18,8 +18,8 @@ require_once "shared/head.php"
     <br>
 
     <div class="row">
-        <div class="col-10 m-auto">
-            <h3>Lista de Carrito</h3>
+        <div class="col-12 col-lg-10 m-auto">
+    
             <?php if (!empty($_SESSION['CARRITO'])) : ?>
 
                 <table class="table table-primary">
@@ -40,8 +40,8 @@ require_once "shared/head.php"
                                 <td width="20%" class="text-center"><?= number_format($producto['Precio'] * $producto['Cantidad'], 2) ?></td>
                                 <td width="5%">
 
-                                    <form method="post" action="">
-                                        <input type="hidden" name="id" id="id" value="<?= openssl_encrypt($producto['ID'], COD, KEY) ?>">
+                                    <form method="get" action="">
+                                        <input type="hidden" name="id" id="id" value="<?= $producto['ID'] ?>">
                                         <button class="btn btn-danger" type="submit" name="btnAccion" value="Eliminar">Eliminar</button>
                                     </form>
 
@@ -49,7 +49,7 @@ require_once "shared/head.php"
                                 </td>
                             </tr>
 
-                            <?php $total = $total + ($producto['Precio'] * $producto['Cantidad']); ?>
+                            <?php $total = $total + ($producto['Precio'] * 1); ?>
 
                         <?php endforeach; ?>
 

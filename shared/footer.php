@@ -1,6 +1,10 @@
 <footer>
         <div class="row mt-2 footer-1">
             <ul class="list-group list-group-horizontal-xl m-auto text-center">
+            <!-- 
+                Analizar list-group-horizontal-xl por list-group-horizontal-lg
+                para eso hay que sacar en min-width de la hoja de estilos btn-foot
+            -->
                 <li class="list-group-item btn-foot">
                     <a href="contacto.php" class="text-decoration-none text-reset">Contacto</a>
                 </li>
