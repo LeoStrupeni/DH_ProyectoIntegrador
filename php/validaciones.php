@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$mensaje='';
+$mensaje=''; 
 
 if(isset($_GET['btnAccion'])){
     switch($_GET['btnAccion']) {
@@ -46,7 +46,7 @@ if(isset($_GET['btnAccion'])){
                 $_SESSION['mensaje']=$mensaje;
                 }
             }
-            header("Location: shop.php");    
+            header("Location: Busqueda.php");    
         break;
 
         case "Eliminar":
@@ -59,10 +59,6 @@ if(isset($_GET['btnAccion'])){
                     }
                 }               
             }else{$mensaje.='Error, ID incorrecto'."<br>";}
-            header("Location: ShopViewCart.php"); 
-
+            header("Location: Carrito.php"); 
     }
-
-
-    
 }

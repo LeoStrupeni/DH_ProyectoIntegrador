@@ -152,7 +152,7 @@ img.perfil {
   background-color: #D7B377;
 }
 
-.cortar{
+.cut-text{
   text-overflow:ellipsis;
   white-space:nowrap; 
   overflow:hidden; 

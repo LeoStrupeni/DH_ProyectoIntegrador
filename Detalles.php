@@ -1,8 +1,6 @@
 <?php
 include 'global/config.php';
 include 'global/conexion.php';
-
-include 'ShopCart.php';
 ?>
 
 <!DOCTYPE html >
@@ -15,7 +13,7 @@ require_once "shared/head.php"
 ?>  
 
 <body>
-    <?php require_once "shared/nav-test.php" ?>
+    <?php require_once "shared/navbar.php" ?>
     <div class="container">
             <?php 
                 $sentencia=$pdo->prepare('SELECT * FROM productos where `idProductos`='.$_GET['id']);
@@ -25,7 +23,7 @@ require_once "shared/head.php"
 
         <div class="row">
             <div class="col-12 col-sm-3">
-                <img src="<?='images/Bebidas/'.$producto['imagen']?>" class="rounded mx-auto d-block" alt="Responsive image">
+                <img src="<?='images/Bebidas/'.$producto['imagen'].'.jpg'?>" class="rounded mx-auto d-block" alt="Responsive image">
             </div>
                         
             <div class="col-12 col-sm-9">

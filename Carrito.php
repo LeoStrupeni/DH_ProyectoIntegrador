@@ -1,6 +1,6 @@
 <?php
 include 'global/config.php';
-include 'ShopCart.php';
+include 'php/validaciones.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require_once "shared/head.php"
 ?>
 
 <body>
-    <?php require_once "shared/nav-test.php" ?>
+    <?php require_once "shared/navbar.php" ?>
 
     <br>
 

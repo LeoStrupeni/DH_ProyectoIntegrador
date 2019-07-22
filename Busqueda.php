@@ -1,7 +1,7 @@
 <?php
 include 'global/config.php';
 include 'global/conexion.php';
-include 'ShopCart.php';
+include 'php/validaciones.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,18 +9,18 @@ include 'ShopCart.php';
 <html lang="es" dir="ltr">
 
 <?php
-$nombre = "Titulo";
+$nombre = "Search";
 require_once "shared/head.php"
 ?>
 
 <body>
-    <?php require_once "shared/nav-test.php" ?>
+    <?php require_once "shared/navbar.php" ?>
     <div class="container">
         <br>    
         <?php if (!empty($_SESSION['mensaje'])) :?>
             <div class="alert alert-secondary">
                 <?=$_SESSION['mensaje']?>
-                <a href="ShopViewCart.php" class="badge badge-success"> Ver Carrito</a>
+                <a href="carrito.php" class="badge badge-success"> Ver Carrito</a>
             </div>
         <?php endif;?>
 
@@ -28,22 +28,22 @@ require_once "shared/head.php"
         
         <div class="row">
             <?php 
-                $sentencia=$pdo->prepare('SELECT * FROM productos');
+                $sentencia=$pdo->prepare('SELECT * FROM `productos` WHERE `idProductos`< 20');
                 $sentencia->execute();
                 $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);   
             ?>
+             
            
             <?php foreach ($listaProductos as $producto) :?>
-                <div class="col-10 col-sm-6 col-md-4 col-lg-3 border border-dark rounded-lg p-1">
-                    <div class="card bg-transparent mb-2">
-                        <h4 class="text-center"> <?=$producto['Name']?> </h4>
-                        <img title = "<?=$producto['Name']?>" alt="<?=$producto['Name']?>" src=<?='images/Bebidas/'.$producto['imagen']?> 
-                        data-toggle="popover" data-trigger="hover" data-content="<?=$producto['Descripcion']?>"
-                        class="card-img" style="z-index: 10;"> 
-                        <!-- Tuve que agregar style= z-index porque la imagen quedaba detras de los botones y no se abria el popover -->
+                <div class="col-10 col-sm-6 col-md-4 col-lg-3 p-1">
+                    <div class="card bg-transparent border border-dark rounded-lg"> 
+                        <h4 class="text-center p-1 cut-text"> <?=$producto['Name']?></h4>
+                        <img title = "<?=$producto['Name']?>" alt="<?=$producto['Name']?>" src=<?='images/Bebidas/'.$producto['imagen'].'.jpg'?> 
+                        data-toggle="popover" data-trigger="hover" data-content="<?=substr($producto['Descripcion'],0,500).'...'?>"
+                        class="card-img p-1" style="z-index: 10;"> 
                         <div class="card-img-overlay text-right mt-5">
-                            <h4 class=""><?="$ ".$producto['Precio']?></h4>
-                            <form method="get" action="Shop.php">
+                            <h4><?="$ ".$producto['Precio']?></h4>
+                            <form method="get" action="Busqueda.php">
                                 <div class="form-group">
                                     <label for="cantidad">Cantidad</label>
                                     <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad" required>
@@ -139,7 +139,7 @@ require_once "shared/head.php"
             </div>
         </div>       
     </nav>
-
+    
     <?php require_once "shared/footer.php" ?>
 
     <?php require_once "shared/bts-js.php" ?>
