@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar pt-0 nav-1 px-5 navbar-dark">
         <span class="navbar-brand mb-0 h1">
-            <a href="index.php" class="text-reset">Lorem ipsum</a>
+            <a href="index.php" class="text-reset">Inicio</a>
         </span>
         <span class="navbar-text">Lorem Ipsum</span>
     </nav>

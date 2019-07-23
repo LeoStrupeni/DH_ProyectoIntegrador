@@ -130,12 +130,13 @@ img.perfil {
 } 
 
 .card {
-  background-color: rgba(215, 180, 119, 0.7);
+  background-color: #D7B377;
   border: none;
 }
 
 .card-body{
-  background-color: rgba(215, 180, 119, 1);
+  background-color: rgb(49, 49, 49);
+  color: white;
 }
 
 
@@ -184,4 +185,9 @@ img.perfil {
   background-color: rgb(150, 72, 41);
   height: 50px;
   font-size: 1.5rem;
+}
+
+/* FAQ */
+.body-faq{
+  background-color: wheat;
 }
