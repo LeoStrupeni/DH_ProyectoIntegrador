@@ -1,6 +1,6 @@
 <?php
-include 'global/config.php';
-include 'ShopCart.php';
+require_once 'global/config.php';
+require_once 'ShopCart.php';
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +13,13 @@ require_once "shared/head.php"
 ?>
 
 <body>
-    <?php require_once "shared/nav-test.php" ?>
+    <?php require_once "shared/navbar.php" ?>
 
     <br>
 
     <div class="row">
         <div class="col-12 col-lg-10 m-auto">
-    
+
             <?php if (!empty($_SESSION['CARRITO'])) : ?>
 
                 <table class="table table-primary">

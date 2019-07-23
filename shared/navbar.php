@@ -1,14 +1,14 @@
 <header>
     <nav class="navbar pt-0 nav-1 px-5 navbar-dark">
         <span class="navbar-brand mb-0 h1">
-            <a href="index.php" class="text-reset">Lorem ipsum</a>    
+            <a href="index.php" class="text-reset">Lorem ipsum</a>
         </span>
         <span class="navbar-text">Lorem Ipsum</span>
     </nav>
 
     <nav class="navbar navbar-expand-lg navbar-light nav-2 pl-5">
 
-        <div class="col-12 col-sm-4 col-md-6 col-lg-8 col-xl-8">
+        <div class="col-12 col-sm-4 col-md-6 col-lg-8 col-xl-9">
 
             <div class="text-center">
                 <button class="navbar-toggler mb-2" type="button" data-toggle="collapse" data-target="#navBebidas" aria-controls="navBebidas" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navBebidas">
 
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Cervezas <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Cervezas</a>
                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Vinos</a>
                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Blancas</a>
                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Aperitivos</a>
@@ -38,9 +38,7 @@
         </div>
 
 
-
-
-        <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-4 text-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3 text-center">
             <?php
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo    '<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
@@ -52,12 +50,11 @@
                                     <i class="fas fa-shopping-cart"></i>
                                 </a>
                             </div>
-                        </div>'
-                    ;
+                        </div>';
                 //(empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO'])
             } else {
-                include "php/modal-login.php";
-                include "php/modal-register.php";
+                require_once "php/modal-login.php";
+                require_once "php/modal-register.php";
             }
             ?>
 

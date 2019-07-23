@@ -1,7 +1,6 @@
-
 <?php
-include 'global/config.php';
-include 'global/conexion.php';
+require_once 'global/config.php';
+require_once 'global/conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +15,7 @@ require_once "shared/head.php"
 
 
 <body>
-        <?php require_once "shared/nav-test.php" ?>
+        <?php require_once "shared/navbar.php" ?>
 
         <div class="container-fluid">
 
@@ -28,9 +27,6 @@ require_once "shared/head.php"
 
         </div>
 
-
 </body>
-
-
 
 </html>
