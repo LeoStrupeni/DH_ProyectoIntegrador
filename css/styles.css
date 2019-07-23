@@ -1,7 +1,18 @@
+/*Generales*/
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+
 .container {
   margin:0;
   max-width: 100%;
 }
+
+textarea{
+  resize: none;
+}
+
 /*
 body{
   background-color: rgb(230, 227, 223);
@@ -43,6 +54,10 @@ body{
   width: 100px;
 }
 
+.btn-search{
+  padding: 0.310rem .60rem;
+}
+
 .btn-user, .btn-search, .btn-modal {
   background-color: rgb(49, 49, 49);
   color: rgb(218, 214, 214);
@@ -81,32 +96,8 @@ img.perfil {
 }
 
 
-/**** FORMULARIO CONTACTO ****/
-
-.cuerpo-contacto{
-  margin-right: 12rem;
-  margin-left: 12rem;
-}
-
-.btn-contacto{
-  font-size: 15px;
-  color: white;
-  background-color: gold;
-  border-radius: 10px;
-  width: 100%;
-}
-
-.segundoboton{
-  background-color: grey;
-  color: gold;
-}
-
-.ingreso{
-  width: 50%;
-}
-
 /**** PAGINA LOGIN ****/
-.margen-sup {
+/* .margen-sup {
   min-height: 50px;
 }
 
@@ -116,15 +107,20 @@ img.perfil {
 
 .modal-content {
   background-color: rgba(0, 0, 0,0.1);
-}
+} */
 
 
 /**** FOOTER ****/
 .btn-foot{
-  min-width: 250px;
+  /*min-width: 250px;*/
   color: black;
   font-weight: bold;
   border: 0;
+}
+
+/*Remuevo el borde de los botones al realizar click*/
+.btn-foot:focus{
+  outline: none;
 }
 
 .card-title{
@@ -134,12 +130,13 @@ img.perfil {
 } 
 
 .card {
-  background-color: rgba(215, 180, 119, 0.7);
+  background-color: #D7B377;
   border: none;
 }
 
 .card-body{
-  background-color: rgba(215, 180, 119, 1);
+  background-color: rgb(49, 49, 49);
+  color: white;
 }
 
 
@@ -164,4 +161,33 @@ img.perfil {
 
 .table td{
   vertical-align: inherit;
+}
+
+/* Modales */
+.modal-content{
+  background-color: #D7B377;
+}
+
+.btn.btn-negro{
+  background-color: rgb(54, 54, 54);
+  color: whitesmoke;
+}
+
+.btn.btn-amarillo{
+  background-color: rgb(247, 220, 72);
+  color: black;
+}
+
+.btn-newsletter{
+  position: fixed;
+  right: 25px;
+  bottom: 20px;
+  background-color: rgb(150, 72, 41);
+  height: 50px;
+  font-size: 1.5rem;
+}
+
+/* FAQ */
+.body-faq{
+  background-color: wheat;
 }

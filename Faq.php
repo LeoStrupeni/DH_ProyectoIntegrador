@@ -6,26 +6,23 @@ require_once "shared/head.php"
 ?>
 
 <body>
+  <?php require_once "./shared/navbar.php" ?>
 
-  <div class="container">
-    <div class="row">
+
+  <div class="container w-75 mx-auto body-faq mt-2 rounded-sm">
+    <div class="row mb-4">
       <div class="col-12 col-md-8">
-        <h2 class="display-4 text-center text-white">
+        <h2 class="display-4">
           Preguntas Frecuentes
         </h2>
       </div>
-      <div class="col-12 col-md-4 text-right">
-        <a class="text-white" href="index.php">Volver a Pagina Inicio</a>
-      </div>
     </div>
-    <br><br>
-  </div>
 
-  <div class="container">
     <div class="row">
 
       <div class="col-12">
-        <h2 class="text-white">Sobre tu cuenta</h2>
+
+        <h2><i class="fas fa-user mr-2"></i> Sobre tu cuenta</h2>
       </div>
 
       <div class="col-12">
@@ -52,7 +49,7 @@ require_once "shared/head.php"
           </div>
 
           <div class="card">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header m" id="headingTwo">
               <h2 class="mb-0">
                 <button class="btn btn-link text-reset collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   Tengo problemas para acceder a mi cuenta. ¿Qué hago?
@@ -107,7 +104,7 @@ require_once "shared/head.php"
       </div>
 
       <div class="col-12">
-        <h2 class="">Compras</h2>
+        <h2 class="mt-2"><i class="fas fa-shopping-bag mr-2"></i> Compras</h2>
       </div>
 
       <div class="col-12">
@@ -247,7 +244,7 @@ require_once "shared/head.php"
       </div>
 
       <div class="col-12">
-        <h2 class="">Envío y retiro de productos</h2>
+        <h2 class="mt-2"><i class="fas fa-gifts mr-2"></i> Envío y retiro de productos</h2>
       </div>
 
       <div class="col-12">
@@ -320,14 +317,14 @@ require_once "shared/head.php"
       </div>
 
       <div class="col-12">
-        <h2 class="">Atención al cliente</h2>
+        <h2 class="mt-2"><i class="fas fa-phone mr-2"></i> Atención al cliente</h2>
       </div>
 
       <div class="col-12">
 
         <div class="accordion">
 
-          <div class="card">
+          <div class="card mb-2 rounded">
             <div class="card-header" id="headingFiveteen">
               <h3 class="mb-0">
                 <button class="btn btn-link text-reset" type="button" data-toggle="collapse" data-target="#collapseFiveteen" aria-expanded="true" aria-controls="collapseFiveteen">
@@ -347,6 +344,13 @@ require_once "shared/head.php"
       </div>
 
     </div>
+
+  </div>
+
+  <div class="container">
+
+    <?php require_once "shared/footer.php" ?>
+
   </div>
 
   <?php require_once "shared/bts-js.php" ?>

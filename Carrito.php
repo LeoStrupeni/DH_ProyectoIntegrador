@@ -19,7 +19,7 @@ require_once "shared/head.php"
 
     <div class="row">
         <div class="col-12 col-lg-10 m-auto">
-    
+
             <?php if (!empty($_SESSION['CARRITO'])) : ?>
 
                 <table class="table table-primary">

@@ -1,20 +1,15 @@
 <div class="row">
     <div class="col p-0">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselBebidas" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                <li data-target="#carouselBebidas" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselBebidas" data-slide-to="1"></li>
+                <li data-target="#carouselBebidas" data-slide-to="2"></li>
+                <li data-target="#carouselBebidas" data-slide-to="3"></li>
+                <li data-target="#carouselBebidas" data-slide-to="4"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/img1.gif" class="d-block w-100" alt="...">
-                    <div class="carousel-caption"></div>
-                </div>
-                <div class="carousel-item">
                     <img src="images/img1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
@@ -44,8 +39,8 @@
                 <span class="sr-only">Next</span>
             </a> -->
         </div>
-    </div>   
-</div>   
+    </div>
+</div>
 <div class="row">
     <div class="col p-0">
         <div class="jumbotron jumbotron-fluid">
@@ -57,29 +52,29 @@
     </div>
 </div>
 
-<?php 
-    $sentencia=$pdo->prepare('SELECT * FROM productos where idProductos<9');
-    $sentencia->execute();
-    $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);               
+<?php
+$sentencia = $pdo->prepare('SELECT * FROM productos where idProductos < 9');
+$sentencia->execute();
+$listaProductos = $sentencia->fetchall(PDO::FETCH_ASSOC);
 ?>
 
 
 <div class="row">
-    <?php foreach ($listaProductos as $producto) :?>
+    <?php foreach ($listaProductos as $producto) : ?>
         <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
             <div class="card bg-transparent mb-1 border border-dark rounded-lg">
-                <img title = "<?=$producto['Name']?>" alt="<?=$producto['Name']?>" src=<?='images/Bebidas/'.$producto['imagen'].'.jpg'?> class="card-img m-auto p-1">
+                <img title="<?= $producto['Name'] ?>" alt="<?= $producto['Name'] ?>" src=<?= 'images/Bebidas/' . $producto['imagen'] ?> class="card-img m-auto p-1">
                 <div class="card-img-overlay text-right">
                     <form method="get" action="detalles.php">
-                        <input type="hidden" name="id" id="id" value="<?=$producto['idProductos']?>">
-                        <button class="btn btn-warning" type="submit" name="" value="">
+                        <input type="hidden" name="id" id="id" value="<?= $producto['idProductos'] ?>">
+                        <button class="btn btn-amarillo" type="submit" name="" value="">
                             + Detalles
                         </button>
-                    </form>                               
+                    </form>
                 </div>
             </div>
         </div>
-    <?php endforeach;?>
-    
+    <?php endforeach; ?>
+
 
 </div>

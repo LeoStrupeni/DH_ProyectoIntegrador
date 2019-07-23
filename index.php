@@ -1,7 +1,6 @@
-
 <?php
-include 'global/config.php';
-include 'global/conexion.php';
+require_once 'global/config.php';
+require_once 'global/conexion.php';
 ?>
 
 <!DOCTYPE html>
@@ -26,11 +25,9 @@ require_once "shared/head.php"
 
                 <?php require_once "shared/footer.php" ?>
 
+                <?php require_once "./modals/modal-newsletter.php"?>
         </div>
 
-
 </body>
-
-
 
 </html>
