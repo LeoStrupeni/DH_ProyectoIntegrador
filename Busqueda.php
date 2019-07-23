@@ -2,6 +2,21 @@
 include 'global/config.php';
 include 'global/conexion.php';
 include 'php/validaciones.php';
+
+if($_POST){
+    $param=$_POST['ParamBusqueda'];
+    $sentencia=$pdo->prepare('SELECT * FROM productos P 
+                                LEFT JOIN prod_categorias C ON p.Categoria = c.idCategoria
+                                LEFT JOIN prod_marcas M ON P.Marcas_idMarcas = M.idMarcas
+                                WHERE Name LIKE "%'. $param .'%" '. 
+                                'OR Descripcion LIKE "%'. $param .'%" '. 
+                                'OR c.Nombre LIKE "%'. $param .'%" '. 
+                                'OR M.Nombre LIKE "%'. $param .'%" 
+                                LIMIT 24');
+    $sentencia->execute();   
+    $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);   
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,18 +42,14 @@ require_once "shared/head.php"
         <!-- Averiguar como vaciar en este punto la $_SESSION['mensaje'] -->
         
         <div class="row">
-            <?php 
-                $sentencia=$pdo->prepare('SELECT * FROM `productos` WHERE `idProductos`< 20');
-                $sentencia->execute();
-                $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);   
-            ?>
-             
-           
             <?php foreach ($listaProductos as $producto) :?>
-                <div class="col-10 col-sm-6 col-md-4 col-lg-3 p-1">
+                <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
                     <div class="card bg-transparent border border-dark rounded-lg"> 
                         <h4 class="text-center p-1 cut-text"> <?=$producto['Name']?></h4>
-                        <img title = "<?=$producto['Name']?>" alt="<?=$producto['Name']?>" src=<?='images/Bebidas/'.$producto['imagen'].'.jpg'?> 
+                        <img title = "<?=$producto['Name']?>" alt="<?=$producto['Name']?>" 
+                        src=<?php if(is_file('images/Bebidas/'.$producto['imagen'].'.jpg')){
+                                    echo 'images/Bebidas/'.$producto['imagen'].'.jpg';
+                                } else {echo 'images/Bebidas/imgND.jpg';}?> 
                         data-toggle="popover" data-trigger="hover" data-content="<?=substr($producto['Descripcion'],0,500).'...'?>"
                         class="card-img p-1" style="z-index: 10;"> 
                         <div class="card-img-overlay text-right mt-5">
