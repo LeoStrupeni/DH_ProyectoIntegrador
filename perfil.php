@@ -8,11 +8,11 @@ require_once "shared/head.php"
 <body>
 
 
-    <body class="pt-2 text-light">
+    <body class="pt-2">
         <div class="container">
             <div class="row">
                 <div class="col text-right">
-                    <a class="text-light" href="index.php">Volver a Pagina Inicio</a>
+                    <a class="" href="index.php">Volver a Pagina Inicio</a>
                 </div>
             </div>
             <div class="row">

@@ -5,7 +5,7 @@
                 para eso hay que sacar en min-width de la hoja de estilos btn-foot
             -->
         <div class="list-group list-group-horizontal-lg m-auto text-center">
-            <?php require "./php/modal-contacto.php" ?>
+            <?php require "./modals/modal-contacto.php" ?>
             <button type="button" class="list-group-item btn-foot">
                 <a href="faq.php" class="text-reset text-decoration-none">Preguntas Frecuentes</a>
             </button>

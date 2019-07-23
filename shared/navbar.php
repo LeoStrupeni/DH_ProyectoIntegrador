@@ -53,8 +53,8 @@
                         </div>';
                 //(empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO'])
             } else {
-                require_once "php/modal-login.php";
-                require_once "php/modal-register.php";
+                require_once "./modals/modal-login.php";
+                require_once "./modals/modal-register.php";
             }
             ?>
 

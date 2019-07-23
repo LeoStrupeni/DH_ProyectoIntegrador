@@ -1,3 +1,5 @@
+/*Generales*/
+
 * {
   font-family: 'Lato', sans-serif;
 }
@@ -7,6 +9,9 @@
   max-width: 100%;
 }
 
+textarea{
+  resize: none;
+}
 
 /*
 body{
@@ -91,24 +96,8 @@ img.perfil {
 }
 
 
-/**** FORMULARIO CONTACTO ****/
-
-.modal-content.modal-contacto{
-  background-color: #D7B377;
-}
-
-.btn.btn-negro{
-  background-color: rgb(54, 54, 54);
-  color: whitesmoke;
-}
-
-.btn.btn-amarillo{
-  background-color: rgb(247, 220, 72);
-  color: black;
-}
-
 /**** PAGINA LOGIN ****/
-.margen-sup {
+/* .margen-sup {
   min-height: 50px;
 }
 
@@ -118,7 +107,7 @@ img.perfil {
 
 .modal-content {
   background-color: rgba(0, 0, 0,0.1);
-}
+} */
 
 
 /**** FOOTER ****/
@@ -171,4 +160,19 @@ img.perfil {
 
 .table td{
   vertical-align: inherit;
+}
+
+/* Modales */
+.modal-content.modal-contacto{
+  background-color: #D7B377;
+}
+
+.btn.btn-negro{
+  background-color: rgb(54, 54, 54);
+  color: whitesmoke;
+}
+
+.btn.btn-amarillo{
+  background-color: rgb(247, 220, 72);
+  color: black;
 }

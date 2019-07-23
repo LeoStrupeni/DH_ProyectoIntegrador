@@ -14,7 +14,7 @@ require_once "shared/head.php"
 ?>
 
 <body>
-    <?php require_once "shared/nav-test.php" ?>
+    <?php require_once "shared/navbar.php" ?>
     <div class="container">
         <br>
         <?php if (!empty($_SESSION['mensaje'])) : ?>
