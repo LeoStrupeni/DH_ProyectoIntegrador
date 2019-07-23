@@ -63,7 +63,11 @@ $listaProductos = $sentencia->fetchall(PDO::FETCH_ASSOC);
     <?php foreach ($listaProductos as $producto) : ?>
         <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
             <div class="card bg-transparent mb-1 border border-dark rounded-lg">
-                <img title="<?= $producto['Name'] ?>" alt="<?= $producto['Name'] ?>" src=<?= 'images/Bebidas/' . $producto['imagen'] ?> class="card-img m-auto p-1">
+                <img title="<?= $producto['Name'] ?>" alt="<?= $producto['Name'] ?>" src=<?php if (is_file('images/Bebidas/' . $producto['imagen'] . '.jpg')) {
+                                echo 'images/Bebidas/' . $producto['imagen'] . '.jpg';
+                            } else {
+                                echo 'images/Bebidas/imgND.jpg';
+                            } ?> class="card-img m-auto p-1">
                 <div class="card-img-overlay text-right">
                     <form method="get" action="detalles.php">
                         <input type="hidden" name="id" id="id" value="<?= $producto['idProductos'] ?>">

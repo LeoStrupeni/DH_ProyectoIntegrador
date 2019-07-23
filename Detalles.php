@@ -27,7 +27,7 @@ require_once "shared/head.php"
                                 echo 'images/Bebidas/' . $producto['imagen'] . '.jpg';
                             } else {
                                 echo 'images/Bebidas/imgND.jpg';
-                            } ?> " class=" rounded mx-auto d-block" alt="Responsive image">
+                            } ?> class=" rounded mx-auto d-block" alt="Responsive image">
             </div>
 
             <div class="col-12 col-sm-9">

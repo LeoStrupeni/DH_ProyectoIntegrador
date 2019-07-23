@@ -82,7 +82,7 @@ require_once "shared/head.php"
     </div>
 
 
-    <nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-black">
+    <nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
         <p class="navbar-brand">Filtros</p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
