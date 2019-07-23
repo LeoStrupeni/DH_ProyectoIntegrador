@@ -1,12 +1,12 @@
 <header>
     <nav class="navbar pt-0 nav-1 px-5 navbar-dark">
-        <span class="navbar-brand mb-0 h1">
+        <span class="navbar-brand mb-0 h1 pb-0">
             <a href="index.php" class="text-reset">Inicio</a>
         </span>
-        <span class="navbar-text">Lorem Ipsum</span>
+        <span class="navbar-text pb-0">Lorem Ipsum</span>
     </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-light nav-2 pl-5">
+    <nav class="navbar navbar-expand-lg navbar-light nav-2 py-auto">
 
         <div class="col-12 col-sm-4 col-md-6 col-lg-8 col-xl-9">
 
