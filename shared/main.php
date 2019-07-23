@@ -7,14 +7,9 @@
                 <li data-target="#carouselBebidas" data-slide-to="2"></li>
                 <li data-target="#carouselBebidas" data-slide-to="3"></li>
                 <li data-target="#carouselBebidas" data-slide-to="4"></li>
-                <li data-target="#carouselBebidas" data-slide-to="5"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="images/img1.gif" class="d-block w-100" alt="...">
-                    <div class="carousel-caption"></div>
-                </div>
-                <div class="carousel-item">
                     <img src="images/img1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
