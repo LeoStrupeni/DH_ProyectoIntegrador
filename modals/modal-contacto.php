@@ -4,12 +4,12 @@
 
 <div class="modal fade" id="modalContacto" tabindex="-1" role="dialog" aria-labelledby="modalContactoTitulo" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content modal-contacto">
+        <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title text-center" id="modalContacto">Contactate con nosotros</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
 
             <div class="modal-body">
@@ -42,7 +42,6 @@
                     </form>
 
                 </div>
-
             </div>
         </div>
     </div>

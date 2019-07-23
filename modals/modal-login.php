@@ -4,7 +4,7 @@
 
 <div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLogin" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content modal-contacto">
+    <div class="modal-content">
 
       <form action="index.php" class="form p-2" method="POST">
         <div class="modal-body">
@@ -33,7 +33,7 @@
         </div>
 
         <div class="modal-footer justify-content-center">
-          <button type="submit" class="btn btn-modal active">Ingresar</button>
+          <button type="submit" class="btn btn-modal">Ingresar</button>
         </div>
       </form>
 

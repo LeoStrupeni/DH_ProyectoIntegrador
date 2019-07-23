@@ -5,7 +5,7 @@
 <!-- Modal -->
 <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="modalRegisterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content modal-contacto">
+        <div class="modal-content">
             <?php
             require_once "php/funciones.php";
 
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-modal active">Registrar</button>
+                        <button type="submit" class="btn btn-modal">Registrar</button>
                     </div>
                     <?php if (isset($errores)) {
                         foreach ($errores as $error) {

@@ -163,7 +163,7 @@ img.perfil {
 }
 
 /* Modales */
-.modal-content.modal-contacto{
+.modal-content{
   background-color: #D7B377;
 }
 
@@ -175,4 +175,13 @@ img.perfil {
 .btn.btn-amarillo{
   background-color: rgb(247, 220, 72);
   color: black;
+}
+
+.btn-newsletter{
+  position: fixed;
+  right: 25px;
+  bottom: 20px;
+  background-color: rgb(150, 72, 41);
+  height: 50px;
+  font-size: 1.5rem;
 }
