@@ -74,6 +74,10 @@ require_once "shared/head.php"
             </div>
 
         </div>
+        
+<div class="row p-2 mb-2 footer-1">
+    <h4 class="m-auto">Productos relacionados</h4>
+</div>
 
         <?php
         $sentencia = $pdo->prepare('SELECT * FROM productos WHERE Categoria = '.$producto['Categoria'].' ORDER BY RAND() LIMIT 4');
