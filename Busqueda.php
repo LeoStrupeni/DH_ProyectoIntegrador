@@ -3,19 +3,49 @@ include 'global/config.php';
 include 'global/conexion.php';
 include 'php/validaciones.php';
 
-if($_POST){
-    $param=$_POST['ParamBusqueda'];
+
+    if($_POST){
+        $_SESSION['ParametroBusqueda']=$_POST['ParamBusqueda'];
+    }   
+
+    $param = $_SESSION['ParametroBusqueda'];
+    
+    $articulosXpagina=24;
+
+    if(!$_GET){
+        header('location:Busqueda.php?pagina=1');
+    }
+
+    $iniciar= ($_GET['pagina']-1)*$articulosXpagina;
+    
     $sentencia=$pdo->prepare('SELECT * FROM productos P 
                                 LEFT JOIN prod_categorias C ON p.Categoria = c.idCategoria
                                 LEFT JOIN prod_marcas M ON P.Marcas_idMarcas = M.idMarcas
                                 WHERE Name LIKE "%'. $param .'%" '. 
                                 'OR Descripcion LIKE "%'. $param .'%" '. 
                                 'OR c.Nombre LIKE "%'. $param .'%" '. 
-                                'OR M.Nombre LIKE "%'. $param .'%" 
-                                LIMIT 24');
+                                'OR M.Nombre LIKE "%'. $param .'%"
+                                LIMIT :inicio,:narticulos
+                                ');
+    $sentencia->bindparam(':inicio',$iniciar, PDO::PARAM_INT);   
+    $sentencia->bindparam(':narticulos',$articulosXpagina, PDO::PARAM_INT);   
     $sentencia->execute();   
-    $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);   
-}
+    $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);  
+    
+
+    $sentenciaTotal=$pdo->prepare('SELECT * FROM productos P 
+                                LEFT JOIN prod_categorias C ON p.Categoria = c.idCategoria
+                                LEFT JOIN prod_marcas M ON P.Marcas_idMarcas = M.idMarcas
+                                WHERE Name LIKE "%'. $param .'%" '. 
+                                'OR Descripcion LIKE "%'. $param .'%" '. 
+                                'OR c.Nombre LIKE "%'. $param .'%" '. 
+                                'OR M.Nombre LIKE "%'. $param .'%"');    
+    $sentenciaTotal->execute();   
+    $totalProductos=$sentenciaTotal->rowCount();
+    
+    $paginas=ceil($totalProductos/$articulosXpagina); 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +71,14 @@ require_once "shared/head.php"
 
         <!-- Averiguar como vaciar en este punto la $_SESSION['mensaje'] -->
 
-        <div class="row">
+        <div class="row" style="min-height:400px;">
+            <?php if (count($listaProductos)==0) :?>
+            
+            <div class="alert alert-secondary w-100 h-25 text-center h4" role="alert">
+                No se Encontro ningun producto!
+            </div>
+            
+            <?php endif;?>
             <?php foreach ($listaProductos as $producto) :?>
                 <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
                     <div class="card bg-transparent border border-dark rounded-lg"> 
@@ -76,9 +113,51 @@ require_once "shared/head.php"
                     </div>
                 </div>
             <?php endforeach; ?>
-
-
         </div>
+
+        <!-- <pagination class="pagination-sm" total-items="1000" items-per-page="10"> </pagination>  -->
+        
+        <?php if (count($listaProductos)>0) :?>
+
+        <nav aria-label="Page navigation example" max-size="10">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <?= $_GET['pagina']<=1 ? 'disabled' : '' ?>">
+                    <a class="page-link" href="Busqueda.php?pagina=<?=$_GET['pagina']-1?>">Anterior</a>
+                </li>
+                
+                <?php 
+                if($_GET['pagina']>5){
+                    echo '<li class="page-item">
+                            <a class="page-link" href="Busqueda.php?pagina=1">1</a>
+                          </li>
+                          <li class="page-item disabled">
+                            <a class="page-link" href="#">...</a>  
+                          </li>';
+                }
+                ?>
+
+                <?php for($i=($_GET['pagina']<3? 0 : $_GET['pagina']-3) ; $i< ($paginas>6 ? $_GET['pagina']+2 : $paginas) ; $i++):?>
+                    <li class="page-item <?= $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                        <a class="page-link" href="Busqueda.php?pagina=<?=$i+1?>"><?=$i+1?></a>
+                    </li>
+                <?php endfor;?>
+
+                <?php 
+                if($paginas>5){
+                    echo '  <li class="page-item">
+                                <a class="page-link" href="#">...</a> 
+                            </li>   
+                            <li class="page-item">
+                                <a class="page-link" href="Busqueda.php?pagina='.$paginas.'">'.$paginas.'</a>
+                            </li>';
+                }
+                ?>
+
+                <li class="page-item <?= $_GET['pagina']>=$paginas ? 'disabled' : '' ?>">
+                    <a class="page-link" href="Busqueda.php?pagina=<?=$_GET['pagina']+1?>">Proxima</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
 
@@ -151,6 +230,8 @@ require_once "shared/head.php"
             </div>
         </div>
     </nav>
+    
+    <?php endif;?>
     
     <?php require_once "shared/footer.php" ?>
 
