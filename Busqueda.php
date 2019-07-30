@@ -18,6 +18,7 @@ include 'php/validaciones.php';
 
     $iniciar= ($_GET['pagina']-1)*$articulosXpagina;
     
+    
     $sentencia=$pdo->prepare('SELECT * FROM productos P 
                                 LEFT JOIN prod_categorias C ON p.Categoria = c.idCategoria
                                 LEFT JOIN prod_marcas M ON P.Marcas_idMarcas = M.idMarcas
@@ -88,23 +89,23 @@ require_once "shared/head.php"
                                     echo 'images/Bebidas/'.$producto['imagen'].'.jpg';
                                 } else {echo 'images/Bebidas/imgND.jpg';}?> 
                         data-toggle="popover" data-trigger="hover" data-content="<?=substr($producto['Descripcion'],0,500).'...'?>"
-                        class="card-img p-1" style="z-index: 10;"> 
+                        class="card-img p-1 img-fluid" style="z-index: 10;"> 
                         <div class="card-img-overlay text-right mt-5">
-                            <h4><?="$ ".$producto['Precio']?></h4>
+                            <h5><?="$ ".$producto['Precio']?></h5>
                             <form method="get" action="Busqueda.php">
 
                                 <div class="form-group">
-                                    <label for="cantidad">Cantidad</label>
+                                    <label for="cantidad" style="font-size:1vw;">Cantidad</label>
                                     <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad" required>
                                 </div>
                                 <input type="hidden" name="id" id="id" value="<?= $producto['idProductos'] ?>">
-                                <button class="btn btn-success w-50 mb-1" type="submit" name="btnAccion" value="Agregar">
+                                <button class="btn btn-success w-50 mb-1" type="submit" name="btnAccion" value="Agregar" style="font-size:1vw;">
                                     Agregar
                                 </button>
                             </form>
                             <form method="get" action="detalles.php">
                                 <input type="hidden" name="id" id="id" value="<?= $producto['idProductos'] ?>">
-                                <button class="btn btn-warning w-50" type="submit" name="" value="">
+                                <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
                                     + Detalles
                                 </button>
                             </form>
@@ -168,66 +169,57 @@ require_once "shared/head.php"
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="btn-group dropup m-1">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Marca
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+
+            <?php
+                $query="SELECT distinct `Nombre` FROM `prod_marcas`";
+                $sentencia=$pdo->prepare($query);
+                $sentencia->execute();   
+                $listaMarcas=$sentencia->fetchall(PDO::FETCH_ASSOC);  
+
+                $query="SELECT `Nombre` FROM `prod_categorias` 
+                    WHERE `idCategoria` IN (SELECT DISTINCT `idCategoriaPadre` FROM `prod_categorias`)";
+                $sentencia=$pdo->prepare($query);
+                $sentencia->execute();   
+                $listaCatPadre=$sentencia->fetchall(PDO::FETCH_ASSOC);  
+                
+                $query="SELECT `Nombre`,`idCategoriaPadre` FROM `prod_categorias` 
+                        WHERE `idCategoria` NOT IN (SELECT DISTINCT `idCategoriaPadre` FROM `prod_categorias`)";
+                $sentencia=$pdo->prepare($query);
+                $sentencia->execute();   
+                $listaSubCat=$sentencia->fetchall(PDO::FETCH_ASSOC);  
+            ?>
+
+            <form>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input list="marca" placeholder="Marca" class="rounded-pill pl-2">
+                        <datalist id="marca">
+                            <?php foreach ($listaMarcas as $marca) :?>
+                            <option value="<?=$marca['Nombre']?>">
+                            <?php endforeach;?> 
+                        </datalist> 
+                    </div>
+
+                    <div class="col-3">
+                        <select class="custom-select custom-select-sm" name="categoria">
+                            <option selected>Categoria</option>
+                            <?php foreach ($listaCatPadre as $catPadre) :?>
+                            <option value="<?=$catPadre['Nombre']?>"><?=$catPadre['Nombre']?></option>
+                            <?php endforeach;?>  
+                        </select>
+                    </div>
+                   
+                    <div class="col-3">
+                        <select class="custom-select custom-select-sm" name="subcategoria">
+                            <option selected>Sub Categoria</option>
+                            <?php foreach ($listaSubCat as $subCat) :?>
+                            <option value="<?=$subCat['Nombre']?>"><?=$subCat['Nombre']?></option>
+                            <?php endforeach;?>  
+                        </select>
+                    </div>
                 </div>
-            </div>
-            <div class="btn-group dropup m-1">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Tipo
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
-            <div class="btn-group dropup m-1">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Graduacion
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
-            <div class="btn-group dropup m-1">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Origen
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
-            <div class="btn-group dropup m-1">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Precio
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
-            <div class="btn-group dropup m-1">
-                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Volumen
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
+            </form>
+       
         </div>
     </nav>
     
