@@ -13,6 +13,7 @@
         protected $volumen;
         protected $idMarcas;
         protected $categoria;
+        //protected $puntuacion
 
         public function __construct(string $name, string $descripcion, float $precio, int $categoria)
         {
@@ -135,5 +136,15 @@
         {
             $this->categoria = $categoria;
         }
+
+        // public function getPuntuacion(): double
+        // {
+        //     return $this->puntuacion;
+        // }
+
+        // public function setPuntuacion(double $puntuacion)
+        // {
+        //     $this->puntuacion = $puntuacion;
+        // }
 
     }
