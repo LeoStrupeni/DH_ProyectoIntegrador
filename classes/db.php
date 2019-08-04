@@ -86,7 +86,7 @@ abstract class DB
         }
     }
 
-    public static function getProducts(): array
+    public static function getAllProducts(): array
     {
         global $connection;
 
@@ -106,6 +106,55 @@ abstract class DB
 
             $productFromDB->setImagen($product['imagen']);
             $productFromDB->setIdProducto($product['idProductos']);
+
+            $productsObjects[] = $productFromDB;
+        }
+
+        return $productsObjects;
+    }
+
+    public static function getProductByID(int $id): Producto
+    {
+        global $connection;
+
+        $query = $connection->prepare("
+        SELECT * FROM productos
+        WHERE idProductos = :id");
+
+        $query->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $query->execute();
+
+        $product = $query->fetch(PDO::FETCH_ASSOC);
+
+        $productObject = new Producto($product['Name'], $product['Descripcion'], $product['Precio'], $product['Categoria']);
+        
+        $productObject->addProductDetails($product);
+
+        return $productObject;
+    }
+
+    public static function getProductsWithSimilarCategory(Producto $product)
+    {
+        global $connection;
+
+        $query = $connection->prepare("
+        SELECT * FROM productos
+        WHERE Categoria = :categoria
+        ORDER BY RAND()
+        LIMIT 4");
+
+        $query->bindValue(':categoria', $product->getCategoria(), PDO::PARAM_INT);
+
+        $query->execute();
+
+        $listProducts = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        $productsObjects = [];
+
+        foreach ($listProducts as $product) {
+            $productFromDB = new Producto($product['Name'], $product['Descripcion'], $product['Precio'], $product['Categoria']);
+            $productFromDB->addProductDetails($product);
 
             $productsObjects[] = $productFromDB;
         }

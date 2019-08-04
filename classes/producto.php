@@ -23,6 +23,17 @@
             $this->categoria = $categoria;
         }
 
+        public function addProductDetails(array $data)
+        {
+            $this->setGraduacion($data['Graduacion']);
+            $this->setOrigen($data['Origen']);
+            $this->setAnio($data['Anio']);
+            $this->setVolumen($data['Volumen']);
+            $this->setIdMarcas($data['Marcas_idMarcas']);
+            $this->setImagen($data['imagen']);
+            $this->setIdProducto($data['idProductos']);
+        }
+
         public function getIdProducto(): int
         {
             return $this->idProducto;
