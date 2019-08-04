@@ -17,17 +17,22 @@ abstract class DB
 
         $usersObject = [];
 
+        //Busco la manera de no implementar el constructor ya que vuelvo a hashear las passwords
         foreach ($users as $user => $key) {
             $userFinal = new Usuario(
                 $key['Email'], 
-                $key['Password'], 
                 $key['Apellido'], 
                 $key['Nombre'], 
                 $key['Nacimiento'],
-                $key['Documento']);
+                $key['Documento']
+            );
+
+            $userFinal->setPasswordFromDB($key['Password']);
 
             $usersObject[] = $userFinal;
         }
+
+        var_dump($usersObject);exit;
 
         return $usersObject;
     }
@@ -82,23 +87,25 @@ abstract class DB
         }
     }
 
-    public static function checkIfUserExistsWithEmail(string $email): bool
+    public static function checkIfUserExistsWithEmail(string $email, $password): bool
     {
         //Obtengo todos los usuarios
         $users = self::getAllUsers();
 
-        $userEmails = [];
+        $userData = [];
 
         //Extraigo los emails de todos los usuarios
         foreach ($users as $userInDb) {
-            $userEmails[] = $userInDb->getEmail();
-        }
+            $userData['email'] = $userInDb->getEmail();
+            $userData['password'] = $userInDb->getPassword();
 
-        //Chequeo si el mail ya esta registrado
-        if (in_array($email, $userEmails)) {
-            return true;
-        } else {
-            return false;
+            $resultado = password_verify($password, $userData['password']);
+            var_dump($resultado);exit;
+            if ($userData['email'] == $email && password_verify($password, $userData['password'])) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 
@@ -116,7 +123,8 @@ abstract class DB
 
         $results = $query->fetch(PDO::FETCH_ASSOC);
 
-        $userLogged = new Usuario($results['Email'], $results['Password'], $results['Apellido'], $results['Nombre'], $results['Nacimiento'], (int)$results['Documento']);
+        $userLogged = new Usuario($results['Email'], $results['Apellido'], $results['Nombre'], $results['Nacimiento'], (int)$results['Documento']);
+        $userLogged->setPasswordFromDB($results['Password']);
 
         return $userLogged;
     }

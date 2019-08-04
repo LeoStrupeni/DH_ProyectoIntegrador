@@ -47,7 +47,7 @@
                             </div>
                             <div class="btn-group mr-2 btn-nav" role="group" aria-label="Second group">
                                 <a class="btn btn-warning" href="Carrito.php">
-                                    <i class="fas fa-shopping-cart"></i>
+                                    <i class="fas fa-shopping-cart pt-1"></i>
                                 </a>
                             </div>
                         </div>';
