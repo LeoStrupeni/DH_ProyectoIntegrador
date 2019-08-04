@@ -1,6 +1,13 @@
 <?php
 require_once 'global/config.php';
 require_once 'global/conexion.php';
+require_once 'global/autoload.php';
+
+if ($_POST) {
+        $errores = Validation::vUserToRegister($_POST);
+        var_dump($errores);
+}
+
 ?>
 
 <!DOCTYPE html>

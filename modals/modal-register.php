@@ -7,20 +7,17 @@
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <?php
-            require_once "php/funciones.php";
+            require_once "./global/autoload.php";
 
             $nombreDefault = "";
             $emailDefault = "";
             $fechaDefault = "";
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_POST) {
+                var_dump($_POST);exit;
+                $errores = Validation::vUserToRegister($_POST);
 
-                $errores = validarRegistracion($_POST);
-
-                if (empty($errores)) {
-                    $usuario = armarUsuario($_POST);
-                    registrar($usuario);
-                }
+                if (empty($errores)) { }
 
                 $nombreDefault = $_POST["nombre"];
                 $emailDefault = $_POST["email"];
@@ -42,14 +39,41 @@
                         <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su nombre" value="<?= $nombreDefault; ?>">
                     </div>
                     <div class="form-group">
-                        <label for="password" class="h4">Contrasena</label>
-                        <input type="password" name="password" id="password" class="form-control">
+                        <label for="apellido" class="h4">Apellido</label>
+                        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese su apellido" value="<?= $nombreDefault; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="pais" class="h4">Pais de nacimiento</label>
+                        <select class="form-control" id="pais">
+                            <?php $paises = DB::getPaises(); ?>
+                            <?php foreach ($paises as $pais) : ?>
+                                <?php $nombre = $pais->getNombre(); ?>
+                                <option value=<?= $nombre ?>>
+                                    <?= $nombre ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="fecnac" class="h4">Fecha de nacimiento</label>
                         <input type="date" name="fecnac" id="fecnac" class="form-control" value="<?= $fechaDefault; ?>">
                     </div>
-
+                    <div class="form-group">
+                        <label for="password" class="h4">Contrasena</label>
+                        <input type="password" name="password" id="password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="h4">Confirmar contrasena</label>
+                        <input type="password" name="password-2" id="password-2" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terminos" required>
+                            <label class="form-check-label">
+                                Aceptar terminos y condiciones
+                            </label>
+                        </div>
+                    </div>
                     <div class="modal-footer justify-content-center">
                         <button type="submit" class="btn btn-modal">Registrar</button>
                     </div>

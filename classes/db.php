@@ -103,4 +103,28 @@ abstract class DB
 
         return $productsObjects;
     }
+
+    public static function getPaises(): array
+    {
+        global $connection;
+
+        $query = $connection->prepare("
+        SELECT *
+        FROM dom_pais;
+        ");
+
+        $query->execute();
+
+        $listPaises = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        $paisesObject = [];
+
+        foreach ($listPaises as $pais) {
+            $paisFromDB = new Pais($pais['Nombre']);
+
+            $paisesObject[] = $paisFromDB;
+        }
+
+        return $paisesObject;
+    }
 }
