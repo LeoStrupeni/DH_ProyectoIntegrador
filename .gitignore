@@ -1,0 +1,10 @@
+# Sass cache files #
+#######################
+/<path to sass cache>/.sass-cache/
+
+# Temp-files folders#
+###################
+/temp-files/
+
+# VS Code folder #
+.vscode
