@@ -2,16 +2,20 @@
 
 abstract class Validation
 {
-    public function vUserToRegister($input): array
+    public static function vUserToRegister($input): array
     {
         $errores = [];
 
-        if (strlen($input['nombre'] < 3 || trim($input['nombre'] == ""))) {
+        if (strlen($input['nombre']) < 3 || trim($input['nombre']) == "") {
             $errores['nombre'] = "Ingrese un nombre de mas de 3 caracteres";
         }
 
         if (trim($input['apellido'] == "")) {
             $errores['apellido'] = "Ingrese un valor valido";
+        }
+
+        if ($input['documento'] <= 0) {
+            $errores['documento'] = "Ingrese un numero de documento valido";
         }
 
         if ($input["fecnac"] == "") {
@@ -33,7 +37,7 @@ abstract class Validation
         return $errores;
     }
 
-    private function vAge($fecnac, $edad = 18): bool
+    private static function vAge($fecnac, $edad = 18): bool
     {
         if (is_string($fecnac)) {
             $fecnac = strtotime($fecnac);

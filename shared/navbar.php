@@ -40,7 +40,7 @@
 
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3 text-center">
             <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_SESSION)) {
                 echo    '<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
                                 <a href="perfil.php" class="btn btn-nav btn-user">Perfil</a>

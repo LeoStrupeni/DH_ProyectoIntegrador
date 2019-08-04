@@ -22,7 +22,13 @@ abstract class DB
         $usersObject = [];
 
         foreach ($users as $user) {
-            $userFinal = new Usuario($user['email'], $user['password'], $user['apellido'], $user['nombre']);
+            $userFinal = new Usuario(
+                $user['email'], 
+                $user['password'], 
+                $user['apellido'], 
+                $user['nombre'], 
+                $user['nacimiento'],
+                $user['documento']);
 
             $usersObject[] = $userFinal;
         }
@@ -37,15 +43,18 @@ abstract class DB
         if (!self::checkIfUserExists($user)) {
             try {
                 $query = $connection->prepare("
-                INSERT INTO usuarios (nombre, apellido, email, password)
-                VALUES (:nombre, :apellido, :email, :password)
+                INSERT INTO usuarios (nombre, apellido, documento, email, password, nacimiento)
+                VALUES (:nombre, :apellido, :documento, :email, :password, :nacimiento)
                 ");
 
                 $query->bindValue(':nombre', $user->getNombre(), PDO::PARAM_STR);
                 $query->bindValue(':apellido', $user->getApellido(), PDO::PARAM_STR);
+                $query->bindValue(':documento', $user->getDocumento(), PDO::PARAM_INT);
                 $query->bindValue('email', $user->getEmail(), PDO::PARAM_STR);
                 $query->bindValue('password', $user->getPassword());
+                $query->bindValue('nacimiento', $user->getNacimiento(), PDO::PARAM_STR);
 
+                //Chequear los campos UNIQUE en la tabla usuarios
                 $query->execute();
 
                 return true;

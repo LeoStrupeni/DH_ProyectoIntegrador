@@ -18,12 +18,14 @@
         protected $dpto;
         protected $ciudad;
 
-        public function __construct($email, $password, $apellido, $nombre)
+        public function __construct($email, $password, $apellido, $nombre, $nacimiento, $documento)
         {
             $this->email = $email;
-            $this->password = $password;
+            $this->password = password_hash($password, PASSWORD_DEFAULT);
             $this->apellido = $apellido;
             $this->nombre = $nombre;
+            $this->nacimiento = $nacimiento;
+            $this->documento = $documento;
         }
 
 
@@ -107,12 +109,12 @@
             $this->nombre = $nombre;
         }
 
-        public function getNacimiento(): date
+        public function getNacimiento()
         {
             return $this->nacimiento;
         }
 
-        public function setNacimiento(date $nacimiento)
+        public function setNacimiento($nacimiento)
         {
             $this->nacimiento = $nacimiento;
         }

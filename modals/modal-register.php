@@ -14,11 +14,6 @@
             $fechaDefault = "";
 
             if ($_POST) {
-                var_dump($_POST);exit;
-                $errores = Validation::vUserToRegister($_POST);
-
-                if (empty($errores)) { }
-
                 $nombreDefault = $_POST["nombre"];
                 $emailDefault = $_POST["email"];
                 $fechaDefault = $_POST["fecnac"];
@@ -41,6 +36,10 @@
                     <div class="form-group">
                         <label for="apellido" class="h4">Apellido</label>
                         <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese su apellido" value="<?= $nombreDefault; ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="documento" class="h4">Documento</label>
+                        <input type="number" name="documento" id="documento" class="form-control" placeholder="Ingrese su documento" value="" required>
                     </div>
                     <div class="form-group">
                         <label for="pais" class="h4">Pais de nacimiento</label>
