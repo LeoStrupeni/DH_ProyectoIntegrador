@@ -6,19 +6,7 @@
 <div class="modal fade" id="modalRegister" tabindex="-1" role="dialog" aria-labelledby="modalRegisterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
-            <?php
-            require_once "./global/autoload.php";
-
-            $nombreDefault = "";
-            $emailDefault = "";
-            $fechaDefault = "";
-
-            if ($_POST) {
-                $nombreDefault = $_POST["nombre"];
-                $emailDefault = $_POST["email"];
-                $fechaDefault = $_POST["fecnac"];
-            }
-            ?>
+            <?php require_once "./global/autoload.php"; ?>
             <form action="index.php" class="form" method="post">
 
                 <div class="modal-body">
@@ -27,7 +15,7 @@
                     </button>
                     <div class="form-group">
                         <label for="email" class="h4">Email </label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="<?= $emailDefault; ?>">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="<?= $_SESSION['Usuario']->getNombre(); ?>">
                     </div>
                     <div class="form-group">
                         <label for="nombre" class="h4">Nombre</label>

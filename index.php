@@ -1,10 +1,11 @@
 <?php
-require_once 'global/config.php';
-require_once 'global/conexion.php';
+
 require_once 'global/autoload.php';
+session_start();
 
 if ($_POST) {
         $errores = Validation::vUserToRegister($_POST);
+
         if (empty($errores)) {
                 //Se puede crear un metodo estatico para formar este usuario?
                 $user = new Usuario(
@@ -15,21 +16,15 @@ if ($_POST) {
                         date('Y-m-d', strtotime($_POST['fecnac'])),
                         (int) $_POST['documento']
                 );
-                session_start();
-                var_dump($user);
-                if (DB::saveUser($user)) {
-                        header('Location:index.php');
-                } else {
-                        echo "Este usuario ya existe";
-                }
-                exit;
+                $_SESSION['Usuario'] = $user;
+                var_dump($_SESSION);
+                $saved = DB::saveUser($user);
         } else {
-                var_dump($_POST);
-                var_dump($errores);
-                exit;
                 header('Location:index.php');
         }
 }
+
+
 
 ?>
 
@@ -44,6 +39,12 @@ require_once "shared/head.php"
 
 <body>
         <?php require_once "shared/navbar.php" ?>
+
+        <?php if (isset($saved)) : ?>
+                <div class="<?php echo $saved ? 'alert-success text-center' : 'alert-danger text-center' ?>" role="alert">
+                        <?php echo $saved ? '¡Usuario guardado con éxito!' : '¡Este usuario ya existe!' ?>
+                </div>
+        <?php endif; ?>
 
         <div class="container-fluid">
 
