@@ -21,13 +21,7 @@ require_once "shared/head.php"
 
         <div class="row">
             <div class="col-12 col-sm-3">
-                <img src=
-                <?php if (is_file('images/Bebidas/' . $producto->getImagen() . '.jpg')) : ?>
-                    <?= 'images/Bebidas/' . $producto->getImagen() . '.jpg' ?>
-                <?php else : ?>
-                    <?= 'images/Bebidas/imgND.jpg' ?>
-                <?php endif; ?> 
-                class=" rounded mx-auto d-block" alt="Responsive image">
+                <img src=<?php if (is_file('images/Bebidas/' . $producto->getImagen() . '.jpg')) : ?> <?= 'images/Bebidas/' . $producto->getImagen() . '.jpg' ?> <?php else : ?> <?= 'images/Bebidas/imgND.jpg' ?> <?php endif; ?> class=" rounded mx-auto d-block" alt="Responsive image">
             </div>
 
             <div class="col-12 col-sm-9">
@@ -75,30 +69,22 @@ require_once "shared/head.php"
             </div>
 
         </div>
-        
-    <div class="row p-2 mb-2 footer-1">
-        <h4 class="m-auto">Productos relacionados</h4>
-    </div>
+
+        <div class="row p-2 mb-2 footer-1">
+            <h4 class="m-auto">Productos relacionados</h4>
+        </div>
 
         <?php $listaProductos = DB::getProductsWithSimilarCategory($producto); ?>
 
         <div class="row">
             <?php foreach ($listaProductos as $producto) : ?>
                 <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
-                    <div class="card bg-transparent border border-dark rounded-lg"> 
+                    <div class="card bg-transparent border border-dark rounded-lg">
                         <h4 class="text-center p-1 cut-text"> <?= $producto->getName(); ?></h4>
-                        <img title = "<?= $producto->getName(); ?>" alt="<?= $producto->getName(); ?>" 
-                        src=
-                            <?php if(is_file('images/Bebidas/'. $producto->getImagen() .'.jpg')) : ?>
-                                <?= 'images/Bebidas/'. $producto->getImagen() .'.jpg' ?>
-                            <?php else : ?>
-                                <?= 'images/Bebidas/imgND.jpg' ?>
-                            <?php endif; ?> 
-                        data-toggle="popover" data-trigger="hover" data-content="<?=substr($producto->getDescripcion(),0,500).'...'?>"
-                        class="card-img p-1" style="z-index: 10;"> 
+                        <img title="<?= $producto->getName(); ?>" alt="<?= $producto->getName(); ?>" src=<?php if (is_file('images/Bebidas/' . $producto->getImagen() . '.jpg')) : ?> <?= 'images/Bebidas/' . $producto->getImagen() . '.jpg' ?> <?php else : ?> <?= 'images/Bebidas/imgND.jpg' ?> <?php endif; ?> data-toggle="popover" data-trigger="hover" data-content="<?= substr($producto->getDescripcion(), 0, 500) . '...' ?>" class="card-img p-1" style="z-index: 10;">
                         <div class="card-img-overlay text-right mt-5">
 
-                            <h4><?="$ ".$producto->getPrecio(); ?></h4>
+                            <h4><?= "$ " . $producto->getPrecio(); ?></h4>
 
                             <form method="get" action="Busqueda.php">
                                 <div class="form-group">
@@ -110,7 +96,7 @@ require_once "shared/head.php"
                                     Agregar
                                 </button>
                             </form>
-                            
+
                             <form method="get" action="detalles.php">
                                 <input type="hidden" name="id" id="id" value="<?= $producto->getIdProducto(); ?>">
                                 <button class="btn btn-warning w-50" type="submit">
@@ -123,17 +109,17 @@ require_once "shared/head.php"
                 </div>
             <?php endforeach; ?>
         </div>
+        <?php require_once "shared/footer.php" ?>
     </div>
 
-<?php require_once "shared/footer.php" ?>
 
-<?php require_once "shared/bts-js.php" ?>
+    <?php require_once "shared/bts-js.php" ?>
 
-<script>
-    $(function() {
-        $('[data-toggle="popover"]').popover()
-    });
-</script>
+    <script>
+        $(function() {
+            $('[data-toggle="popover"]').popover()
+        });
+    </script>
 </body>
 
 </html>

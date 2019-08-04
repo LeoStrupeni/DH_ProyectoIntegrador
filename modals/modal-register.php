@@ -15,22 +15,22 @@
                     </button>
                     <div class="form-group">
                         <label for="email" class="h4">Email </label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="<?= $_SESSION['Usuario']->getNombre(); ?>">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="">
                     </div>
                     <div class="form-group">
                         <label for="nombre" class="h4">Nombre</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su nombre" value="<?= $nombreDefault; ?>">
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su nombre" value="">
                     </div>
                     <div class="form-group">
                         <label for="apellido" class="h4">Apellido</label>
-                        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese su apellido" value="<?= $nombreDefault; ?>">
+                        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese su apellido" value="">
                     </div>
                     <div class="form-group">
                         <label for="documento" class="h4">Documento</label>
                         <input type="number" name="documento" id="documento" class="form-control" placeholder="Ingrese su documento" value="" required>
                     </div>
                     <div class="form-group">
-                        <label for="pais" class="h4">Pais de nacimiento</label>
+                        <label for="pais" class="h4">País de Origen</label>
                         <select class="form-control" id="pais">
                             <?php $paises = DB::getAllPaises(); ?>
                             <?php foreach ($paises as $pais) : ?>
@@ -43,21 +43,21 @@
                     </div>
                     <div class="form-group">
                         <label for="fecnac" class="h4">Fecha de nacimiento</label>
-                        <input type="date" name="fecnac" id="fecnac" class="form-control" value="<?= $fechaDefault; ?>">
+                        <input type="date" name="fecnac" id="fecnac" class="form-control" value="">
                     </div>
                     <div class="form-group">
-                        <label for="password" class="h4">Contrasena</label>
+                        <label for="password" class="h4">Contraseña</label>
                         <input type="password" name="password" id="password" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="password" class="h4">Confirmar contrasena</label>
+                        <label for="password" class="h4">Confirmar contraseña</label>
                         <input type="password" name="password-2" id="password-2" class="form-control">
                     </div>
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="terminos" required>
                             <label class="form-check-label">
-                                Aceptar terminos y condiciones
+                                Aceptar términos y condiciones
                             </label>
                         </div>
                     </div>

@@ -27,7 +27,7 @@
                 </div>
 
                 <form class="form-inline my-2 my-lg-0 mx-auto" action="Busqueda.php" method="post">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Busqueda" aria-label="Search" name="ParamBusqueda" required>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Búsqueda" aria-label="Search" name="ParamBusqueda" required>
                     <button class="btn btn-search my-2 my-sm-0" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
@@ -40,7 +40,7 @@
 
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3 text-center">
             <?php
-            if (isset($_SESSION)) {
+            if (isset($_SESSION['Usuario'])) {
                 echo    '<div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
                                 <a href="perfil.php" class="btn btn-nav btn-user">Perfil</a>

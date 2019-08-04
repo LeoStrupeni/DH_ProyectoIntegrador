@@ -8,11 +8,7 @@ abstract class DB
 
         $query = $connection->prepare("
             SELECT *
-            FROM usuarios as u 
-            INNER JOIN usuarios_perfil as u_p
-            ON u.IdPerfil = u_p.idUsuario_Perfil
-            INNER JOIN usuarios_tipodoc as u_t
-            ON u.TipoDoc = u_t.Id_Doc;
+            FROM usuarios;
             ");
 
         $query->execute();
@@ -21,14 +17,14 @@ abstract class DB
 
         $usersObject = [];
 
-        foreach ($users as $user) {
+        foreach ($users as $user => $key) {
             $userFinal = new Usuario(
-                $user['email'], 
-                $user['password'], 
-                $user['apellido'], 
-                $user['nombre'], 
-                $user['nacimiento'],
-                $user['documento']);
+                $key['Email'], 
+                $key['Password'], 
+                $key['Apellido'], 
+                $key['Nombre'], 
+                $key['Nacimiento'],
+                $key['Documento']);
 
             $usersObject[] = $userFinal;
         }
@@ -66,7 +62,7 @@ abstract class DB
         }
     }
 
-    private static function checkIfUserExists(Usuario $user): bool
+    public static function checkIfUserExists(Usuario $user): bool
     {
         //Obtengo todos los usuarios
         $users = self::getAllUsers();
@@ -79,11 +75,50 @@ abstract class DB
         }
 
         //Chequeo si el mail ya esta registrado
-        if (!in_array($user->getEmail(), $userEmails)) {
-            return false;
-        } else {
+        if (in_array($user->getEmail(), $userEmails)) {
             return true;
+        } else {
+            return false;
         }
+    }
+
+    public static function checkIfUserExistsWithEmail(string $email): bool
+    {
+        //Obtengo todos los usuarios
+        $users = self::getAllUsers();
+
+        $userEmails = [];
+
+        //Extraigo los emails de todos los usuarios
+        foreach ($users as $userInDb) {
+            $userEmails[] = $userInDb->getEmail();
+        }
+
+        //Chequeo si el mail ya esta registrado
+        if (in_array($email, $userEmails)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function getUserDataForLogIn(string $email): Usuario
+    {
+        global $connection;
+
+        $query = $connection->prepare("
+        SELECT * FROM usuarios
+        WHERE Email = :email");
+
+        $query->bindValue(':email', $email, PDO::PARAM_STR);
+
+        $query->execute();
+
+        $results = $query->fetch(PDO::FETCH_ASSOC);
+
+        $userLogged = new Usuario($results['Email'], $results['Password'], $results['Apellido'], $results['Nombre'], $results['Nacimiento'], (int)$results['Documento']);
+
+        return $userLogged;
     }
 
     public static function getAllProducts(): array

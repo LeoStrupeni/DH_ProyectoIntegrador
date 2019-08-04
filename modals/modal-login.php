@@ -6,7 +6,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
-      <form action="index.php" class="form p-2" method="POST">
+      <form action="index.php" class="form p-2" method="post">
         <div class="modal-body">
 
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -19,7 +19,7 @@
           </div>
 
           <div class="form-group">
-            <label for="password" class="h4">Contrasena</label>
+            <label for="password" class="h4">Contraseña</label>
             <input type="password" name="password" id="password" class="form-control">
           </div>
 
