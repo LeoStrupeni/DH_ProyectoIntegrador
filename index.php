@@ -8,18 +8,21 @@ if ($_POST) {
         if (empty($errores)) {
                 //Se puede crear un metodo estatico para formar este usuario?
                 $user = new Usuario(
-                        $_POST['email'], 
-                        $_POST['password'], 
-                        $_POST['apellido'], 
-                        $_POST['nombre'], 
-                        date('Y-m-d', strtotime($_POST['fecnac'])), 
-                        (int)$_POST['documento']
+                        $_POST['email'],
+                        $_POST['password'],
+                        $_POST['apellido'],
+                        $_POST['nombre'],
+                        date('Y-m-d', strtotime($_POST['fecnac'])),
+                        (int) $_POST['documento']
                 );
                 session_start();
                 var_dump($user);
-                echo DB::saveUser($user);
+                if (DB::saveUser($user)) {
+                        header('Location:index.php');
+                } else {
+                        echo "Este usuario ya existe";
+                }
                 exit;
-                header('Location:index.php');
         } else {
                 var_dump($_POST);
                 var_dump($errores);

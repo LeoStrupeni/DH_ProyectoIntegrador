@@ -44,7 +44,7 @@
                     <div class="form-group">
                         <label for="pais" class="h4">Pais de nacimiento</label>
                         <select class="form-control" id="pais">
-                            <?php $paises = DB::getPaises(); ?>
+                            <?php $paises = DB::getAllPaises(); ?>
                             <?php foreach ($paises as $pais) : ?>
                                 <?php $nombre = $pais->getNombre(); ?>
                                 <option value=<?= $nombre ?>>

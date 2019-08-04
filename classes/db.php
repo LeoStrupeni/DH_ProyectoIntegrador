@@ -113,7 +113,7 @@ abstract class DB
         return $productsObjects;
     }
 
-    public static function getPaises(): array
+    public static function getAllPaises(): array
     {
         global $connection;
 
