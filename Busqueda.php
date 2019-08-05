@@ -162,37 +162,49 @@ require_once "shared/head.php"
     </div>
 
 
-    <nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
-        <p class="navbar-brand">Filtros</p>
+    <nav class="navbar fixed-bottom navbar-dark bg-dark">
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+        <p class="navbar-brand">Filtros</p>
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <?php
                 $query="SELECT distinct `Nombre` FROM `prod_marcas`";
-                $sentencia=$pdo->prepare($query);
-                $sentencia->execute();   
+                $sentencia=$pdo->query($query);  
                 $listaMarcas=$sentencia->fetchall(PDO::FETCH_ASSOC);  
 
                 $query="SELECT `Nombre` FROM `prod_categorias` 
                     WHERE `idCategoria` IN (SELECT DISTINCT `idCategoriaPadre` FROM `prod_categorias`)";
-                $sentencia=$pdo->prepare($query);
-                $sentencia->execute();   
+                $sentencia=$pdo->query($query);   
                 $listaCatPadre=$sentencia->fetchall(PDO::FETCH_ASSOC);  
                 
                 $query="SELECT `Nombre`,`idCategoriaPadre` FROM `prod_categorias` 
                         WHERE `idCategoria` NOT IN (SELECT DISTINCT `idCategoriaPadre` FROM `prod_categorias`)";
-                $sentencia=$pdo->prepare($query);
-                $sentencia->execute();   
+                $sentencia=$pdo->query($query);   
                 $listaSubCat=$sentencia->fetchall(PDO::FETCH_ASSOC);  
+
+                $query="SELECT DISTINCT ROUND(`Graduacion`*100,0) as GRAD
+                        FROM `productos` WHERE `Graduacion` IS NOT NULL ORDER BY GRAD";
+                $sentencia=$pdo->query($query); 
+                $graduaciones=$sentencia->fetchall(PDO::FETCH_ASSOC);  
+
+                $query="SELECT DISTINCT `Origen` FROM `productos` WHERE `Origen` IS NOT NULL ORDER BY `Origen`";
+                $sentencia=$pdo->query($query); 
+                $origenes=$sentencia->fetchall(PDO::FETCH_ASSOC);  
+                
+
+                $query="SELECT DISTINCT `Volumen` from productos WHERE `Volumen` IS NOT NULL ORDER BY `Volumen`";
+                $sentencia=$pdo->query($query);
+                $volumenes=$sentencia->fetchall(PDO::FETCH_ASSOC);  
             ?>
 
-            <form>
+            <form action="" method="">
                 <div class="form-group row">
-                    <div class="col-4">
-                        <input list="marca" placeholder="Marca" class="rounded-pill pl-2">
+                    <div class="col-2">
+                        <input list="marca" placeholder="Marca" class="w-100 rounded">
                         <datalist id="marca">
                             <?php foreach ($listaMarcas as $marca) :?>
                             <option value="<?=$marca['Nombre']?>">
@@ -200,7 +212,7 @@ require_once "shared/head.php"
                         </datalist> 
                     </div>
 
-                    <div class="col-3">
+                    <div class="col-2">
                         <select class="custom-select custom-select-sm" name="categoria">
                             <option selected>Categoria</option>
                             <?php foreach ($listaCatPadre as $catPadre) :?>
@@ -209,7 +221,7 @@ require_once "shared/head.php"
                         </select>
                     </div>
                    
-                    <div class="col-3">
+                    <div class="col-2">
                         <select class="custom-select custom-select-sm" name="subcategoria">
                             <option selected>Sub Categoria</option>
                             <?php foreach ($listaSubCat as $subCat) :?>
@@ -217,6 +229,34 @@ require_once "shared/head.php"
                             <?php endforeach;?>  
                         </select>
                     </div>
+
+                    <div class="col-2">
+                        <select class="custom-select custom-select-sm" name="graduacion">
+                            <option selected>Graduacion</option>
+                            <?php foreach ($graduaciones as $graduacion) :?>
+                            <option value="<?=$graduacion['GRAD']?>"><?=$graduacion['GRAD']." %"?></option>
+                            <?php endforeach;?>  
+                            </select>
+                    </div>
+
+                    <div class="col-2">
+                        <select class="custom-select custom-select-sm" name="graduacion">
+                            <option selected>Origen</option>
+                            <?php foreach ($origenes as $origen) :?>
+                            <option value="<?=$origen['Origen']?>"><?=$origen['Origen']?></option>
+                            <?php endforeach;?>  
+                            </select>
+                    </div>
+
+                    <div class="col-2">
+                        <select class="custom-select custom-select-sm" name="graduacion">
+                            <option selected>Volumen</option>
+                            <?php foreach ($volumenes as $volumen) :?>
+                            <option value="<?=$volumen['Volumen']?>"><?=$volumen['Volumen']." ml"?></option>
+                            <?php endforeach;?>  
+                            </select>
+                    </div>
+
                 </div>
             </form>
        
