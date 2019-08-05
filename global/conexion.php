@@ -1,12 +1,31 @@
 <?php
 
-$servidor="mysql:host=".SERVIDOR.";dbname=".DB.";port=".PORT;
+$user = 'root';
+$pass = '';
 
-    try {
-        $pdo = new PDO($servidor, USUARIO, PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES utf8"));
+try {
+    $connection = new PDO(
+        "mysql:host=127.0.0.1; dbname=tienda; port=3306",
+        $user,
+        $pass,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
         // echo "<Script>alert('Conectado ... ')</Script>";
-    } catch(\Exception $e ) {   
-        // echo "<Script>alert('Error ... ')</Script>";exit;
-    };
+    );
+} catch (PDOException $exception) {
+    echo $exception->getMessage();
+    // echo "<Script>alert('Error ... ')</Script>";exit;
+}
 
-?>
+//Duplico linea hasta refactorizar la pagina de Busqueda con PDO
+try {
+    $pdo = new PDO(
+        "mysql:host=127.0.0.1; dbname=tienda; port=3306",
+        $user,
+        $pass,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+        // echo "<Script>alert('Conectado ... ')</Script>";
+    );
+} catch (PDOException $exception) {
+    echo $exception->getMessage();
+    // echo "<Script>alert('Error ... ')</Script>";exit;
+}

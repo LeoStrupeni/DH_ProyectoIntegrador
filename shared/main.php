@@ -1,3 +1,5 @@
+<?php require_once "./global/autoload.php"; ?>
+
 <div class="row">
     <div class="col p-0">
         <div id="carouselBebidas" class="carousel slide" data-ride="carousel">
@@ -52,25 +54,24 @@
     </div>
 </div>
 
-<?php
-$sentencia = $pdo->prepare('SELECT * FROM productos where idProductos < 9');
-$sentencia->execute();
-$listaProductos = $sentencia->fetchall(PDO::FETCH_ASSOC);
-?>
-
 
 <div class="row">
+
+    <?php $listaProductos = DB::getAllProducts(); ?>
+
     <?php foreach ($listaProductos as $producto) : ?>
         <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
             <div class="card bg-transparent mb-1 border border-dark rounded-lg">
-                <img title="<?= $producto['Name'] ?>" alt="<?= $producto['Name'] ?>" src=<?php if (is_file('images/Bebidas/' . $producto['imagen'] . '.jpg')) {
-                                echo 'images/Bebidas/' . $producto['imagen'] . '.jpg';
-                            } else {
-                                echo 'images/Bebidas/imgND.jpg';
-                            } ?> class="card-img m-auto p-1">
+                <img title="<?= $producto->getName(); ?>" alt="<?= $producto->getName(); ?>" src=
+                    <?php if (is_file('images/Bebidas/' . $producto->getImagen() . '.jpg')) : ?>
+                            <?php echo 'images/Bebidas/' . $producto->getImagen() . '.jpg'; ?>
+                    <?php else : ?>
+                            <?php echo 'images/Bebidas/imgND.jpg' ?>
+                    <?php endif; ?>            
+                class="card-img m-auto p-1">
                 <div class="card-img-overlay text-right">
                     <form method="get" action="detalles.php">
-                        <input type="hidden" name="id" id="id" value="<?= $producto['idProductos'] ?>">
+                        <input type="hidden" name="id" id="id" value="<?= $producto->getIdProducto(); ?>">
                         <button class="btn btn-amarillo" type="submit" name="" value="">
                             + Detalles
                         </button>
@@ -79,6 +80,5 @@ $listaProductos = $sentencia->fetchall(PDO::FETCH_ASSOC);
             </div>
         </div>
     <?php endforeach; ?>
-
 
 </div>
