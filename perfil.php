@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
+
 <?php
 
 $nombre = "Perfil usuario";
@@ -34,6 +35,12 @@ session_start();
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="billing-tab" data-toggle="tab" href="#billing" role="tab" aria-controls="billing" aria-selected="false">Facturacion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="productos-tab" data-toggle="tab" href="#productos" role="tab" aria-controls="productos" aria-selected="false">Mis Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="alta-tab" data-toggle="tab" href="#alta" role="tab" aria-controls="alta" aria-selected="false">Altas Productos</a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -92,16 +99,27 @@ session_start();
                                 <label for="tarjetas">Tarjetas asociadas</label>
                                 <input type="text" name="" id="" placeholder="Mostrar tarjetas asociadas..." class="form-control">
                             </div>
+                        </form>
+                    </div>
+                
+                    <div class="tab-pane fade" id="productos" role="tabpanel" aria-labelledby="productos-tab">
+                        <?php 
+                        include 'abm.php';
+                        ?>
                     </div>
 
-                    </form>
+                    <div class="tab-pane fade" id="alta" role="tabpanel" aria-labelledby="alta-tab">
+                        <?php 
+                            include 'Abm_addProduct.php';
+                        ?>
+                    </div>
+              
                 </div>
-
             </div>
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-2">
+            <div class="col-md-6 text-center my-2">
                 <button type="button" class="btn btn-success">Guardar</button>
             </div>
         </div>
