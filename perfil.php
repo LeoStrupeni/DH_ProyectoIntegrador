@@ -22,7 +22,7 @@ session_start();
             </div>
             <div class="col-sm-12">
                 <h1 class="text-center">Hola,
-                    <?= $_SESSION['Usuario']->getNombre();  ?>
+                    <?=$_SESSION['Usuario']->getNombre();?>
                 </h1>
             </div>
         </div>

@@ -58,7 +58,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         };
     };
 
-    header('Location: perfil.php');
+    header('Location:perfil.php');
 }
 ?>
 
