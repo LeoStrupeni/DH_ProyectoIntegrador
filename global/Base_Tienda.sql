@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-08-2019 a las 02:22:40
--- Versión del servidor: 10.1.39-MariaDB
--- Versión de PHP: 7.3.5
+-- Tiempo de generación: 06-08-2019 a las 04:15:11
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -3215,6 +3215,35 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `productos_usuarios`
+--
+
+CREATE TABLE `productos_usuarios` (
+  `idProductos` int(11) NOT NULL,
+  `IdUsuario` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Descripcion` text NOT NULL,
+  `Precio` decimal(10,2) UNSIGNED NOT NULL,
+  `Graduacion` decimal(10,2) DEFAULT NULL,
+  `Origen` varchar(30) NOT NULL,
+  `imagen` varchar(100) NOT NULL,
+  `anio` int(11) DEFAULT NULL,
+  `Volumen` int(11) DEFAULT NULL,
+  `Marcas_idMarcas` int(11) NOT NULL,
+  `Categoria` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos_usuarios`
+--
+
+INSERT INTO `productos_usuarios` (`idProductos`, `IdUsuario`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+(3112, 1, 'Algo para Tomar', 'asdadasdasd\r\nasdasd\r\n\r\nasd\r\n', '123333.00', '40.00', 'Chile', '100_Pipers.jpg', 2019, 910, 10, 30),
+(3113, 1, 'Algo para Tomar', 'asdadasdasd\r\nasdasd\r\n\r\nasd\r\n', '123333.00', '40.00', 'Chile', '100_Pipers.jpg', 2019, 910, 10, 30);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `prod_categorias`
 --
 
@@ -3772,7 +3801,8 @@ INSERT INTO `usuarios` (`idUsuarios`, `Email`, `Password`, `IdPerfil`, `TipoDoc`
 (1, 'Test@test.com', '$2y$10$livmGyK/4A4QbVcgdICsLObJlgN1YXjOBmWOg.6aUAuLwRWXdm1e2', 0, '', 0, 'Cortez', 'Santiago', '0000-00-00', 0, '', 0, 0, '', 0),
 (2, 'tes@rest.cm', '$2y$10$jQv.6F0vcXiZrSdQtVdJweodxhPDA2BiByYIUGnu0Fw..9M.c5wW6', 0, '', 37299940, 'Cortez', 'Santiago', '1980-08-15', 0, '', 0, 0, '', 0),
 (7, 'otro@test.com', '$2y$10$ZzUy.S926mmoru05N8kjM.qJ6D6StujOLGdv.yuJpLfy/3Bf3zSfy', 0, '', 3568623, 'Cortez', 'Fernando', '1980-08-09', 0, '', 0, 0, '', 0),
-(9, 'admin@admin.com', '$2y$10$Hi0Ohv4cpBqAeUXzS4rO3eiHdwBwV/RMfI2h//NxCuQNzVSf4uQWO', 0, '', 376513651, 'Admin', 'Admin', '1980-08-10', 0, '', 0, 0, '', 0);
+(9, 'admin@admin.com', '$2y$10$Hi0Ohv4cpBqAeUXzS4rO3eiHdwBwV/RMfI2h//NxCuQNzVSf4uQWO', 0, '', 376513651, 'Admin', 'Admin', '1980-08-10', 0, '', 0, 0, '', 0),
+(10, 'leonardo.strupeni@gmail.com', '$2y$10$c25CQuOEZBskh8P1pqYqbOME7.dWYJWD9g98hwKBNudPA5.S64pW2', 0, '', 32734258, 'Leo', 'Strupeni', '1986-12-21', 0, '', 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -3909,6 +3939,12 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`idProductos`,`Marcas_idMarcas`);
 
 --
+-- Indices de la tabla `productos_usuarios`
+--
+ALTER TABLE `productos_usuarios`
+  ADD PRIMARY KEY (`idProductos`) USING BTREE;
+
+--
 -- Indices de la tabla `prod_categorias`
 --
 ALTER TABLE `prod_categorias`
@@ -3987,6 +4023,12 @@ ALTER TABLE `productos`
   MODIFY `idProductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3109;
 
 --
+-- AUTO_INCREMENT de la tabla `productos_usuarios`
+--
+ALTER TABLE `productos_usuarios`
+  MODIFY `idProductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3114;
+
+--
 -- AUTO_INCREMENT de la tabla `prod_categorias`
 --
 ALTER TABLE `prod_categorias`
@@ -4002,7 +4044,7 @@ ALTER TABLE `prod_marcas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_perfil`
