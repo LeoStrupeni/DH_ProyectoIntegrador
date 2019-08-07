@@ -8,7 +8,7 @@ session_start();
 if ($_POST) {
         //Metodo rustico para chequear si el usuario quiere loguearse o registrarse - TO REFACTOR
         if (count($_POST) == 3) {
-                $existe = DB::checkIfUserExistsWithEmail($_POST['email'], $_POST['password']);
+                $existe = DB::validateUserByEmail($_POST['email'], $_POST['password']);
                 if ($existe) {
                         $_SESSION['Usuario'] = DB::getUserDataForLogIn($_POST['email']);
                 }
@@ -26,7 +26,6 @@ if ($_POST) {
                         );
                         $user->setPassword($_POST['password']);
                         $_SESSION['Usuario'] = $user;
-                        var_dump($_SESSION);
                         $saved = DB::saveUser($user);
                 } else {
                         header('Location:index.php');
