@@ -1,7 +1,6 @@
 <?php
-include 'global/config.php';
-include 'global/conexion.php';
 require_once 'global/autoload.php';
+session_start();
 ?>
 
 <!DOCTYPE html>

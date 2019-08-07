@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-07-2019 a las 02:20:33
+-- Tiempo de generación: 06-08-2019 a las 04:15:11
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.4
 
@@ -57,6 +57,19 @@ CREATE TABLE `dom_pais` (
   `Nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `dom_pais`
+--
+
+INSERT INTO `dom_pais` (`Id_Pais`, `Nombre`) VALUES
+(1, 'Argentina'),
+(2, 'Brasil'),
+(3, 'Chile'),
+(4, 'Uruguay'),
+(5, 'Paraguay'),
+(6, 'Bolivia'),
+(7, 'Paraguay');
+
 -- --------------------------------------------------------
 
 --
@@ -71,7 +84,7 @@ CREATE TABLE `productos` (
   `Graduacion` decimal(10,2) DEFAULT NULL,
   `Origen` varchar(30) NOT NULL,
   `imagen` varchar(100) NOT NULL,
-  `Año` int(11) DEFAULT NULL,
+  `Anio` int(11) DEFAULT NULL,
   `Volumen` int(11) DEFAULT NULL,
   `Marcas_idMarcas` int(11) NOT NULL,
   `Categoria` int(11) NOT NULL
@@ -81,7 +94,7 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (1, '100 Pipers', '', '259.00', NULL, 'Escocia', '100_Pipers', NULL, 750, 1, 51),
 (2, 'Fernet 1882', 'Fernet 1882 es una bebida con alcohol de extractos vegetales muy consumida en Argentina, sobre todo en la region de Cordoba, lugar donde se elabora este licor.', '182.00', '0.45', 'Argentina / Cordoba', 'Fernet_1882', NULL, 750, 2, 7),
 (3, 'Abbaye D Aulne Blonde', '', '189.00', NULL, 'Belgica', 'Abbaye_D_Aulne_Blonde', NULL, 330, 3, 3),
@@ -445,7 +458,7 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (361, 'Callejon Del Crimen Gran Reserva Cabernet Sauvignon', '', '585.00', NULL, 'Argentina / Mendoza', 'Callejon_Del_Crimen_Gran_Reserva_Cabernet_Sauvignon', NULL, NULL, 73, 44),
 (362, 'Callejon Del Crimen Reserva Cabernet Sauvignon', '', '399.00', NULL, 'Argentina / Mendoza', 'Callejon_Del_Crimen_Reserva_Cabernet_Sauvignon', NULL, NULL, 73, 44),
 (363, 'Callejon Del Crimen Gran Reserva Malbec', '', '585.00', NULL, 'Argentina / Mendoza', 'Callejon_Del_Crimen_Gran_Reserva_Malbec', NULL, NULL, 73, 45);
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (364, 'Callejon Del Crimen Reserva Malbec', '', '399.00', NULL, 'Argentina / Mendoza', 'Callejon_Del_Crimen_Reserva_Malbec', NULL, NULL, 73, 45),
 (365, 'Callejon Del Crimen Gran Reserva Merlot', '', '585.00', NULL, 'Argentina / Mendoza', 'Callejon_Del_Crimen_Gran_Reserva_Merlot', NULL, NULL, 73, 46),
 (366, 'Callejon Del Crimen Gran Reserva Petit Verdot', '', '585.00', NULL, 'Argentina / Mendoza', 'Callejon_Del_Crimen_Gran_Reserva_Petit_Verdot', NULL, NULL, 73, 47),
@@ -812,7 +825,7 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (727, 'Samchen Gran Reserva Cabernet Sauvignon', '', '446.00', NULL, 'Argentina / Mendoza', 'Samchen_Gran_Reserva_Cabernet_Sauvignon', NULL, NULL, 123, 44),
 (728, 'Cuvelier Los Andes Coleccion Malbec', '', '604.00', NULL, 'Argentina / Mendoza', 'Cuvelier_Los_Andes_Coleccion_Malbec', NULL, NULL, 123, 45),
 (729, 'Cuvelier Los Andes Grand Malbec', '', '2145.00', NULL, 'Argentina / Mendoza', 'Cuvelier_Los_Andes_Grand_Malbec', NULL, NULL, 123, 45);
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (730, 'Samchen Gran Reserva Malbec', '', '446.00', NULL, 'Argentina / Mendoza', 'Samchen_Gran_Reserva_Malbec', NULL, NULL, 123, 45),
 (731, 'Samchen Malbec', '', '279.00', NULL, 'Argentina / Mendoza', 'Samchen_Malbec', NULL, NULL, 123, 45),
 (732, 'Cuvelier Los Andes Coleccion Merlot', '', '604.00', NULL, 'Argentina / Mendoza', 'Cuvelier_Los_Andes_Coleccion_Merlot', NULL, NULL, 123, 46),
@@ -1171,7 +1184,7 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (1085, 'Miguel Escorihuela Gascon Malbec', '', '1550.00', NULL, 'Argentina / Mendoza', 'Miguel_Escorihuela_Gascon_Malbec', NULL, NULL, 160, 45),
 (1086, 'Pequenias Producciones Malbec', '', '830.00', NULL, 'Argentina / Mendoza', 'Pequenias_Producciones_Malbec', NULL, NULL, 160, 45),
 (1087, 'Escorihuela Gascon Pinot Noir', '', '430.00', NULL, 'Argentina / Mendoza', 'Escorihuela_Gascon_Pinot_Noir', NULL, NULL, 160, 48);
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (1088, 'Pequenias Producciones Pinot Noir', '', '830.00', NULL, 'Argentina / Mendoza', 'Pequenias_Producciones_Pinot_Noir', NULL, NULL, 160, 48),
 (1089, 'Escorihuela Gascon Gran Reserva Syrah', '', '630.00', NULL, 'Argentina / Mendoza', 'Escorihuela_Gascon_Gran_Reserva_Syrah', NULL, NULL, 160, 49),
 (1090, 'Escorihuela Gascon Syrah', '', '430.00', NULL, 'Argentina / Mendoza', 'Escorihuela_Gascon_Syrah', NULL, NULL, 160, 49),
@@ -1556,7 +1569,7 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (1469, 'Gouguenheim Syrah', '', '280.00', NULL, 'Argentina / Mendoza', 'Gouguenheim_Syrah', NULL, NULL, 209, 49),
 (1470, 'Goyenechea Brut Nature', '', '441.00', NULL, 'Argentina / Mendoza', 'Goyenechea_Brut_Nature', NULL, NULL, 210, 23),
 (1471, 'Goyenechea Chardonnay Tocai', '', '168.00', NULL, 'Argentina / Mendoza', 'Goyenechea_Chardonnay_Tocai', NULL, NULL, 210, 28);
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (1472, 'Goyenechea Chardonnay', '', '168.00', NULL, 'Argentina / Mendoza', 'Goyenechea_Chardonnay', NULL, NULL, 210, 29),
 (1473, 'Goyenechea Centenario Sauvignon Blanc', '', '280.00', NULL, 'Argentina / Mendoza', 'Goyenechea_Centenario_Sauvignon_Blanc', NULL, NULL, 210, 31),
 (1474, 'Goyenechea Clasico Sauvignon Blanc', '', '168.00', NULL, 'Argentina / Mendoza', 'Goyenechea_Clasico_Sauvignon_Blanc', NULL, NULL, 210, 31),
@@ -1952,7 +1965,7 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (1864, 'Abrasado Historic Blends Cabernet Malbec Merlot', '', '520.00', NULL, 'Argentina / Mendoza', 'Abrasado_Historic_Blends_Cabernet_Malbec_Merlot', NULL, NULL, 274, 45),
 (1865, 'Abrasado Historic Blends Malbec Bonarda', '', '520.00', NULL, 'Argentina / Mendoza', 'Abrasado_Historic_Blends_Malbec_Bonarda', NULL, NULL, 274, 45),
 (1866, 'Abrasado Terroir Selection Malbec', '', '380.00', NULL, 'Argentina / Mendoza', 'Abrasado_Terroir_Selection_Malbec', NULL, NULL, 274, 45);
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (1867, 'Abrasado Unique Parcel Gran Malbec', '', '890.00', NULL, 'Argentina / Mendoza', 'Abrasado_Unique_Parcel_Gran_Malbec', NULL, NULL, 274, 45),
 (1868, 'Louis Roederer Brut Cristal Champagne', '', '21000.00', NULL, 'Francia', 'Louis_Roederer_Brut_Cristal_Champagne', NULL, NULL, 275, 20),
 (1869, 'Ltu Malbec', '', '1650.00', NULL, 'Argentina / Mendoza', 'Ltu_Malbec', NULL, NULL, 276, 45),
@@ -2334,7 +2347,7 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (2245, 'Norton Cosecha Especial Brut Nature', '', '357.00', NULL, 'Argentina / Mendoza', 'Norton_Cosecha_Especial_Brut_Nature', NULL, NULL, 323, 23),
 (2246, 'Norton Demi Sec', '', '183.00', NULL, 'Argentina / Mendoza', 'Norton_Demi_Sec', NULL, NULL, 323, 24),
 (2247, 'Norton Cosecha Tardia Espumante Dulce', '', '223.00', NULL, 'Argentina / Mendoza', 'Norton_Cosecha_Tardia_Espumante_Dulce', NULL, NULL, 323, 25);
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (2248, 'Norton Cosecha Tardia Espumante Dulce Rosado', '', '223.00', NULL, 'Argentina / Mendoza', 'Norton_Cosecha_Tardia_Espumante_Dulce_Rosado', NULL, NULL, 323, 25),
 (2249, 'Norton Espumante Dulce', '', '183.00', NULL, 'Argentina / Mendoza', 'Norton_Espumante_Dulce', NULL, NULL, 323, 25),
 (2250, 'Norton Cosecha Especial Extra Brut', '', '314.00', NULL, 'Argentina / Mendoza', 'Norton_Cosecha_Especial_Extra_Brut', NULL, NULL, 323, 26),
@@ -2721,7 +2734,7 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (2631, 'Numina Syrah', '', '610.00', NULL, 'Argentina / Mendoza', 'Numina_Syrah', NULL, NULL, 366, 49),
 (2632, 'Portillo Syrah', '', '195.00', NULL, 'Argentina / Mendoza', 'Portillo_Syrah', NULL, NULL, 366, 49),
 (2633, 'Coquena Torrontes', '', '260.00', NULL, 'Argentina / Salta', 'Coquena_Torrontes', NULL, NULL, 367, 33);
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (2634, 'San Pedro De Yacochuya Torrontes', '', '460.00', NULL, 'Argentina / Salta', 'San_Pedro_De_Yacochuya_Torrontes', NULL, NULL, 367, 33),
 (2635, 'Coquena Rosado De Malbec', '', '295.00', NULL, 'Argentina / Salta', 'Coquena_Rosado_De_Malbec', NULL, NULL, 367, 37),
 (2636, 'Coquena Cabernet Sauvignon', '', '295.00', NULL, 'Argentina / Salta', 'Coquena_Cabernet_Sauvignon', NULL, NULL, 367, 44),
@@ -3120,7 +3133,7 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (3029, 'Vicentin Colosso Malbec', '', '1201.00', NULL, 'Argentina / Mendoza', 'Vicentin_Colosso_Malbec', NULL, NULL, 419, 45),
 (3030, 'Vicentin Espumante Rosado De Malbec', '', '467.00', NULL, 'Argentina / Mendoza', 'Vicentin_Espumante_Rosado_De_Malbec', NULL, NULL, 419, 45),
 (3031, 'Vicentin Gen Malbec', '', '511.00', NULL, 'Argentina / Mendoza', 'Vicentin_Gen_Malbec', NULL, NULL, 419, 45);
-INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Año`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `Anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
 (3032, 'Vicentin Robusto Malbec', '', '511.00', NULL, 'Argentina / Mendoza', 'Vicentin_Robusto_Malbec', NULL, NULL, 419, 45),
 (3033, 'Vicentin Voraz Malbec', '', '511.00', NULL, 'Argentina / Mendoza', 'Vicentin_Voraz_Malbec', NULL, NULL, 419, 45),
 (3034, 'Banda De Los Tres Sucios El Contrabandista Petit Verdot', '', '697.00', NULL, 'Argentina / Mendoza', 'Banda_De_Los_Tres_Sucios_El_Contrabandista_Petit_Verdot', NULL, NULL, 419, 47),
@@ -3198,6 +3211,35 @@ INSERT INTO `productos` (`idProductos`, `Name`, `Descripcion`, `Precio`, `Gradua
 (3106, 'Zorzal Gran Terroir Pinot Noir', '', '710.00', NULL, 'Argentina / Mendoza', 'Zorzal_Gran_Terroir_Pinot_Noir', NULL, NULL, 437, 48),
 (3107, 'Zorzal Porfiado Pinot Noir', '', '3210.00', NULL, 'Argentina / Mendoza', 'Zorzal_Porfiado_Pinot_Noir', NULL, NULL, 437, 48),
 (3108, 'Zorzal Terroir Unico Pinot Noir', '', '430.00', NULL, 'Argentina / Mendoza', 'Zorzal_Terroir_Unico_Pinot_Noir', NULL, NULL, 437, 48);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos_usuarios`
+--
+
+CREATE TABLE `productos_usuarios` (
+  `idProductos` int(11) NOT NULL,
+  `IdUsuario` int(11) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Descripcion` text NOT NULL,
+  `Precio` decimal(10,2) UNSIGNED NOT NULL,
+  `Graduacion` decimal(10,2) DEFAULT NULL,
+  `Origen` varchar(30) NOT NULL,
+  `imagen` varchar(100) NOT NULL,
+  `anio` int(11) DEFAULT NULL,
+  `Volumen` int(11) DEFAULT NULL,
+  `Marcas_idMarcas` int(11) NOT NULL,
+  `Categoria` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `productos_usuarios`
+--
+
+INSERT INTO `productos_usuarios` (`idProductos`, `IdUsuario`, `Name`, `Descripcion`, `Precio`, `Graduacion`, `Origen`, `imagen`, `anio`, `Volumen`, `Marcas_idMarcas`, `Categoria`) VALUES
+(3112, 1, 'Algo para Tomar', 'asdadasdasd\r\nasdasd\r\n\r\nasd\r\n', '123333.00', '40.00', 'Chile', '100_Pipers.jpg', 2019, 910, 10, 30),
+(3113, 1, 'Algo para Tomar', 'asdadasdasd\r\nasdasd\r\n\r\nasd\r\n', '123333.00', '40.00', 'Chile', '100_Pipers.jpg', 2019, 910, 10, 30);
 
 -- --------------------------------------------------------
 
@@ -3751,6 +3793,17 @@ CREATE TABLE `usuarios` (
   `Ciudad` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`idUsuarios`, `Email`, `Password`, `IdPerfil`, `TipoDoc`, `Documento`, `Apellido`, `Nombre`, `Nacimiento`, `Telefono`, `Calle`, `Altura`, `Piso`, `Dpto`, `Ciudad`) VALUES
+(1, 'Test@test.com', '$2y$10$livmGyK/4A4QbVcgdICsLObJlgN1YXjOBmWOg.6aUAuLwRWXdm1e2', 0, '', 0, 'Cortez', 'Santiago', '0000-00-00', 0, '', 0, 0, '', 0),
+(2, 'tes@rest.cm', '$2y$10$jQv.6F0vcXiZrSdQtVdJweodxhPDA2BiByYIUGnu0Fw..9M.c5wW6', 0, '', 37299940, 'Cortez', 'Santiago', '1980-08-15', 0, '', 0, 0, '', 0),
+(7, 'otro@test.com', '$2y$10$ZzUy.S926mmoru05N8kjM.qJ6D6StujOLGdv.yuJpLfy/3Bf3zSfy', 0, '', 3568623, 'Cortez', 'Fernando', '1980-08-09', 0, '', 0, 0, '', 0),
+(9, 'admin@admin.com', '$2y$10$Hi0Ohv4cpBqAeUXzS4rO3eiHdwBwV/RMfI2h//NxCuQNzVSf4uQWO', 0, '', 376513651, 'Admin', 'Admin', '1980-08-10', 0, '', 0, 0, '', 0),
+(10, 'leonardo.strupeni@gmail.com', '$2y$10$c25CQuOEZBskh8P1pqYqbOME7.dWYJWD9g98hwKBNudPA5.S64pW2', 0, '', 32734258, 'Leo', 'Strupeni', '1986-12-21', 0, '', 0, 0, '', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -3886,6 +3939,12 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`idProductos`,`Marcas_idMarcas`);
 
 --
+-- Indices de la tabla `productos_usuarios`
+--
+ALTER TABLE `productos_usuarios`
+  ADD PRIMARY KEY (`idProductos`) USING BTREE;
+
+--
 -- Indices de la tabla `prod_categorias`
 --
 ALTER TABLE `prod_categorias`
@@ -3905,8 +3964,6 @@ ALTER TABLE `prod_marcas`
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuarios`),
   ADD UNIQUE KEY `email_UNIQUE` (`Email`),
-  ADD UNIQUE KEY `Documento_UNIQUE` (`Documento`),
-  ADD UNIQUE KEY `Telefono_UNIQUE` (`Telefono`),
   ADD KEY `IdPerfil` (`IdPerfil`),
   ADD KEY `TipoDoc` (`TipoDoc`),
   ADD KEY `Ciudad` (`Ciudad`);
@@ -3957,13 +4014,19 @@ ALTER TABLE `dom_estado`
 -- AUTO_INCREMENT de la tabla `dom_pais`
 --
 ALTER TABLE `dom_pais`
-  MODIFY `Id_Pais` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
   MODIFY `idProductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3109;
+
+--
+-- AUTO_INCREMENT de la tabla `productos_usuarios`
+--
+ALTER TABLE `productos_usuarios`
+  MODIFY `idProductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3114;
 
 --
 -- AUTO_INCREMENT de la tabla `prod_categorias`
@@ -3981,7 +4044,7 @@ ALTER TABLE `prod_marcas`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_perfil`

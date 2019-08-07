@@ -2,7 +2,8 @@
 <html lang="es" dir="ltr">
 <?php
 $nombre = "Preguntas Frecuentes";
-require_once "shared/head.php"
+require_once "shared/head.php";
+session_start();
 ?>
 
 <body>
