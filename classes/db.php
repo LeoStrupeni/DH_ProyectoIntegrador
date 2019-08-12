@@ -17,19 +17,39 @@ abstract class DB
 
         $usersObject = [];
 
+        //Busco la manera de no implementar el constructor ya que vuelvo a hashear las passwords
         foreach ($users as $user => $key) {
             $userFinal = new Usuario(
-                $key['Email'], 
-                $key['Password'], 
-                $key['Apellido'], 
-                $key['Nombre'], 
+                $key['Email'],
+                $key['Apellido'],
+                $key['Nombre'],
                 $key['Nacimiento'],
-                $key['Documento']);
+                $key['Documento']
+            );
+
+            $userFinal->setPasswordFromDB($key['Password']);
 
             $usersObject[] = $userFinal;
         }
 
         return $usersObject;
+    }
+
+    public static function getAllUserByEmail(string $email): array
+    {
+        global $connection;
+
+        $query = $connection->prepare("SELECT * 
+        FROM usuarios
+        WHERE Email = :email");
+
+        $query->bindValue(':email', $email, PDO::PARAM_STR);
+
+        $query->execute();
+
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
     }
 
     public static function saveUser(Usuario $user): bool
@@ -82,20 +102,10 @@ abstract class DB
         }
     }
 
-    public static function checkIfUserExistsWithEmail(string $email): bool
+    public static function validateUserByEmail(string $email, $password): bool
     {
-        //Obtengo todos los usuarios
-        $users = self::getAllUsers();
-
-        $userEmails = [];
-
-        //Extraigo los emails de todos los usuarios
-        foreach ($users as $userInDb) {
-            $userEmails[] = $userInDb->getEmail();
-        }
-
-        //Chequeo si el mail ya esta registrado
-        if (in_array($email, $userEmails)) {
+        $user = DB::getAllUserByEmail($email);
+        if (password_verify($password, $user['Password'])) {
             return true;
         } else {
             return false;
@@ -116,7 +126,8 @@ abstract class DB
 
         $results = $query->fetch(PDO::FETCH_ASSOC);
 
-        $userLogged = new Usuario($results['Email'], $results['Password'], $results['Apellido'], $results['Nombre'], $results['Nacimiento'], (int)$results['Documento']);
+        $userLogged = new Usuario($results['Email'], $results['Apellido'], $results['Nombre'], $results['Nacimiento'], (int) $results['Documento']);
+        $userLogged->setPasswordFromDB($results['Password']);
 
         return $userLogged;
     }
@@ -125,7 +136,7 @@ abstract class DB
     {
         global $connection;
 
-        $query= $connection->prepare("
+        $query = $connection->prepare("
             SELECT * FROM productos
             WHERE idProductos < 9
             ");
@@ -163,7 +174,7 @@ abstract class DB
         $product = $query->fetch(PDO::FETCH_ASSOC);
 
         $productObject = new Producto($product['Name'], $product['Descripcion'], $product['Precio'], $product['Categoria']);
-        
+
         $productObject->addProductDetails($product);
 
         return $productObject;

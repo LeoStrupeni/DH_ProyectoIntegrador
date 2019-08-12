@@ -8,7 +8,7 @@ session_start();
 if ($_POST) {
         //Metodo rustico para chequear si el usuario quiere loguearse o registrarse - TO REFACTOR
         if (count($_POST) == 3) {
-                $existe = DB::checkIfUserExistsWithEmail($_POST['email']);
+                $existe = DB::validateUserByEmail($_POST['email'], $_POST['password']);
                 if ($existe) {
                         $_SESSION['Usuario'] = DB::getUserDataForLogIn($_POST['email']);
                 }
@@ -19,14 +19,13 @@ if ($_POST) {
                         //Se puede crear un metodo estatico para formar este usuario?
                         $user = new Usuario(
                                 $_POST['email'],
-                                $_POST['password'],
                                 $_POST['apellido'],
                                 $_POST['nombre'],
                                 date('Y-m-d', strtotime($_POST['fecnac'])),
                                 (int) $_POST['documento']
                         );
+                        $user->setPassword($_POST['password']);
                         $_SESSION['Usuario'] = $user;
-                        var_dump($_SESSION);
                         $saved = DB::saveUser($user);
                 } else {
                         header('Location:index.php');
