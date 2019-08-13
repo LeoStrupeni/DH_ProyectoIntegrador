@@ -31,7 +31,7 @@ if (isset($_GET['btnAccion'])) {
                 } else {
 
                     $numeroProductos = count($_SESSION['CARRITO']);
-                    $sentencia = $pdo->prepare('SELECT * FROM productos where idProductos=' . $_GET['id']);
+                    $sentencia = $pdo->prepare('SELECT * FROM productos where ID=' . $_GET['id']);
                     $sentencia->execute();
                     $eleccion = $sentencia->fetch(PDO::FETCH_ASSOC);
 
