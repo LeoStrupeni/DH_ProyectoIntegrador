@@ -71,7 +71,7 @@
                 class="card-img m-auto p-1">
                 <div class="card-img-overlay text-right">
                     <form method="get" action="detalles.php">
-                        <input type="hidden" name="id" id="id" value="<?= $producto->getIdProducto(); ?>">
+                        <input type="hidden" name="id" id="id" value="<?= $producto->getID(); ?>">
                         <button class="btn btn-amarillo" type="submit" name="" value="">
                             + Detalles
                         </button>

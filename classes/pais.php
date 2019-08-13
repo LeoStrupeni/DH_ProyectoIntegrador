@@ -2,7 +2,7 @@
 
 class Pais
 {
-    protected $id_pais;
+    protected $ID;
     protected $nombre;
     protected $estados;
     protected $ciudades;
@@ -14,12 +14,12 @@ class Pais
 
     public function getIdPais(): int
     {
-        return $this->id_pais;
+        return $this->ID;
     }
 
     public function setIdPais(int $id)
     {
-        $this->id_pais =$id;
+        $this->ID =$id;
     }
 
     public function getNombre(): string

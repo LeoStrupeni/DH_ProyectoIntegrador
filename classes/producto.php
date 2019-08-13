@@ -2,7 +2,7 @@
 
     class Producto
     {
-        protected $idProducto;
+        protected $ID;
         protected $name;
         protected $descripcion;
         protected $precio;
@@ -31,17 +31,17 @@
             $this->setVolumen($data['Volumen']);
             $this->setIdMarcas($data['Marcas_idMarcas']);
             $this->setImagen($data['imagen']);
-            $this->setIdProducto($data['idProductos']);
+            $this->setID($data['ID']);
         }
 
-        public function getIdProducto(): int
+        public function getID(): int
         {
-            return $this->idProducto;
+            return $this->ID;
         }
 
-        public function setIdProducto(int $idProducto)
+        public function setID(int $ID)
         {
-            $this->idProducto =$idProducto;
+            $this->ID =$ID;
         }
 
         public function getName(): string

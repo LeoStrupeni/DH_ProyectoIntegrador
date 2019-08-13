@@ -20,8 +20,8 @@ include 'php/validaciones.php';
     
     
     $sentencia=$pdo->prepare('SELECT * FROM productos P 
-                                LEFT JOIN prod_categorias C ON p.Categoria = c.idCategoria
-                                LEFT JOIN prod_marcas M ON P.Marcas_idMarcas = M.idMarcas
+                                LEFT JOIN prod_categorias C ON p.Categoria = c.ID
+                                LEFT JOIN prod_marcas M ON P.Marcas_idMarcas = M.ID
                                 WHERE Name LIKE "%'. $param .'%" '. 
                                 'OR Descripcion LIKE "%'. $param .'%" '. 
                                 'OR c.Nombre LIKE "%'. $param .'%" '. 
@@ -35,8 +35,8 @@ include 'php/validaciones.php';
     
 
     $sentenciaTotal=$pdo->prepare('SELECT * FROM productos P 
-                                LEFT JOIN prod_categorias C ON p.Categoria = c.idCategoria
-                                LEFT JOIN prod_marcas M ON P.Marcas_idMarcas = M.idMarcas
+                                LEFT JOIN prod_categorias C ON p.Categoria = c.ID
+                                LEFT JOIN prod_marcas M ON P.Marcas_idMarcas = M.ID
                                 WHERE Name LIKE "%'. $param .'%" '. 
                                 'OR Descripcion LIKE "%'. $param .'%" '. 
                                 'OR c.Nombre LIKE "%'. $param .'%" '. 
@@ -98,13 +98,13 @@ require_once "shared/head.php"
                                     <label for="cantidad" style="font-size:1vw;">Cantidad</label>
                                     <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad" required>
                                 </div>
-                                <input type="hidden" name="id" id="id" value="<?= $producto['idProductos'] ?>">
+                                <input type="hidden" name="id" id="id" value="<?= $producto['ID'] ?>">
                                 <button class="btn btn-success w-50 mb-1" type="submit" name="btnAccion" value="Agregar" style="font-size:1vw;">
                                     Agregar
                                 </button>
                             </form>
                             <form method="get" action="detalles.php">
-                                <input type="hidden" name="id" id="id" value="<?= $producto['idProductos'] ?>">
+                                <input type="hidden" name="id" id="id" value="<?= $producto['ID'] ?>">
                                 <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
                                     + Detalles
                                 </button>
@@ -177,12 +177,12 @@ require_once "shared/head.php"
                 $listaMarcas=$sentencia->fetchall(PDO::FETCH_ASSOC);  
 
                 $query="SELECT `Nombre` FROM `prod_categorias` 
-                    WHERE `idCategoria` IN (SELECT DISTINCT `idCategoriaPadre` FROM `prod_categorias`)";
+                    WHERE `ID` IN (SELECT DISTINCT `IDPadre` FROM `prod_categorias`)";
                 $sentencia=$pdo->query($query);   
                 $listaCatPadre=$sentencia->fetchall(PDO::FETCH_ASSOC);  
                 
-                $query="SELECT `Nombre`,`idCategoriaPadre` FROM `prod_categorias` 
-                        WHERE `idCategoria` NOT IN (SELECT DISTINCT `idCategoriaPadre` FROM `prod_categorias`)";
+                $query="SELECT `Nombre`,`IDPadre` FROM `prod_categorias` 
+                        WHERE `ID` NOT IN (SELECT DISTINCT `IDPadre` FROM `prod_categorias`)";
                 $sentencia=$pdo->query($query);   
                 $listaSubCat=$sentencia->fetchall(PDO::FETCH_ASSOC);  
 

@@ -2,18 +2,18 @@
 
 session_start();
 
-$mensaje=''; 
+$mensaje = '';
 
 if (isset($_GET['btnAccion'])) {
     switch ($_GET['btnAccion']) {
         case 'Agregar':
             if (!isset($_SESSION['CARRITO'])) {
-                $sentencia = $pdo->prepare('SELECT * FROM productos where idProductos=' . $_GET['id']);
+                $sentencia = $pdo->prepare('SELECT * FROM productos where ID = ' . $_GET['id']);
                 $sentencia->execute();
                 $eleccion = $sentencia->fetch(PDO::FETCH_ASSOC);
 
                 $producto = array(
-                    'ID' => $eleccion['idProductos'],
+                    'ID' => $eleccion['ID'],
                     'Nombre' => $eleccion['Name'],
                     'Cantidad' => $_GET['cantidad'],
                     'Precio' => $eleccion['Precio']
@@ -24,19 +24,19 @@ if (isset($_GET['btnAccion'])) {
                 $_SESSION['mensaje'] = $mensaje;
             } else {
 
-                $idProductos = array_column($_SESSION['CARRITO'], "ID");
+                $ID = array_column($_SESSION['CARRITO'], "ID");
 
-                if (in_array($_GET['id'], $idProductos)) {
+                if (in_array($_GET['id'], $ID)) {
                     $_SESSION['mensaje'] = "El producto ya se encuentra en el carrito";
                 } else {
 
                     $numeroProductos = count($_SESSION['CARRITO']);
-                    $sentencia = $pdo->prepare('SELECT * FROM productos where idProductos=' . $_GET['id']);
+                    $sentencia = $pdo->prepare('SELECT * FROM productos where ID = ' . $_GET['id']);
                     $sentencia->execute();
                     $eleccion = $sentencia->fetch(PDO::FETCH_ASSOC);
 
                     $producto = array(
-                        'ID' => $eleccion['idProductos'],
+                        'ID' => $eleccion['ID'],
                         'Nombre' => $eleccion['Name'],
                         'Cantidad' => $_GET['cantidad'],
                         'Precio' => $eleccion['Precio']
@@ -47,8 +47,8 @@ if (isset($_GET['btnAccion'])) {
                     $_SESSION['mensaje'] = $mensaje;
                 }
             }
-            header("Location: Busqueda.php");    
-        break;
+            header("Location: Busqueda.php");
+            break;
 
         case "Eliminar":
             if (is_numeric($_GET['id'])) {
@@ -58,8 +58,10 @@ if (isset($_GET['btnAccion'])) {
                         unset($_SESSION['CARRITO'][$key]);
                         echo "<script>Alert('Elemento Borrado ...')</script>";
                     }
-                }               
-            }else{$mensaje.='Error, ID incorrecto'."<br>";}
-            header("Location: Carrito.php"); 
+                }
+            } else {
+                $mensaje .= 'Error, ID incorrecto' . "<br>";
+            }
+            header("Location: Carrito.php");
     }
 }

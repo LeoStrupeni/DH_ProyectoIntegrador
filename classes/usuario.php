@@ -2,7 +2,7 @@
 
 class Usuario
 {
-    protected $idUsuario;
+    protected $ID;
     protected $email;
     protected $password;
     protected $idPerfil;
@@ -28,14 +28,14 @@ class Usuario
     }
 
 
-    public function getIdUsuario(): int
+    public function getID(): int
     {
-        return $this->idUsuario;
+        return $this->ID;
     }
 
-    public function setIdUsuario(int $id)
+    public function setID(int $id)
     {
-        $this->idUsuario = $id;
+        $this->ID = $id;
     }
 
     public function getEmail(): string

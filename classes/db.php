@@ -138,7 +138,7 @@ abstract class DB
 
         $query = $connection->prepare("
             SELECT * FROM productos
-            WHERE idProductos < 9
+            WHERE ID < 9
             ");
 
         $query->execute();
@@ -151,7 +151,7 @@ abstract class DB
             $productFromDB = new Producto($product['Name'], $product['Descripcion'], $product['Precio'], $product['Categoria']);
 
             $productFromDB->setImagen($product['imagen']);
-            $productFromDB->setIdProducto($product['idProductos']);
+            $productFromDB->setID($product['ID']);
 
             $productsObjects[] = $productFromDB;
         }
@@ -165,7 +165,7 @@ abstract class DB
 
         $query = $connection->prepare("
         SELECT * FROM productos
-        WHERE idProductos = :id");
+        WHERE ID = :id");
 
         $query->bindValue(':id', $id, PDO::PARAM_INT);
 
