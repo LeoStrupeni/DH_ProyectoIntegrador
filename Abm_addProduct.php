@@ -91,29 +91,29 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         $volumenes=$sentencia->fetchall(PDO::FETCH_ASSOC);  
     ?>
 
-<div class="my-2">
-    <div class="card">
+<!-- <div class="my-2">
+    <div class="card"> -->
         <div class="header mt-4">
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-md-6 m-0">
+                    <div class="col-11 col-md-6 m-0">
                         <div class="form-group row">
-                            <label class="col-md-2 control-label text-right cut-text m-0 p-1">Nombre:</label>
-                            <input type="text" class="col-md-10 form-control" name="nombre" required>
+                            <label class="col-2 col-md-2 control-label text-right cut-text m-0 p-1">Nombre:</label>
+                            <input type="text" class="col-10 col-md-10 form-control" name="nombre" required>
                         </div>
                     </div>
 
-                    <div class="col-md-4 p-0 m-0">
+                    <div class="col-8 col-md-4 p-0 m-0">
                         <div class="form-group row">
-                            <label class="col-md-3 control-label text-right cut-text m-0 p-1">Precio:</label>
-                            <input type="number" class="col-md-6 form-control text-center" name="precio" required>
+                            <label class="col-3 col-md-3 control-label text-right cut-text m-0 p-1">Precio:</label>
+                            <input type="number" class="col-6 col-md-6 form-control text-center" name="precio" required>
                         </div>
                     </div>
 
-                    <div class="col-md-2 p-0 m-0">
+                    <div class="col-4 col-md-2 p-0 m-0">
                         <div class="form-group row">
-                            <label class="col-md-3 control-label text-right cut-text m-0 p-1">Año:</label>
-                            <input type="number" min="1990" max="<?=date("Y");?>" value="<?=date("Y");?>" class="col-md-5 form-control" name="anio">
+                            <label class="col-4 col-md-3 control-label text-right cut-text m-0 p-1">Año:</label>
+                            <input type="number" min="1990" max="<?=date("Y");?>" value="<?=date("Y");?>" class="col-6 col-md-6 form-control" name="anio">
                         </div>
                     </div>
                </div>
@@ -125,10 +125,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
 
                 <div class="row">
-                    <div class="col-8 col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="form-group row">
-                            <label class="col-md-4 control-label text-right cut-text m-0 p-1">Marca:</label>
-                            <select class="col-md-6 custom-select custom-select-sm" name="marca" required>
+                            <label class="col-4 col-md-4 control-label text-right cut-text m-0 p-1">Marca:</label>
+                            <select class="col-6 col-md-6 custom-select custom-select-sm" name="marca" required>
                                 <option selected></option>
                                 <?php foreach ($listaMarcas as $marca) :?>
                                 <option value="<?=$marca['Nombre']?>"><?=$marca['Nombre']?></option>
@@ -137,10 +137,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         </div>
                     </div>
 
-                    <div class="col-8 col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="form-group row">
-                            <label class="col-md-4 control-label text-right cut-text m-0 p-1">Categoria:</label>
-                            <select class="col-md-6 custom-select custom-select-sm" name="categoria" required>
+                            <label class="col-4 col-md-4 control-label text-right cut-text m-0 p-1">Categoria:</label>
+                            <select class="col-6 col-md-6 custom-select custom-select-sm" name="categoria" required>
                                 <option selected></option>
                                 <?php foreach ($listaCatPadre as $catPadre) :?>
                                 <option value="<?=$catPadre['Nombre']?>"><?=$catPadre['Nombre']?></option>
@@ -150,10 +150,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                     </div>
 
 
-                    <div class="col-8 col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="form-group row">
-                            <label class="col-md-4 control-label text-right cut-text m-0 p-1">Subcategoria:</label>
-                            <select class="col-md-6 custom-select custom-select-sm" name="subcategoria" required>
+                            <label class="col-4 col-md-4 control-label text-right cut-text m-0 p-1">Subcategoria:</label>
+                            <select class="col-6 col-md-6 custom-select custom-select-sm" name="subcategoria" required>
                                 <option selected></option>
                                 <?php foreach ($listaSubCat as $subCat) :?>
                                 <option value="<?=$subCat['Nombre']?>"><?=$subCat['Nombre']?></option>
@@ -164,10 +164,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 </div>
 
                 <div class="row">
-                    <div class="col-8 col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="form-group row">
-                            <label class="col-md-4 control-label text-right cut-text m-0 p-1">Graduacion:</label>
-                            <select class="col-md-6 custom-select custom-select-sm" name="graduacion" required>
+                            <label class="col-4 col-md-4 control-label text-right cut-text m-0 p-1">Graduacion:</label>
+                            <select class="col-6 col-md-6 custom-select custom-select-sm" name="graduacion" required>
                                 <option selected></option>
                                 <?php foreach ($graduaciones as $graduacion) :?>
                                 <option value="<?=$graduacion['GRAD']?>"><?=$graduacion['GRAD']." %"?></option>
@@ -176,10 +176,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         </div>
                     </div>
 
-                    <div class="col-8 col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="form-group row">
-                            <label class="col-md-4 control-label text-right cut-text m-0 p-1">Origen:</label>
-                            <select class="col-md-6 custom-select custom-select-sm" name="Origen" required>
+                            <label class="col-4 col-md-4 control-label text-right cut-text m-0 p-1">Origen:</label>
+                            <select class="col-6 col-md-6 custom-select custom-select-sm" name="Origen" required>
                                 <option selected></option>
                                 <?php foreach ($origenes as $origen) :?>
                                 <option value="<?=$origen['Origen']?>"><?=$origen['Origen']?></option>
@@ -188,10 +188,10 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         </div>
                     </div>
 
-                    <div class="col-8 col-md-4">
+                    <div class="col-12 col-md-4">
                         <div class="form-group row">
-                            <label class="col-md-4 control-label text-right cut-text m-0 p-1">Volumen:</label>
-                            <select class="col-md-6 custom-select custom-select-sm" name="volumen" required>
+                            <label class="col-4 col-md-4 control-label text-right cut-text m-0 p-1">Volumen:</label>
+                            <select class="col-6 col-md-6 custom-select custom-select-sm" name="volumen" required>
                                 <option selected></option>
                                 <?php foreach ($volumenes as $volumen) :?>
                                 <option value="<?=$volumen['Volumen']?>"><?=$volumen['Volumen']." ml"?></option>
@@ -202,7 +202,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 </div>
 
                 <div class="form-group row ml-5">
-                    Select a file: <input type="file" name="foto" class="col-4 form-control-file">
+                    Select a file: <input type="file" name="foto" class="col-8 form-control-file">
                 </div>
 
                 <div class="row">
@@ -212,5 +212,5 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 </div>
             </form>
         </div>
-    </div>
-</div>
+<!--     </div>
+</div> -->
