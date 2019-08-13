@@ -1,4 +1,4 @@
-<?php
+idCategoriaPadre<?php
 require_once 'global/config.php';
 require_once 'global/conexion.php';
 
@@ -14,7 +14,7 @@ if ($_POST) {
         $total = $total + ($producto['Precio'] * 1);
     }
 
-    $sentencia = $pdo->prepare("INSERT INTO `ventas` (`IdVentas`, `ClaveTransaccion`, `DatosPago`, `Fecha`, `Correo`, `Total`, `Estado`) 
+    $sentencia = $pdo->prepare("INSERT INTO `ventas` (`ID`, `ClaveTransaccion`, `DatosPago`, `Fecha`, `Correo`, `Total`, `Estado`) 
                                 VALUES (NULL, :ClaveTransaccion, '', now(), :Correo, :Total, 'Pendiente');");
     $sentencia->bindValue(":ClaveTransaccion", $SID);
     $sentencia->bindValue(":Correo", $correo);
@@ -24,9 +24,9 @@ if ($_POST) {
 
     foreach ($_SESSION['CARRITO'] as $key => $producto) {
 
-        $sentenciadetalle = $pdo->prepare("INSERT INTO `ventasdetalles` (`IdVentaDetalle`, `IDVENTA`, `IDPRODUCTO`, `PRECIOUNITARIO`, `CANTIDAD`, `DESCARGADO`) 
-                                VALUES (NULL, :idVenta, :idProducto, :precioUni, :cantidad, '0');");
-        $sentenciadetalle->bindValue(":idVenta", $idVenta);
+        $sentenciadetalle = $pdo->prepare("INSERT INTO `ventasdetalles` (`ID`, `IDVENTA`, `IDPRODUCTO`, `PRECIOUNITARIO`, `CANTIDAD`, `DESCARGADO`) 
+                                VALUES (NULL, :ID, :idProducto, :precioUni, :cantidad, '0');");
+        $sentenciadetalle->bindValue(":ID", $idVenta);
         $sentenciadetalle->bindValue(":idProducto", $producto['ID']);
         $sentenciadetalle->bindValue(":precioUni", $producto['Precio']);
         $sentenciadetalle->bindValue(":cantidad", 1);
