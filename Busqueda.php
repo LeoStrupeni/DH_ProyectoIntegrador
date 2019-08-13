@@ -177,12 +177,12 @@ require_once "shared/head.php"
                 $listaMarcas=$sentencia->fetchall(PDO::FETCH_ASSOC);  
 
                 $query="SELECT `Nombre` FROM `prod_categorias` 
-                    WHERE `ID` IN (SELECT DISTINCT `IDPadre` FROM `prod_categorias`)";
+                    WHERE `ID` IN (SELECT DISTINCT `idCategoriaPadre` FROM `prod_categorias`)";
                 $sentencia=$pdo->query($query);   
                 $listaCatPadre=$sentencia->fetchall(PDO::FETCH_ASSOC);  
                 
-                $query="SELECT `Nombre`,`IDPadre` FROM `prod_categorias` 
-                        WHERE `ID` NOT IN (SELECT DISTINCT `IDPadre` FROM `prod_categorias`)";
+                $query="SELECT `Nombre`,`idCategoriaPadre` FROM `prod_categorias` 
+                        WHERE `ID` NOT IN (SELECT DISTINCT `idCategoriaPadre` FROM `prod_categorias`)";
                 $sentencia=$pdo->query($query);   
                 $listaSubCat=$sentencia->fetchall(PDO::FETCH_ASSOC);  
 

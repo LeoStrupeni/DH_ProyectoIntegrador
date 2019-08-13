@@ -151,7 +151,7 @@ abstract class DB
             $productFromDB = new Producto($product['Name'], $product['Descripcion'], $product['Precio'], $product['Categoria']);
 
             $productFromDB->setImagen($product['imagen']);
-            $productFromDB->setID($product['ID']);
+            $productFromDB->setId($product['ID']);
 
             $productsObjects[] = $productFromDB;
         }

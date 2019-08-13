@@ -1,10 +1,10 @@
 <?php
 include 'global/config.php';
 include 'global/conexion.php';
-$sentencia=$pdo->query("SELECT `idProductos`,`IdUsuario`,`Name`,`Descripcion`,`Precio`,`Graduacion`,`Origen`,`imagen`,`Anio`,`Volumen`,m.Nombre as Marca ,c.Nombre as Categoria
+$sentencia=$pdo->query("SELECT P.ID,`IdUsuario`,`Name`,`Descripcion`,`Precio`,`Graduacion`,`Origen`,`imagen`,`Anio`,`Volumen`,m.Nombre as Marca ,c.Nombre as Categoria
                         FROM `productos_usuarios` P 
-                        INNER JOIN prod_marcas M on P.Marcas_idMarcas = m.idMarcas
-                        INNER JOIN prod_categorias C on P.Categoria = c.idCategoria");
+                        INNER JOIN prod_marcas M on P.Marcas_idMarcas = m.ID
+                        INNER JOIN prod_categorias C on P.Categoria = c.ID");
 $listaProductos=$sentencia->fetchall(PDO::FETCH_ASSOC);  
 
 // var_dump($listaProductos);exit;
@@ -59,7 +59,7 @@ if(!$listaProductos){
 
                                     <td class="text-center">
                                         <a href="" class='btn btn-warning btn-sm'><i class='fa fa-pencil-alt' aria-hidden='true'></i></a>
-                                        <a href="Abm_deleteProduct.php?id=<?=$Sql['idProductos']?>" class='btn btn-danger btn-sm'><i class='fa fa-trash-alt' aria-hidden='true'></i></a>
+                                        <a href="Abm_deleteProduct.php?id=<?=$Sql['ID']?>" class='btn btn-danger btn-sm'><i class='fa fa-trash-alt' aria-hidden='true'></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

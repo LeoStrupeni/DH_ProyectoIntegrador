@@ -90,14 +90,14 @@ require_once "shared/head.php"
                                     <label for="cantidad">Cantidad</label>
                                     <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad" required>
                                 </div>
-                                <input type="hidden" name="id" id="id" value="<?= $producto->getID(); ?>">
+                                <input type="hidden" name="id" id="id" value="<?= $producto->getId(); ?>">
                                 <button class="btn btn-success w-50 mb-1" type="submit" name="btnAccion" value="Agregar">
                                     Agregar
                                 </button>
                             </form>
 
                             <form method="get" action="detalles.php">
-                                <input type="hidden" name="id" id="id" value="<?= $producto->getID(); ?>">
+                                <input type="hidden" name="id" id="id" value="<?= $producto->getId(); ?>">
                                 <button class="btn btn-warning w-50" type="submit">
                                     + Detalles
                                 </button>

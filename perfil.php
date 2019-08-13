@@ -103,11 +103,15 @@ session_start();
                     </div>
                 
                     <div class="tab-pane fade" id="productos" role="tabpanel" aria-labelledby="productos-tab">
-                        <?php require_once 'abm.php'; ?>
+                        <?php 
+                        require_once 'abm.php';
+                        ?>
                     </div>
 
                     <div class="tab-pane fade" id="alta" role="tabpanel" aria-labelledby="alta-tab">
-                        <?php require_once 'Abm_addProduct.php'; ?>
+                        <?php 
+                            require_once 'Abm_addProduct.php';
+                        ?>
                     </div>
               
                 </div>
@@ -119,7 +123,6 @@ session_start();
                 <button type="button" class="btn btn-success">Guardar</button>
             </div>
         </div>
-        
         <?php require_once "shared/footer.php" ?>
 
     </div>
