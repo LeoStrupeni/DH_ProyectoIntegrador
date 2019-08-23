@@ -55,8 +55,12 @@
 
 
         <div class="col-12 col-sm-8 col-md-6 col-lg-4 col-xl-3 text-center">
-            @if (isset($_SESSION['Usuario']))
-                <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+
+
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
                                 <a href="perfil.php" class="btn btn-nav btn-user">Perfil</a>
                             </div>
@@ -66,11 +70,13 @@
                                 </a>
                             </div>
                         </div>
-                //(empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO'])
-            @else
-                @include('modals/modal-Login')
-                <!--include('modals/modal-register') -->
-            
+                    @else
+
+                        @include('\modals\modal-login')
+                        @include('\modals\modal-register')
+                        
+                    @endauth
+                </div>
             @endif
         </div>
 

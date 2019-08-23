@@ -8,103 +8,133 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h5 class="modal-title">Registro</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> 
+                <div class="h3 m-auto">{{ __('Registrar') }}</div>
             </div>
 
-            <?php require_once "./global/autoload.php"; ?>
-            <form action="index.php" class="form" method="post">
 
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="email" class="h4">Email</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Ingrese su email" value="">
-                            </div>    
-                        </div>    
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="pais" class="h4">País de Origen</label>
-                                <select class="form-control" id="pais">
-                                    <?php $paises = DB::getAllPaises(); ?>
-                                    <?php foreach ($paises as $pais) : ?>
-                                        <?php $nombre = $pais->getNombre(); ?>
-                                        <option value=<?= $nombre ?>>
-                                            <?= $nombre ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+            <div class="modal-body">
+                    <form method="POST" action="{{ route('register') }}">
+                            @csrf
+    
+                            <div class="form-group row">
+                                <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
+    
+                                    @error('nombre')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span> 
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                      </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="apellido" class="h4">Apellido</label>
-                                <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Ingrese su apellido" value="">
-                            </div>  
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="nombre" class="h4">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingrese su nombre" value="">
-                            </div>  
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="documento" class="h4">Documento</label>
-                                <input type="number" name="documento" id="documento" class="form-control" placeholder="Ingrese su documento" value="" required>
+    
+                            <div class="form-group row">
+                                <label for="apellido" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="apellido" type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido" value="{{ old('apellido') }}" required autocomplete="apellido" autofocus>
+    
+                                    @error('apellido')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="fecnac" class="h4">Fecha de nacimiento</label>
-                                <input type="date" name="fecnac" id="fecnac" class="form-control" value="">
+    
+                            
+                            <div class="form-group row">
+                                <label for="documento" class="col-md-4 col-form-label text-md-right">{{ __('Documento') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="documento" type="number" class="form-control @error('documento') is-invalid @enderror" name="documento" value="{{ old('documento') }}" required autocomplete="documento" autofocus>
+    
+                                    @error('documento')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                    </div>
+    
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+    
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="pais" class="col-md-4 col-form-label text-md-right">{{ __('Pais') }}</label>
+    
+                                <div class="col-md-6">
+                                    <select name="pais" id="pais" class="form-control @error('pais') is-invalid @enderror" required autocomplete="pais" autofocus>
+                                        <option value="{{old('pais')}}"></option>
+                                    </select>
+    
+                                    @error('pais')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="fecnac" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de nacimiento') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="fecnac" type="date" class="form-control @error('fecnac') is-invalid @enderror" name="fecnac" value="{{ old('fecnac') }}" required autocomplete="fecnac">
+    
+                                    @error('fecnac')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+    
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar contraseña') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                </div>
+                            </div>
+    
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Registrar') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
 
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="password" class="h4">Contraseña</label>
-                                <input type="password" name="password" id="password" class="form-control">
-                            </div>  
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="password" class="h4">Confirmar contraseña</label>
-                                <input type="password" name="password-2" id="password-2" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group m-auto">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="terminos" required>
-                                <label class="form-check-label">
-                                    Aceptar términos y condiciones
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="submit" class="btn btn-modal">Registrar</button>
-                    </div>
-                    <?php if (isset($errores)) {
-                        foreach ($errores as $error) {
-                            mostrarErroresEnFormulario($error);
-                        }
-                    } ?> 
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
