@@ -7,6 +7,7 @@ use App\Product;
 
 class ProductControler extends Controller
 {
+    //Hay que migrar esto al ProductsController y cambiar los parametros por los de la nueva DB
     public function search(){
         $par=$_POST['ParamBusqueda'];
         $products = Product::leftJoin('prod_categorias', 'Categoria', '=', 'prod_categorias.ID')

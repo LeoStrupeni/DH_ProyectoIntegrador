@@ -129,7 +129,7 @@ img.perfil {
   text-overflow: ellipsis;
 } 
 
-.card {
+.card .card-header {
   background-color: #D7B377;
   border: none;
 }

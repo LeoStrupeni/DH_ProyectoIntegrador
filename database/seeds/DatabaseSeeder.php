@@ -11,9 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        DB::table('paises')->insert([
-            'nombre' => 'Argentina'
-        ]);
+        factory(App\Brand::class, 50)->create();
+        //factory(\App\Product::class, 100)->create();
+        //factory(\App\Category::class, 50)->create();
     }
 }

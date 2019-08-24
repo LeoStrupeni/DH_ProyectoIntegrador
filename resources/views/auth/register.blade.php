@@ -1,23 +1,23 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registrar') }}</div>
+                <div class="card-header text-center">{{ __('Ingresa tus datos') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control @error('nombre') is-invalid @enderror" name="nombre" value="{{ old('nombre') }}" required autocomplete="nombre" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                @error('nombre')
+                                @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span> 
@@ -26,12 +26,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="apellido" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
 
                             <div class="col-md-6">
-                                <input id="apellido" type="text" class="form-control @error('apellido') is-invalid @enderror" name="apellido" value="{{ old('apellido') }}" required autocomplete="apellido" autofocus>
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
-                                @error('apellido')
+                                @error('surname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -41,12 +41,12 @@
 
                         
                         <div class="form-group row">
-                            <label for="documento" class="col-md-4 col-form-label text-md-right">{{ __('Documento') }}</label>
+                            <label for="personal_id" class="col-md-4 col-form-label text-md-right">{{ __('Documento') }}</label>
 
                             <div class="col-md-6">
-                                <input id="documento" type="number" class="form-control @error('documento') is-invalid @enderror" name="documento" value="{{ old('documento') }}" required autocomplete="documento" autofocus>
+                                <input id="personal_id" type="number" class="form-control @error('personal_id') is-invalid @enderror" name="personal_id" value="{{ old('personal_id') }}" required autocomplete="personal_id" autofocus>
 
-                                @error('documento')
+                                @error('personal_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -69,14 +69,16 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="pais" class="col-md-4 col-form-label text-md-right">{{ __('Pais') }}</label>
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Pais') }}</label>
 
                             <div class="col-md-6">
-                                <select name="pais" id="pais" class="form-control @error('pais') is-invalid @enderror" required autocomplete="pais" autofocus>
-                                    <option value="{{old('pais')}}"></option>
-                                </select>
+                                {{-- <select name="country" id="country" class="form-control @error('country') is-invalid @enderror" required autocomplete="country" autofocus>
+                                    <option value="{{old('country')}}"></option>
+                                </select> --}}
 
-                                @error('pais')
+                                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" required autocomplete="country" autofocus>
+
+                                @error('country')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -85,12 +87,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="fecnac" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de nacimiento') }}</label>
+                            <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de nacimiento') }}</label>
 
                             <div class="col-md-6">
-                                <input id="fecnac" type="date" class="form-control @error('fecnac') is-invalid @enderror" name="fecnac" value="{{ old('fecnac') }}" required autocomplete="fecnac">
+                                <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('fecnac') }}" required autocomplete="birthday">
 
-                                @error('fecnac')
+                                @error('birthday')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -120,9 +122,23 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Imagen de perfil') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar" autofocus>
+
+                                @error('avatar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-4 text-center">
+                                <button type="submit" class="btn btn-light">
                                     {{ __('Registrar') }}
                                 </button>
                             </div>
