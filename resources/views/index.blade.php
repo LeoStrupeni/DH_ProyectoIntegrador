@@ -1,14 +1,10 @@
-@extends('Plantilla')
+@extends('layout')
 
-@section('Titulo')
+@section('title')
     Ecommerce
 @endsection
 
-@section('Contenido')
-
-<?php 
-// include "./global/autoload.php"; 
-?>
+@section('content')
 
 <div class="row">
     <div class="col p-0">
