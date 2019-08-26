@@ -17,4 +17,5 @@ class Product extends Model
     {
         return $this->belongsTo('App\Brand', 'brand_id');
     }
+
 }

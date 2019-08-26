@@ -63,27 +63,17 @@
 
 <div class="row">
 
-    <?php 
-    $listaProductos = [];
-    // DB::getAllProducts(); 
-    ?>
-
-    @forelse ($listaProductos as $producto)
+    @forelse ($products as $producto)
         <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
             <div class="card bg-transparent mb-1 border border-dark rounded-lg">
-                <img title="{{$producto->getName()}}" alt="{{$producto->getName()}}" src=
-                    
-                    <?php if (is_file('/images/Bebidas/'.$producto->getImagen(). '.jpg')):?>
-                            <?php echo '/images/Bebidas/' . $producto->getImagen() . '.jpg'; ?>
-                    <?php else : ?>
-                            <?php echo '/images/Bebidas/imgND.jpg' ?>
-                    <?php endif; ?>            
-                    
-                class="card-img m-auto p-1">
+                <img title = "<?=$producto['name']?>" alt="<?=$producto['name']?>" 
+                src="{{ file_exists(Storage::url("images/Bebidas/".$producto['image'])) ? Storage::url("images/Bebidas/".$producto['image']) : Storage::url("images/Bebidas/imgND.jpg") }}"
+                data-toggle="popover" data-trigger="hover" data-content="<?=substr($producto['description'],0,500).'...'?>"
+                class="card-img p-1 img-fluid" style="z-index: 10;"> 
                 <div class="card-img-overlay text-right">
                     <form method="get" action="detalles.php">
-                        <input type="hidden" name="id" id="id" value="<?= $producto->getIdProducto(); ?>">
-                        <button class="btn btn-amarillo" type="submit" name="" value="">
+                        <input type="hidden" name="id" id="id" value="<?= $producto['id'] ?>">
+                        <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
                             + Detalles
                         </button>
                     </form>
@@ -91,7 +81,6 @@
             </div>
         </div>
     @empty
-
     <div class="alert alert-success w-100 text-center" role="alert">
         No Hay productos
     </div>

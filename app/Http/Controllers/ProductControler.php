@@ -11,12 +11,12 @@ class ProductControler extends Controller
     public function search()
     {
         $par = $_POST['ParamBusqueda'];
-        $products = Product::leftJoin('prod_categorias', 'Categoria', '=', 'prod_categorias.ID')
-            ->leftJoin('prod_marcas', 'Marcas_idMarcas', '=', 'prod_marcas.ID')
-            ->where('name', 'LIKE', '%' . $par . '%')
-            ->orwhere('Descripcion', 'LIKE', '%' . $par . '%')
-            ->orwhere('prod_categorias.Nombre', 'LIKE', '%' . $par . '%')
-            ->orwhere('prod_marcas.Nombre', 'LIKE', '%' . $par . '%')
+        $products = Product::leftJoin('categories', 'category_id', '=', 'categories.id')
+            ->leftJoin('brands', 'brand_id', '=', 'brands.id')
+            ->where('products.name', 'LIKE', '%' . $par . '%')
+            ->orwhere('description', 'LIKE', '%' . $par . '%')
+            ->orwhere('categories.name', 'LIKE', '%' . $par . '%')
+            ->orwhere('brands.name', 'LIKE', '%' . $par . '%')
             ->paginate(50);
 
         $vac = compact("products");
