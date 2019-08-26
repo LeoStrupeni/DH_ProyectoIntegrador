@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use PragmaRX\Countries\Package\Countries;
 
 class RegisterController extends Controller
 {
@@ -40,6 +41,16 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    //Sobreescribo el controlador de registro para poder mostrar los paises
+    public function showRegistrationForm()
+    {
+        $countries = new Countries();
+
+        $all = $countries->all()->pluck('name.common');
+
+        return view('auth.register', compact('all'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -57,6 +68,16 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:3', 'confirmed'],
             'birthday' => ['required', 'date'],
             'avatar' => ['image']
+        ], [
+            'name.required' => 'Por favor, ingrese su nombre',
+            'surname.required' => 'Por favor, ingrese su apellido',
+            'personal_id' => 'Por favor, ingrese su documento',
+            'country.required' => 'Por favor, seleccione su pais de residencia',
+            'email.required' => 'Por favor, ingrese su correo electronico',
+            'email.unique' => 'Este mail ya se encuentra en uso',
+            'password.required' => 'Por favor, ingrese su password',
+            'birthday.required' => 'Por favor, ingrese su fecha de nacimiento',
+            'avatar.image' => 'Solo se admiten imagenes en formatos apropiados'
         ]);
     }
 

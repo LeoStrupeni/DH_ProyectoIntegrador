@@ -1,11 +1,13 @@
-@extends('layout')
+@extends('meta')
 
-@section('content')
+@section('title','Login')
+
+@section('layout')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">{{ __('Ingresa tus datos') }}</div>
+                <div class="card-header text-center h2">{{ __('Ingresa tus datos') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -53,12 +55,17 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-light">
+                                <button type="submit" class="btn btn-success">
                                     {{ __('Ingresar') }}
+                                </button>
+                                <button type="button" class="btn btn-danger mx-2">
+                                    <a href="/" class="text-decoration-none text-reset">
+                                        {{ __('Volver') }}
+                                    </a>
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-warning" href="{{ route('password.request') }}">
                                         {{ __('Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif

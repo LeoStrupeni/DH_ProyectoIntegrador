@@ -1,11 +1,14 @@
-@extends('layout')
+@extends('meta')
 
-@section('content')
+@section('title','Registro')
+
+@section('layout')
+    
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">{{ __('Ingresa tus datos') }}</div>
+                <div class="card-header text-center h2">{{ __('Ingresa tus datos') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
@@ -72,11 +75,11 @@
                             <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('Pais') }}</label>
 
                             <div class="col-md-6">
-                                {{-- <select name="country" id="country" class="form-control @error('country') is-invalid @enderror" required autocomplete="country" autofocus>
-                                    <option value="{{old('country')}}"></option>
-                                </select> --}}
-
-                                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" required autocomplete="country" autofocus>
+                                <select name="country" id="country" class="form-control @error('country') is-invalid @enderror" required autocomplete="country" autofocus>
+                                    @foreach ($all as $country)
+                                        <option value="{{$country}}">{{$country}}</option>
+                                    @endforeach
+                                </select>
 
                                 @error('country')
                                     <span class="invalid-feedback" role="alert">
@@ -104,7 +107,8 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="password">
+                                <small class="form-text text-muted">Minimo 8 caracteres</small>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -126,7 +130,8 @@
                             <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('Imagen de perfil') }}</label>
 
                             <div class="col-md-6">
-                                <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar" autofocus>
+                                <input id="avatar" type="file" class="form-control-file @error('avatar') is-invalid @enderror" name="avatar" value="{{ old('avatar') }}" required autocomplete="avatar" autofocus>
+                                 <small class="form-text text-muted">Formato .JPG o .PNG</small>
 
                                 @error('avatar')
                                     <span class="invalid-feedback" role="alert">
@@ -137,12 +142,18 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4 text-center">
-                                <button type="submit" class="btn btn-light">
+                            <div class="col-md-6 mx-auto text-center">
+                                <button type="submit" class="btn btn-success">
                                     {{ __('Registrar') }}
+                                </button>
+                                <button type="button" class="btn btn-danger ml-2">
+                                    <a href="/" class="text-decoration-none text-reset">
+                                        {{ __('Volver') }}
+                                    </a>
                                 </button>
                             </div>
                         </div>
+                        
                     </form>
                 </div>
             </div>

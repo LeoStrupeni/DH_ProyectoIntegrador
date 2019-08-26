@@ -130,13 +130,16 @@ img.perfil {
 } 
 
 .card .card-header {
-  background-color: #D7B377;
+  background-color: rgb(49, 49, 49);
   border: none;
+  color: white;
 }
 
 .card-body{
-  background-color: rgb(49, 49, 49);
-  color: white;
+  color: black;
+  background-color: #D7B377;
+  font-weight: bold;
+
 }
 
 
