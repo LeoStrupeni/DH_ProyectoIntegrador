@@ -18,7 +18,7 @@ Ecommerce
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="/storage/images/img1.jpg" class="d-block w-100" alt="primera">
+                <img src="/storage/images/img1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="carousel-item">
