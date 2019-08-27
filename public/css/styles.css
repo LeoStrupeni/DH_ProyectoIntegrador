@@ -13,15 +13,23 @@ textarea{
   resize: none;
 }
 
-/*
-body{
-  background-color: rgb(230, 227, 223);
-   background-image: url("../images/Fondo-1.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover 
+html, body{
+  height: 100%;
 }
-*/
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/*Expando el main ocupando todo el espacio vacio con flexbox para asegurarme de que el foooter quede donde tiene que estar */
+main{
+  flex: 1 0 auto;
+}
+
+footer{
+  flex-shrink: 0;
+}
 
 
 /****  BARRA NAVEGACION   ****/
