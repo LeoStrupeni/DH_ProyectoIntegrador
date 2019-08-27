@@ -8,6 +8,9 @@
 
             <div class="modal-header">
                 <div class="h3 m-auto">{{ __('Ingresa tus datos') }}</div>
+                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
 
 
