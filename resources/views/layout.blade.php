@@ -83,7 +83,7 @@
     <footer class="container">
         <div class="row mt-2 footer-1">
             <div class="list-group list-group-horizontal-lg m-auto text-center">
-                @include('modals.contacto')
+                @include('modals.contact')
                 <button type="button" class="list-group-item btn-foot">
                     <a href="{{--route('faq')--}}" class="text-reset text-decoration-none">Preguntas Frecuentes</a>
                 </button>
