@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    Ecommerce
+Ecommerce
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/storage/images/img1.jpg" class="d-block w-100" alt="...">
+                <img src="/storage/images/img1.jpg" class="d-block w-100" alt="primera">
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="carousel-item">
@@ -54,7 +54,9 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4 text-center">Lorem ipsum</h1>
-                <p class="lead text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non. Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
+                <p class="lead text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit
+                    voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non.
+                    Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
             </div>
         </div>
     </div>
@@ -64,22 +66,23 @@
 <div class="row">
 
     @forelse ($products as $producto)
-        <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
-            <div class="card bg-transparent mb-1 border border-dark rounded-lg">
-                <img title = "<?=$producto['name']?>" alt="<?=$producto['name']?>" 
+    <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
+        <div class="card bg-transparent mb-1 border border-dark rounded-lg">
+            <img title="<?=$producto['name']?>" alt="<?=$producto['name']?>"
                 src="{{ file_exists(Storage::url("images/Bebidas/".$producto['image'])) ? Storage::url("images/Bebidas/".$producto['image']) : Storage::url("images/Bebidas/imgND.jpg") }}"
-                data-toggle="popover" data-trigger="hover" data-content="<?=substr($producto['description'],0,500).'...'?>"
-                class="card-img p-1 img-fluid" style="z-index: 10;"> 
-                <div class="card-img-overlay text-right">
-                    <form method="get" action="detalles.php">
-                        <input type="hidden" name="id" id="id" value="<?= $producto['id'] ?>">
-                        <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
-                            + Detalles
-                        </button>
-                    </form>
-                </div>
+                data-toggle="popover" data-trigger="hover"
+                data-content="<?=substr($producto['description'],0,500).'...'?>" class="card-img p-1 img-fluid"
+                style="z-index: 10;">
+            <div class="card-img-overlay text-right">
+                <form method="get" action="detalles.php">
+                    <input type="hidden" name="id" id="id" value="<?= $producto['id'] ?>">
+                    <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
+                        + Detalles
+                    </button>
+                </form>
             </div>
         </div>
+    </div>
     @empty
     <div class="alert alert-success w-100 text-center" role="alert">
         No Hay productos

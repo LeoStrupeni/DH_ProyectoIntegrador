@@ -47,8 +47,7 @@
                         @if (Route::has('login'))
                         <div class="top-right links">
                             @auth
-                            <div class="justify-content-center" role="toolbar"
-                                aria-label="Toolbar with button groups">
+                            <div class="justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
                                     <a href="perfil.php" class="btn btn-nav btn-user">Perfil</a>
                                 </div>
@@ -59,8 +58,7 @@
                                 </div>
                             </div>
                             @else
-                            <div class="justify-content-center" role="toolbar"
-                                aria-label="Toolbar with button groups">
+                            <div class="justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
                                     <a href="{{ route('login') }}" class="btn btn-nav btn-user">{{ __('Ingresar') }}</a>
                                 </div>
