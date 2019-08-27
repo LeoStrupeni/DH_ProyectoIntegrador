@@ -40,17 +40,6 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
-    //Sobreescribo el controlador de registro para poder mostrar los paises
-    public function showRegistrationForm()
-    {
-        $countries = new Countries();
-
-        $all = $countries->all()->pluck('name.common');
-
-        return view('auth.register', compact('all'));
-    }
-
     /**
      * Get a validator for an incoming registration request.
      *

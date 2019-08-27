@@ -7,10 +7,9 @@ use App\Product;
 
 class ProductControler extends Controller
 {
-    //Hay que migrar esto al ProductsController y cambiar los parametros por los de la nueva DB
-    public function search()
+    public function search(Request $request)
     {
-        $par = $_POST['ParamBusqueda'];
+        $par = $request->input('ParamBusqueda');
         $products = Product::leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->where('products.name', 'LIKE', '%' . $par . '%')
@@ -19,7 +18,6 @@ class ProductControler extends Controller
             ->orwhere('brands.name', 'LIKE', '%' . $par . '%')
             ->paginate(50);
 
-        $vac = compact("products");
-        return view('/Search', $vac);
+        return view('search', compact('products'));
     }
 }

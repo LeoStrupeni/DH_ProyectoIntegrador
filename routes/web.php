@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'IndexController@productsIndex');
+Route::get('/', 'IndexController@dataIndex');
 
 Auth::routes();
 

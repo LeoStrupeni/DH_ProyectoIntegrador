@@ -62,13 +62,9 @@
                             </div>
                             @else
                             <div class="justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-                                @include('modals.login')
+                                    @include('modals.login')
                                 @if (Route::has('register'))
-                                <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
-                                    <a href="{{ route('register') }}"
-                                        class="btn btn-nav btn-user">{{ __('Registrar') }}
-                                    </a>
-                                </div>
+                                    @include('modals.register')
                                 @endif
                             </div>
                             @endauth
