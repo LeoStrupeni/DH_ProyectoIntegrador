@@ -1,8 +1,6 @@
 @extends('layout')
 
-@section('title')
-Ecommerce
-@endsection
+@section('title', 'E-Commerce')
 
 @section('content')
 
@@ -68,14 +66,15 @@ Ecommerce
     @forelse ($products as $producto)
     <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
         <div class="card bg-transparent mb-1 border border-dark rounded-lg">
-            <img title="<?=$producto['name']?>" alt="<?=$producto['name']?>"
-                src="{{ file_exists(Storage::url("images/Bebidas/".$producto['image'])) ? Storage::url("images/Bebidas/".$producto['image']) : Storage::url("images/Bebidas/imgND.jpg") }}"
+            <img title="{{$producto->name}}" alt="{{$producto->name}}"
+                src="{{ file_exists(Storage::url("images/Bebidas/".$producto->image)) ? Storage::url("images/Bebidas/".$producto->image) : Storage::url("images/Bebidas/imgND.jpg") }}"
                 data-toggle="popover" data-trigger="hover"
-                data-content="<?=substr($producto['description'],0,500).'...'?>" class="card-img p-1 img-fluid"
+        data-content="{{substr($producto->description, 0, 500)}}.." class="card-img p-1 img-fluid"
                 style="z-index: 10;">
             <div class="card-img-overlay text-right">
-                <form method="get" action="detalles.php">
-                    <input type="hidden" name="id" id="id" value="<?= $producto['id'] ?>">
+                <form method="get" action="">
+                @csrf
+                <input type="hidden" name="id" id="id" value="{{$producto->id}}">
                     <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
                         + Detalles
                     </button>
@@ -91,7 +90,4 @@ Ecommerce
     @endforelse
 
 </div>
-
-
-
 @endsection

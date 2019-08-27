@@ -1,8 +1,6 @@
 @extends('layout')
 
-@section('title')
-Busqueda
-@endsection
+@section('title','Busqueda')
 
 @section('content')
 
