@@ -9,11 +9,11 @@
   max-width: 100%;
 }
 
-textarea{
+textarea {
   resize: none;
 }
 
-html, body{
+html, body {
   height: 100%;
 }
 
@@ -23,11 +23,11 @@ body {
 }
 
 /*Expando el main ocupando todo el espacio vacio con flexbox para asegurarme de que el foooter quede donde tiene que estar */
-main{
+main {
   flex: 1 0 auto;
 }
 
-footer{
+footer {
   flex-shrink: 0;
 }
 

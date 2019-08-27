@@ -86,11 +86,9 @@
     <footer>
         <div class="row mt-2 footer-1">
             <div class="list-group list-group-horizontal-lg m-auto text-center">
-
                 @include('modals.contacto')
-
                 <button type="button" class="list-group-item btn-foot">
-                    <a href="faq.php" class="text-reset text-decoration-none">Preguntas Frecuentes</a>
+                    <a href="{{--route('faq')--}}" class="text-reset text-decoration-none">Preguntas Frecuentes</a>
                 </button>
                 <button type="button" class="list-group-item btn-foot">Politicas de Privacidad</button>
                 <button type="button" class="list-group-item btn-foot">Terminos y Condiciones</button>
