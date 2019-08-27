@@ -36,8 +36,8 @@
             <div class="card bg-transparent border border-dark rounded-lg">
                 <h4 class="text-center p-1 cut-text"> {{$producto->name}} </h4>
                 <img title="{{$producto->name}}" alt="{{$producto->name}}"
-                    src="{{ file_exists(Storage::url("images/Bebidas/".$producto->image)) ? Storage::url("images/Bebidas/".$producto->image) : Storage::url("images/Bebidas/imgND.jpg") }}"
-                    data-toggle="popover" data-trigger="hover"
+                    src="{{'/storage/images/Bebidas/'.$producto->image}}"
+                    data-toggle="popover" data-trigger="hover"  
                     data-content="{{substr($producto->description, 0, 500)}}.." class="card-img p-1 img-fluid"
                     style="z-index: 10;">
                 <div class="card-img-overlay text-right mt-5">
