@@ -4,7 +4,6 @@
 
 @section('content')
 
-<div class="container">
     <br>
     @if(!empty($_SESSION->mensaje))
     <div class="alert alert-secondary">
@@ -76,8 +75,6 @@
             {{$products->links()}}
         </div>
     </div>
-
-</div>
 
 
 <nav class="navbar fixed-bottom navbar-dark bg-dark">

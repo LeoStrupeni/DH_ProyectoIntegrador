@@ -3,7 +3,7 @@
 @section('layout')
 
 <body>
-    <div class="row">
+    <div class="row mx-0">
         <div class="col p-0">
             <header>
                 <nav class="navbar pt-0 nav-1 px-5 navbar-dark">
@@ -49,10 +49,10 @@
                             @auth
                             <div class="justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
-                                    <a href="perfil.php" class="btn btn-nav btn-user">Perfil</a>
+                                <a href="{{route('home')}}" class="btn btn-nav btn-user">Perfil</a>
                                 </div>
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="Second group">
-                                    <a class="btn btn-warning" href="Carrito.php">
+                                <a class="btn btn-warning" href="{{--route('shopping')--}}">
                                         <i class="fas fa-shopping-cart pt-1"></i>
                                     </a>
                                 </div>
@@ -66,7 +66,8 @@
                                 @if (Route::has('register'))
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
                                     <a href="{{ route('register') }}"
-                                        class="btn btn-nav btn-user">{{ __('Registrar') }}</a>
+                                        class="btn btn-nav btn-user">{{ __('Registrar') }}
+                                    </a>
                                 </div>
                                 @endif
                             </div>
@@ -79,11 +80,11 @@
         </div>
     </div>
 
-    <main>
+    <main class="container">
         @yield('content')
     </main>
 
-    <footer>
+    <footer class="container">
         <div class="row mt-2 footer-1">
             <div class="list-group list-group-horizontal-lg m-auto text-center">
                 @include('modals.contacto')
