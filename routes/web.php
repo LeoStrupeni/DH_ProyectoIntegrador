@@ -19,12 +19,4 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name(
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/search', 'ProductControler@search')->name('search');
-
-Route::get('/test', function(){
-    // dd(Storage::url("images/Bebidas/imgND.jpg"));
-    // dd(dirname(__FILE__).Storage::url("images/Bebidas/93e1822cddb2bb95547c0f788b3d68e9.jpg"));
-    // dd(dirname(Storage::url("images/Bebidas/93e1822cddb2bb95547c0f788b3d68e9.jpg")));
-dd(file_exists('C:\xampp\htdocs\DH_ProyectoIntegrador\public\storage\images\Bebidas\93e1822cddb2bb95547c0f788b3d68e9.jpg'));
-    
-});
+Route::get('/search', 'ProductControler@search')->name('search');

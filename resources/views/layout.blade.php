@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="col-9 col-sm-9 col-md-5 col-lg-5 col-xl-6 text-center">
-                        <form class="form-inline my-2 my-lg-0 mx-auto" action="{{route('search')}}" method="post">
+                        <form class="form-inline my-2 my-lg-0 mx-auto" action="{{route('search')}}" method="get">
                             @csrf
                             <input class="form-control mr-sm-2" type="search" placeholder="Búsqueda" aria-label="Search"
                                 name="ParamBusqueda" required>
