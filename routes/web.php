@@ -15,6 +15,8 @@ Route::get('/', 'IndexController@productsIndex');
 
 Auth::routes();
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/Search', 'ProductControler@search');
+Route::post('/search', 'ProductControler@search')->name('search');

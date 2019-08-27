@@ -33,7 +33,7 @@
                     </div>
 
                     <div class="col-9 col-sm-9 col-md-5 col-lg-5 col-xl-6 text-center">
-                        <form class="form-inline my-2 my-lg-0 mx-auto" action="Search" method="post">
+                        <form class="form-inline my-2 my-lg-0 mx-auto" action="{{route('search')}}" method="post">
                             @csrf
                             <input class="form-control mr-sm-2" type="search" placeholder="Búsqueda" aria-label="Search"
                                 name="ParamBusqueda" required>
@@ -56,13 +56,13 @@
                                         <i class="fas fa-shopping-cart pt-1"></i>
                                     </a>
                                 </div>
+                                <div class="btn-group mr-2 btn-nav" role="group" aria-label="Second group">
+                                    <a href="{{route('logout')}}" class="btn btn-nav btn-danger">Logout</a>
+                                </div>
                             </div>
                             @else
                             <div class="justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-                                <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
-                                    <a href="{{ route('login') }}" class="btn btn-nav btn-user">{{ __('Ingresar') }}</a>
-                                </div>
-
+                                @include('modals.login')
                                 @if (Route::has('register'))
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
                                     <a href="{{ route('register') }}"
