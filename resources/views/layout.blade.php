@@ -16,18 +16,17 @@
                 <nav class="navbar navbar-light nav-2 py-auto">
                     <div class="col-3 col-sm-3 col-md-2 col-lg-2 col-xl-2">
                         <div class="text-center">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navBebidas" aria-controls="navBebidas" aria-expanded="false"
-                                aria-label="Toggle navigation">
+                            <button class="navbar-toggler" data-pushbar-target="pushbar-menu">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navBebidas">
-                            <div class="navbar-nav">
-                                <a class="nav-item nav-link text-dark font-weight-bold" href="#">Cervezas</a>
-                                <a class="nav-item nav-link text-dark font-weight-bold" href="#">Vinos</a>
-                                <a class="nav-item nav-link text-dark font-weight-bold" href="#">Blancas</a>
-                                <a class="nav-item nav-link text-dark font-weight-bold" href="#">Aperitivos</a>
+                            <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu nav-2">
+                                <button data-pushbar-close class="btn btn-search">Close</button>
+                                <div class="navbar-nav">
+                                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Cervezas</a>
+                                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Vinos</a>
+                                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Blancas</a>
+                                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Aperitivos</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,5 +113,13 @@
         $('[data-toggle="popover"]').popover()
     });
     </script>
+	<script>
+		var pushbar = new Pushbar({
+            blur:true,
+            overlay:true,
+        });
+    </script>
+
+
 </body>
 @endsection
