@@ -89,5 +89,8 @@
 
     @endforelse
 
+    @include('modals.newsletter')
+
+
 </div>
 @endsection
