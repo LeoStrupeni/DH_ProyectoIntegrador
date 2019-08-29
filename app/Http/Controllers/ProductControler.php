@@ -20,4 +20,23 @@ class ProductControler extends Controller
 
         return view('search', compact('products'));
     }
+
+    public function detail(Request $request)
+    {
+        $id = $request->input('id');
+        $product = Product::leftJoin('categories', 'category_id', '=', 'categories.id')
+            ->leftJoin('brands', 'brand_id', '=', 'brands.id')
+            ->where('products.id','=',$id)
+            ->get();
+
+        $relatedWith = Product::join('categories', 'category_id', '=', 'categories.id')
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+
+
+        return view('detail', compact('product','relatedWith'));
+    }
+
+
 }
