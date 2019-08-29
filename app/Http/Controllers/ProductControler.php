@@ -8,9 +8,10 @@ use App\Product;
 class ProductControler extends Controller
 {
     public function search(Request $request)
-    {
+    {   
         $par = $request->input('ParamBusqueda');
-        $products = Product::leftJoin('categories', 'category_id', '=', 'categories.id')
+        $products = Product::select('Products.id', 'Products.name','Products.description','Products.price','Products.image')
+            ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->where('products.name', 'LIKE', '%' . $par . '%')
             ->orwhere('description', 'LIKE', '%' . $par . '%')
@@ -22,14 +23,16 @@ class ProductControler extends Controller
     }
 
     public function detail(Request $request)
-    {
+    {   
         $id = $request->input('id');
-        $product = Product::leftJoin('categories', 'category_id', '=', 'categories.id')
+        $product = Product::select('Products.id', 'Products.name','Products.description','Products.price','Products.image', 'Products.graduation', 'Products.origin', 'Products.year', 'Products.volume','brands.name as brand','categories.name as categoria')
+            ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->where('products.id','=',$id)
             ->get();
 
-        $relatedWith = Product::join('categories', 'category_id', '=', 'categories.id')
+        $relatedWith = Product::select('Products.id', 'Products.name','Products.description','Products.price','Products.image')
+        ->join('categories', 'category_id', '=', 'categories.id')
         ->inRandomOrder()
         ->limit(4)
         ->get();

@@ -6,6 +6,10 @@
 
 <div class="container">
 
+<?php
+    // dd($product);
+    ?>
+
     <div class="row">
         <div class="col-12 col-sm-3">
             <img src="{{'/storage/images/Bebidas/'.$product->first()->image}}" class="rounded mx-auto d-block w-100 h-100" alt="Responsive image">
@@ -48,7 +52,11 @@
                     </tr>
                     <tr>
                         <th scope="row">Marca</th>
-                        <td>{{$product->first()->brand_id}}</td>
+                        <td>{{$product->first()->brand}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Categoria</th>
+                        <td>{{$product->first()->categoria}}</td>
                     </tr>
 
                 </tbody>
