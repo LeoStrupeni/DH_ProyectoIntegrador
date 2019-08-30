@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <label for="telefono">Teléfono</label>
                             <input class="form-control" id="telefono" type="tel" name="phone" value=""
-                                pattern="[1-9]{10}" title="Ingresá tu celular con el formato 3416772339"
+                                {{-- pattern="[1-9]{10}" title="Ingresá tu celular con el formato 3416772339" --}}
                                 placeholder="Tu teléfono" required>
                         </div>
                         <div class="form-group">
@@ -45,9 +45,6 @@
                         <div class="modal-footer mx-auto justify-content-center">
                             <button type="submit" class="btn btn-amarillo">Enviar</button>
                         </div>
-                        @error('name')
-                        <p>hay error en name</p>
-                        @enderror
                     </form>
 
                 </div>
