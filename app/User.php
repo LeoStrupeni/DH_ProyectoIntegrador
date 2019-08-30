@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'surname', 'country', 'personal_id', 'birthday'
+        'name', 'email', 'password', 'avatar', 'surname', 'country', 'personal_id', 'birthday','profile_id'
     ];
 
     /**
@@ -37,8 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-        public function prolile()
-        {
-            return $this->belongsTo('App\profile', 'profile_id');
-        }
+    public function prolile()
+    {
+        return $this->belongsTo('App\profile', 'profile_id');
+    }
+    
 }
