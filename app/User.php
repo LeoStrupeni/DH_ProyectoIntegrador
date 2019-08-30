@@ -37,8 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function prolile()
-    {
-        return $this->belongsTo('App\profile', 'profile_id');
-    }
+        public function prolile()
+        {
+            return $this->belongsTo('App\profile', 'profile_id');
+        }
 }
