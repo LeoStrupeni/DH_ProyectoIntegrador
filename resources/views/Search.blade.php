@@ -24,22 +24,14 @@
         @endif
         @foreach ($products as $producto)
 
-        <?php
-            
-            // $var = (Storage::url("images/Bebidas/".$producto['image']));
-            // var_dump(Storage::url("images/Bebidas/".$producto['image']));
-            // var_dump($var);
-
-            ?>
-
         <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
             <div class="card bg-transparent border border-dark rounded-lg">
                 <h4 class="text-center p-1 cut-text"> {{$producto->name}} </h4>
                 <img title="{{$producto->name}}" alt="{{$producto->name}}"
-                    src="{{'/storage/images/Bebidas/'.$producto->image}}"
+                    src="{{is_null($producto->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$producto->image}}"
                     data-toggle="popover" data-trigger="hover"  
                     data-content="{{substr($producto->description, 0, 500)}}.." class="card-img p-1 img-fluid"
-                    style="z-index: 10;">
+                    style="z-index: 1;">
                 <div class="card-img-overlay text-right mt-5">
                     <h5>{{"$". $producto->price}}</h5>
                     <form method="get" action="">

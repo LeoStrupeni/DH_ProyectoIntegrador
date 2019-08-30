@@ -11,51 +11,52 @@
     ?>
 
     <div class="row">
-        <div class="col-12 col-sm-3">
-            <img src="{{'/storage/images/Bebidas/'.$product->first()->image}}" class="rounded mx-auto d-block w-100 h-100" alt="Responsive image">
+
+        <div class="col-12 col-sm-4">
+            <img src="{{is_null($product->first()->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->first()->image}}" class="rounded mx-auto d-block" alt="Responsive image">
         </div>
 
-        <div class="col-12 col-sm-9">
+        <div class="col-12 col-sm-8">
 
-            <table class="table table-sm table-dark">
+            <table class="table table-sm table-dark my-2">
                 <thead>
-                    <tr>
-                        <th scope="col" colspan="2" class="text-center h5">
+                    <tr class="bg-danger">
+                        <th scope="col" colspan="6" class="text-center h3">
                             {{$product->first()->name}} 
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">Descripcion</th>
+                        <th scope="row" class="w-25 align-middle text-center">Descripcion</th>
                         <td>{{$product->first()->description}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Precio</th>
+                        <th scope="row" class="align-middle text-center">Precio</th>
                         <td>{{$product->first()->price}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Graduacion</th>
+                        <th scope="row" class="align-middle text-center">Graduacion</th>
                         <td>{{$product->first()->graduation}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Origen</th>
+                        <th scope="row" class="align-middle text-center">Origen</th>
                         <td>{{$product->first()->origin}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Año</th>
+                        <th scope="row" class="align-middle text-center">Año</th>
                         <td>{{$product->first()->year}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Volumen(ml)</th>
+                        <th scope="row" class="align-middle text-center">Volumen(ml)</th>
                         <td>{{$product->first()->volume}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Marca</th>
+                        <th scope="row" class="align-middle text-center">Marca</th>
                         <td>{{$product->first()->brand}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Categoria</th>
+                        <th scope="row" class="align-middle text-center">Categoria</th>
                         <td>{{$product->first()->categoria}}</td>
                     </tr>
 
@@ -74,7 +75,7 @@
             <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
                 <div class="card bg-transparent border border-dark rounded-lg">
                     <h4 class="text-center p-1 cut-text"> {{$related->name}}</h4>
-                    <img title="{{$related->name}}" alt="{{$related->name}}" src="{{'/storage/images/Bebidas/'.$related->image}}" class="card-img p-1" style="z-index: 10;">
+                    <img title="{{$related->name}}" alt="{{$related->name}}" src="{{is_null($related->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$related->image}}" class="card-img p-1" style="z-index: 10;">
                     <div class="card-img-overlay text-right mt-5">
 
                         <h4>{{"$ ".$related->price}}</h4>

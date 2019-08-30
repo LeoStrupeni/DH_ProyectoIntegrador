@@ -14,10 +14,10 @@ class IndexController extends Controller
 
         $all = $countries->all()->pluck('name.common');
 
-        $products=Product::leftJoin('categories', 'category_id', '=', 'categories.id')
-                        ->leftJoin('brands', 'brand_id', '=', 'brands.id')
-                        ->where('products.id', '<', '9')
+        $products=Product::inRandomOrder()
+                        ->limit(8)
                         ->get();
+                
         
         return view('/index', compact(['products','all']));
 

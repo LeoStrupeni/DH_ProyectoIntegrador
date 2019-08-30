@@ -67,7 +67,7 @@
     <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
         <div class="card bg-transparent mb-1 border border-dark rounded-lg">
             <img title="{{$producto->name}}" alt="{{$producto->name}}"
-                src="{{'/storage/images/Bebidas/'.$producto->image}}"
+                src="{{is_null($producto->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$producto->image}}"
                 data-toggle="popover" data-trigger="hover"
                 data-content="{{substr($producto->description, 0, 500)}}.." class="card-img p-1 img-fluid"
                 style="z-index: 10;">
