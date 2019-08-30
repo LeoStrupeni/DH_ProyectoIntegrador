@@ -89,5 +89,32 @@
 
     @endforelse
 
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+        <div>
+            <button type="button" class="btn btn-newsletter shadow rounded-circle" data-pushbar-target="pushbar-newsletter">
+                <i class="far fa-envelope text-white"></i>
+            </button>
+
+            <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu nav-2">
+                <form action="/" class="form" method="post">
+                    <div class="text-center">
+                        <h4 class="pb-3">Registrate para recibir todas nuestras novedades</h4>
+
+                        <div class="col-6 m-auto">
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" class="form-control text-center" placeholder="Ingresa tu email">
+                            </div>    
+                        </div>
+                           
+                        <button type="submit" class="btn btn-modal">Registrar</button>
+                    </div>
+    
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
 </div>
 @endsection
