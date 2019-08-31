@@ -23,9 +23,9 @@ class SuscriptorController extends Controller
         $suscriptor->email = $request['email'];
 
         if ($suscriptor->save()) {
-            notify()->success('Fuiste suscripto correctamente', 'Felicitaciones', ["closeButton" => true]);
+            notify()->success('Fuiste suscripto correctamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
         } else {
-            notify()->error('Ocurrio un error, intente nuevamente mas tarde', 'Error', ["closeButton" => true]);
+            notify()->error('Ocurrio un error, intente nuevamente mas tarde', 'Error', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
         }
 
         return redirect('/');
