@@ -16,7 +16,7 @@
             <div class="modal-body">
                 <div class="row mx-auto text-center">
 
-                    <form action="{{route('add')}}" method="POST" class="mx-auto">
+                    <form action="{{route('add-query')}}" method="POST" class="mx-auto">
                         @csrf
                         <div class="form-group">
                             <b>Dejanos tus datos y nos pondremos en contacto con vos</b>

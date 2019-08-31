@@ -16,7 +16,7 @@
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="/storage/images/img1.jpg" class="d-block w-100" alt="...">
+                    <img src="/storage/images/img1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
                 <div class="carousel-item">
@@ -47,6 +47,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col p-0">
         <div class="jumbotron jumbotron-fluid">
@@ -55,6 +56,7 @@
                 <p class="lead text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit
                     voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non.
                     Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
+                    @include('messages.suscript')                        
             </div>
         </div>
     </div>
@@ -68,13 +70,12 @@
         <div class="card bg-transparent mb-1 border border-dark rounded-lg">
             <img title="{{$producto->name}}" alt="{{$producto->name}}"
                 src="{{is_null($producto->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$producto->image}}"
-                data-toggle="popover" data-trigger="hover"
-                data-content="{{substr($producto->description, 0, 500)}}.." class="card-img p-1 img-fluid"
-                style="z-index: 10;">
+                data-toggle="popover" data-trigger="hover" data-content="{{substr($producto->description, 0, 500)}}.."
+                class="card-img p-1 img-fluid" style="z-index: 10;">
             <div class="card-img-overlay text-right">
                 <form method="get" action="">
-                @csrf
-                <input type="hidden" name="id" id="id" value="{{$producto->id}}">
+                    @csrf
+                    <input type="hidden" name="id" id="id" value="{{$producto->id}}">
                     <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
                         + Detalles
                     </button>
@@ -91,27 +92,29 @@
 
     <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
         <div>
-            <button type="button" class="btn btn-newsletter shadow rounded-circle" data-pushbar-target="pushbar-newsletter">
+            <button type="button" class="btn btn-newsletter shadow rounded-circle"
+                data-pushbar-target="pushbar-newsletter">
                 <i class="far fa-envelope text-white"></i>
             </button>
 
             <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu nav-2">
-                <form action="/" class="form" method="post">
+                <form action="{{route('add-suscriptor')}}" class="form py-4" method="POST">
+                    @csrf
                     <div class="text-center">
                         <h4 class="pb-3">Registrate para recibir todas nuestras novedades</h4>
 
                         <div class="col-6 m-auto">
                             <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control text-center" placeholder="Ingresa tu email">
-                            </div>    
+                                <input type="email" name="email" id="email" class="form-control text-center"
+                                    placeholder="Ingresa tu email">
+                            </div>
                         </div>
-                           
+
                         <button type="submit" class="btn btn-modal">Registrar</button>
                     </div>
-    
+
                 </form>
             </div>
-
 
         </div>
     </div>

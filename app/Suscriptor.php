@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Suscriptor extends Model
 {
-    public $guarded = [];
+    public $fillable = ['email'];
 }
