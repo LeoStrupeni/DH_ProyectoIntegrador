@@ -56,7 +56,6 @@
                 <p class="lead text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit
                     voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non.
                     Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
-                    @include('messages.suscript')                        
             </div>
         </div>
     </div>
@@ -107,10 +106,17 @@
                             <div class="form-group">
                                 <input type="email" name="email" id="email" class="form-control text-center"
                                     placeholder="Ingresa tu email">
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 
                         <button type="submit" class="btn btn-modal">Registrar</button>
+                        
+                        @include('messages.suscript')                        
                     </div>
 
                 </form>
