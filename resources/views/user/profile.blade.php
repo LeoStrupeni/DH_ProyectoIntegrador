@@ -15,9 +15,8 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <form class="mt-1" action="{{route('user-update')}}" method="POST">
-            <input type="hidden" name="user_id" value="{{$user->id}}">
-            {{ method_field('PATCH') }}
+        <form class="mt-1" action="{{route('user-update', Auth::user()->id)}}" method="POST">
+            @method('PATCH')
             @csrf
             <ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item">

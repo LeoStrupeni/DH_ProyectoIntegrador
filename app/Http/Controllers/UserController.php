@@ -17,8 +17,8 @@ class UserController extends Controller
         return view('user.profile', compact('user', 'profiles'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        dd($request);
+        dd($request, $id);
     }
 }
