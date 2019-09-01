@@ -17,3 +17,5 @@ Route::get('/detail', 'ProductControler@detail')->name('detail');
 Route::post('/add/query', 'QueryController@add')->name('add-query');
 
 Route::post('/add/suscriptor', 'SuscriptorController@add')->name('add-suscriptor');
+
+Route::patch('/profile/update', 'UserController@update')->name('user-update');
