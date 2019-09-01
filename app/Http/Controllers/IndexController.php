@@ -8,19 +8,17 @@ use PragmaRX\Countries\Package\Countries;
 
 class IndexController extends Controller
 {
-    public function dataIndex(){
+    public function dataIndex()
+    {
 
         $countries = new Countries();
 
         $all = $countries->all()->pluck('name.common');
 
-        $products=Product::inRandomOrder()
-                        ->limit(8)
-                        ->get();
-                
-        
-        return view('/index', compact(['products','all']));
+        $products = Product::inRandomOrder()
+            ->limit(8)
+            ->get();
 
+        return view('/index', compact(['products', 'all']));
     }
-
 }

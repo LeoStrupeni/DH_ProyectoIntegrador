@@ -97,7 +97,7 @@
             </button>
 
             <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu nav-2">
-                <form action="{{route('add-suscriptor')}}" class="form py-4" method="POST">
+                <form action="{{route('suscriptors.store')}}" class="form py-4" method="POST">
                     @csrf
                     <div class="text-center">
                         <h4 class="pb-3">Registrate para recibir todas nuestras novedades</h4>

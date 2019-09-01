@@ -203,3 +203,12 @@ img.perfil {
 .body-faq{
   background-color: wheat;
 }
+
+/* From Laravel */
+.invalid-feedback{
+  display:block;
+  width:100%;
+  margin-top:.25rem;
+  font-size:80%;
+  color:#e3342f
+};
