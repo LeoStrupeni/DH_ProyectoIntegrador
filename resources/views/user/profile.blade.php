@@ -76,7 +76,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="pais">Pais</label>
+                        <label for="">Pais</label>
                         <input type="text" placeholder="Argentina" class="form-control"
                             value="{{$user->country}}" name="country">
                     </div>
@@ -91,6 +91,4 @@
         </form>
     </div>
 </div>
-
-
 @endsection

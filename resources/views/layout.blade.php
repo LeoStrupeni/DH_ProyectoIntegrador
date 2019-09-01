@@ -48,7 +48,7 @@
                             @auth
                             <div class="justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
-                                <a href="{{route('profile')}}" class="btn btn-nav btn-user">Perfil</a>
+                                <a href="{{route('profile', Auth::user()->name)}}" class="btn btn-nav btn-user">Perfil</a>
                                 </div>
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="Second group">
                                 <a class="btn btn-warning" href="{{--route('shopping')--}}">
