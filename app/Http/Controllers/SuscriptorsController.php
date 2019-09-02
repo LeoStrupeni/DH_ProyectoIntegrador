@@ -14,9 +14,8 @@ class SuscriptorsController extends Controller
      */
     public function index()
     {
-        $suscriptors = Suscriptor::all()->paginate(10);
-
-        return view('', compact('suscriptors'));
+        $suscriptors = Suscriptor::paginate(10);
+        return view('suscriptors.index', compact('suscriptors'));
     }
 
     /**
@@ -103,7 +102,11 @@ class SuscriptorsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        Suscriptor::where('id',$id)->delete();
+
+        notify()->success('El suscriptor ha sido eliminado', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+
+        return back();
     }
 }

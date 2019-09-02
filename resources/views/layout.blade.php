@@ -26,6 +26,8 @@
                                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Vinos</a>
                                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Blancas</a>
                                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Aperitivos</a>
+                                    <hr>
+                                <a class="nav-item nav-link text-dark font-weight-bold" href="{{route('suscriptors.index')}}">Suscriptores</a>
                                 </div>
                             </div>
                         </div>
