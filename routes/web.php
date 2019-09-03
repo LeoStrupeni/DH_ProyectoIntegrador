@@ -8,9 +8,9 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name(
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/search', 'ProductsController@search')->name('search');
+Route::get('/search', 'ProductController@search')->name('search');
 
-Route::get('/detail', 'ProductsController@detail')->name('detail');
+Route::get('/detail', 'ProductController@detail')->name('detail');
 
 Route::resource('users', 'UsersController');
 
@@ -18,4 +18,4 @@ Route::resource('suscriptors', 'SuscriptorsController');
 
 Route::resource('queries', 'QueriesController');
 
-Route::resource('products', 'ProductsController');
+Route::resource('products', 'ProductController');

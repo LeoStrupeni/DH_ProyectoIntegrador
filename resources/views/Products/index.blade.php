@@ -41,23 +41,23 @@
                 @if($products->count())  
                 @foreach($products as $product)  
                 <tr>
-                  <td><img src="{{is_null($product->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->image}}" style="width:40px;"></td>
+                  <td class="text-center"><img src="{{is_null($product->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->image}}" style="width:40px;"></td>
                   <td>{{$product->name}}</td>
                   <td class="cut-text" data-toggle="popover" data-trigger="hover" data-content="{{$product->description}}">{{substr($product->description, 0, 15)}}</td>
-                  <td>$ {{$product->price}}</td>
-                  <td>{{$product->graduation}} %</td>
+                  <td class="text-center">$ {{$product->price}}</td>
+                  <td class="text-center">{{$product->graduation}} %</td>
                   <td>{{$product->origin}}</td>
-                  <td>{{$product->year}}</td>
-                  <td>{{$product->volume}} ml.</td>
+                  <td class="text-center">{{$product->year}}</td>
+                  <td class="text-center">{{$product->volume}} ml.</td>
                   <td>{{$product->Category->name}}</td>
                   <td>{{$product->brand->name}}</td>
-                  <td>{{$product->Stock}}</td>
-                  <td>
-                      <a class="btn btn-primary mb-1 w-75" href="{{ action('ProductsController@edit', $product->id) }}">
+                  <td class="text-center">{{$product->Stock}}</td>
+                  <td class="text-center">
+                      <a class="btn btn-primary mb-1 w-75" href="{{action('ProductController@edit',$product->id)}}">
                         <i class='fa fa-pencil-alt' aria-hidden='true'></i>
                       </a>
 
-                      <form action="{{action('ProductsController@destroy', $product->id)}}" method="post">
+                      <form action="{{action('ProductController@destroy', $product->id)}}" method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
                         <button class="btn btn-danger w-75" type="submit">
