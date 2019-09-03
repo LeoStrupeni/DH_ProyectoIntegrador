@@ -27,7 +27,12 @@
                                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Blancas</a>
                                     <a class="nav-item nav-link text-dark font-weight-bold" href="#">Aperitivos</a>
                                     <hr>
-                                <a class="nav-item nav-link text-dark font-weight-bold" href="{{route('suscriptors.index')}}">Suscriptores</a>
+                                    @if (Auth::check())
+                                    <a class="nav-item nav-link text-dark font-weight-bold"
+                                        href="{{route('suscriptors.index')}}">Suscriptores</a>
+                                    <a class="nav-item nav-link text-dark font-weight-bold"
+                                        href="{{route('queries.index')}}">Consultas</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -50,10 +55,11 @@
                             @auth
                             <div class="justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="First group">
-                                <a href="{{route('users.edit', Auth::user()->id)}}" class="btn btn-nav btn-user">Perfil</a>
+                                    <a href="{{route('users.edit', Auth::user()->id)}}"
+                                        class="btn btn-nav btn-user">Perfil</a>
                                 </div>
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="Second group">
-                                <a class="btn btn-warning" href="{{--route('shopping')--}}">
+                                    <a class="btn btn-warning" href="{{--route('shopping')--}}">
                                         <i class="fas fa-shopping-cart pt-1"></i>
                                     </a>
                                 </div>
@@ -63,9 +69,9 @@
                             </div>
                             @else
                             <div class="justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
-                                    @include('modals.login')
+                                @include('modals.login')
                                 @if (Route::has('register'))
-                                    @include('modals.register')
+                                @include('modals.register')
                                 @endif
                             </div>
                             @endauth
@@ -115,8 +121,8 @@
         $('[data-toggle="popover"]').popover()
     });
     </script>
-	<script>
-		var pushbar = new Pushbar({
+    <script>
+        var pushbar = new Pushbar({
             blur:true,
             overlay:true,
         });

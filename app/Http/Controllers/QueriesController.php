@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Query;
+use App\User;
 
 class QueriesController extends Controller
 {
@@ -14,7 +15,8 @@ class QueriesController extends Controller
      */
     public function index()
     {
-        //
+        $queries = Query::paginate(10);
+        return view('queries.index', compact('queries'));
     }
 
     /**
@@ -38,15 +40,15 @@ class QueriesController extends Controller
         $rules = [
             'name' => 'string|required',
             'email' => 'string|required',
-            'phone' => 'integer',
-            'message' => 'string|max:255'
+            'phone' => 'string|max:15|min:10',
+            'message' => 'string|max:255|min:5|required'
         ];
 
         $messages = [
             'string' => 'El campo :attribute tiene que ser texto',
             'required' => 'El campo :attribute es requerido',
-            'integer' => 'El campo :atribute tiene que ser numerico',
-            'max' => 'El maximo del campo :attribute son 255 caracteres'
+            'max' => 'El maximo del campo :attribute son :max caracteres',
+            'min' => 'El minimo del campo :attribute son :min caracteres'
         ];
 
         $this->validate($request, $rules, $messages);
@@ -56,13 +58,17 @@ class QueriesController extends Controller
         $query->email = $request['email'];
         $query->phone = $request['phone'];
         $query->message = $request['message'];
-        $query->is_registered = '0';
+        if (User::where('email', $query->email)->first()) {
+            $query->is_registered = '1';
+        } else {
+            $query->is_registered = '0';
+        }
 
         $query->save();
 
-        notify()->success('Tus consulta fue enviada. En breve nos contactaremos', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+        notify()->success('Tus consulta fue enviada. En breve nos pondremos en contacto', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
-        return redirect('/');
+        return redirect()->back();
     }
 
     /**
@@ -73,7 +79,9 @@ class QueriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $query = Query::find($id);
+
+        return view('queries.show', compact('query'));
     }
 
     /**
@@ -107,6 +115,10 @@ class QueriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Query::where('id', $id)->delete();
+
+        notify()->success('La consulta ha sido eliminada', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+
+        return back();
     }
 }

@@ -25,21 +25,45 @@
                             <label for="nombre">Nombre</label>
                             <input type="text" name="name" id="nombre" class="form-control" placeholder="Tu nombre"
                                 required>
+                                
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" name="email" id="email" class="form-control" placeholder="Tu email"
                                 required>
+                                
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="telefono">Teléfono</label>
                             <input class="form-control" id="telefono" type="tel" name="phone" value=""
                                 {{-- pattern="[1-9]{10}" title="Ingresá tu celular con el formato 3416772339" --}}
                                 placeholder="Tu teléfono" required>
+                                
+                            @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="porque"><b>Mensaje</b></label>
                             <textarea name="message" id="porque" class="form-control" rows="3"></textarea>
+                            
+                            @error('message')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
 
                         <div class="modal-footer mx-auto justify-content-center">

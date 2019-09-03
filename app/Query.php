@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Query extends Model
 {
-    protected $fillable = ['name','email','phone','message'];
+    protected $fillable = ['name','email','phone','message', 'is_registered'];
 
-    public $hidden = ['is_registered'];
 }
