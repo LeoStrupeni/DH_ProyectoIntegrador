@@ -33,7 +33,7 @@
                     No
                     @endif
                 </td>
-                <td>{{$query->message}}</td>
+                <td>{{substr($query->message, 0, 50)}}</td>
                 <td>
                     <form action="{{route('queries.destroy', $query->id)}}" method="POST">
                         @csrf

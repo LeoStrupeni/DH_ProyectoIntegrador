@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    public $guarded = [];
+    public $fillable = ['transaction_key','payment_data','transaction_date','total','status','user_id'];
 
     public function user()
     {
