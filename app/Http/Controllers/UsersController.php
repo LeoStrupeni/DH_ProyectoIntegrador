@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all()->paginate(20);
+        $users = User::paginate(20);
 
         return view('users.index', compact('users'));
     }
@@ -30,7 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     { 
-        
+        //
     }
 
     /**
@@ -53,7 +53,7 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('', compact('user'));
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -68,7 +68,7 @@ class UsersController extends Controller
         $profiles = Profile::all();
         $countries = Countries::all()->pluck('name.common');
 
-        return view('users.profile', compact('user', 'profiles', 'countries'));
+        return view('users.edit', compact('user', 'profiles', 'countries'));
     }
 
     /**
@@ -127,5 +127,9 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
+
+        notify()->success('El usuario fue eliminado correctamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+
+        return back();
     }
 }

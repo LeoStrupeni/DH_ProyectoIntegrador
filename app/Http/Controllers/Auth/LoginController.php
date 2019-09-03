@@ -56,7 +56,7 @@ class LoginController extends Controller
     }
 
     //Sobreescribo la funcion logout de Laravel para redirigir a home
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::logout();
         return redirect('/');
