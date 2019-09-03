@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="row">
-  <section class="content">
+  {{-- <section class="content"> --}}
     <div class="col">
       <div class="panel panel-default m-auto">
         <div class="panel-body">
@@ -87,7 +87,7 @@
         </div>
       </div>
     </div>
-  </section>
+  {{-- </section> --}}
 
 
 </div>

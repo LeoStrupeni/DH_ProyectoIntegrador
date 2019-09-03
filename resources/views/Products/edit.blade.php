@@ -59,9 +59,8 @@
 							<div class="form-group row">
 								<label class="col-md-4 control-label text-right cut-text m-0 p-1 text-white"><strong>Marca:</strong></label>
 								<select class="col-md-6 custom-select" name="marca" required>
-									<option value="{{$product->brand->name}}" selected>{{$product->brand->name}}</option>
 									@foreach ($brands as $brand)
-									<option value="{{$brand->name}}">{{$brand->name}}</option>
+									<option value="{{$brand->name}} {{($brand->name == $product->brand->name ? 'selected' : '')}}">{{$brand->name}}</option>
 									@endforeach
 								</select>
 							</div>
@@ -71,10 +70,8 @@
 							<div class="form-group row">
 								<label class="col-md-4 control-label text-right cut-text m-0 p-1 text-white"><strong>Categoria:</strong></label>
 								<select class="col-md-6 custom-select" name="categoria" required>
-									<option selected>{{$product->Category->name}}</option>
-									
 									@foreach ($category as $cat)
-									<option value="{{$cat->name}}">{{$cat->name}}</option>
+									<option value="{{$cat->name}} {{($cat->name == $product->Category->name ? 'selected' : '')}}">{{$cat->name}}</option>
 									@endforeach
 
 								</select>
