@@ -52,7 +52,7 @@ class ProductController extends Controller
         ]);
 
         Product::create($request->all());
-        return redirect()->route('products.index')->with('success', 'Registro creado satisfactoriamente');
+        return redirect()->route('proproductsducts.index')->with('success', 'Registro creado satisfactoriamente');
     }
 
     /**
@@ -64,7 +64,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('product.show', compact('product'));
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -76,7 +76,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('product.edit', compact('product'));
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -104,7 +104,7 @@ class ProductController extends Controller
         ]);
 
         Product::find($id)->update($request->all());
-        return redirect()->route('product.index')->with('success', 'Registro actualizado satisfactoriamente');
+        return redirect()->route('products.index')->with('success', 'Registro actualizado satisfactoriamente');
     }
 
     /**
@@ -116,7 +116,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::find($id)->delete();
-        return redirect()->route('product.index')->with('success', 'Registro eliminado satisfactoriamente');
+        return redirect()->route('products.index')->with('success', 'Registro eliminado satisfactoriamente');
     }
 
     public function search(Request $request)
