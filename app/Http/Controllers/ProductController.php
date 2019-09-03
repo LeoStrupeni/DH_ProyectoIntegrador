@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Brand;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -26,7 +28,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $brands = Brand::all();
+        $category = Category::all();
+        return view('products.create', compact('brands','category'));
     }
 
     /**
@@ -52,7 +56,7 @@ class ProductController extends Controller
         ]);
 
         Product::create($request->all());
-        return redirect()->route('proproductsducts.index')->with('success', 'Registro creado satisfactoriamente');
+        return redirect()->route('products.index')->with('success', 'Registro creado satisfactoriamente');
     }
 
     /**
@@ -76,7 +80,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('products.edit', compact('product'));
+        $brands = Brand::all();
+        $category = Category::all();
+        return view('products.edit', compact('product','brands','category'));
     }
 
     /**
