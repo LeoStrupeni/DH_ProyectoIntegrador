@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class ProductsController extends Controller
     {
         $products=Product::WHERE('user_id','=','1') 
                 ->orderBy('id','ASC')->paginate(10);
-        return view('Products.index',compact('products')); 
+        return view('products.index',compact('products')); 
     }
 
     /**
@@ -26,7 +26,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('Products.create');
+        return view('products.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class ProductsController extends Controller
             ]);
 
         Product::create($request->all());
-        return redirect()->route('Products.index')->with('success','Registro creado satisfactoriamente');
+        return redirect()->route('products.index')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
@@ -64,7 +64,7 @@ class ProductsController extends Controller
     public function show($id)
     {
         $product=Product::find($id);
-        return view('Product.show',compact('product'));
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -76,7 +76,7 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product=Product::find($id);
-        return view('Product.edit',compact('product'));
+        return view('product.edit',compact('product'));
     }
 
     /**
@@ -86,6 +86,7 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    
     public function update(Request $request, $id)
     {
         $this->validate($request,[ 'name'=>'required', 
@@ -102,7 +103,7 @@ class ProductsController extends Controller
         ]);
  
         Product::find($id)->update($request->all());
-        return redirect()->route('Product.index')->with('success','Registro actualizado satisfactoriamente');
+        return redirect()->route('product.index')->with('success','Registro actualizado satisfactoriamente');
     }
 
     /**
@@ -114,7 +115,7 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         Product::find($id)->delete();
-        return redirect()->route('Product.index')->with('success','Registro eliminado satisfactoriamente');
+        return redirect()->route('product.index')->with('success','Registro eliminado satisfactoriamente');
     }
     
     public function search(Request $request)
