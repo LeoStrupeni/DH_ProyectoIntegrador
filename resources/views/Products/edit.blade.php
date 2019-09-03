@@ -28,15 +28,15 @@
 				</div>
 				{{-- <div class="panel-body">					
 					<div class="table-container">
-						<form method="POST" action="{{ route('products.update',$product->id) }}"  role="form">
-							{{ csrf_field() }}
+						<form method="POST" action="{{ route('products.update',$product->id) }}" role="form">
+				{{ csrf_field() }}
 
 
-						</form>
-					</div>
-				</div> --}}
-
+				</form>
 			</div>
-		</div>
-	</section>
-	@endsection
+		</div> --}}
+
+</div>
+</div>
+</section>
+@endsection

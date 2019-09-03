@@ -38,6 +38,11 @@
             @endforeach
         </tbody>
     </table>
+    <div class="row text-center mx-auto mt-1">
+        <div class="col-md-6 offset-5">
+            {{$suscriptors->links()}}
+        </div>
+    </div>
 </div>
 @notify_css
 @notify_js

@@ -14,9 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=Product::WHERE('user_id','=','1') 
-                ->orderBy('id','ASC')->paginate(10);
-        return view('products.index',compact('products')); 
+        $products = Product::WHERE('user_id', '=', '1')
+            ->orderBy('id', 'ASC')->paginate(10);
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -37,22 +37,22 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[ 
-            'name'=>'required', 
-            'description'=>'required', 
-            'price'=>'required', 
-            'graduation'=>'required', 
-            'origin'=>'required', 
-            'image'=>'required', 
-            'year'=>'required', 
-            'volume'=>'required', 
-            'brand'=>'required', 
-            'category'=>'required', 
-            'Stock'=>'required'
-            ]);
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'graduation' => 'required',
+            'origin' => 'required',
+            'image' => 'required',
+            'year' => 'required',
+            'volume' => 'required',
+            'brand' => 'required',
+            'category' => 'required',
+            'Stock' => 'required'
+        ]);
 
         Product::create($request->all());
-        return redirect()->route('products.index')->with('success','Registro creado satisfactoriamente');
+        return redirect()->route('products.index')->with('success', 'Registro creado satisfactoriamente');
     }
 
     /**
@@ -63,8 +63,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product=Product::find($id);
-        return view('product.show',compact('product'));
+        $product = Product::find($id);
+        return view('product.show', compact('product'));
     }
 
     /**
@@ -75,8 +75,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product=Product::find($id);
-        return view('product.edit',compact('product'));
+        $product = Product::find($id);
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -86,24 +86,25 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    
+
     public function update(Request $request, $id)
     {
-        $this->validate($request,[ 'name'=>'required', 
-        'description'=>'required', 
-        'price'=>'required', 
-        'graduation'=>'required', 
-        'origin'=>'required', 
-        'image'=>'required', 
-        'year'=>'required', 
-        'volume'=>'required', 
-        'brand'=>'required', 
-        'category'=>'required', 
-        'Stock'=>'required'
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'graduation' => 'required',
+            'origin' => 'required',
+            'image' => 'required',
+            'year' => 'required',
+            'volume' => 'required',
+            'brand' => 'required',
+            'category' => 'required',
+            'Stock' => 'required'
         ]);
- 
+
         Product::find($id)->update($request->all());
-        return redirect()->route('product.index')->with('success','Registro actualizado satisfactoriamente');
+        return redirect()->route('product.index')->with('success', 'Registro actualizado satisfactoriamente');
     }
 
     /**
@@ -115,9 +116,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         Product::find($id)->delete();
-        return redirect()->route('product.index')->with('success','Registro eliminado satisfactoriamente');
+        return redirect()->route('product.index')->with('success', 'Registro eliminado satisfactoriamente');
     }
-    
+
     public function search(Request $request)
     {
         $par = $request->input('ParamBusqueda');

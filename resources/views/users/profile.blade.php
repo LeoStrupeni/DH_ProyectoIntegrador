@@ -5,7 +5,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-12">
-        <img src="{{ url('/storage/avatars/'.$user->avatar) }}" alt="profile"
+        <img src="{{ is_file('/storage/avatars/'.$user->avatar) ? url('/storage/avatars/'.$user->avatar) : url('/storage/avatars/profile-placeholder.png')}}" alt="profile"
             class="img-fluid shadow mx-auto d-block rounded-circle perfil">
     </div>
     <div class="col-sm-12">

@@ -19,12 +19,12 @@
         <div class="alert alert-info">
             {{Session::get('success')}}
         </div>
-        @endif    
+        @endif
     </div>
     <div class="col">
         <h3 class="">Nuevo Producto</h3>
         <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            @csrf
             <div class="row">
                 <div class="col-md-6 m-0">
                     <div class="form-group row">
@@ -42,7 +42,8 @@
                 <div class="col-md-2 p-0 m-0">
                     <div class="form-group row">
                         <label class="col-md-3 control-label text-right cut-text m-0 p-1">Año:</label>
-                        <input type="number" min="1990" max="<?=date("Y");?>" value="<?=date("Y");?>" class="col-md-5 form-control" name="anio">
+                        <input type="number" min="1990" max="<?=date("Y");?>" value="<?=date("Y");?>"
+                            class="col-md-5 form-control" name="anio">
                     </div>
                 </div>
             </div>

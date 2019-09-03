@@ -115,8 +115,10 @@
                         </div>
 
                         <button type="submit" class="btn btn-modal">Registrar</button>
-                        
-                        @include('messages.suscript')                        
+
+                        @notify_css
+                        @notify_js
+                        @notify_render
                     </div>
 
                 </form>
