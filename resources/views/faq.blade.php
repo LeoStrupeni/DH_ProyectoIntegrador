@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="mx-auto body-faq rounded-sm">
+<div class="mx-auto rounded-sm">
     
     <div class="row">
       <div class="col">

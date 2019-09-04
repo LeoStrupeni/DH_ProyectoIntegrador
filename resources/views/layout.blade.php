@@ -15,25 +15,27 @@
 
                 <nav class="navbar navbar-light nav-2 py-auto">
                     <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1">
-                        <div class="text-center">
+                        <div>
                             <button class="navbar-toggler" data-pushbar-target="pushbar-menu">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu nav-2">
-                                <button data-pushbar-close class="btn btn-search">Close</button>
+                                <h6 class="text-center text-white">Que buscas???</h6>
                                 <div class="navbar-nav">
-                                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Cervezas</a>
-                                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Vinos</a>
-                                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Blancas</a>
-                                    <a class="nav-item nav-link text-dark font-weight-bold" href="#">Aperitivos</a>
+                                      
+                                    @foreach ($categorias as $cat)
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('search',$cat->name)}}">{{$cat->name}}</a>
+                                    @endforeach
+                                
+                                    
                                     <hr>
                                     @if (Auth::check())
-                                    <a class="nav-item nav-link text-dark font-weight-bold"
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('suscriptors.index')}}">Suscriptores</a>
-                                    <a class="nav-item nav-link text-dark font-weight-bold"
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('queries.index')}}">Consultas</a>
                                         @if (Auth::user()->profile->name == 'Administrador')
-                                        <a class="nav-item nav-link text-dark font-weight-bold"
+                                        <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                             href="{{route('users.index')}}">Usuarios</a>
                                         @endif
                                     @endif
@@ -87,7 +89,7 @@
         </div>
     </div>
 
-    <main class="container p-0">
+    <main class="container">
         @yield('content')
     </main>
 
