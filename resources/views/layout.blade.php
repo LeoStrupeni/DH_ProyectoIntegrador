@@ -22,22 +22,23 @@
                             <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu nav-2">
                                 <h6 class="text-center text-white">Que buscas???</h6>
                                 <div class="navbar-nav">
-                                      
+
                                     @foreach ($categorias as $cat)
-                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('search','PM='.$cat->name)}}">{{$cat->name}}</a>
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
+                                        href="{{route('search','PM='.$cat->name)}}">{{$cat->name}}</a>
                                     @endforeach
-                                
-                                    
+
+
                                     <hr>
                                     @if (Auth::check())
                                     <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('suscriptors.index')}}">Suscriptores</a>
                                     <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('queries.index')}}">Consultas</a>
-                                        @if (Auth::user()->profile->name == 'Administrador')
-                                        <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
-                                            href="{{route('users.index')}}">Usuarios</a>
-                                        @endif
+                                    @if (Auth::user()->profile->name == 'Administrador')
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
+                                        href="{{route('users.index')}}">Usuarios</a>
+                                    @endif
                                     @endif
                                 </div>
                             </div>
