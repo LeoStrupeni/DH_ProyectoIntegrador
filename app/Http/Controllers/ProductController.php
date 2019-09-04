@@ -156,4 +156,15 @@ class ProductController extends Controller
 
         return view('detail', compact('product', 'relatedWith'));
     }
+
+    public function apiSearch(Request $request) {
+        $products = Product::select("name")
+                            ->where("name", "like", "%" . $request["PM"] . "%")
+                            ->union(Brand::select("name")->where("name", "like", "%" . $request["PM"] . "%"))
+                            ->union(Category::select("name")->where("name", "like", "%" . $request["PM"] . "%"))
+                            ->limit(20)
+                            ->get();
+        return $products;
+        }
+
 }
