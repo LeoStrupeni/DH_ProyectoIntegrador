@@ -72,8 +72,7 @@
                 data-toggle="popover" data-trigger="hover" data-content="{{substr($producto->description, 0, 500)}}.."
                 class="card-img p-1 img-fluid" style="z-index: 10;">
             <div class="card-img-overlay text-right">
-                <form method="get" action="">
-                    @csrf
+            <form method="get" action="{{route('detail', $producto->id)}}">
                     <input type="hidden" name="id" id="id" value="{{$producto->id}}">
                     <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
                         + Detalles
