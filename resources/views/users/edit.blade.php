@@ -5,8 +5,8 @@
 @section('content')
 <div class="row">
     <div class="col-sm-12">
-        <img src="{{ is_file('/storage/avatars/'.$user->avatar) ? url('/storage/avatars/'.$user->avatar) : url('/storage/avatars/profile-placeholder.png')}}" alt="profile"
-            class="img-fluid shadow mx-auto d-block rounded-circle perfil">
+        <img src="{{ is_file( public_path('storage\\avatars\\').$user->avatar ) ? url('/storage/avatars/'.$user->avatar) : url('/storage/avatars/profile-placeholder.png')}}"
+            alt="profile" class="img-fluid shadow mx-auto mt-1 d-block rounded-circle perfil">
     </div>
     <div class="col-sm-12">
         <h1 class="text-center">Hola, {{$user->name}}</h1>
@@ -15,7 +15,8 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <form class="mt-1" action="{{route('users.update', Auth::user()->id)}}" method="POST">
+        <form class="mt-1" action="{{route('users.update', Auth::user()->id)}}" method="POST"
+            enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             <ul class="nav nav-tabs" role="tablist">
@@ -108,6 +109,11 @@
                     <div class="form-group">
                         <label for="imagen-perfil">Foto de perfil</label>
                         <input type="file" class="form-control-file" name="avatar">
+                        @error('avatar')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                 </div>
 
@@ -153,4 +159,7 @@
         </form>
     </div>
 </div>
+@notify_css
+@notify_js
+@notify_render
 @endsection

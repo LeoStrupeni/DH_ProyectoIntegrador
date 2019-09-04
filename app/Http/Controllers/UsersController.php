@@ -8,6 +8,7 @@ use App\Profile;
 use PragmaRX\Countries\Package\Countries;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
@@ -29,7 +30,7 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
+    {
         //
     }
 
@@ -80,28 +81,47 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $this->validate($request, [
-                'name' => ['required', 'string', 'max:255'],
-                'surname' => ['required', 'string', 'max:255'],
-                'personal_id' => ['required', 'integer'],
-                'country' => ['required', 'string', 'max:255'],
-                'email' => ['required', 'string', 'email', 'max:255'],
-                'password' => ['required', 'string', 'min:3'],
-                'birthday' => ['required', 'date'],
-                //'avatar' => ['image']
-            ], [
-                'name.required' => 'Por favor, ingrese su nombre',
-                'surname.required' => 'Por favor, ingrese su apellido',
-                'personal_id' => 'Por favor, ingrese su documento',
-                'country.required' => 'Por favor, seleccione su pais de residencia',
-                'email.required' => 'Por favor, ingrese su correo electronico',
-                //'email.unique' => 'Este mail ya se encuentra en uso',
-                'password.required' => 'Por favor, ingrese su password',
-                'birthday.required' => 'Por favor, ingrese su fecha de nacimiento',
-                //'avatar.image' => 'Solo se admiten imagenes en formatos apropiados'
-            ]);
+        $user = User::find($id);
+
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'personal_id' => ['required', 'integer'],
+            'country' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'password' => ['required', 'string', 'min:3'],
+            'birthday' => ['required', 'date'],
+            'avatar' => ['image', 'nullable']
+        ], [
+            'name.required' => 'Por favor, ingrese su nombre',
+            'surname.required' => 'Por favor, ingrese su apellido',
+            'personal_id' => 'Por favor, ingrese su documento',
+            'country.required' => 'Por favor, seleccione su pais de residencia',
+            'email.required' => 'Por favor, ingrese su correo electronico',
+            'email.unique' => 'Este mail ya se encuentra en uso',
+            'password.required' => 'Por favor, ingrese su password',
+            'birthday.required' => 'Por favor, ingrese su fecha de nacimiento',
+            'avatar.image' => 'Solo se admiten imagenes en formatos apropiados'
+        ]);
+
+
+        if ($request['avatar']) {
             
-            User::where('id', $id)->update([
+            $route = $request['avatar']->store('/public/avatars');
+
+            $user->update([
+                'name' => $request->name,
+                'surname' => $request->surname,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'personal_id' => $request->personal_id,
+                'birthday' => $request->birthday,
+                'profile_id' => $request->profile_id,
+                'country' => $request->country,
+                'avatar' => basename($route)
+            ]);
+        } else {
+            $user->update([
                 'name' => $request->name,
                 'surname' => $request->surname,
                 'email' => $request->email,
@@ -111,10 +131,11 @@ class UsersController extends Controller
                 'profile_id' => $request->profile_id,
                 'country' => $request->country
             ]);
+        }
 
-            notify()->success('Tus datos fueron actualizados exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+        notify()->success('Tus datos fueron actualizados exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
-            return redirect('/');
+        return redirect()->back();
     }
 
     /**
