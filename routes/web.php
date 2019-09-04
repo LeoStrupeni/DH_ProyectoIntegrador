@@ -19,3 +19,5 @@ Route::resource('suscriptors', 'SuscriptorsController');
 Route::resource('queries', 'QueriesController');
 
 Route::resource('products', 'ProductController');
+
+Route::get('/faq', 'FaqController@show')->name('faq');;
