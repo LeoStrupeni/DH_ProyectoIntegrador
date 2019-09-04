@@ -24,7 +24,7 @@
                                 <div class="navbar-nav">
                                       
                                     @foreach ($categorias as $cat)
-                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('search',$cat->name)}}">{{$cat->name}}</a>
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('search','PM='.$cat->name)}}">{{$cat->name}}</a>
                                     @endforeach
                                 
                                     
@@ -46,9 +46,8 @@
 
                     <div class="col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 text-center">
                         <form class="form-inline my-2 my-lg-0 mx-auto" action="{{route('search')}}" method="get">
-                            @csrf
                             <input class="form-control mr-sm-2 mr-2" type="search" placeholder="Búsqueda"
-                                aria-label="Search" name="ParamBusqueda" required>
+                                aria-label="Search" name="PM" required>
                             <button class="btn btn-search my-2 my-sm-0" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>

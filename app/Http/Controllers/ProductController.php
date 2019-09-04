@@ -127,7 +127,7 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $par = $request->input('ParamBusqueda');
+        $par = $request->input('PM');
         $products = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image')
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
