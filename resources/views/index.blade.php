@@ -76,7 +76,6 @@
                 <div class='card-img-overlay text-right mt-5'>
                     <h5>{{'$'. $producto->price}}</h5>
                     <form method='GET' action='/detail'>
-                        @csrf
                         <input type='hidden' name='id' id='id' value='{{$producto->id}}'>
                         <button class='btn btn-warning w-50' type='submit' name='' value='' style='font-size:1vw;'>
                             + Detalles

@@ -47,7 +47,6 @@
                     </button>
                 </form>
                 <form method="GET" action="/detail">
-                    @csrf
                     <input type="hidden" name="id" id="id" value="{{$producto->id}}">
                     <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
                         + Detalles

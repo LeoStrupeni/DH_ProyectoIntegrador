@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Brand;
 use App\Category;
+use Auth;
 
 class ProductController extends Controller
 {
@@ -16,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::WHERE('user_id', '=', '1')
+        $products = Product::WHERE('user_id', '=', Auth::user()->id)
             ->orderBy('id', 'ASC')->paginate(10);
         return view('products.index', compact('products'));
     }
@@ -94,23 +95,67 @@ class ProductController extends Controller
      */
 
     public function update(Request $request, $id)
-    {
+    {   
+        
+
         $this->validate($request, [
-            'name' => 'required',
+            'name' => ['required', 'max:255'],
             'description' => 'required',
-            'price' => 'required',
-            'graduation' => 'required',
+            'price' => ['required', 'numeric'],
+            'graduation' => ['required', 'numeric'],
             'origin' => 'required',
-            'image' => 'required',
-            'year' => 'required',
-            'volume' => 'required',
-            'brand' => 'required',
-            'category' => 'required',
-            'Stock' => 'required'
+            'year' => ['required', 'integer'],
+            'volume' => ['required', 'numeric'],
+            'brand_id' => 'required',
+            'category_id' => 'required',
+            'stock' => ['required', 'integer'],
+            'image' => ['image', 'nullable']
+        ],[
+            'required'=>'El campo :attribute es obligatorio',
+            'image' => 'Solo se admiten imagenes en formatos apropiados',
+            'numeric'=>'El campo :attribute debe ser numerico',
+            'integer'=>'el campo :attribute debe ser un entero',
+            'max'=>'El campo :attribute supera el maximo',
         ]);
 
-        Product::find($id)->update($request->all());
-        return redirect()->route('products.index')->with('success', 'Registro actualizado satisfactoriamente');
+
+        if ($request['image']) {
+            
+            $route = $request['image']->store('/public/images/Products');
+
+            Product::find($id)->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'graduation' => $request->graduation,
+                'origin' => $request->origin,
+                'year' => $request->year,
+                'volume' => $request->volume,
+                'brand_id' => $request->brand_id,
+                'category_id' => $request->category_id,
+                'stock' => $request->stock,
+                'user_id' => $request->user_id,
+                'image' => basename($route)          
+            ]);
+        } else {
+            Product::find($id)->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'graduation' => $request->graduation,
+                'origin' => $request->origin,
+                'year' => $request->year,
+                'volume' => $request->volume,
+                'brand_id' => $request->brand_id,
+                'category_id' => $request->category_id,
+                'stock' => $request->stock,
+                'user_id' => $request->user_id
+            ]);
+        }
+       
+        $notify=notify()->success('Producto actualizado exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+
+        return redirect()->route('products.index')->with($notify);
     }
 
     /**
@@ -143,7 +188,7 @@ class ProductController extends Controller
     public function detail(Request $request)
     {
         $id = $request->input('id');
-        $product = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.graduation', 'Products.origin', 'Products.year', 'Products.volume', 'brands.name as brand', 'categories.name as categoria', 'categories.id as id_cat')
+        $product = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.graduation', 'Products.origin', 'Products.year', 'Products.volume', 'Products.Stock', 'brands.name as brand', 'categories.name as categoria', 'categories.id as id_cat')
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->where('products.id', '=', $id)
