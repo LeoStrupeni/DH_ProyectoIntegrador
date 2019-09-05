@@ -62,31 +62,35 @@
 </div>
 
 
-<div class="row">
-
-    @forelse ($products as $producto)
-    <div class="col-10 col-sm-6 col-md-4 col-lg-3 m-auto p-1">
-        <div class="card bg-transparent mb-1 border border-dark rounded-lg">
-            <img title="{{$producto->name}}" alt="{{$producto->name}}"
-                src="{{is_null($producto->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$producto->image}}"
-                data-toggle="popover" data-trigger="hover" data-content="{{substr($producto->description, 0, 500)}}.."
-                class="card-img p-1 img-fluid" style="z-index: 10;">
-            <div class="card-img-overlay text-right">
-            <form method="get" action="{{route('detail', $producto->id)}}">
-                    <input type="hidden" name="id" id="id" value="{{$producto->id}}">
-                    <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
-                        + Detalles
-                    </button>
-                </form>
+<div class="row dataindex">
+    
+        @forelse ($products as $producto)
+    
+        <div class='col-10 col-sm-6 col-md-4 col-lg-3 mb-1'>
+            <div class='card bg-transparent border border-dark rounded-lg'>
+                <h4 class='text-center p-1 cut-text'> {{$producto->name}} </h4>
+                <img title='{{$producto->name}}' alt='{{$producto->name}}'
+                    src='{{is_null($producto->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$producto->image}}'
+                    data-toggle='popover' data-trigger='hover' data-content='{{substr($producto->description, 0, 500)}}..'
+                    class='card-img p-1 img-fluid' style='z-index: 1;'>
+                <div class='card-img-overlay text-right mt-5'>
+                    <h5>{{'$'. $producto->price}}</h5>
+                    <form method='GET' action='/detail'>
+                        @csrf
+                        <input type='hidden' name='id' id='id' value='{{$producto->id}}'>
+                        <button class='btn btn-warning w-50' type='submit' name='' value='' style='font-size:1vw;'>
+                            + Detalles
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    @empty
-    <div class="alert alert-success w-100 text-center" role="alert">
-        No Hay productos
-    </div>
-
-    @endforelse
+        @empty
+        <div class="alert alert-success w-100 text-center" role="alert">
+            No Hay productos
+        </div>
+    
+        @endforelse
 
     <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
         <div>

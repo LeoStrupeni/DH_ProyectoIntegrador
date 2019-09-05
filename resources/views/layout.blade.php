@@ -45,7 +45,7 @@
                         </div>
                     </div>
 
-                    <div class="col-10 col-sm-10 col-md-6 col-lg-6 col-xl-6 text-center">
+                    <div class="col-10 col-sm-10 col-md-5 col-lg-6 col-xl-6 text-center">
                         <form class="form-inline my-2 my-lg-0 mx-auto" action="{{route('search')}}" method="get">
                             <input class="form-control mr-sm-2 mr-2 paramBusquedajs" type="search" placeholder="Encontra lo que Buscas"
                                 aria-label="Search" name="PM" list="PM" required>
@@ -56,7 +56,7 @@
                         </form>
                     </div>
 
-                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 text-center">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 text-center">
                         @if (Route::has('login'))
                         <div class="top-right links">
                             @auth
