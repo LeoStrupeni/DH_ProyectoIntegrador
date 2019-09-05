@@ -14,8 +14,8 @@ class IndexController extends Controller
         $countries = new Countries();
 
         $all = $countries->all()->pluck('name.common');
-
-        $products = Product::where('id','<','25')
+        // where('id','<','25')
+        $products = Product::whereNotNull('image')
             ->inRandomOrder()
             ->limit(8)
             ->get();

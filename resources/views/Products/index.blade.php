@@ -59,7 +59,7 @@
                     <i class='fa fa-pencil-alt' aria-hidden='true'></i>
                   </a>
 
-                  <form action="{{action('ProductController@destroy', $product->id)}}" method="post">
+                  <form action="{{action('ProductController@destroy', $product->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger w-75" type="submit">
