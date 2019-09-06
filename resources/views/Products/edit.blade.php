@@ -103,7 +103,7 @@
 							</div>
 							<div class="form-group row">
 								<label class="col-4 control-label text-right cut-text m-0 p-1 text-black"><strong>Imagen: </strong></label>
-								<input type="file" name="image" class="col-6 form-control-file" required>
+								<input type="file" name="image" class="col-6 form-control-file">
 							</div>
 						</div>
 					</div>
