@@ -89,7 +89,7 @@ class UsersController extends Controller
             'personal_id' => ['required', 'integer'],
             'country' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'password' => ['required', 'string', 'min:3'],
+            // 'password' => ['required', 'string', 'min:3'],
             'birthday' => ['required', 'date'],
             'avatar' => ['image', 'nullable']
         ], [
@@ -99,7 +99,7 @@ class UsersController extends Controller
             'country.required' => 'Por favor, seleccione su pais de residencia',
             'email.required' => 'Por favor, ingrese su correo electronico',
             'email.unique' => 'Este mail ya se encuentra en uso',
-            'password.required' => 'Por favor, ingrese su password',
+            // 'password.required' => 'Por favor, ingrese su password',
             'birthday.required' => 'Por favor, ingrese su fecha de nacimiento',
             'avatar.image' => 'Solo se admiten imagenes en formatos apropiados'
         ]);
@@ -113,7 +113,7 @@ class UsersController extends Controller
                 'name' => $request->name,
                 'surname' => $request->surname,
                 'email' => $request->email,
-                'password' => Hash::make($request->password),
+                // 'password' => Hash::make($request->password),
                 'personal_id' => $request->personal_id,
                 'birthday' => $request->birthday,
                 'profile_id' => $request->profile_id,
@@ -125,7 +125,7 @@ class UsersController extends Controller
                 'name' => $request->name,
                 'surname' => $request->surname,
                 'email' => $request->email,
-                'password' => Hash::make($request->password),
+                // 'password' => Hash::make($request->password),
                 'personal_id' => $request->personal_id,
                 'birthday' => $request->birthday,
                 'profile_id' => $request->profile_id,

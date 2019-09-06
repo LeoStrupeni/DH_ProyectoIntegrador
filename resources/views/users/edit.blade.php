@@ -37,7 +37,7 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="form-row">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label for="nombre">Nombre</label>
                             <input type="text" class="form-control" name="name" placeholder="Su nombre..."
                                 value="{{$user->name}}">
@@ -47,7 +47,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-4">
                             <label for="apellido">Apellido</label>
                             <input type="text" class="form-control" placeholder="Su apellido..."
                                 value="{{$user->surname}}" name="surname">
@@ -57,7 +57,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="form-group col-md-3">
+                        {{-- <div class="form-group col-md-3">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" placeholder="Su password..."
                                 value="{{$user->password}}" name="password">
@@ -66,8 +66,8 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
-                        <div class="form-group col-md-3">
+                        </div> --}}
+                        <div class="form-group col-md-4">
                             <label>Fecha de registro</label>
                             <input type="text" class="form-control" placeholder="Su apellido..."
                                 value="{{$user->created_at->format('m/d/Y')}}" name="surname" disabled>
