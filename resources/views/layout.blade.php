@@ -101,8 +101,8 @@
                 <button type="button" class="list-group-item btn-foot">
                     <a href="{{route('faq')}}" class="text-reset text-decoration-none">Preguntas Frecuentes</a>
                 </button>
-                <button type="button" class="list-group-item btn-foot">Politicas de Privacidad</button>
-                <button type="button" class="list-group-item btn-foot">Terminos y Condiciones</button>
+                @include('modals.policies')
+                @include('modals.conditions')
             </div>
         </div>
         <div class="row text-black footer-trademark justify-content-center">
