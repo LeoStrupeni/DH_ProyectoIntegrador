@@ -9,6 +9,7 @@ use PragmaRX\Countries\Package\Countries;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -19,7 +20,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(20);
+        $users = User::where('is_deleted', 0)->paginate(20);
 
         return view('users.index', compact('users'));
     }
@@ -147,7 +148,8 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-        $user->delete();
+        $user->is_deleted = 1;
+        $user->save();
 
         notify()->success('El usuario fue eliminado correctamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
