@@ -8,7 +8,7 @@
 @if(!empty($_SESSION->mensaje))
 <div class="alert alert-secondary">
     {{$SESSION->mensaje}}
-<a href="{{url('/')}}" class="badge badge-success"> Ver Carrito</a>
+    <a href="{{url('/')}}" class="badge badge-success"> Ver Carrito</a>
 </div>
 @endif
 

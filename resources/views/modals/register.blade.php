@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalRegister">
+<button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalRegister" id="button-register">
     Registrar
 </button>
 
@@ -90,9 +90,6 @@
                             <select name="country" id="country"
                                 class="form-control @error('country') is-invalid @enderror" required
                                 autocomplete="country" autofocus>
-                                {{-- @foreach ($all as $country)
-                                        <option value="{{$country}}">{{$country}}</option>
-                                @endforeach --}}
                             </select>
 
                             @error('country')

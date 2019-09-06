@@ -6,14 +6,16 @@
 
 <div class="container">
 
-<?php
+    <?php
     // dd($product);
     ?>
 
     <div class="row">
 
         <div class="col-12 col-sm-4">
-            <img src="{{is_null($product->first()->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->first()->image}}" class="rounded mx-auto d-block" data-toggle="popover" data-trigger="hover" data-content="{{substr($product->first()->description, 0, 500)}}.." alt="Responsive image">
+            <img src="{{is_null($product->first()->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->first()->image}}"
+                class="rounded mx-auto d-block" data-toggle="popover" data-trigger="hover"
+                data-content="{{substr($product->first()->description, 0, 500)}}.." alt="Responsive image">
         </div>
 
         <div class="col-12 col-sm-8">
@@ -22,7 +24,7 @@
                 <thead>
                     <tr class="bg-danger">
                         <th scope="col" colspan="6" class="text-center h3">
-                            {{$product->first()->name}} 
+                            {{$product->first()->name}}
                         </th>
                     </tr>
                 </thead>
@@ -69,38 +71,42 @@
         <h4 class="m-auto">Productos relacionados</h4>
     </div>
 
-       
+
     <div class="row">
         @foreach ($relatedWith as $related)
-            <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
-                <div class="card bg-transparent border border-dark rounded-lg">
-                    <h4 class="text-center p-1 cut-text"> {{$related->name}}</h4>
-                    <img title="{{$related->name}}" alt="{{$related->name}}" src="{{is_null($related->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$related->image}}" class="card-img p-1" style="z-index: 10;" data-toggle="popover" data-trigger="hover" data-content="{{substr($related->description, 0, 500)}}..">
-                    <div class="card-img-overlay text-right mt-5">
+        <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
+            <div class="card bg-transparent border border-dark rounded-lg">
+                <h4 class="text-center p-1 cut-text"> {{$related->name}}</h4>
+                <img title="{{$related->name}}" alt="{{$related->name}}"
+                    src="{{is_null($related->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$related->image}}"
+                    class="card-img p-1" style="z-index: 10;" data-toggle="popover" data-trigger="hover"
+                    data-content="{{substr($related->description, 0, 500)}}..">
+                <div class="card-img-overlay text-right mt-5">
 
-                        <h4>{{"$ ".$related->price}}</h4>
+                    <h4>{{"$ ".$related->price}}</h4>
 
-                        <form method="get" action="Busqueda.php">
-                            <div class="form-group">
-                                <label for="cantidad">Cantidad</label>
-                                <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad" required>
-                            </div>
-                            <input type="hidden" name="id" id="id" value="{{$related->id}}">
-                            <button class="btn btn-success w-50 mb-1" type="submit" name="btnAccion" value="Agregar">
-                                Agregar
-                            </button>
-                        </form>
+                    <form method="get" action="Busqueda.php">
+                        <div class="form-group">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad"
+                                required>
+                        </div>
+                        <input type="hidden" name="id" id="id" value="{{$related->id}}">
+                        <button class="btn btn-success w-50 mb-1" type="submit" name="btnAccion" value="Agregar">
+                            Agregar
+                        </button>
+                    </form>
 
-                        <form method="GET" action="/detail">
-                            <input type="hidden" name="id" id="id" value="{{$related->id}}">
-                            <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
-                                + Detalles
-                            </button>
-                        </form>
+                    <form method="GET" action="/detail">
+                        <input type="hidden" name="id" id="id" value="{{$related->id}}">
+                        <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
+                            + Detalles
+                        </button>
+                    </form>
 
-                    </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 </div>
