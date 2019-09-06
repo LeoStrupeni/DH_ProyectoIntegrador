@@ -11,7 +11,8 @@ class IndexController extends Controller
 {
     public function dataIndex()
     {
-        $products = Product::where('id','<','25')
+        // where('id','<','25')
+        $products = Product::whereNotNull('image')
             ->inRandomOrder()
             ->limit(8)
             ->get();

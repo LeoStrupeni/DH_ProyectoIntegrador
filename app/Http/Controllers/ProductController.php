@@ -43,21 +43,62 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => ['required', 'max:255'],
             'description' => 'required',
-            'price' => 'required',
-            'graduation' => 'required',
+            'price' => ['required', 'numeric'],
+            'graduation' => ['required', 'numeric'],
             'origin' => 'required',
-            'image' => 'required',
-            'year' => 'required',
-            'volume' => 'required',
-            'brand' => 'required',
-            'category' => 'required',
-            'Stock' => 'required'
+            'year' => ['required', 'integer'],
+            'volume' => ['required', 'numeric'],
+            'brand_id' => 'required',
+            'category_id' => 'required',
+            'stock' => ['required', 'integer'],
+            'image' => ['image', 'nullable']
+        ],[
+            'required'=>'El campo :attribute es obligatorio',
+            'image' => 'Solo se admiten imagenes en formatos apropiados',
+            'numeric'=>'El campo :attribute debe ser numerico',
+            'integer'=>'el campo :attribute debe ser un entero',
+            'max'=>'El campo :attribute supera el maximo',
         ]);
 
-        Product::create($request->all());
-        return redirect()->route('products.index')->with('success', 'Registro creado satisfactoriamente');
+        if ($request['image']) {
+            
+            $route = $request['image']->store('/public/images/Products');
+
+            Product::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'graduation' => $request->graduation,
+                'origin' => $request->origin,
+                'year' => $request->year,
+                'volume' => $request->volume,
+                'brand_id' => $request->brand_id,
+                'category_id' => $request->category_id,
+                'stock' => $request->stock,
+                'user_id' => $request->user_id,
+                'image' => basename($route)          
+            ]);
+        } else {
+            Product::create([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'graduation' => $request->graduation,
+                'origin' => $request->origin,
+                'year' => $request->year,
+                'volume' => $request->volume,
+                'brand_id' => $request->brand_id,
+                'category_id' => $request->category_id,
+                'stock' => $request->stock,
+                'user_id' => $request->user_id
+            ]);
+        }
+       
+        $notify=notify()->success('Producto agregado exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+
+        return redirect()->route('products.index')->with($notify);
     }
 
     /**
@@ -96,7 +137,6 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {   
-        
 
         $this->validate($request, [
             'name' => ['required', 'max:255'],
@@ -166,8 +206,14 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::find($id)->delete();
-        return redirect()->route('products.index')->with('success', 'Registro eliminado satisfactoriamente');
+        
+        $producto=Product::find($id);
+        $mjs = $producto->name;
+        $producto->delete();
+
+        $notify=notify()->warning('Producto Eliminado',$mjs, ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+
+        return redirect()->route('products.index')->with($notify);
     }
 
     public function search(Request $request)

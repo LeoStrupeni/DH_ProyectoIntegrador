@@ -12,7 +12,7 @@
 			<strong>Error!</strong> Revise los campos obligatorios.<br><br>
 			<ul>
 				@foreach ($errors->all() as $error)
-				<li>{{ $error }}</li>
+				<li class="list-unstyled">{{ $error }}</li>
 				@endforeach
 			</ul>
 		</div>
@@ -29,7 +29,7 @@
 		<div class="card bg-light">
 			<div class="header mt-4">
 
-				<form method="POST" action="{{ route('products.update',$product->id) }}"  role="form" enctype="multipart/form-data">
+				<form method="POST" action="{{ route('products.update',$product->id) }}"  role="form" enctype="multipart/form-data" class="my-2">
 					{{ csrf_field() }}
 					<input name="_method" type="hidden" value="PATCH">
 					<input name="user_id" type="hidden" value="{{Auth::user()->id}}">
@@ -109,7 +109,7 @@
 					</div>
 
 					<div class="row">
-						<div class="col text-center my-2">
+						<div class="col-6 m-auto text-center">
 							{{-- <button type="submit" class="btn btn-danger btn-lg">Actualizar</button> --}}
 							<input type="submit"  value="Actualizar" class="btn btn-danger w-25">
 							<a href="{{ route('products.index') }}" class="btn btn-success w-25" >Atrás</a>
