@@ -27,8 +27,6 @@
                                     <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('search','PM='.$cat->name)}}">{{$cat->name}}</a>
                                     @endforeach
-
-
                                     <hr>
                                     @if (Auth::check())
                                     <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
@@ -66,7 +64,7 @@
                                         class="btn btn-nav btn-user">Perfil</a>
                                 </div>
                                 <div class="btn-group mr-2 btn-nav" role="group" aria-label="Second group">
-                                    <a class="btn btn-warning" href="{{--route('shopping')--}}">
+                                    <a class="btn btn-warning" href="{{route('shopcart')}}">
                                         <i class="fas fa-shopping-cart pt-1"></i>
                                     </a>
                                 </div>

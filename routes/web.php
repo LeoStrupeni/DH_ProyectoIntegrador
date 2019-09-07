@@ -22,4 +22,10 @@ Route::resource('queries', 'QueriesController');
 
 Route::resource('products', 'ProductController');
 
-Route::get('/faq', 'FaqController@show')->name('faq');;
+Route::get('/faq', 'FaqController@show')->name('faq');
+
+Route::get('/shopcart', 'ShopCartController@show')->name('shopcart');
+
+Route::get('/shopcart/add','ShopCartController@add')->name('shopcartadd');
+
+Route::get('/shopcart/delete','ShopCartController@delete')->name('shopcartdelete');

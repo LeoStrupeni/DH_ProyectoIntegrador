@@ -33,16 +33,15 @@
                 class="card-img p-1 img-fluid" style="z-index: 1;">
             <div class="card-img-overlay text-right mt-5">
                 <h5>{{"$". $producto->price}}</h5>
-                <form method="get" action="">
-                    @csrf
+                <form method="GET" action="{{route('shopcartadd')}}" >
                     <div class="form-group">
                         <label for="cantidad" style="font-size:1vw;">Cantidad</label>
-                        <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad"
-                            required>
+                        <input type="number" min="1" class="text-right w-25" value="1" name="idquantity" required>
                     </div>
-                    <input type="hidden" name="id" id="id" value="{{$producto->id}}">
-                    <button class="btn btn-success w-50 mb-1" type="submit" name="btnAccion" value="Agregar"
-                        style="font-size:1vw;">
+                    <input type="hidden" name="id" value="{{$producto->id}}">
+                    <input type="hidden" name="idname" value="{{$producto->name}}">
+                    <input type="hidden" name="idprice" value="{{$producto->price}}">
+                    <button class="btn btn-success w-50 mb-1" type="submit" style="font-size:1vw;">
                         Agregar
                     </button>
                 </form>
@@ -121,6 +120,7 @@
 
     </div>
 </nav>
-
-
+@notify_css
+@notify_js
+@notify_render
 @endsection
