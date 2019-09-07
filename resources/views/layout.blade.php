@@ -33,7 +33,7 @@
                                         href="{{route('suscriptors.index')}}">Suscriptores</a>
                                     <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('queries.index')}}">Consultas</a>
-                                    @if (Auth::user()->profile->name == 'Administrador')
+                                    @if (Auth::user()->hasRole('admin'))
                                     <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('users.index')}}">Usuarios</a>
                                     @endif
