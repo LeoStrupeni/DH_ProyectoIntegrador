@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sale;
+use App\SalesDetail;
+use Auth;
+use Session;
 
 class SalesController extends Controller
 {
@@ -35,34 +38,39 @@ class SalesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        $this->validate($request, [
-            'key' => 'string|max:255',
-            'payment_data' => 'string',
-            'transaction_date' => 'date',
-            'total' => 'decimal',
-            'status' => 'string|max:255'
-        ], [
-            'string' => 'El atributo :attribute debe ser texto',
-            'max' => 'El maximo de caracteres permitidos en el atributo :attribute son :max',
-            'date' => 'El atributo :attribute debe ser de tipo fecha',
-            'decimal' => 'El atributo :attribute debe ser de tipo decimal'
-        ]);
+        $idProductos = Session::get('cart');
+
+        $total = 0;
+        foreach ($idProductos as $value) {
+            $total=$total+($value['quantity']* $value['price']);
+        };
 
         $sale = new Sale();
-        $sale->transaction_key = $request['transaction_key'];
-        $sale->payment_data = $request['payment_data'];
-        $sale->transaction_date = $request['transaction_key'];
-        $sale->total = $request['total'];
-        $sale->status = $request['status'];
-        $sale->user_id = $request['user_id'];
+        $sale->transaction_key = Session::getId();
+        $sale->payment_data = 'MercadoPago';
+        $sale->total = $total;
+        $sale->status = 'Pendiente';
+        $sale->user_id = Auth::user()->id;
 
         $sale->save();
 
-        notify()->success('Los datos de la venta han sido guardados', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+        $idVenta = $sale->id;
+       
+        foreach ($idProductos as $value) {
+            $saleDetail = new SalesDetail();
+            $saleDetail->user_id = Auth::user()->id;
+            $saleDetail->sale_id = $idVenta;
+            $saleDetail->product_id = $value['id'];
+            $saleDetail->unit_price = $value['price'];
+            $saleDetail->quantity = $value['quantity'];
+            $saleDetail->save();
+        };
+        
+        Session::forget('cart');
 
-        return back();
+        return view('shopcartPay',compact('total'));
     }
 
     /**

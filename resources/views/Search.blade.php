@@ -36,7 +36,7 @@
                 <form method="GET" action="{{route('shopcartadd')}}" >
                     <div class="form-group">
                         <label for="cantidad" style="font-size:1vw;">Cantidad</label>
-                        <input type="number" min="1" class="text-right w-25" value="1" name="idquantity" required>
+                        <input type="text" min="1" class="text-right w-25 pr-2" value="1" name="idquantity" onkeypress="return valideKey(event);" required/>
                     </div>
                     <input type="hidden" name="id" value="{{$producto->id}}">
                     <input type="hidden" name="idname" value="{{$producto->name}}">

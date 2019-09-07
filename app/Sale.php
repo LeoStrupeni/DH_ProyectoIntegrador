@@ -12,4 +12,10 @@ class Sale extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function SalesDetail()
+    {
+        return $this->HasMany('App\SalesDetail');
+    }
+    
 }

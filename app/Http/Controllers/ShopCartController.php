@@ -15,8 +15,7 @@ public function __construct(){
 
     //Show cart
     public function show(){
-        $emailuser=Auth::user()->email;
-        return view('/shopcart',compact('emailuser'));
+        return view('/shopcart');
     }
 
     //Add item
@@ -48,7 +47,14 @@ public function __construct(){
     }
 
     //Update Item
+
     //Trash cart
+
+    public function trash(){
+        Session::forget('cart');
+        $notify=notify()->warning('Vaciado','Carrito', ["closeButton" => true, "positionClass" => "toast-top-left"]);
+        return redirect()->back()->with($notify); 
+    }
     //Total
 
 }
