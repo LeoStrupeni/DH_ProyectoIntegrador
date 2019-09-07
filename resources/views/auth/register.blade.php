@@ -87,9 +87,6 @@
                                 <select name="country" id="country"
                                     class="form-control @error('country') is-invalid @enderror" required
                                     autocomplete="country" autofocus>
-                                    @foreach ($all as $country)
-                                    <option value="{{$country}}">{{$country}}</option>
-                                    @endforeach
                                 </select>
 
                                 @error('country')

@@ -82,6 +82,7 @@
             </form>
 
             <form action="{{ route('password.email') }}" class="form" method="POST" id="formReset">
+                @csrf
                 @if (session('status'))
                 <div class="alert alert-success" role="alert">
                     {{ session('status') }}
@@ -104,7 +105,6 @@
                     </div>
                 </div>
 
-
                 <div class="form-group row">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">
@@ -113,6 +113,7 @@
                     </div>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
