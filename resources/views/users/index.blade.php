@@ -17,6 +17,7 @@
                 <th scope="col">Fecha de registro</th>
                 <th scope="col">Ultima fecha de modificacion</th>
                 <th scope="col">Tipo de usuario</th>
+                <th scope="col">Rol Asignado</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,11 @@
                 <td>{{$user->created_at->format('d/m/Y')}}</td>
                 <td>{{$user->updated_at->format('d/m/Y')}}</td>
                 <td>{{$user->profile->name}}</td>
+                <td>
+                    @foreach ($user->roles as $role)
+                    {{$role->description }}
+                    @endforeach
+                </td>
                 <td>
                     <form action="{{route('users.destroy', $user->id)}}" method="POST" class="form-users">
                         @csrf

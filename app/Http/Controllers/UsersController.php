@@ -20,7 +20,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {   
-        $request->user()->authorizeRoles('user');
+        $request->user()->authorizeRoles('admin');
 
         $users = User::where('is_deleted', 0)->paginate(20);
 

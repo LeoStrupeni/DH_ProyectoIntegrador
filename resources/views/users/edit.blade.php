@@ -57,16 +57,7 @@
                             </span>
                             @enderror
                         </div>
-                        {{-- <div class="form-group col-md-3">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" placeholder="Su password..."
-                                value="{{$user->password}}" name="password">
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div> --}}
+
                         <div class="form-group col-md-4">
                             <label>Fecha de registro</label>
                             <input type="text" class="form-control" placeholder="Su apellido..."
@@ -115,10 +106,29 @@
                         </span>
                         @enderror
                     </div>
+
+                    <div class="form-row">
+                        @if (Auth::user()->hasRole('admin'))
+                        <div class="form-group col-md-3">
+                            <label>Rol</label>
+                            @foreach ($user->roles as $role)
+                            <input disabled type="text" class="form-control" value="{{$role->description}}" name="rol">
+                            @endforeach
+                    
+                            @error('rol')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        @endif
+                    </div>
                 </div>
 
+                
+
                 <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing-tab">
-                    <div class="form-group">
+                    <div class="form-group col-md-6 pl-0">
                         <label for="tipo-comerciante">Tipo de Comerciante</label>
                         <select class="custom-select" name="profile_id">
                             @foreach ($profiles as $profile)
@@ -133,7 +143,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group col-md-6 pl-0">
                         <label for="">Pais</label>
                         <select name="country" id="country" class="form-control">
                             @foreach ($countries as $country)
