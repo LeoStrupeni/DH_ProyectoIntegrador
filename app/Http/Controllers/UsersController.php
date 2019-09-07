@@ -18,8 +18,10 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   
+        $request->user()->authorizeRoles('user');
+
         $users = User::where('is_deleted', 0)->paginate(20);
 
         return view('users.index', compact('users'));

@@ -10,7 +10,7 @@
                     <span class="navbar-brand mb-0 h1 pb-0">
                         <a href="{{ url('/') }}" class="text-reset">Inicio</a>
                     </span>
-                    <span class="navbar-text pb-0">Lorem Ipsum</span>
+                    <span class="navbar-text pb-0">Capone S.A</span>
                 </nav>
 
                 <nav class="navbar navbar-light nav-2 py-auto">
@@ -33,7 +33,7 @@
                                         href="{{route('suscriptors.index')}}">Suscriptores</a>
                                     <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('queries.index')}}">Consultas</a>
-                                    @if (Auth::user()->profile->name == 'Administrador')
+                                    @if (Auth::user()->hasRole('admin'))
                                     <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
                                         href="{{route('users.index')}}">Usuarios</a>
                                     @endif

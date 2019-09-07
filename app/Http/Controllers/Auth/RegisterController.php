@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use PragmaRX\Countries\Package\Countries;
+use App\Role;
 
 class RegisterController extends Controller
 {
@@ -81,7 +82,7 @@ class RegisterController extends Controller
         $route = $data['avatar']->store('/public/avatars');
         $fileName = basename($route);
 
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -91,5 +92,10 @@ class RegisterController extends Controller
             'country' => $data['country'],
             'avatar' => $fileName
         ]);
+
+        //Creo una entrada en la tabla relacional rol_usuario
+        $user->roles()->attach(Role::where('name', 'admin')->first());
+
+        return $user;
     }
 }
