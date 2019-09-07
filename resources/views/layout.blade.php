@@ -10,7 +10,7 @@
                     <span class="navbar-brand mb-0 h1 pb-0">
                         <a href="{{ url('/') }}" class="text-reset">Inicio</a>
                     </span>
-                    <span class="navbar-text pb-0">Lorem Ipsum</span>
+                    <span class="navbar-text pb-0">Capone S.A</span>
                 </nav>
 
                 <nav class="navbar navbar-light nav-2 py-auto">
