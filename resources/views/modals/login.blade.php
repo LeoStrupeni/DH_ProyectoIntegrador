@@ -1,3 +1,5 @@
+<script src="{{ URL::asset('js/validations.js') }}"></script>
+
 <button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalLogin">
     Ingresar
 </button>
@@ -14,7 +16,7 @@
             </div>
 
 
-            <form action="{{ route('login') }}" class="form" method="POST">
+            <form action="{{ route('login') }}" class="form form-login" method="POST">
                 <div class="modal-body">
                     @csrf
 
