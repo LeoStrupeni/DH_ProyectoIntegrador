@@ -1,9 +1,26 @@
 window.addEventListener('load', function(){
 
-    console.log($('#form-suscriptor') );
-    $('#form-suscriptor').submit(function(event){
+    $('#deleteSuscriptor').click(function(event){
         event.preventDefault();
-        console.log('hola');
+        swal({
+            title: "Estas seguro?",
+            text: "Una vez eliminado, no se puede recuperar!",
+            icon: "warning",
+            buttons: ["Cancelar", "Borrar"],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                swal("El suscriptor fue eliminado", {
+                icon: "success",
+                });
+                setTimeout(function() {
+                    $('#form-suscriptor').submit();
+                    }, 1000)
+            } else {
+                swal("Se cancelo");
+            }
+        });
     })
 
 })
