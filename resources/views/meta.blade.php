@@ -11,10 +11,14 @@
     <title>@yield('title')</title>
 
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="{{ URL::asset('js/app.js') }}" defer></script>
     <script src="{{ URL::asset('js/pushbar.js') }}"></script>
     <script src="{{ URL::asset('js/search.js') }}"></script>
     <script src="{{ URL::asset('js/custom.js') }}"></script>
+    <script src="{{ URL::asset('js/modals.js') }}"></script>
+    @yield('js')
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -23,6 +27,7 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ URL::asset('css/pushbar.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">
+
 
 
 </head>

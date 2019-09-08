@@ -2,6 +2,10 @@
 
 @section('title', 'Suscriptores')
 
+@section('js')
+<script src="{{ URL::asset('js/deletions.js') }}"></script>
+@endsection
+
 @section('content')
 
 <div class="table-responsive-md">
@@ -28,10 +32,10 @@
                     @endif
                 </td>
                 <td>
-                    <form action="{{route('suscriptors.destroy', $suscriptor->id)}}" method="POST">
+                    <form action="{{route('suscriptors.destroy', $suscriptor->id)}}" method="POST" class="form-suscriptor">
                         @csrf
                         @method('DELETE')
-                        <input type="submit" class="btn btn-danger" value="Borrar">
+                        <input type="submit" class="btn btn-danger delete-suscriptor" value="Borrar">
                     </form>
                 </td>
             </tr>
@@ -44,7 +48,4 @@
         </div>
     </div>
 </div>
-@notify_css
-@notify_js
-@notify_render
 @endsection

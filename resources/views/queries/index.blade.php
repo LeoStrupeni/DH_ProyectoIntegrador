@@ -2,6 +2,10 @@
 
 @section('title', 'Consultas')
 
+@section('js')
+<script src="{{ URL::asset('js/deletions.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="table-responsive-md h-100">
     <table class="table table-hover flex-grow-1">
@@ -35,10 +39,10 @@
                 </td>
                 <td>{{substr($query->message, 0, 50)}}</td>
                 <td>
-                    <form action="{{route('queries.destroy', $query->id)}}" method="POST">
+                    <form action="{{route('queries.destroy', $query->id)}}" method="POST" class="form-queries">
                         @csrf
                         @method('DELETE')
-                        <input type="submit" class="btn btn-danger" value="Borrar">
+                        <input type="submit" class="btn btn-danger delete-query" value="Borrar">
                     </form>
                 </td>
             </tr>
@@ -51,7 +55,4 @@
         </div>
     </div>
 </div>
-@notify_css
-@notify_js
-@notify_render
 @endsection

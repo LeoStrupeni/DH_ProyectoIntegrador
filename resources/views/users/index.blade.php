@@ -2,6 +2,10 @@
 
 @section('title', 'Listado de usuarios')
 
+@section('js')
+<script src="{{ URL::asset('js/deletions.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="table-responsive-lg">
     <table class="table table-sm">
@@ -17,6 +21,7 @@
                 <th scope="col">Fecha de registro</th>
                 <th scope="col">Ultima fecha de modificacion</th>
                 <th scope="col">Tipo de usuario</th>
+                <th scope="col">Rol Asignado</th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +37,11 @@
                 <td>{{$user->created_at->format('d/m/Y')}}</td>
                 <td>{{$user->updated_at->format('d/m/Y')}}</td>
                 <td>{{$user->profile->name}}</td>
+                <td>
+                    @foreach ($user->roles as $role)
+                    {{$role->description }}
+                    @endforeach
+                </td>
                 <td>
                     <form action="{{route('users.destroy', $user->id)}}" method="POST" class="form-users">
                         @csrf
@@ -49,8 +59,4 @@
         </div>
     </div>
 </div>
-
-@notify_css
-@notify_js
-@notify_render
 @endsection

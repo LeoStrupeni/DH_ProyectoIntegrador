@@ -20,7 +20,7 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {   
-        $request->user()->authorizeRoles('user');
+        $request->user()->authorizeRoles('admin');
 
         $users = User::where('is_deleted', 0)->paginate(20);
 
@@ -152,8 +152,6 @@ class UsersController extends Controller
         $user = User::findOrFail($id);
         $user->is_deleted = 1;
         $user->save();
-
-        notify()->success('El usuario fue eliminado correctamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
         return back();
     }

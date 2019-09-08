@@ -1,3 +1,7 @@
+
+<script src="{{ URL::asset('js/validations.js') }}"></script>
+
+
 <button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalRegister" id="button-register">
     Registrar
 </button>
@@ -15,8 +19,8 @@
             </div>
 
 
-            <div class="modal-body">
-                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+            <div class="modal-body body-register">
+                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="form-register">
                     @csrf
 
                     <div class="form-group row">
@@ -72,7 +76,7 @@
                             class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Correo Electronico') }}</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                            <input id="email-register" type="email" class="form-control @error('email') is-invalid @enderror"
                                 name="email" value="{{ old('email') }}" required autocomplete="email">
 
                             @error('email')
@@ -122,7 +126,7 @@
                             class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Contraseña') }}</label>
 
                         <div class="col-md-6">
-                            <input id="password" type="password"
+                            <input id="password-register" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="new-password">
 
@@ -152,6 +156,9 @@
                             <input id="avatar" type="file"
                                 class="form-control-file @error('avatar') is-invalid @enderror" name="avatar"
                                 value="{{ old('avatar') }}" required autocomplete="avatar" autofocus>
+                                <small  class="form-text text-muted text-left">
+                                    Formatos admitidos: JPG, PNG, JPEG
+                                </small>
 
                             @error('avatar')
                             <span class="invalid-feedback" role="alert">
@@ -170,6 +177,8 @@
                     </div>
 
                 </form>
+
+            
             </div>
         </div>
     </div>

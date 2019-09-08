@@ -105,8 +105,6 @@ class SuscriptorsController extends Controller
     {   
         Suscriptor::where('id',$id)->delete();
 
-        notify()->success('El suscriptor ha sido eliminado', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
-
         return back();
     }
 }
