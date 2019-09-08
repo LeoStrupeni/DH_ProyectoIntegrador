@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sale;
 use App\SalesDetail;
+use App\Product;
 use Auth;
 use Session;
 
@@ -41,7 +42,6 @@ class SalesController extends Controller
     public function store()
     {
         $idProductos = Session::get('cart');
-
         $total = 0;
         foreach ($idProductos as $value) {
             $total=$total+($value['quantity']* $value['price']);
@@ -66,8 +66,13 @@ class SalesController extends Controller
             $saleDetail->unit_price = $value['price'];
             $saleDetail->quantity = $value['quantity'];
             $saleDetail->save();
+            
+            $restaStock = ($value['stock']-$value['quantity']);
+            $stock = Product::find($value['id'])->update(['stock' => $restaStock]);
+
         };
-        
+ 
+
         Session::forget('cart');
 
         return view('shopcartPay',compact('total'));

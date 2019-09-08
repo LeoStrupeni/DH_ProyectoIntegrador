@@ -12,7 +12,6 @@ class ShopCartController extends Controller
 public function __construct(){
     if (!Session::has('cart')) {Session::put('cart',array());}
 }
-
     //Show cart
     public function show(){
         return view('/shopcart');
@@ -22,15 +21,19 @@ public function __construct(){
 
     public function add(Request $request){
         $idProductos = Session::get('cart');
-
-        if ( array_key_exists($request->id, $idProductos) ) {
-            $notify=notify()->success('El producto ya esta agregado','Carrito', ["closeButton" => true, "positionClass" => "toast-top-left"]);
+        if  ($request->iduser == Auth::user()->id){
+            $notify=notify()->error('No puede comprar un producto propio','Error', ["closeButton" => true, "positionClass" => "toast-top-left"]);
+        } else if ($request->idquantity > $request->idstock) {
+            $notify=notify()->error('No hay stock suficiente para comprar '.$request->idquantity.' unidades. El Stock actual es de:'.$request->idstock ,'Error', ["closeButton" => true, "positionClass" => "toast-top-left"]);
+        } else if ( array_key_exists($request->id, $idProductos) ) {
+            $notify=notify()->info('El producto ya esta agregado. Si quiere modificar la cantidad de unidades, primero debe borrarlo del carrito.','Carrito', ["closeButton" => true, "positionClass" => "toast-top-left"]);
         } else {
             $cart = Session::get('cart');
             $cart[$request->id] =   ['id' => $request->id,
                                     'name' => $request->idname,
                                     'quantity' => $request->idquantity,
-                                    'price' => $request->idprice];
+                                    'price' => $request->idprice,
+                                    'stock'=> $request->idstock];
             Session::put('cart',$cart);
             $notify=notify()->success('Producto agregado','Carrito', ["closeButton" => true, "positionClass" => "toast-top-left"]);
         }
@@ -52,7 +55,7 @@ public function __construct(){
 
     public function trash(){
         Session::forget('cart');
-        $notify=notify()->warning('Vaciado','Carrito', ["closeButton" => true, "positionClass" => "toast-top-left"]);
+        $notify=notify()->info('','Carrito vaciado', ["closeButton" => true, "positionClass" => "toast-top-left"]);
         return redirect()->back()->with($notify); 
     }
     //Total

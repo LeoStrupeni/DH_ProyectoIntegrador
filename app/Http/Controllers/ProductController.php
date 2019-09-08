@@ -206,25 +206,28 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-
         $producto = Product::find($id);
         $producto->delete();
-
-        return redirect()->route('products.index');
+        $notify=notify()->warning('','Producto eliminado', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+        return redirect()->back()->with($notify); 
     }
 
     public function search(Request $request)
-    {
-        $par = $request->input('PM');
-        $products = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image')
+    {   
+        $var = $request->input('PM');
+        $products = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.user_id', 'Products.Stock')
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
-            ->where('products.name', 'LIKE', '%' . $par . '%')
-            ->orwhere('description', 'LIKE', '%' . $par . '%')
-            ->orwhere('categories.name', 'LIKE', '%' . $par . '%')
-            ->orwhere('brands.name', 'LIKE', '%' . $par . '%')
+            ->where('products.user_id','<>', Auth::user()->id)
+            ->where('products.Stock','>',0)
+            ->where(function ($query) use($var){
+                  $query->where('products.name', 'LIKE', '%' . $var . '%')
+                        ->orwhere('description', 'LIKE', '%' . $var . '%')
+                        ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
+                        ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+            // ->dd();
             ->paginate(28);
-
+        
         return view('search', compact('products'));
     }
 

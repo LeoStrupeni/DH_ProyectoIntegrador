@@ -18,7 +18,6 @@
                         <th width="5%">Eliminar</th>
                     </tr>
                     @foreach (Session::get('cart') as $product)
-
                     <tr>
                         <td width="45%">{{$product['name']}}</td>
                         <td width="10%" class="text-center">{{$product['quantity']}}</td>
@@ -27,6 +26,7 @@
                         <td width="5%" class="text-center">
                             <form method="GET" action="{{route('shopcartdelete')}}">
                                 <input type="hidden" name="id" value="{{$product['id']}}">
+                                <input type="hidden" name="idStock" value="{{$product['stock']}}">
                                 <button class="btn btn-danger" type="submit" value="delete">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>

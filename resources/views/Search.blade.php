@@ -23,7 +23,6 @@
 
     @endif
     @foreach ($products as $producto)
-
     <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
         <div class="card bg-transparent border border-dark rounded-lg">
             <h4 class="text-center p-1 cut-text"> {{$producto->name}} </h4>
@@ -36,11 +35,14 @@
                 <form method="GET" action="{{route('shopcartadd')}}" >
                     <div class="form-group">
                         <label for="cantidad" style="font-size:1vw;">Cantidad</label>
-                        <input type="text" min="1" class="text-right w-25 pr-2" value="1" name="idquantity" onkeypress="return valideKey(event);" required/>
+                    <input type="number" min="1" max={{$producto->Stock}} class="text-right w-25" value="1" name="idquantity" onkeypress="return valideKey(event);" required/>
                     </div>
                     <input type="hidden" name="id" value="{{$producto->id}}">
                     <input type="hidden" name="idname" value="{{$producto->name}}">
                     <input type="hidden" name="idprice" value="{{$producto->price}}">
+                    <input type="hidden" name="iduser" value="{{$producto->user_id}}">
+                    <input type="hidden" name="idstock" value="{{$producto->Stock}}">
+                    
                     <button class="btn btn-success w-50 mb-1" type="submit" style="font-size:1vw;">
                         Agregar
                     </button>

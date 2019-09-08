@@ -15,8 +15,6 @@
         <strong>(Para aclaraciones complete el formulario de contacto)</strong></p>
 </div>
 
-
-PAGAME!!!
 @notify_css
 @notify_js
 @notify_render
