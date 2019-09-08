@@ -2,6 +2,10 @@
 
 @section('title', 'Listado de usuarios')
 
+@section('js')
+<script src="{{ URL::asset('js/deletions.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="table-responsive-lg">
     <table class="table table-sm">
@@ -55,8 +59,4 @@
         </div>
     </div>
 </div>
-
-@notify_css
-@notify_js
-@notify_render
 @endsection

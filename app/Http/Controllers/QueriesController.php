@@ -117,8 +117,6 @@ class QueriesController extends Controller
     {
         Query::where('id', $id)->delete();
 
-        notify()->success('La consulta ha sido eliminada', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
-
         return back();
     }
 }

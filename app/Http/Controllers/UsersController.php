@@ -153,8 +153,6 @@ class UsersController extends Controller
         $user->is_deleted = 1;
         $user->save();
 
-        notify()->success('El usuario fue eliminado correctamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
-
         return back();
     }
 }

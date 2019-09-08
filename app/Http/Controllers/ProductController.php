@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
         $brands = Brand::all();
         $category = Category::all();
-        return view('products.create', compact('brands','category'));
+        return view('products.create', compact('brands', 'category'));
     }
 
     /**
@@ -54,16 +54,16 @@ class ProductController extends Controller
             'category_id' => 'required',
             'stock' => ['required', 'integer'],
             'image' => ['image', 'nullable']
-        ],[
-            'required'=>'El campo :attribute es obligatorio',
+        ], [
+            'required' => 'El campo :attribute es obligatorio',
             'image' => 'Solo se admiten imagenes en formatos apropiados',
-            'numeric'=>'El campo :attribute debe ser numerico',
-            'integer'=>'el campo :attribute debe ser un entero',
-            'max'=>'El campo :attribute supera el maximo',
+            'numeric' => 'El campo :attribute debe ser numerico',
+            'integer' => 'el campo :attribute debe ser un entero',
+            'max' => 'El campo :attribute supera el maximo',
         ]);
 
         if ($request['image']) {
-            
+
             $route = $request['image']->store('/public/images/Products');
 
             Product::create([
@@ -78,7 +78,7 @@ class ProductController extends Controller
                 'category_id' => $request->category_id,
                 'stock' => $request->stock,
                 'user_id' => $request->user_id,
-                'image' => basename($route)          
+                'image' => basename($route)
             ]);
         } else {
             Product::create([
@@ -95,8 +95,8 @@ class ProductController extends Controller
                 'user_id' => $request->user_id
             ]);
         }
-       
-        $notify=notify()->success('Producto agregado exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+
+        $notify = notify()->success('Producto agregado exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
         return redirect()->route('products.index')->with($notify);
     }
@@ -124,7 +124,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $brands = Brand::all();
         $category = Category::all();
-        return view('products.edit', compact('product','brands','category'));
+        return view('products.edit', compact('product', 'brands', 'category'));
     }
 
     /**
@@ -136,7 +136,7 @@ class ProductController extends Controller
      */
 
     public function update(Request $request, $id)
-    {   
+    {
 
         $this->validate($request, [
             'name' => ['required', 'max:255'],
@@ -150,17 +150,17 @@ class ProductController extends Controller
             'category_id' => 'required',
             'stock' => ['required', 'integer'],
             'image' => ['image', 'nullable']
-        ],[
-            'required'=>'El campo :attribute es obligatorio',
+        ], [
+            'required' => 'El campo :attribute es obligatorio',
             'image' => 'Solo se admiten imagenes en formatos apropiados',
-            'numeric'=>'El campo :attribute debe ser numerico',
-            'integer'=>'el campo :attribute debe ser un entero',
-            'max'=>'El campo :attribute supera el maximo',
+            'numeric' => 'El campo :attribute debe ser numerico',
+            'integer' => 'el campo :attribute debe ser un entero',
+            'max' => 'El campo :attribute supera el maximo',
         ]);
 
 
         if ($request['image']) {
-            
+
             $route = $request['image']->store('/public/images/Products');
 
             Product::find($id)->update([
@@ -175,7 +175,7 @@ class ProductController extends Controller
                 'category_id' => $request->category_id,
                 'stock' => $request->stock,
                 'user_id' => $request->user_id,
-                'image' => basename($route)          
+                'image' => basename($route)
             ]);
         } else {
             Product::find($id)->update([
@@ -192,8 +192,8 @@ class ProductController extends Controller
                 'user_id' => $request->user_id
             ]);
         }
-       
-        $notify=notify()->success('Producto actualizado exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+
+        $notify = notify()->success('Producto actualizado exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
         return redirect()->route('products.index')->with($notify);
     }
@@ -206,14 +206,11 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        
-        $producto=Product::find($id);
-        $mjs = $producto->name;
+
+        $producto = Product::find($id);
         $producto->delete();
 
-        $notify=notify()->warning('Producto Eliminado',$mjs, ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
-
-        return redirect()->route('products.index')->with($notify);
+        return redirect()->route('products.index');
     }
 
     public function search(Request $request)
@@ -248,14 +245,14 @@ class ProductController extends Controller
         return view('detail', compact('product', 'relatedWith'));
     }
 
-    public function apiSearch(Request $request) {
+    public function apiSearch(Request $request)
+    {
         $products = Product::select("name")
-                            ->where("name", "like", "%" . $request["PM"] . "%")
-                            ->union(Brand::select("name")->where("name", "like", "%" . $request["PM"] . "%"))
-                            ->union(Category::select("name")->where("name", "like", "%" . $request["PM"] . "%"))
-                            ->limit(20)
-                            ->get();
+            ->where("name", "like", "%" . $request["PM"] . "%")
+            ->union(Brand::select("name")->where("name", "like", "%" . $request["PM"] . "%"))
+            ->union(Category::select("name")->where("name", "like", "%" . $request["PM"] . "%"))
+            ->limit(20)
+            ->get();
         return $products;
-        }
-
+    }
 }

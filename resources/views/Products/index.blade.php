@@ -2,6 +2,10 @@
 
 @section('title', 'Productos')
 
+@section('js')
+<script src="{{ URL::asset('js/deletions.js') }}"></script>
+@endsection
+
 @section('content')
 
 <div class="row">
@@ -59,10 +63,11 @@
                     <i class='fa fa-pencil-alt' aria-hidden='true'></i>
                   </a>
 
-                  <form action="{{action('ProductController@destroy', $product->id)}}" method="POST">
+                  <form action="{{action('ProductController@destroy', $product->id)}}" method="POST"
+                    class="form-products">
                     @csrf
                     @method('DELETE')
-                    <button class="btn btn-danger w-75" type="submit">
+                    <button class="btn btn-danger w-75" type="submit" class="delete-product">
                       <i class='fa fa-trash-alt' aria-hidden='true'></i>
                     </button>
                   </form>
@@ -71,7 +76,7 @@
               @endforeach
               @else
               <tr>
-                <td colspan="12">No hay registro !!</td>
+                <td colspan="12">No hay registro!</td>
               </tr>
               @endif
             </tbody>
@@ -87,7 +92,4 @@
     </div>
   </div>
 </div>
-@notify_css
-@notify_js
-@notify_render
 @endsection
