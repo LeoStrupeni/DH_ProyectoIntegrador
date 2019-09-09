@@ -132,8 +132,8 @@
     </script>
     <script>
         var pushbar = new Pushbar({
-            blur:true,
-            overlay: false,
+            blur: true,
+            overlay: true,
         });        
     </script>
 

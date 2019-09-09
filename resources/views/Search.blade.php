@@ -71,7 +71,7 @@
                 <i class="fas fa-filter"></i>
             </button>
     
-            <div data-pushbar-id="pushbar-filters" class="pushbar from_right pushbar-filters nav-1">
+            <div data-pushbar-id="pushbar-filters" class="pushbar from_right pushbar-filters">
                 <button data-pushbar-close class="btn btn-danger ml-2 mt-2"><i class="fas fa-sign-out-alt"></i></button>
                 <h3 class="text-center text-white mt-2">FILTROS</h3>
                 <form action="" method="">

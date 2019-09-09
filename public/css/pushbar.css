@@ -63,6 +63,7 @@ html.pushbar_locked .pushbar_overlay{
 	height: 50%;
 	min-height: 100vh;
 	transform: translateZ(0) translateX(100%);
+	background-color: rgb(0, 0, 0);
 }
 
 .pushbar.from_top{
