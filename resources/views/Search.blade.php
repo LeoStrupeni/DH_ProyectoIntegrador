@@ -3,7 +3,9 @@
 @section('title','Busqueda')
 
 @section('content')
-
+<?php
+dd($products);
+?>
 <br>
 @if(!empty($_SESSION->mensaje))
 <div class="alert alert-secondary">
@@ -76,37 +78,69 @@
                 <h3 class="text-center text-white mt-2">FILTROS</h3>
                 <form action="" method="">
                     <div class="form-group">
-                        <div class="col p-3">
-                            <input list="marca" placeholder="Marca" class="w-100 rounded">
-                            <datalist id="marca">
-                                <option value="">
-                            </datalist>
+                        <div class="col px-3 py-1">
+                            <label class="text-white">* Marca</label>
+                            <select class="custom-select custom-select-sm" name="marca">   
+                                    <option value=null selected>
+                                @foreach ($brands as $brand)
+                                    <option value="{{$brand->id}}">{{$brand->name}}
+                                @endforeach
+                            </select>
+                        </div>
+                
+                        <div class="col px-3 py-1">
+                            <label class="text-white">* Categoria</label>
+                            <select class="custom-select custom-select-sm" name="categoria">
+                                    <option value=null selected>
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}
+                                @endforeach
+                            </select>
+                        </div>
+ 
+                        <div class="col px-3 py-1">
+                            <label class="text-white">* Graduacion</label>
+                            <select class="custom-select custom-select-sm" name="graduacion">
+                                    <option value=null selected>
+                                @foreach ($graduations as $graduation)
+                                    <option value="{{$graduation->graduation}}">{{round($graduation->graduation, 1)}} %
+                                @endforeach
+                            </select>
                         </div>
         
-                        <div class="col p-3">
-                            <select class="custom-select custom-select-sm" name="categoria">
-                                <option selected>Categoria</option>
+                        <div class="col px-3 py-1">
+                            <label class="text-white">* Origen-Bodega</label>
+                            <select class="custom-select custom-select-sm" name="origin">
+                                    <option value=null selected>
+                                @foreach ($origins as $origin)
+                                    <option value="{{$origin->origin}}">{{$origin->origin}}
+                                @endforeach
                             </select>
                         </div>
 
-                        <div class="col p-3">
-                            <select class="custom-select custom-select-sm" name="graduacion">
-                                <option selected>Graduacion</option>
+                        <div class="col px-3 py-1">
+                            <label class="text-white">* Volumen</label>
+                            <select class="custom-select custom-select-sm" name="volume">
+                                    <option value=null selected>
+                                @foreach ($volumes as $volume)
+                                    <option value="{{$volume->volume}}">{{$volume->volume}} ml.
+                                @endforeach
                             </select>
                         </div>
-        
-                        <div class="col p-3">
-                            <select class="custom-select custom-select-sm" name="graduacion">
-                                <option selected>Origen</option>
-                            </select>
-                        </div>
-        
-                        <div class="col p-3">
-                            <select class="custom-select custom-select-sm" name="graduacion">
-                                <option selected>Volumen</option>
+
+                        <div class="col px-3 py-1">
+                            <label class="text-white">* Cosecha</label>
+                            <select class="custom-select custom-select-sm" name="year">
+                                    <option value=null selected>
+                                @foreach ($years as $year)
+                                    <option value="{{$year->year}}">{{$year->year}}
+                                @endforeach
                             </select>
                         </div>
                     </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success m-auto"><i class="fas fa-redo-alt"></i></button>
+                    </div>                    
                 </form>
             </div>
         </div>

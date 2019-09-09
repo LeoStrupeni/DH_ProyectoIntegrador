@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public static function index()
     {
-        $products = Product::WHERE('user_id', '=', Auth::user()->id)
+        $products = Product::UserActive()
             ->orderBy('id', 'ASC')->paginate(10);
         return view('products.index', compact('products'));
     }
@@ -218,17 +218,100 @@ class ProductController extends Controller
         $products = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.user_id', 'Products.Stock')
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
-            ->where('products.user_id','<>', Auth::user()->id)
-            ->where('products.Stock','>',0)
-            ->where(function ($query) use($var){
-                  $query->where('products.name', 'LIKE', '%' . $var . '%')
-                        ->orwhere('description', 'LIKE', '%' . $var . '%')
-                        ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
-                        ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
-            // ->dd();
+            ->UserDistinct()
+            ->Stock()
+            ->where(function ($query) use($var){$query
+                ->where('products.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('description', 'LIKE', '%' . $var . '%')
+                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
             ->paginate(28);
         
-        return view('search', compact('products'));
+        $brands = Product::select('brands.id', 'brands.name')
+            ->distinct()
+            ->leftJoin('categories', 'category_id', '=', 'categories.id')
+            ->leftJoin('brands', 'brand_id', '=', 'brands.id')
+            ->UserDistinct()
+            ->Stock()
+            ->where(function ($query) use($var){$query
+                ->where('products.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('description', 'LIKE', '%' . $var . '%')
+                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+                ->orderby('brands.name','asc')  
+            ->get();
+
+        $categories = Product::select('categories.id', 'categories.name')
+            ->distinct()
+            ->leftJoin('categories', 'category_id', '=', 'categories.id')
+            ->leftJoin('brands', 'brand_id', '=', 'brands.id')
+            ->UserDistinct()
+            ->Stock()
+            ->where(function ($query) use($var){$query
+                ->where('products.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('description', 'LIKE', '%' . $var . '%')
+                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+                ->orderby('categories.name','asc')  
+            ->get();
+        
+        $graduations = Product::select('products.graduation')
+            ->distinct()
+            ->leftJoin('categories', 'category_id', '=', 'categories.id')
+            ->leftJoin('brands', 'brand_id', '=', 'brands.id')
+            ->UserDistinct()
+            ->Stock()
+            ->where(function ($query) use($var){$query
+                ->where('products.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('description', 'LIKE', '%' . $var . '%')
+                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+                ->orderby('products.graduation','asc')  
+            ->get();
+
+        $origins = Product::select('products.origin')
+            ->distinct()
+            ->leftJoin('categories', 'category_id', '=', 'categories.id')
+            ->leftJoin('brands', 'brand_id', '=', 'brands.id')
+            ->UserDistinct()
+            ->Stock()
+            ->where(function ($query) use($var){$query
+                ->where('products.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('description', 'LIKE', '%' . $var . '%')
+                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+                ->orderby('products.origin','asc')    
+            ->get();
+
+        $years = Product::select('products.year')
+            ->distinct()
+            ->leftJoin('categories', 'category_id', '=', 'categories.id')
+            ->leftJoin('brands', 'brand_id', '=', 'brands.id')
+            ->UserDistinct()
+            ->Stock()
+            ->where(function ($query) use($var){$query
+                ->where('products.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('description', 'LIKE', '%' . $var . '%')
+                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+                ->orderby('products.year','asc')    
+            ->get();
+        
+        $volumes = Product::select('products.volume')
+            ->distinct()
+            ->leftJoin('categories', 'category_id', '=', 'categories.id')
+            ->leftJoin('brands', 'brand_id', '=', 'brands.id')
+            ->UserDistinct()
+            ->Stock()
+            ->where(function ($query) use($var){$query
+                ->where('products.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('description', 'LIKE', '%' . $var . '%')
+                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
+                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+            ->orderby('products.volume','asc')    
+            ->get();
+
+        return view('search', compact('products','brands','categories','graduations','origins','years','volumes'));
     }
 
     public function detail(Request $request)
