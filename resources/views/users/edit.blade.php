@@ -2,21 +2,20 @@
 
 @section('title', 'Perfil')
 
+@section('js')
+<script src="{{ URL::asset('js/deletions.js') }}"></script>
+@endsection
+
 @section('content')
+
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 col-md-4" style="min-height:370px;">
+        <h1 class="text-center">Hola, {{$user->name}}</h1>
         <img src="{{ is_file( public_path('storage\\avatars\\').$user->avatar ) ? url('/storage/avatars/'.$user->avatar) : url('/storage/avatars/profile-placeholder.png')}}"
             alt="profile" class="img-fluid shadow mx-auto mt-1 d-block rounded-circle perfil">
     </div>
-    <div class="col-sm-12">
-        <h1 class="text-center">Hola, {{$user->name}}</h1>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <form class="mt-1" action="{{route('users.update', Auth::user()->id)}}" method="POST"
-            enctype="multipart/form-data">
+    <div class="col-sm-12 col-md-8" style="min-height:370px;">
+        <form class="mt-1" action="{{route('users.update', Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             <ul class="nav nav-tabs" role="tablist">
@@ -25,13 +24,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="billing-tab" data-toggle="tab" href="#billing" role="tab">Facturacion</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="productos-tab" data-toggle="tab" href="#productos" role="tab">Mis
-                        Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="alta-tab" data-toggle="tab" href="#alta" role="tab">Altas Productos</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -76,7 +68,7 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-4">
-                            <label>Numero de documento</label>
+                            <label>DNI/CUIT-CUIL</label>
                             <input type="number" class="form-control" placeholder="37299940"
                                 value="{{$user->personal_id}}" name="personal_id">
                             @error('personal_id')
@@ -125,18 +117,25 @@
                     </div>
                 </div>
 
-                
-
                 <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing-tab">
                     <div class="form-group col-md-6 pl-0">
                         <label for="tipo-comerciante">Tipo de Comerciante</label>
                         <select class="custom-select" name="profile_id">
                             @foreach ($profiles as $profile)
-                            <option value="{{$profile->id}}" {{($profile->id == $user->profile_id ? 'selected' : '')}}>
+                            <option value="{{$profile->id}}" 
+                                @if ($user->profile_id > 1 && $profile->id==1)
+                                    disabled
+                                @elseif ($user->profile_id > 2 && ($profile->id==1 || $profile->id==2))
+                                    disabled
+                                @endif
+                                {{($profile->id == $user->profile_id ? 'selected' : '')}}
+                                >
                                 {{$profile->name}}
                             </option>
-                            @endforeach
+                            @endforeach    
+
                         </select>
+
                         @error('profile_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -167,6 +166,88 @@
                 </div>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="panel panel-default m-auto">
+            <div class="panel-body">
+        
+                <nav class="navbar p-2 nav-2">
+                    <div class="text-left">
+                        <h3>Mis productos</h3>
+                    </div>
+                    <div class="text-right">
+                        <div class="btn-group">
+                        <a href="{{ route('products.create') }}" class="btn btn-info">Añadir Producto</a>
+                        </div>
+                    </div>
+                </nav>
+        
+                <div class="table-container">
+                <table id="mytable" class="table table-bordered table-striped">
+                    <thead>
+                    <th>Imagen</th>
+                    <th>Name</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Grad.</th>
+                    <th>Origen</th>
+                    <th>Año</th>
+                    <th>Vol.</th>
+                    <th>Categoria.</th>
+                    <th>Marca</th>
+                    <th>Stock</th>
+                    <th>Edicion</th>
+                    </thead>
+                    <tbody>
+
+                    @if($products->count())
+                        @foreach($products as $product)
+                        <tr>
+                            <td class="text-center"><img
+                                src="{{is_null($product->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->image}}"
+                                style="width:40px;"></td>
+                            <td>{{$product->name}}</td>
+                            <td class="cut-text" data-toggle="popover" data-trigger="hover"
+                            data-content="{{$product->description}}">{{substr($product->description, 0, 15)}}</td>
+                            <td class="text-center">$ {{$product->price}}</td>
+                            <td class="text-center">{{$product->graduation}} %</td>
+                            <td>{{$product->origin}}</td>
+                            <td class="text-center">{{$product->year}}</td>
+                            <td class="text-center">{{$product->volume}} ml.</td>
+                            <td>{{$product->Category->name}}</td>
+                            <td>{{$product->brand->name}}</td>
+                            <td class="text-center">{{$product->Stock}}</td>
+                            <td class="text-center">
+                            <a class="btn btn-primary mb-1 w-75" href="{{action('ProductController@edit',$product->id)}}">
+                                <i class='fa fa-pencil-alt' aria-hidden='true'></i>
+                            </a>
+            
+                            <form action="{{action('ProductController@destroy', $product->id)}}" method="POST"
+                                class="form-products">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger w-75" type="submit" class="delete-product">
+                                <i class='fa fa-trash-alt' aria-hidden='true'></i>
+                                </button>
+                            </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @else
+                    <tr>
+                        <td colspan="12">No hay registro!</td>
+                    </tr>
+                    @endif
+                    </tbody>
+        
+                </table>
+                </div>
+            </div>
+            {{$products->links()}}
+        </div>
     </div>
 </div>
 @notify_css

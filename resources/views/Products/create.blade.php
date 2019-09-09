@@ -121,7 +121,7 @@
                     <div class="col-6 m-auto text-center">
                         {{-- <button type="submit" class="btn btn-danger btn-lg">Actualizar</button> --}}
                         <input type="submit" value="Guardar" class="btn btn-warning w-25">
-                        <a href="{{ route('products.index') }}" class="btn btn-success w-25">Atrás</a>
+                        <a href="{{route('users.edit', Auth::user()->id)}}" class="btn btn-success w-25">Atrás</a>
                     </div>
                 </div>
             </form>

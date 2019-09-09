@@ -15,7 +15,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public static function index()
     {
         $products = Product::WHERE('user_id', '=', Auth::user()->id)
             ->orderBy('id', 'ASC')->paginate(10);
@@ -98,7 +98,7 @@ class ProductController extends Controller
 
         $notify = notify()->success('Producto agregado exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
-        return redirect()->route('products.index')->with($notify);
+        return redirect()->route('users.edit', Auth::user()->id)->with($notify);
     }
 
     /**
@@ -195,7 +195,7 @@ class ProductController extends Controller
 
         $notify = notify()->success('Producto actualizado exitosamente', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
-        return redirect()->route('products.index')->with($notify);
+        return redirect()->route('users.edit', Auth::user()->id)->with($notify);
     }
 
     /**

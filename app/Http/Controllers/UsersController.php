@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Profile;
+use App\Product;
+use Auth;
 use PragmaRX\Countries\Package\Countries;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -72,7 +74,12 @@ class UsersController extends Controller
         $profiles = Profile::all();
         $countries = Countries::all()->pluck('name.common');
 
-        return view('users.edit', compact('user', 'profiles', 'countries'));
+
+        $products = Product::WHERE('user_id', '=', Auth::user()->id)
+            ->orderBy('id', 'ASC')->paginate(10);
+
+
+        return view('users.edit', compact('user', 'profiles', 'countries','products'));
     }
 
     /**
