@@ -1,5 +1,5 @@
 
-<script src="{{ URL::asset('js/validations.js') }}"></script>
+<script src="{{ URL::asset('js/register-validation.js') }}"></script>
 
 
 <button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalRegister" id="button-register">
