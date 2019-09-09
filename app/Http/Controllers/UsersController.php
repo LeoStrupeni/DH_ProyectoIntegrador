@@ -76,7 +76,7 @@ class UsersController extends Controller
 
 
         $products = Product::WHERE('user_id', '=', Auth::user()->id)
-            ->orderBy('id', 'ASC')->paginate(10);
+            ->orderBy('id', 'ASC')->paginate(18);
 
 
         return view('users.edit', compact('user', 'profiles', 'countries','products'));

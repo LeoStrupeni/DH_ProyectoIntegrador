@@ -9,12 +9,12 @@
 @section('content')
 
 <div class="row">
-    <div class="col-sm-12 col-md-4" style="min-height:370px;">
+    <div class="col-12 col-md-4" style="min-height:370px;">
         <h1 class="text-center">Hola, {{$user->name}}</h1>
         <img src="{{ is_file( public_path('storage\\avatars\\').$user->avatar ) ? url('/storage/avatars/'.$user->avatar) : url('/storage/avatars/profile-placeholder.png')}}"
             alt="profile" class="img-fluid shadow mx-auto mt-1 d-block rounded-circle perfil">
     </div>
-    <div class="col-sm-12 col-md-8" style="min-height:370px;">
+    <div class="col-12 col-md-8" style="min-height:370px;">
         <form class="mt-1" action="{{route('users.update', Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
@@ -184,66 +184,48 @@
                         </div>
                     </div>
                 </nav>
-        
-                <div class="table-container">
-                <table id="mytable" class="table table-bordered table-striped">
-                    <thead>
-                    <th>Imagen</th>
-                    <th>Name</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th>Grad.</th>
-                    <th>Origen</th>
-                    <th>Año</th>
-                    <th>Vol.</th>
-                    <th>Categoria.</th>
-                    <th>Marca</th>
-                    <th>Stock</th>
-                    <th>Edicion</th>
-                    </thead>
-                    <tbody>
+                    <div class="row">
 
-                    @if($products->count())
-                        @foreach($products as $product)
-                        <tr>
-                            <td class="text-center"><img
-                                src="{{is_null($product->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->image}}"
-                                style="width:40px;"></td>
-                            <td>{{$product->name}}</td>
-                            <td class="cut-text" data-toggle="popover" data-trigger="hover"
-                            data-content="{{$product->description}}">{{substr($product->description, 0, 15)}}</td>
-                            <td class="text-center">$ {{$product->price}}</td>
-                            <td class="text-center">{{$product->graduation}} %</td>
-                            <td>{{$product->origin}}</td>
-                            <td class="text-center">{{$product->year}}</td>
-                            <td class="text-center">{{$product->volume}} ml.</td>
-                            <td>{{$product->Category->name}}</td>
-                            <td>{{$product->brand->name}}</td>
-                            <td class="text-center">{{$product->Stock}}</td>
-                            <td class="text-center">
-                            <a class="btn btn-primary mb-1 w-75" href="{{action('ProductController@edit',$product->id)}}">
-                                <i class='fa fa-pencil-alt' aria-hidden='true'></i>
-                            </a>
-            
-                            <form action="{{action('ProductController@destroy', $product->id)}}" method="POST"
-                                class="form-products">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger w-75" type="submit" class="delete-product">
-                                <i class='fa fa-trash-alt' aria-hidden='true'></i>
-                                </button>
-                            </form>
-                            </td>
-                        </tr>
-                        @endforeach
-                    @else
-                    <tr>
-                        <td colspan="12">No hay registro!</td>
-                    </tr>
-                    @endif
-                    </tbody>
-        
-                </table>
+                        @if($products->count())
+                            @foreach($products as $product)
+                                <div class="col-12 col-md-6 col-lg-4 my-2">
+                                    <div class="card p-1 border border-dark">
+                                        <h5 class="card-title cut-text text-center">{{$product->name}}</h5>
+                                        <div class="row no-gutters">
+                                            <div class="col-3 text-center">
+                                                <div class="col m-auto">
+                                                    <img class="w-100 h-100 p-1" src="{{is_null($product->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->image}}" data-toggle="popover" data-trigger="hover" data-content="{{$product->description}}">    
+                                                </div>
+                                                
+                                                <a class="btn btn-primary mb-1" href="{{action('ProductController@edit',$product->id)}}">
+                                                    <i class='fa fa-pencil-alt' aria-hidden='true'></i>
+                                                </a>
+                                                <form action="{{action('ProductController@destroy', $product->id)}}" method="POST"class="form-products">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" type="submit" class="delete-product">
+                                                    <i class='fa fa-trash-alt' aria-hidden='true'></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                            <div class="col-9">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Marca: {{$product->brand->name}}</li>
+                                                    <li class="list-group-item">Categoria: {{$product->Category->name}}</li>
+                                                    <li class="list-group-item">Origen: {{$product->origin}}</li>
+                                                    <li class="list-group-item">Precio: $ {{$product->price}}</li>
+                                                    <li class="list-group-item">Stock: {{$product->Stock}}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="alert alert-warning" role="alert">
+                                No hay registro!
+                            </div>
+                        @endif  
                 </div>
             </div>
             {{$products->links()}}
