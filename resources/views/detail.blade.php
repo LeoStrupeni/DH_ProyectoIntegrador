@@ -6,10 +6,6 @@
 
 <div class="container">
 
-    <?php
-    // dd($product);
-    ?>
-
     <div class="row">
 
         <div class="col-12 col-sm-4">
@@ -110,9 +106,5 @@
         @endforeach
     </div>
 </div>
-
-
-
-
 
 @endsection
