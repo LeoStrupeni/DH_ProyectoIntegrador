@@ -4,6 +4,8 @@ Route::get('/', 'IndexController@dataIndex');
 
 Route::get('/countries', 'IndexController@countries');
 
+Route::get('/profiles', 'ProfilesController@index');
+
 Auth::routes();
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');

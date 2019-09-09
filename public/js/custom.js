@@ -14,6 +14,22 @@ window.addEventListener('load', function() {
             .catch(function(error){
                 console.log('El error fue: ' + error);
             })
+
+        fetch('/profiles')
+            .then(function(respuesta){
+                return respuesta.json();
+            })
+            .then(function(profiles){
+                profiles.forEach(function(profile){
+                    if (profile.id > 2) {
+                        var option = new Option(profile.name, profile.id);
+                        $('#profile').append(option);
+                    }
+                })
+            })
+            .catch(function(error){
+                console.log('El error fue: ' + error);
+            })
     })
 
 })

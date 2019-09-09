@@ -1,8 +1,8 @@
-
 <script src="{{ URL::asset('js/register-validation.js') }}"></script>
 
 
-<button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalRegister" id="button-register">
+<button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalRegister"
+    id="button-register">
     Registrar
 </button>
 
@@ -20,11 +20,13 @@
 
 
             <div class="modal-body body-register">
-                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="form-register">
+                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data"
+                    class="form-register">
                     @csrf
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Nombre') }}</label>
+                        <label for="name"
+                            class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Nombre') }}</label>
 
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -39,7 +41,8 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="surname" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Apellido') }}</label>
+                        <label for="surname"
+                            class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Apellido') }}</label>
 
                         <div class="col-md-6">
                             <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
@@ -53,6 +56,40 @@
                         </div>
                     </div>
 
+                    <div class="form-group row">
+                        <label for="email"
+                            class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Correo Electronico') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="email-register" type="email"
+                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required autocomplete="email">
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="profile"
+                            class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Categoria') }}</label>
+
+                        <div class="col-md-6">
+                            <select name="profile" id="profile"
+                                class="form-control @error('profile') is-invalid @enderror" required
+                                autocomplete="profile" autofocus>
+                            </select>
+
+                            @error('profile')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
 
                     <div class="form-group row">
                         <label for="personal_id"
@@ -72,23 +109,8 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="email"
-                            class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Correo Electronico') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="email-register" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="country" class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Pais') }}</label>
+                        <label for="country"
+                            class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Pais') }}</label>
 
                         <div class="col-md-6">
                             <select name="country" id="country"
@@ -156,9 +178,9 @@
                             <input id="avatar" type="file"
                                 class="form-control-file @error('avatar') is-invalid @enderror" name="avatar"
                                 value="{{ old('avatar') }}" required autocomplete="avatar" autofocus>
-                                <small  class="form-text text-muted text-left">
-                                    Formatos admitidos: JPG, PNG, JPEG
-                                </small>
+                            <small class="form-text text-muted text-left">
+                                Formatos admitidos: JPG, PNG, JPEG
+                            </small>
 
                             @error('avatar')
                             <span class="invalid-feedback" role="alert">
@@ -178,7 +200,7 @@
 
                 </form>
 
-            
+
             </div>
         </div>
     </div>
