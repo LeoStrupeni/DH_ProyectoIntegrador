@@ -32,17 +32,18 @@
                 class="card-img p-1 img-fluid" style="z-index: 1;">
             <div class="card-img-overlay text-right mt-5">
                 <h5>{{"$". $producto->price}}</h5>
-                <form method="GET" action="{{route('shopcartadd')}}" >
+                <form method="GET" action="{{route('shopcartadd')}}">
                     <div class="form-group">
                         <label for="cantidad" style="font-size:1vw;">Cantidad</label>
-                    <input type="number" min="1" max={{$producto->Stock}} class="text-right w-25" value="1" name="idquantity" onkeypress="return valideKey(event);" required/>
+                        <input type="number" min="1" max={{$producto->Stock}} class="text-right w-25" value="1"
+                            name="idquantity" onkeypress="return valideKey(event);" required />
                     </div>
                     <input type="hidden" name="id" value="{{$producto->id}}">
                     <input type="hidden" name="idname" value="{{$producto->name}}">
                     <input type="hidden" name="idprice" value="{{$producto->price}}">
                     <input type="hidden" name="iduser" value="{{$producto->user_id}}">
                     <input type="hidden" name="idstock" value="{{$producto->Stock}}">
-                    
+
                     <button class="btn btn-success w-50 mb-1" type="submit" style="font-size:1vw;">
                         Agregar
                     </button>

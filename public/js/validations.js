@@ -69,25 +69,25 @@ $(document).ready(function(){
 
     // $('.form-login').submit(function (event) {
     //     event.preventDefault();
-    //     console.log('uno');
+    //     console.log('envio form');
 
-    //     $.ajaxSetup({
-    //     headers: {
-    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     }
-    //     });
+    //     // $.ajaxSetup({
+    //     // headers: {
+    //     //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     // }
+    //     // });
 
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: '/login',
-    //         data: $('.form-login').serialize(),
-    //         success: function(data) {
-    //             console.log("exito");
-    //         },
-    //         error: function (data) {
-    //             var errors = $.parseJSON(data.responseText);
-    //             console.log(errors);
-    //         }
-    //     });
+    //     // $.ajax({
+    //     //     type: 'POST',
+    //     //     url: '/login',
+    //     //     data: $('.form-login').serialize(),
+    //     //     success: function(data) {
+    //     //     alert('success');
+    //     //     },
+    //     //     error: function (data) {
+    //     //         var errors = $.parseJSON(data.responseText);
+    //     //         alert(errors);
+    //     //     }
+    //     // });
     // })
 })

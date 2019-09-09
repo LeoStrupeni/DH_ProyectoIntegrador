@@ -1,4 +1,4 @@
-<script src="{{ URL::asset('js/validations.js') }}"></script>
+<script src="{{ URL::asset('js/test.js') }}"></script>
 
 <button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalLogin">
     Ingresar
@@ -17,16 +17,17 @@
 
 
             <form action="{{ route('login') }}" class="form form-login" method="POST">
-                <div class="modal-body">
+                <div class="modal-body body-login">
                     @csrf
 
                     <div class="form-group row">
                         <label for="email"
                             class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Correo electronico') }}</label>
 
-                        <div class="col-md-6">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        <div class="col-md-6" id="email-login">
+                            <input type="email" id="email-to-login"
+                                class="form-control @error('email') is-invalid @enderror" name="email"
+                                value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -41,7 +42,7 @@
                             class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Contraseña') }}</label>
 
                         <div class="col-md-6">
-                            <input id="password" type="password"
+                            <input id="password-login" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
                                 autocomplete="current-password">
 
