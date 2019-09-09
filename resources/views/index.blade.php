@@ -98,7 +98,10 @@
                 <i class="far fa-envelope text-white"></i>
             </button>
 
-            <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu nav-2">
+            <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu">
+                <div class="text-right mr-2">
+                    <i data-pushbar-close class="fas fa-times"></i>
+                </div>
                 <form action="{{route('suscriptors.store')}}" class="form py-4" method="POST">
                     @csrf
                     <div class="text-center">

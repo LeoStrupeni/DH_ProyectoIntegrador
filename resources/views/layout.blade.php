@@ -19,8 +19,13 @@
                             <button class="navbar-toggler" data-pushbar-target="pushbar-menu">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu nav-2">
-                                <h6 class="text-center text-white">Que buscas???</h6>
+                            <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu">
+                                
+                                <div class="text-right mr-2">
+                                    <i data-pushbar-close class="fas fa-times"></i>
+                                </div>
+                                
+                                <h5 class="text-white text-center">Categorias</h5>    
                                 <div class="navbar-nav">
 
                                     @foreach ($categorias as $cat)
@@ -128,8 +133,8 @@
     <script>
         var pushbar = new Pushbar({
             blur:true,
-            overlay:true,
-        });
+            overlay: false,
+        });        
     </script>
 
     <script type="text/javascript">

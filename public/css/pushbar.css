@@ -51,6 +51,8 @@ html.pushbar_locked .pushbar_overlay{
 	height: 100%;
 	min-height: 100vh;
 	transform: translateZ(0) translateX(-100%);
+	background-color: rgb(209, 150, 49);
+	/* #D7B377; */
 }
 
 .pushbar.from_right{
@@ -78,6 +80,8 @@ html.pushbar_locked .pushbar_overlay{
 	max-width: 100%;
 	min-height: 200px;
 	transform: translateZ(0) translateY(100%);
+	background-color: rgb(209, 150, 49);
+	/* #D7B377; */
 }
 
 .pushbar.opened{

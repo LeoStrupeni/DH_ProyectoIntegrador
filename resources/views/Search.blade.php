@@ -61,68 +61,59 @@
     @endforeach
 
 </div>
-
-<div class="row text-center mx-auto mt-1">
-    <div class="col-md-6 offset-5">
         {{$products->links()}}
+
+<div class="row">
+    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+        <div>
+            <button type="button" class="btn btn-filtros shadow rounded-circle"
+                data-pushbar-target="pushbar-filters">
+                <i class="fas fa-filter"></i>
+            </button>
+    
+            <div data-pushbar-id="pushbar-filters" class="pushbar from_right pushbar-filters nav-1">
+                <button data-pushbar-close class="btn btn-danger ml-2 mt-2"><i class="fas fa-sign-out-alt"></i></button>
+                <h3 class="text-center text-white mt-2">FILTROS</h3>
+                <form action="" method="">
+                    <div class="form-group">
+                        <div class="col p-3">
+                            <input list="marca" placeholder="Marca" class="w-100 rounded">
+                            <datalist id="marca">
+                                <option value="">
+                            </datalist>
+                        </div>
+        
+                        <div class="col p-3">
+                            <select class="custom-select custom-select-sm" name="categoria">
+                                <option selected>Categoria</option>
+                            </select>
+                        </div>
+
+                        <div class="col p-3">
+                            <select class="custom-select custom-select-sm" name="graduacion">
+                                <option selected>Graduacion</option>
+                            </select>
+                        </div>
+        
+                        <div class="col p-3">
+                            <select class="custom-select custom-select-sm" name="graduacion">
+                                <option selected>Origen</option>
+                            </select>
+                        </div>
+        
+                        <div class="col p-3">
+                            <select class="custom-select custom-select-sm" name="graduacion">
+                                <option selected>Volumen</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
 
-<nav class="navbar fixed-bottom navbar-dark bg-dark">
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <p class="navbar-brand">Filtros</p>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <form action="" method="">
-            <div class="form-group row">
-                <div class="col-2">
-                    <input list="marca" placeholder="Marca" class="w-100 rounded">
-                    <datalist id="marca">
-                        <option value="">
-                    </datalist>
-                </div>
-
-                <div class="col-2">
-                    <select class="custom-select custom-select-sm" name="categoria">
-                        <option selected>Categoria</option>
-                    </select>
-                </div>
-
-                <div class="col-2">
-                    <select class="custom-select custom-select-sm" name="subcategoria">
-                        <option selected>Sub Categoria</option>
-                    </select>
-                </div>
-
-                <div class="col-2">
-                    <select class="custom-select custom-select-sm" name="graduacion">
-                        <option selected>Graduacion</option>
-                    </select>
-                </div>
-
-                <div class="col-2">
-                    <select class="custom-select custom-select-sm" name="graduacion">
-                        <option selected>Origen</option>
-                    </select>
-                </div>
-
-                <div class="col-2">
-                    <select class="custom-select custom-select-sm" name="graduacion">
-                        <option selected>Volumen</option>
-                    </select>
-                </div>
-
-            </div>
-        </form>
-
-    </div>
-</nav>
 @notify_css
 @notify_js
 @notify_render

@@ -211,4 +211,13 @@ img.perfil {
   margin-top:.25rem;
   font-size:80%;
   color:#e3342f
+}
+
+.btn-filtros{
+  position: fixed;
+  right: 25px;
+  bottom: 60px;
+  background-color: rgb(85, 85, 85);
+  height: 50px;
+  font-size: 1.5rem;
 };
