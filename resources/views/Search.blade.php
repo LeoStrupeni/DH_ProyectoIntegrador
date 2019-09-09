@@ -3,9 +3,6 @@
 @section('title','Busqueda')
 
 @section('content')
-<?php
-dd($products);
-?>
 <br>
 @if(!empty($_SESSION->mensaje))
 <div class="alert alert-secondary">
@@ -76,12 +73,12 @@ dd($products);
             <div data-pushbar-id="pushbar-filters" class="pushbar from_right pushbar-filters">
                 <button data-pushbar-close class="btn btn-danger ml-2 mt-2"><i class="fas fa-sign-out-alt"></i></button>
                 <h3 class="text-center text-white mt-2">FILTROS</h3>
-                <form action="" method="">
+                <form action="{{route('search')}}" method="GET">
                     <div class="form-group">
                         <div class="col px-3 py-1">
                             <label class="text-white">* Marca</label>
-                            <select class="custom-select custom-select-sm" name="marca">   
-                                    <option value=null selected>
+                            <select class="custom-select custom-select-sm" name="filter_marca">   
+                                    <option value="" selected>
                                 @foreach ($brands as $brand)
                                     <option value="{{$brand->id}}">{{$brand->name}}
                                 @endforeach
@@ -90,8 +87,8 @@ dd($products);
                 
                         <div class="col px-3 py-1">
                             <label class="text-white">* Categoria</label>
-                            <select class="custom-select custom-select-sm" name="categoria">
-                                    <option value=null selected>
+                            <select class="custom-select custom-select-sm" name="filter_categoria">
+                                    <option value="" selected>
                                 @foreach ($categories as $category)
                                     <option value="{{$category->id}}">{{$category->name}}
                                 @endforeach
@@ -100,8 +97,8 @@ dd($products);
  
                         <div class="col px-3 py-1">
                             <label class="text-white">* Graduacion</label>
-                            <select class="custom-select custom-select-sm" name="graduacion">
-                                    <option value=null selected>
+                            <select class="custom-select custom-select-sm" name="filter_graduacion">
+                                    <option value="" selected>
                                 @foreach ($graduations as $graduation)
                                     <option value="{{$graduation->graduation}}">{{round($graduation->graduation, 1)}} %
                                 @endforeach
@@ -110,8 +107,8 @@ dd($products);
         
                         <div class="col px-3 py-1">
                             <label class="text-white">* Origen-Bodega</label>
-                            <select class="custom-select custom-select-sm" name="origin">
-                                    <option value=null selected>
+                            <select class="custom-select custom-select-sm" name="filter_origin">
+                                    <option value="" selected>
                                 @foreach ($origins as $origin)
                                     <option value="{{$origin->origin}}">{{$origin->origin}}
                                 @endforeach
@@ -120,8 +117,8 @@ dd($products);
 
                         <div class="col px-3 py-1">
                             <label class="text-white">* Volumen</label>
-                            <select class="custom-select custom-select-sm" name="volume">
-                                    <option value=null selected>
+                            <select class="custom-select custom-select-sm" name="filter_volume">
+                                    <option value="" selected>
                                 @foreach ($volumes as $volume)
                                     <option value="{{$volume->volume}}">{{$volume->volume}} ml.
                                 @endforeach
@@ -130,8 +127,8 @@ dd($products);
 
                         <div class="col px-3 py-1">
                             <label class="text-white">* Cosecha</label>
-                            <select class="custom-select custom-select-sm" name="year">
-                                    <option value=null selected>
+                            <select class="custom-select custom-select-sm" name="filter_year">
+                                    <option value="" selected>
                                 @foreach ($years as $year)
                                     <option value="{{$year->year}}">{{$year->year}}
                                 @endforeach
@@ -139,6 +136,7 @@ dd($products);
                         </div>
                     </div>
                     <div class="text-center">
+                        <input type="hidden" name="PM" value="{{$var}}">
                         <button type="submit" class="btn btn-success m-auto"><i class="fas fa-redo-alt"></i></button>
                     </div>                    
                 </form>

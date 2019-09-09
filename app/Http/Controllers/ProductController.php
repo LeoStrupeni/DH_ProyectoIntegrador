@@ -213,18 +213,30 @@ class ProductController extends Controller
     }
 
     public function search(Request $request)
-    {   
+    {          
+        $filter_Brand = ($request->get('filter_marca')) ? $request->get('filter_marca') : null;
+        $filter_Category = ($request->get('filter_categoria')) ? $request->get('filter_categoria') : null;
+        $filter_Graduation = ($request->get('filter_graduacion')) ? $request->get('filter_graduacion') : null;
+        $filter_Origin = ($request->get('filter_origin')) ? $request->get('filter_origin') : null;
+        $filter_Volume = ($request->get('filter_volume')) ? $request->get('filter_volume') : null;
+        $filter_Year = ($request->get('filter_year')) ? $request->get('filter_year') : null;
         $var = $request->input('PM');
+
+        // $prueba = is_null($filter_categoria);
+        // dd($filter_marca,$filter_categoria,$prueba,$filter_graduacion,$filter_origin,$filter_volume,$filter_year,$var);
+
         $products = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.user_id', 'Products.Stock')
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query
-                ->where('products.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('description', 'LIKE', '%' . $var . '%')
-                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->FilterBrands($filter_Brand)
+            ->FilterCategory($filter_Category)
+            ->FilterGraduation($filter_Graduation)
+            ->FilterOrigin($filter_Origin)
+            ->FilterVolume($filter_Volume)
+            ->FilterYear($filter_Year)
             ->paginate(28);
         
         $brands = Product::select('brands.id', 'brands.name')
@@ -233,12 +245,14 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query
-                ->where('products.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('description', 'LIKE', '%' . $var . '%')
-                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
-                ->orderby('brands.name','asc')  
+            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->FilterBrands($filter_Brand)
+            ->FilterCategory($filter_Category)
+            ->FilterGraduation($filter_Graduation)
+            ->FilterOrigin($filter_Origin)
+            ->FilterVolume($filter_Volume)
+            ->FilterYear($filter_Year)
+            ->orderby('brands.name','asc')  
             ->get();
 
         $categories = Product::select('categories.id', 'categories.name')
@@ -247,12 +261,14 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query
-                ->where('products.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('description', 'LIKE', '%' . $var . '%')
-                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
-                ->orderby('categories.name','asc')  
+            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->FilterBrands($filter_Brand)
+            ->FilterCategory($filter_Category)
+            ->FilterGraduation($filter_Graduation)
+            ->FilterOrigin($filter_Origin)
+            ->FilterVolume($filter_Volume)
+            ->FilterYear($filter_Year)
+            ->orderby('categories.name','asc')  
             ->get();
         
         $graduations = Product::select('products.graduation')
@@ -261,12 +277,14 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query
-                ->where('products.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('description', 'LIKE', '%' . $var . '%')
-                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
-                ->orderby('products.graduation','asc')  
+            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->FilterBrands($filter_Brand)
+            ->FilterCategory($filter_Category)
+            ->FilterGraduation($filter_Graduation)
+            ->FilterOrigin($filter_Origin)
+            ->FilterVolume($filter_Volume)
+            ->FilterYear($filter_Year)
+            ->orderby('products.graduation','asc')  
             ->get();
 
         $origins = Product::select('products.origin')
@@ -275,12 +293,14 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query
-                ->where('products.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('description', 'LIKE', '%' . $var . '%')
-                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
-                ->orderby('products.origin','asc')    
+            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->FilterBrands($filter_Brand)
+            ->FilterCategory($filter_Category)
+            ->FilterGraduation($filter_Graduation)
+            ->FilterOrigin($filter_Origin)
+            ->FilterVolume($filter_Volume)
+            ->FilterYear($filter_Year)
+            ->orderby('products.origin','asc')    
             ->get();
 
         $years = Product::select('products.year')
@@ -289,12 +309,14 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query
-                ->where('products.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('description', 'LIKE', '%' . $var . '%')
-                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
-                ->orderby('products.year','asc')    
+            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->FilterBrands($filter_Brand)
+            ->FilterCategory($filter_Category)
+            ->FilterGraduation($filter_Graduation)
+            ->FilterOrigin($filter_Origin)
+            ->FilterVolume($filter_Volume)
+            ->FilterYear($filter_Year)
+            ->orderby('products.year','asc')    
             ->get();
         
         $volumes = Product::select('products.volume')
@@ -303,15 +325,17 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query
-                ->where('products.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('description', 'LIKE', '%' . $var . '%')
-                ->orwhere('categories.name', 'LIKE', '%' . $var . '%')
-                ->orwhere('brands.name', 'LIKE', '%' . $var . '%');})
+            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->FilterBrands($filter_Brand)
+            ->FilterCategory($filter_Category)
+            ->FilterGraduation($filter_Graduation)
+            ->FilterOrigin($filter_Origin)
+            ->FilterVolume($filter_Volume)
+            ->FilterYear($filter_Year)
             ->orderby('products.volume','asc')    
             ->get();
 
-        return view('search', compact('products','brands','categories','graduations','origins','years','volumes'));
+        return view('search', compact('products','brands','categories','graduations','origins','years','volumes','var'));
     }
 
     public function detail(Request $request)
