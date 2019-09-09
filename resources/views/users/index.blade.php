@@ -15,7 +15,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Email</th>
-                <th scope="col">Documento</th>
+                <th scope="col">Documento/CUIT - CUIL</th>
                 <th scope="col">Fecha de nacimiento</th>
                 <th scope="col">Pais</th>
                 <th scope="col">Fecha de registro</th>

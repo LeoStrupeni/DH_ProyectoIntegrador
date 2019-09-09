@@ -79,7 +79,7 @@
 
                         <div class="col-md-6">
                             <select name="profile" id="profile"
-                                class="form-control @error('profile') is-invalid @enderror" required
+                                class="form-control @error('profile') is-invalid @enderror profile-select" required
                                 autocomplete="profile" autofocus>
                             </select>
 
@@ -93,12 +93,13 @@
 
                     <div class="form-group row">
                         <label for="personal_id"
-                            class="col-md-4 col-form-label text-md-right font-weight-bold">{{ __('Documento') }}</label>
+                            class="col-md-4 col-form-label text-md-right font-weight-bold" id="label-id">{{ __('CUIT/CUIL') }}</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" id="personal-id-section">
                             <input id="personal_id" type="number"
                                 class="form-control @error('personal_id') is-invalid @enderror" name="personal_id"
                                 value="{{ old('personal_id') }}" required autocomplete="personal_id" autofocus>
+                                <small class="form-text text-muted text-left small-text"> Formato: ##-12345678-X </small>
 
                             @error('personal_id')
                             <span class="invalid-feedback" role="alert">

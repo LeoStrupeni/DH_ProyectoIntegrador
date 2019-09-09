@@ -1,5 +1,16 @@
 $(document).ready(function(){
 
+    $('.profile-select').change(function(){
+        if ($('.profile-select').val() == 3) {
+            $('#label-id').html('CUIT/CUIL');
+            $('#personal-id-section').append('<small class="form-text text-muted text-left small-text"> Formato: ##-12345678-X </small>');
+        } else {
+            $('#label-id').html('Documento');
+            $('.small-text').remove();
+        }
+    })
+    
+
     $('.form-register').submit(function(event)
     {
         var errores = [];
@@ -67,27 +78,4 @@ $(document).ready(function(){
         }
     })
 
-    // $('.form-login').submit(function (event) {
-    //     event.preventDefault();
-    //     console.log('envio form');
-
-    //     // $.ajaxSetup({
-    //     // headers: {
-    //     //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     // }
-    //     // });
-
-    //     // $.ajax({
-    //     //     type: 'POST',
-    //     //     url: '/login',
-    //     //     data: $('.form-login').serialize(),
-    //     //     success: function(data) {
-    //     //     alert('success');
-    //     //     },
-    //     //     error: function (data) {
-    //     //         var errors = $.parseJSON(data.responseText);
-    //     //         alert(errors);
-    //     //     }
-    //     // });
-    // })
 })
