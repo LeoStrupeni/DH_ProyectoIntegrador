@@ -1,3 +1,5 @@
+<script src="{{ URL::asset('js/contact-validation.js') }}"></script>
+
 <button type="button" class="list-group-item btn-foot" data-toggle="modal" data-target="#modalContacto">
     Contacto
 </button>
@@ -13,17 +15,17 @@
                 </button>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body body-contact">
                 <div class="row mx-auto text-center">
 
-                    <form action="{{route('queries.store')}}" method="POST" class="mx-auto">
+                    <form action="{{route('queries.store')}}" method="POST" class="mx-auto form-contacto">
                         @csrf
                         <div class="form-group">
                             <b>Dejanos tus datos y nos pondremos en contacto con vos</b>
                         </div>
                         <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="name" id="nombre" class="form-control" placeholder="Tu nombre"
+                            <label for="nombre" class="font-weight-bold">Nombre</label>
+                            <input type="text" name="name" id="nombre-contact" class="form-control" placeholder="Tu nombre"
                                 required>
 
                             @error('name')
@@ -33,8 +35,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Tu email"
+                            <label for="email" class="font-weight-bold">Email</label>
+                            <input type="email" name="email" id="email-contact" class="form-control" placeholder="Tu email"
                                 required>
 
                             @error('email')
@@ -44,8 +46,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input class="form-control" id="telefono" type="tel" name="phone" value=""
+                            <label for="telefono" class="font-weight-bold">Teléfono</label>
+                            <input class="form-control" id="telefono-contact" type="tel" name="phone" value=""
                                 {{-- pattern="[1-9]{10}" title="Ingresá tu celular con el formato 3416772339" --}}
                                 placeholder="Tu teléfono" required>
 
@@ -56,8 +58,8 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="porque"><b>Mensaje</b></label>
-                            <textarea name="message" id="porque" class="form-control" rows="3"></textarea>
+                            <label for="porque" class="font-weight-bold">Mensaje</label>
+                            <textarea name="message" id="message-contact" class="form-control" rows="3"></textarea>
 
                             @error('message')
                             <span class="invalid-feedback" role="alert">
@@ -67,7 +69,7 @@
                         </div>
 
                         <div class="modal-footer mx-auto justify-content-center">
-                            <button type="submit" class="btn btn-amarillo">Enviar</button>
+                            <button type="submit" class="btn btn-amarillo font-weight-bold">Enviar</button>
                         </div>
                     </form>
 
