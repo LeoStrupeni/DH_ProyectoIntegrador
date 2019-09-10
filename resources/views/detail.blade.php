@@ -8,13 +8,30 @@
 
     <div class="row">
 
-        <div class="col-12 col-sm-4">
-            <img src="{{is_null($product->first()->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->first()->image}}"
-                class="rounded mx-auto d-block mt-1" data-toggle="popover" data-trigger="hover"
+        <div class="col-12 col-md-4">
+            <img src="{{is_null($product->first()->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->first()->image}}" style="max-height:250px;"
+                class="rounded mx-auto d-block p-1" data-toggle="popover" data-trigger="hover"
                 data-content="{{substr($product->first()->description, 0, 500)}}.." alt="Responsive image">
+
+            <form method="GET" action="{{route('shopcartadd')}}" class="form-inline mt-4">
+                    <input type="hidden" name="id" value="{{$product->first()->id}}">
+                    <input type="hidden" name="idname" value="{{$product->first()->name}}">
+                    <input type="hidden" name="idprice" value="{{$product->first()->price}}">
+                    <input type="hidden" name="iduser" value="{{$product->first()->user_id}}">
+                    <input type="hidden" name="idstock" value="{{$product->first()->Stock}}">
+                <div class="form-group w-25">
+                    <label for="cantidad" style="font-size:1vw;" class="text-right">Cantidad: </label>
+                </div>
+                <div class="form-group w-50">
+                    <input type="number" min="1" max={{$product->first()->Stock}} class="form-control text-right" value="1" name="idquantity" onkeypress="return valideKey(event);" required />
+                </div>
+                <button class="btn btn-success w-25" type="submit" style="font-size:1vw;">
+                    Agregar
+                </button>
+            </form>
         </div>
 
-        <div class="col-12 col-sm-8">
+        <div class="col-12 col-md-8">
 
             <table class="table table-sm table-dark my-2">
                 <thead>
@@ -83,19 +100,24 @@
 
                     <form method="GET" action="{{route('shopcartadd')}}">
                         <div class="form-group">
-                            <label for="cantidad">Cantidad</label>
-                            <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad"
-                                required>
+                            <label for="cantidad" style="font-size:1vw;">Cantidad</label>
+                            <input type="number" min="1" max={{$related->Stock}} class="text-right w-25" value="1"
+                                name="idquantity" onkeypress="return valideKey(event);" required />
                         </div>
-                        <input type="hidden" name="id" id="id" value="{{$related->id}}">
-                        <button class="btn btn-success w-50 mb-1" type="submit" name="btnAccion" value="Agregar">
+                        <input type="hidden" name="id" value="{{$related->id}}">
+                        <input type="hidden" name="idname" value="{{$related->name}}">
+                        <input type="hidden" name="idprice" value="{{$related->price}}">
+                        <input type="hidden" name="iduser" value="{{$related->user_id}}">
+                        <input type="hidden" name="idstock" value="{{$related->Stock}}">
+    
+                        <button class="btn btn-success w-50 mb-1" type="submit" style="font-size:1vw;">
                             Agregar
                         </button>
                     </form>
 
                     <form method="GET" action="/detail">
                         <input type="hidden" name="id" id="id" value="{{$related->id}}">
-                        <button class="btn btn-warning w-50" type="submit">
+                        <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
                             + Detalles
                         </button>
                     </form>

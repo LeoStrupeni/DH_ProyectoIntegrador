@@ -355,13 +355,14 @@ class ProductController extends Controller
     public function detail(Request $request)
     {
         $id = $request->input('id');
-        $product = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.graduation', 'Products.origin', 'Products.year', 'Products.volume', 'Products.Stock', 'brands.name as brand', 'categories.name as categoria', 'categories.id as id_cat')
+        $product = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.graduation', 'Products.origin', 'Products.year', 'Products.volume', 'Products.Stock','Products.user_id', 'brands.name as brand', 'categories.name as categoria', 'categories.id as id_cat')
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->where('products.id', '=', $id)
             ->get();
 
-        $relatedWith = Product::Where('category_id', '=', $product->first()->id_cat)
+        $relatedWith = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.graduation', 'Products.origin', 'Products.year', 'Products.volume', 'Products.Stock','Products.user_id')
+            ->Where('Products.user_id', '=', $product->first()->user_id)
             ->inRandomOrder()
             ->limit(8)
             ->get();
