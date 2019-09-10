@@ -81,7 +81,7 @@
 
                     <h4>{{"$ ".$related->price}}</h4>
 
-                    <form method="get" action="Busqueda.php">
+                    <form method="GET" action="{{route('shopcartadd')}}">
                         <div class="form-group">
                             <label for="cantidad">Cantidad</label>
                             <input type="number" min="1" class="text-right w-25" value="1" id="cantidad" name="cantidad"

@@ -6,7 +6,7 @@
 
 <div class="row my-2">
     <div class="col-12 col-lg-10 m-auto">
-        {{$total = 0}}
+        <?php $total = 0 ?>
         @if (count(Session::get('cart')))
         <table class="table table-sm table-warning">
             <tbody>

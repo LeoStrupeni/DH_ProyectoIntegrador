@@ -48,15 +48,15 @@
                         </div>
                     </div>
 
-                    <div class="col-10 col-sm-10 col-md-5 col-lg-6 col-xl-6 text-center">
-                        <form class="form-inline my-2 my-lg-0 mx-auto" action="{{route('search')}}" method="GET">
+                    <div class="col-10 col-sm-10 col-md-5 col-lg-6 col-xl-6 text-center ">
+                        <form class="form-inline my-2 my-lg-0 mx-auto add-clear" action="{{route('search')}}" method="GET">
                             <input class="form-control mr-sm-2 mr-2 paramBusquedajs" type="search"
                                 placeholder="Encontra lo que buscas" aria-label="Search" name="PM" list="PM" required>
                             <datalist id="PM" class="busquedajs"></datalist>
                             <button class="btn btn-search my-2 my-sm-0" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
-                            <a class="btn btn-success ml-1" href="/search" role="button" id="clear-btn">Clear</a>
+                            {{-- <a class="btn btn-success ml-1" href="/search" role="button" id="clear-btn">Clear</a> --}}
                         </form>
 
                     </div>
