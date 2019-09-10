@@ -9,7 +9,7 @@ class ProfilesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('admin')->except('index');
     }
 
     public function index()
