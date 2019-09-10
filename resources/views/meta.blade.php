@@ -32,8 +32,6 @@
 
 </head>
 
-<body>
-    @yield('layout')
-</body>
+@yield('layout')
 
 </html>
