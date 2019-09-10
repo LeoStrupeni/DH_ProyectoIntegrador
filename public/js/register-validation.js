@@ -96,6 +96,9 @@ $(document).ready(function(){
             success: function(res) {
                 if(res.exists){
                     $('.email-section').append('<span class="invalid-feedback email-exist-alert" role="alert">Este email ya se encuentra registrado</span>');
+                    $('.form-register').submit(function (e) {
+                        e.preventDefault();
+                    })
                 }
             },
             error: function (jqXHR, exception) {

@@ -22,6 +22,8 @@ Route::post('/checkemail', 'UsersController@checkEmail');
 
 Route::resource('suscriptors', 'SuscriptorsController');
 
+Route::post('/checkSuscriptorEmail', 'SuscriptorsController@checkEmail');
+
 Route::resource('queries', 'QueriesController');
 
 Route::resource('products', 'ProductController');

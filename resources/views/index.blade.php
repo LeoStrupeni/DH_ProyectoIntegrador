@@ -4,6 +4,10 @@
 
 @section('content')
 
+@section('js')
+    <script src="{{ URL::asset('js/suscription-validation.js') }}"></script>    
+@endsection
+
 <div class="row">
     <div class="col p-0">
         <div id="carouselBebidas" class="carousel slide" data-ride="carousel">
@@ -90,18 +94,18 @@
                 <i class="far fa-envelope text-white"></i>
             </button>
 
-            <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu">
+            <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu ">
                 <div class="text-right mr-2">
                     <i data-pushbar-close class="fas fa-times"></i>
                 </div>
-                <form action="{{route('suscriptors.store')}}" class="form py-4" method="POST">
+                <form action="{{route('suscriptors.store')}}" class="form py-4 form-suscriptor" method="POST">
                     @csrf
-                    <div class="text-center">
+                    <div class="text-center body-suscriptor">
                         <h4 class="pb-3">Registrate para recibir todas nuestras novedades</h4>
 
-                        <div class="col-6 m-auto">
+                        <div class="col-6 m-auto email-suscriptor-section">
                             <div class="form-group">
-                                <input type="email" name="email" id="email" class="form-control text-center"
+                                <input type="email" name="email" id="email-suscriptor" class="form-control text-center"
                                     placeholder="Ingresa tu email">
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">

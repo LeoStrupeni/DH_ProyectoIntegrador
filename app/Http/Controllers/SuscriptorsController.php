@@ -107,4 +107,15 @@ class SuscriptorsController extends Controller
 
         return back();
     }
+
+    public function checkEmail(Request $request)
+    {
+        $email = $request->input('email');
+        $isExists = Suscriptor::where('email', $email)->first();
+        if ($isExists) {
+            return response()->json(array("exists" => true));
+        } else {
+            return response()->json(array("exists" => false));
+        }
+    }
 }
