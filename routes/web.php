@@ -18,6 +18,8 @@ Route::get('/detail', 'ProductController@detail')->name('detail');
 
 Route::resource('users', 'UsersController');
 
+Route::post('/checkemail', 'UsersController@checkEmail');
+
 Route::resource('suscriptors', 'SuscriptorsController');
 
 Route::resource('queries', 'QueriesController');

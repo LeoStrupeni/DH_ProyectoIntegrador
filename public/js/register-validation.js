@@ -78,4 +78,30 @@ $(document).ready(function(){
         }
     })
 
+    $('#email-register').blur(function(){
+        var email = $('#email-register').val();
+        $('.email-exist-alert').remove();
+
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '/checkemail',
+            data: {email:email},
+            dataType: "json",
+            success: function(res) {
+                if(res.exists){
+                    $('.email-section').append('<span class="invalid-feedback email-exist-alert" role="alert">Este email ya se encuentra registrado</span>');
+                }
+            },
+            error: function (jqXHR, exception) {
+                // console.log(exception);
+                // console.log(jqXHR);
+            }
+        });
+    })
 })
