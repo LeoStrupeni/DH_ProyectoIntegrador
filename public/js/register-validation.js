@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('.profile-select').change(function(){
         if ($('.profile-select').val() == 3) {
             $('#label-id').html('CUIT/CUIL');
-            $('#personal-id-section').append('<small class="form-text text-muted text-left small-text"> Formato: ##-12345678-X </small>');
+            $('#personal-id-section').append('<small class="form-text text-muted text-left small-text"> Formato: ##12345678X </small>');
         } else {
             $('#label-id').html('Documento');
             $('.small-text').remove();

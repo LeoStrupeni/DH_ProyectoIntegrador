@@ -21,8 +21,6 @@ $(document).ready(function(){
             errores.push('Por favor, ingrese su password');
         }
 
-        console.log(errores);
-
         if (errores.length == 0) {
             $.ajaxSetup({
             headers: {
