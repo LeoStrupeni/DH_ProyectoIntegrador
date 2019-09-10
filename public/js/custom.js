@@ -32,4 +32,8 @@ window.addEventListener('load', function() {
             })
     })
 
+    $('#modalRegister').on('hidden.bs.modal', function () {
+        $('#profile').empty();
+    })
+
 })
