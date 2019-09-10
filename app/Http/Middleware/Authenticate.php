@@ -15,7 +15,8 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('login');
+            notify()->error('Debe estar logueado para poder proceder con la compra', 'Error', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+            return route('search');
         }
     }
 }
