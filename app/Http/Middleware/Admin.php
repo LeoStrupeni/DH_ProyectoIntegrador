@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
+
 
 class Admin
 {
@@ -15,11 +17,11 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->hasRole('admin')) {
+        if (Auth::check() && auth()->user()->hasRole('admin')) {
             return $next($request);
         } else {
             notify()->error('No tenes los permisos necesarios para acceder', 'Error', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
-            return redirect('home')->with('error', 'No tenes acceso Admin');
+            return redirect('/')->with('error', 'No tenes acceso Admin');
         }
     }
 }

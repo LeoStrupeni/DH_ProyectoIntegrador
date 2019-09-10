@@ -8,6 +8,10 @@ use App\User;
 
 class QueriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except('store');
+    }
     /**
      * Display a listing of the resource.
      *

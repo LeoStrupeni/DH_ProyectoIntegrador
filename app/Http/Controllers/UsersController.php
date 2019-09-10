@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin')->except('edit', 'update' , 'checkEmail');
+    }
+
     /**
      * Display a listing of the resource.
      *
