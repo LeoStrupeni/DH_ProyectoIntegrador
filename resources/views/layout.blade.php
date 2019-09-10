@@ -56,7 +56,7 @@
                             <button class="btn btn-search my-2 my-sm-0" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
-                            <a class="btn btn-success ml-1" href="/search" role="button">Clear</a>
+                            <a class="btn btn-success ml-1" href="/search" role="button" id="clear-btn">Clear</a>
                         </form>
 
                     </div>
@@ -127,6 +127,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="{{ URL::asset('js/clear.js') }}"></script>
     <script>
         $(function() {
         $('[data-toggle="popover"]').popover()

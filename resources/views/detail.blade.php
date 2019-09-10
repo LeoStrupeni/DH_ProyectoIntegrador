@@ -10,7 +10,7 @@
 
         <div class="col-12 col-sm-4">
             <img src="{{is_null($product->first()->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->first()->image}}"
-                class="rounded mx-auto d-block" data-toggle="popover" data-trigger="hover"
+                class="rounded mx-auto d-block mt-1" data-toggle="popover" data-trigger="hover"
                 data-content="{{substr($product->first()->description, 0, 500)}}.." alt="Responsive image">
         </div>
 
@@ -95,7 +95,7 @@
 
                     <form method="GET" action="/detail">
                         <input type="hidden" name="id" id="id" value="{{$related->id}}">
-                        <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
+                        <button class="btn btn-warning w-50" type="submit">
                             + Detalles
                         </button>
                     </form>

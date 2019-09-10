@@ -1,4 +1,4 @@
-<button type="button" class="list-group-item btn-foot" data-toggle="modal" data-target="#modalConditions">
+<button type="button" class="list-group-item btn-foot mb-0" data-toggle="modal" data-target="#modalConditions">
     Terminos y Condiciones
 </button>
 

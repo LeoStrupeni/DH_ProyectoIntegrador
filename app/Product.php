@@ -33,7 +33,9 @@ class Product extends Model
 
     public function scopeUserDistinct($query)
     {
-        return $query->where('products.user_id', '<>', Auth::user()->id);
+        if (!Auth::guest()) {
+            return $query->where('products.user_id', '<>', Auth::user()->id);
+        }
     }
 
     public function scopeStock($query)
