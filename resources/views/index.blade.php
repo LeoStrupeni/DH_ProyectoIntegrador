@@ -17,9 +17,14 @@
                 <li data-target="#carouselBebidas" data-slide-to="2"></li>
                 <li data-target="#carouselBebidas" data-slide-to="3"></li>
                 <li data-target="#carouselBebidas" data-slide-to="4"></li>
+                <li data-target="#carouselBebidas" data-slide-to="5"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
+                    <img src="/storage/images/img0.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption"></div>
+                </div>
+                <div class="carousel-item">
                     <img src="/storage/images/img1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption"></div>
                 </div>
@@ -49,9 +54,9 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4 text-center">Bienvenido a Capone!</h1>
-                <p class="lead text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit
-                    voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non.
-                    Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>
+                <p class="lead text-center">Capone es un punto de conexión para la comercializacion de bebidas alcohólicas que ni<a href="https://es.wikipedia.org/wiki/Eliot_Ness" class="text-decoration-none font-weight-bold"> Eliot Ness </a>podra resistir<br>
+                Distinto tipos de vendedores podrán comunicarse y establecer negocio con otros, generando una oportunidad de ganancia para ambos sectores.
+                </p>
             </div>
         </div>
     </div>
