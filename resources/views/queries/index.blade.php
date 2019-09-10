@@ -2,10 +2,6 @@
 
 @section('title', 'Consultas')
 
-@section('js')
-<script src="{{ URL::asset('js/deletions.js') }}"></script>
-@endsection
-
 @section('content')
 <div class="table-responsive-md h-100">
     <table class="table table-hover flex-grow-1">
@@ -55,4 +51,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="{{ URL::asset('js/deletions.js') }}"></script>
 @endsection

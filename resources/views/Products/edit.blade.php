@@ -31,7 +31,7 @@
 
 			<form method="POST" action="{{ route('products.update',$product->id) }}" role="form"
 				enctype="multipart/form-data" class="my-2">
-				{{ csrf_field() }}
+				@csrf
 				<input name="_method" type="hidden" value="PATCH">
 				<input name="user_id" type="hidden" value="{{Auth::user()->id}}">
 				<div class="row m-0">

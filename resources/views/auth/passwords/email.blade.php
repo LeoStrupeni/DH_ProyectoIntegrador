@@ -16,11 +16,11 @@
 
             <form action="{{ route('password.email') }}" class="form" method="POST">
                 @csrf
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
+                @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+                @endif
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="email"

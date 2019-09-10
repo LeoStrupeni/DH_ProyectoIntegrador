@@ -1,5 +1,3 @@
-<script src="{{ URL::asset('js/login-validation.js') }}"></script>
-
 <button type="button" class="btn btn-nav btn-user" data-toggle="modal" data-target="#modalLogin">
     Ingresar
 </button>

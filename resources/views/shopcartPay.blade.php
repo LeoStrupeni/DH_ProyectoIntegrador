@@ -15,7 +15,4 @@
         <strong>(Para aclaraciones complete el formulario de contacto)</strong></p>
 </div>
 
-@notify_css
-@notify_js
-@notify_render
 @endsection

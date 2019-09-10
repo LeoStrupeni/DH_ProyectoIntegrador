@@ -1,5 +1,3 @@
-<script src="{{ URL::asset('js/contact-validation.js') }}"></script>
-
 <button type="button" class="list-group-item btn-foot" data-toggle="modal" data-target="#modalContacto">
     Contacto
 </button>
@@ -25,8 +23,8 @@
                         </div>
                         <div class="form-group">
                             <label for="nombre" class="font-weight-bold">Nombre</label>
-                            <input type="text" name="name" id="nombre-contact" class="form-control" placeholder="Tu nombre"
-                                required>
+                            <input type="text" name="name" id="nombre-contact" class="form-control"
+                                placeholder="Tu nombre" required>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -36,8 +34,8 @@
                         </div>
                         <div class="form-group">
                             <label for="email" class="font-weight-bold">Email</label>
-                            <input type="email" name="email" id="email-contact" class="form-control" placeholder="Tu email"
-                                required>
+                            <input type="email" name="email" id="email-contact" class="form-control"
+                                placeholder="Tu email" required>
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">

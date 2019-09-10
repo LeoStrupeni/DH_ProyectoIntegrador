@@ -49,14 +49,14 @@
                     </div>
 
                     <div class="col-10 col-sm-10 col-md-5 col-lg-6 col-xl-6 text-center ">
-                        <form class="form-inline my-2 my-lg-0 mx-auto add-clear" action="{{route('search')}}" method="GET">
+                        <form class="form-inline my-2 my-lg-0 mx-auto add-clear" action="{{route('search')}}"
+                            method="GET">
                             <input class="form-control mr-sm-2 mr-2 paramBusquedajs" type="search"
                                 placeholder="Encontra lo que buscas" aria-label="Search" name="PM" list="PM" required>
                             <datalist id="PM" class="busquedajs"></datalist>
                             <button class="btn btn-search my-2 my-sm-0" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
-                            {{-- <a class="btn btn-success ml-1" href="/search" role="button" id="clear-btn">Clear</a> --}}
                         </form>
 
                     </div>
@@ -119,7 +119,10 @@
 
 
     <!-- Scripts -->
-
+    @notify_js
+    @notify_render
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
@@ -128,6 +131,15 @@
     </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ URL::asset('js/clear.js') }}"></script>
+    <script src="{{ URL::asset('js/app.js') }}" defer></script>
+    <script src="{{ URL::asset('js/search.js') }}"></script>
+    <script src="{{ URL::asset('js/custom.js') }}"></script>
+    <script src="{{ URL::asset('js/modals.js') }}"></script>
+    <script src="{{ URL::asset('js/register-validation.js') }}"></script>
+    <script src="{{ URL::asset('js/login-validation.js') }}"></script>
+    <script src="{{ URL::asset('js/contact-validation.js') }}"></script>
+    @yield('js')
+
     <script>
         $(function() {
         $('[data-toggle="popover"]').popover()

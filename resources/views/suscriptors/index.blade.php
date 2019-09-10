@@ -2,10 +2,6 @@
 
 @section('title', 'Suscriptores')
 
-@section('js')
-<script src="{{ URL::asset('js/deletions.js') }}"></script>
-@endsection
-
 @section('content')
 
 <div class="table-responsive-md">
@@ -49,4 +45,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+<script src="{{ URL::asset('js/deletions.js') }}"></script>
 @endsection

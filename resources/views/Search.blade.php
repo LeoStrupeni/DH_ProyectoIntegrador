@@ -144,8 +144,4 @@
     </div>
 </div>
 
-
-@notify_css
-@notify_js
-@notify_render
 @endsection

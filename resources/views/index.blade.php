@@ -5,7 +5,7 @@
 @section('content')
 
 @section('js')
-    <script src="{{ URL::asset('js/suscription-validation.js') }}"></script>    
+<script src="{{ URL::asset('js/suscription-validation.js') }}"></script>
 @endsection
 
 <div class="row">
@@ -54,8 +54,11 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4 text-center">Bienvenido a Capone!</h1>
-                <p class="lead text-center">Capone es un punto de conexión para la comercializacion de bebidas alcohólicas que ni<a href="https://es.wikipedia.org/wiki/Eliot_Ness" class="text-decoration-none font-weight-bold"> Eliot Ness </a>podra resistir<br>
-                Distinto tipos de vendedores podrán comunicarse y establecer negocio con otros, generando una oportunidad de ganancia para ambos sectores.
+                <p class="lead text-center">Capone es un punto de conexión para la comercializacion de bebidas
+                    alcohólicas que ni<a href="https://es.wikipedia.org/wiki/Eliot_Ness"
+                        class="text-decoration-none font-weight-bold"> Eliot Ness </a>podra resistir<br>
+                    Distinto tipos de vendedores podrán comunicarse y establecer negocio con otros, generando una
+                    oportunidad de ganancia para ambos sectores.
                 </p>
             </div>
         </div>
@@ -77,7 +80,7 @@
             <div class='card-img-overlay text-right mt-5'>
                 <h5>{{'$'. $producto->price}}</h5>
                 <form method='GET' action='/detail'>
-                    <input type='hidden' name='id' id='id' value='{{$producto->id}}'>
+                    <input type='hidden' name='id' value='{{$producto->id}}'>
                     <button class='btn btn-warning w-50' type='submit'>
                         + Detalles
                     </button>
@@ -121,10 +124,6 @@
                         </div>
 
                         <button type="submit" class="btn btn-modal">Registrar</button>
-
-                        @notify_css
-                        @notify_js
-                        @notify_render
                     </div>
 
                 </form>
