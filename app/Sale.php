@@ -17,5 +17,4 @@ class Sale extends Model
     {
         return $this->HasMany('App\SalesDetail');
     }
-    
 }

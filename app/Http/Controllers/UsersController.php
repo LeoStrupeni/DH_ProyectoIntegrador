@@ -21,7 +21,7 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {   
+    {
         $request->user()->authorizeRoles('admin');
 
         $users = User::where('is_deleted', 0)->paginate(20);
@@ -74,12 +74,10 @@ class UsersController extends Controller
         $profiles = Profile::all();
         $countries = Countries::all()->pluck('name.common');
 
-
-        $products = Product::WHERE('user_id', '=', Auth::user()->id)
+        $products = Product::where('user_id', '=', Auth::user()->id)
             ->orderBy('id', 'ASC')->paginate(18);
 
-
-        return view('users.edit', compact('user', 'profiles', 'countries','products'));
+        return view('users.edit', compact('user', 'profiles', 'countries', 'products'));
     }
 
     /**
@@ -116,7 +114,7 @@ class UsersController extends Controller
 
 
         if ($request['avatar']) {
-            
+
             $route = $request['avatar']->store('/public/avatars');
 
             $user->update([

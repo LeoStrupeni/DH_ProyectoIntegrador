@@ -20,12 +20,12 @@
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div data-pushbar-id="pushbar-menu" class="pushbar from_left pushbar-menu">
-                                
+
                                 <div class="text-right mr-2">
                                     <i data-pushbar-close class="fas fa-times"></i>
                                 </div>
-                                
-                                <h5 class="text-white text-center">Categorias</h5>    
+
+                                <h5 class="text-white text-center">Categorias</h5>
                                 <div class="navbar-nav">
 
                                     @foreach ($categorias as $cat)
@@ -58,7 +58,7 @@
                             </button>
                             <a class="btn btn-success ml-1" href="/search" role="button">Clear</a>
                         </form>
-                           
+
                     </div>
 
                     <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 text-center">

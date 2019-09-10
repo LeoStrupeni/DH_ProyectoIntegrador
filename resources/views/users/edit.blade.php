@@ -15,7 +15,8 @@
             alt="profile" class="img-fluid shadow mx-auto mt-1 d-block rounded-circle perfil">
     </div>
     <div class="col-12 col-md-8" style="min-height:370px;">
-        <form class="mt-1" action="{{route('users.update', Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
+        <form class="mt-1" action="{{route('users.update', Auth::user()->id)}}" method="POST"
+            enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             <ul class="nav nav-tabs" role="tablist">
@@ -106,7 +107,7 @@
                             @foreach ($user->roles as $role)
                             <input disabled type="text" class="form-control" value="{{$role->description}}" name="rol">
                             @endforeach
-                    
+
                             @error('rol')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -122,17 +123,16 @@
                         <label for="tipo-comerciante">Tipo de Comerciante</label>
                         <select class="custom-select" name="profile_id">
                             @foreach ($profiles as $profile)
-                            <option value="{{$profile->id}}" 
-                                @if ($user->profile_id > 1 && $profile->id==1)
-                                    disabled
+                            <option value="{{$profile->id}}" @if ($user->profile_id > 1 && $profile->id==1)
+                                disabled
                                 @elseif ($user->profile_id > 2 && ($profile->id==1 || $profile->id==2))
-                                    disabled
+                                disabled
                                 @endif
                                 {{($profile->id == $user->profile_id ? 'selected' : '')}}
                                 >
                                 {{$profile->name}}
                             </option>
-                            @endforeach    
+                            @endforeach
 
                         </select>
 
@@ -173,59 +173,64 @@
     <div class="col">
         <div class="panel panel-default m-auto">
             <div class="panel-body">
-        
+
                 <nav class="navbar p-2 nav-2">
                     <div class="text-left">
                         <h3>Mis productos</h3>
                     </div>
                     <div class="text-right">
                         <div class="btn-group">
-                        <a href="{{ route('products.create') }}" class="btn btn-info">Añadir Producto</a>
+                            <a href="{{ route('products.create') }}" class="btn btn-info">Añadir Producto</a>
                         </div>
                     </div>
                 </nav>
-                    <div class="row">
+                <div class="row">
 
-                        @if($products->count())
-                            @foreach($products as $product)
-                                <div class="col-12 col-md-6 col-lg-4 my-2">
-                                    <div class="card p-1 border border-dark">
-                                        <h5 class="card-title cut-text text-center">{{$product->name}}</h5>
-                                        <div class="row no-gutters">
-                                            <div class="col-3 text-center">
-                                                <div class="col m-auto">
-                                                    <img class="w-100 h-100 p-1" src="{{is_null($product->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->image}}" data-toggle="popover" data-trigger="hover" data-content="{{$product->description}}">    
-                                                </div>
-                                                
-                                                <a class="btn btn-primary mb-1" href="{{action('ProductController@edit',$product->id)}}">
-                                                    <i class='fa fa-pencil-alt' aria-hidden='true'></i>
-                                                </a>
-                                                <form action="{{action('ProductController@destroy', $product->id)}}" method="POST"class="form-products">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit" class="delete-product">
-                                                    <i class='fa fa-trash-alt' aria-hidden='true'></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                            <div class="col-9">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Marca: {{$product->brand->name}}</li>
-                                                    <li class="list-group-item">Categoria: {{$product->Category->name}}</li>
-                                                    <li class="list-group-item">Origen: {{$product->origin}}</li>
-                                                    <li class="list-group-item">Precio: $ {{$product->price}}</li>
-                                                    <li class="list-group-item">Stock: {{$product->Stock}}</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                    @if($products->count())
+                    @foreach($products as $product)
+                    <div class="col-12 col-md-6 col-lg-4 my-2">
+                        <div class="card p-1 border border-dark">
+                            <h5 class="card-title cut-text text-center">{{$product->name}}</h5>
+                            <div class="row no-gutters">
+                                <div class="col-3 text-center">
+                                    <div class="col m-auto">
+                                        <img class="w-100 h-100 p-1"
+                                            src="{{is_null($product->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->image}}"
+                                            data-toggle="popover" data-trigger="hover"
+                                            data-content="{{$product->description}}">
                                     </div>
+
+                                    <a class="btn btn-primary mb-1"
+                                        href="{{action('ProductController@edit',$product->id)}}">
+                                        <i class='fa fa-pencil-alt' aria-hidden='true'></i>
+                                    </a>
+                                    <form action="{{action('ProductController@destroy', $product->id)}}" method="POST"
+                                        class="form-products">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit" class="delete-product">
+                                            <i class='fa fa-trash-alt' aria-hidden='true'></i>
+                                        </button>
+                                    </form>
                                 </div>
-                            @endforeach
-                        @else
-                            <div class="alert alert-warning" role="alert">
-                                No hay registro!
+                                <div class="col-9">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Marca: {{$product->brand->name}}</li>
+                                        <li class="list-group-item">Categoria: {{$product->Category->name}}</li>
+                                        <li class="list-group-item">Origen: {{$product->origin}}</li>
+                                        <li class="list-group-item">Precio: $ {{$product->price}}</li>
+                                        <li class="list-group-item">Stock: {{$product->Stock}}</li>
+                                    </ul>
+                                </div>
                             </div>
-                        @endif  
+                        </div>
+                    </div>
+                    @endforeach
+                    @else
+                    <div class="alert alert-warning" role="alert">
+                        No hay registro!
+                    </div>
+                    @endif
                 </div>
             </div>
             {{$products->links()}}

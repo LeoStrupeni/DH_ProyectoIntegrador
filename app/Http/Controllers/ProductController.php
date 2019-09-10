@@ -208,12 +208,12 @@ class ProductController extends Controller
     {
         $producto = Product::find($id);
         $producto->delete();
-        $notify=notify()->warning('','Producto eliminado', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
-        return redirect()->back()->with($notify); 
+        $notify = notify()->warning('', 'Producto eliminado', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+        return redirect()->back()->with($notify);
     }
 
     public function search(Request $request)
-    {          
+    {
         $filter_Brand = ($request->get('filter_marca')) ? $request->get('filter_marca') : null;
         $filter_Category = ($request->get('filter_categoria')) ? $request->get('filter_categoria') : null;
         $filter_Graduation = ($request->get('filter_graduacion')) ? $request->get('filter_graduacion') : null;
@@ -230,7 +230,9 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->where(function ($query) use ($var) {
+                $query->ProductsName($var)->CategoriesName($var)->BrandsName($var);
+            })
             ->FilterBrands($filter_Brand)
             ->FilterCategory($filter_Category)
             ->FilterGraduation($filter_Graduation)
@@ -238,21 +240,23 @@ class ProductController extends Controller
             ->FilterVolume($filter_Volume)
             ->FilterYear($filter_Year)
             ->paginate(28);
-        
+
         $brands = Product::select('brands.id', 'brands.name')
             ->distinct()
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->where(function ($query) use ($var) {
+                $query->ProductsName($var)->CategoriesName($var)->BrandsName($var);
+            })
             ->FilterBrands($filter_Brand)
             ->FilterCategory($filter_Category)
             ->FilterGraduation($filter_Graduation)
             ->FilterOrigin($filter_Origin)
             ->FilterVolume($filter_Volume)
             ->FilterYear($filter_Year)
-            ->orderby('brands.name','asc')  
+            ->orderby('brands.name', 'asc')
             ->get();
 
         $categories = Product::select('categories.id', 'categories.name')
@@ -261,30 +265,34 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->where(function ($query) use ($var) {
+                $query->ProductsName($var)->CategoriesName($var)->BrandsName($var);
+            })
             ->FilterBrands($filter_Brand)
             ->FilterCategory($filter_Category)
             ->FilterGraduation($filter_Graduation)
             ->FilterOrigin($filter_Origin)
             ->FilterVolume($filter_Volume)
             ->FilterYear($filter_Year)
-            ->orderby('categories.name','asc')  
+            ->orderby('categories.name', 'asc')
             ->get();
-        
+
         $graduations = Product::select('products.graduation')
             ->distinct()
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->where(function ($query) use ($var) {
+                $query->ProductsName($var)->CategoriesName($var)->BrandsName($var);
+            })
             ->FilterBrands($filter_Brand)
             ->FilterCategory($filter_Category)
             ->FilterGraduation($filter_Graduation)
             ->FilterOrigin($filter_Origin)
             ->FilterVolume($filter_Volume)
             ->FilterYear($filter_Year)
-            ->orderby('products.graduation','asc')  
+            ->orderby('products.graduation', 'asc')
             ->get();
 
         $origins = Product::select('products.origin')
@@ -293,14 +301,16 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->where(function ($query) use ($var) {
+                $query->ProductsName($var)->CategoriesName($var)->BrandsName($var);
+            })
             ->FilterBrands($filter_Brand)
             ->FilterCategory($filter_Category)
             ->FilterGraduation($filter_Graduation)
             ->FilterOrigin($filter_Origin)
             ->FilterVolume($filter_Volume)
             ->FilterYear($filter_Year)
-            ->orderby('products.origin','asc')    
+            ->orderby('products.origin', 'asc')
             ->get();
 
         $years = Product::select('products.year')
@@ -309,33 +319,37 @@ class ProductController extends Controller
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->where(function ($query) use ($var) {
+                $query->ProductsName($var)->CategoriesName($var)->BrandsName($var);
+            })
             ->FilterBrands($filter_Brand)
             ->FilterCategory($filter_Category)
             ->FilterGraduation($filter_Graduation)
             ->FilterOrigin($filter_Origin)
             ->FilterVolume($filter_Volume)
             ->FilterYear($filter_Year)
-            ->orderby('products.year','asc')    
+            ->orderby('products.year', 'asc')
             ->get();
-        
+
         $volumes = Product::select('products.volume')
             ->distinct()
             ->leftJoin('categories', 'category_id', '=', 'categories.id')
             ->leftJoin('brands', 'brand_id', '=', 'brands.id')
             ->UserDistinct()
             ->Stock()
-            ->where(function ($query) use($var){$query->ProductsName($var)->CategoriesName($var)->BrandsName($var);})
+            ->where(function ($query) use ($var) {
+                $query->ProductsName($var)->CategoriesName($var)->BrandsName($var);
+            })
             ->FilterBrands($filter_Brand)
             ->FilterCategory($filter_Category)
             ->FilterGraduation($filter_Graduation)
             ->FilterOrigin($filter_Origin)
             ->FilterVolume($filter_Volume)
             ->FilterYear($filter_Year)
-            ->orderby('products.volume','asc')    
+            ->orderby('products.volume', 'asc')
             ->get();
 
-        return view('search', compact('products','brands','categories','graduations','origins','years','volumes','var'));
+        return view('search', compact('products', 'brands', 'categories', 'graduations', 'origins', 'years', 'volumes', 'var'));
     }
 
     public function detail(Request $request)

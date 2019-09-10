@@ -10,7 +10,7 @@ class ProfilesController extends Controller
     public function index()
     {
         $profiles = Profile::all();
-        
+
         return $profiles;
     }
 }

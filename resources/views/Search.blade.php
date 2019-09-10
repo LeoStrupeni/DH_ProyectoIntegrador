@@ -60,16 +60,15 @@
     @endforeach
 
 </div>
-        {{$products->links()}}
+{{$products->links()}}
 
 <div class="row">
     <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
         <div>
-            <button type="button" class="btn btn-filtros shadow rounded-circle"
-                data-pushbar-target="pushbar-filters">
+            <button type="button" class="btn btn-filtros shadow rounded-circle" data-pushbar-target="pushbar-filters">
                 <i class="fas fa-filter"></i>
             </button>
-    
+
             <div data-pushbar-id="pushbar-filters" class="pushbar from_right pushbar-filters">
                 <button data-pushbar-close class="btn btn-danger ml-2 mt-2"><i class="fas fa-sign-out-alt"></i></button>
                 <h3 class="text-center text-white mt-2">FILTROS</h3>
@@ -77,68 +76,68 @@
                     <div class="form-group">
                         <div class="col px-3 py-1">
                             <label class="text-white">* Marca</label>
-                            <select class="custom-select custom-select-sm" name="filter_marca">   
-                                    <option value="" selected>
-                                @foreach ($brands as $brand)
-                                    <option value="{{$brand->id}}">{{$brand->name}}
-                                @endforeach
+                            <select class="custom-select custom-select-sm" name="filter_marca">
+                                <option value="" selected>
+                                    @foreach ($brands as $brand)
+                                <option value="{{$brand->id}}">{{$brand->name}}
+                                    @endforeach
                             </select>
                         </div>
-                
+
                         <div class="col px-3 py-1">
                             <label class="text-white">* Categoria</label>
                             <select class="custom-select custom-select-sm" name="filter_categoria">
-                                    <option value="" selected>
-                                @foreach ($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}
-                                @endforeach
+                                <option value="" selected>
+                                    @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}
+                                    @endforeach
                             </select>
                         </div>
- 
+
                         <div class="col px-3 py-1">
                             <label class="text-white">* Graduacion</label>
                             <select class="custom-select custom-select-sm" name="filter_graduacion">
-                                    <option value="" selected>
-                                @foreach ($graduations as $graduation)
-                                    <option value="{{$graduation->graduation}}">{{round($graduation->graduation, 1)}} %
-                                @endforeach
+                                <option value="" selected>
+                                    @foreach ($graduations as $graduation)
+                                <option value="{{$graduation->graduation}}">{{round($graduation->graduation, 1)}} %
+                                    @endforeach
                             </select>
                         </div>
-        
+
                         <div class="col px-3 py-1">
                             <label class="text-white">* Origen-Bodega</label>
                             <select class="custom-select custom-select-sm" name="filter_origin">
-                                    <option value="" selected>
-                                @foreach ($origins as $origin)
-                                    <option value="{{$origin->origin}}">{{$origin->origin}}
-                                @endforeach
+                                <option value="" selected>
+                                    @foreach ($origins as $origin)
+                                <option value="{{$origin->origin}}">{{$origin->origin}}
+                                    @endforeach
                             </select>
                         </div>
 
                         <div class="col px-3 py-1">
                             <label class="text-white">* Volumen</label>
                             <select class="custom-select custom-select-sm" name="filter_volume">
-                                    <option value="" selected>
-                                @foreach ($volumes as $volume)
-                                    <option value="{{$volume->volume}}">{{$volume->volume}} ml.
-                                @endforeach
+                                <option value="" selected>
+                                    @foreach ($volumes as $volume)
+                                <option value="{{$volume->volume}}">{{$volume->volume}} ml.
+                                    @endforeach
                             </select>
                         </div>
 
                         <div class="col px-3 py-1">
                             <label class="text-white">* Cosecha</label>
                             <select class="custom-select custom-select-sm" name="filter_year">
-                                    <option value="" selected>
-                                @foreach ($years as $year)
-                                    <option value="{{$year->year}}">{{$year->year}}
-                                @endforeach
+                                <option value="" selected>
+                                    @foreach ($years as $year)
+                                <option value="{{$year->year}}">{{$year->year}}
+                                    @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="text-center">
                         <input type="hidden" name="PM" value="{{$var}}">
                         <button type="submit" class="btn btn-success m-auto"><i class="fas fa-redo-alt"></i></button>
-                    </div>                    
+                    </div>
                 </form>
             </div>
         </div>

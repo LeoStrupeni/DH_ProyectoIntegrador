@@ -32,7 +32,8 @@
                     @endif
                 </td>
                 <td>
-                    <form action="{{route('suscriptors.destroy', $suscriptor->id)}}" method="POST" class="form-suscriptor">
+                    <form action="{{route('suscriptors.destroy', $suscriptor->id)}}" method="POST"
+                        class="form-suscriptor">
                         @csrf
                         @method('DELETE')
                         <input type="submit" class="btn btn-danger delete-suscriptor" value="Borrar">

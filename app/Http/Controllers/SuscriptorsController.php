@@ -102,8 +102,8 @@ class SuscriptorsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   
-        Suscriptor::where('id',$id)->delete();
+    {
+        Suscriptor::where('id', $id)->delete();
 
         return back();
     }

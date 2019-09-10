@@ -36,14 +36,6 @@
                     <div class="carousel-caption"></div>
                 </div>
             </div>
-            <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a> -->
         </div>
     </div>
 </div>
@@ -52,7 +44,7 @@
     <div class="col p-0">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 text-center">Lorem ipsum</h1>
+                <h1 class="display-4 text-center">Bienvenido a Capone!</h1>
                 <p class="lead text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus odit
                     voluptatem quos veritatis voluptate cum doloribus placeat facilis tenetur repellendus, alias non.
                     Animi eligendi repellat, sint sapiente officiis molestias dolor.</p>

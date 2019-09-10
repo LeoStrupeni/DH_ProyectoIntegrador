@@ -44,7 +44,7 @@ class SalesController extends Controller
         $idProductos = Session::get('cart');
         $total = 0;
         foreach ($idProductos as $value) {
-            $total=$total+($value['quantity']* $value['price']);
+            $total = $total + ($value['quantity'] * $value['price']);
         };
 
         $sale = new Sale();
@@ -57,7 +57,7 @@ class SalesController extends Controller
         $sale->save();
 
         $idVenta = $sale->id;
-       
+
         foreach ($idProductos as $value) {
             $saleDetail = new SalesDetail();
             $saleDetail->user_id = Auth::user()->id;
@@ -66,16 +66,14 @@ class SalesController extends Controller
             $saleDetail->unit_price = $value['price'];
             $saleDetail->quantity = $value['quantity'];
             $saleDetail->save();
-            
-            $restaStock = ($value['stock']-$value['quantity']);
-            $stock = Product::find($value['id'])->update(['stock' => $restaStock]);
 
+            $restaStock = ($value['stock'] - $value['quantity']);
+            $stock = Product::find($value['id'])->update(['stock' => $restaStock]);
         };
- 
 
         Session::forget('cart');
 
-        return view('shopcartPay',compact('total'));
+        return view('shopcartPay', compact('total'));
     }
 
     /**
@@ -113,17 +111,17 @@ class SalesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate(
-            $request,
-            [''],
-            ['']
-        );
+        // $this->validate(
+        //     $request,
+        //     [''],
+        //     ['']
+        // );
 
-        Sale::find($id)->update($request->all());
+        // Sale::find($id)->update($request->all());
 
-        notify()->success('Los datos de la venta han sido actualizados', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
+        // notify()->success('Los datos de la venta han sido actualizados', 'Felicitaciones', ["closeButton" => true, "positionClass" => "toast-bottom-right"]);
 
-        return back()->with('success', 'Venta actualizada correctamente');
+        // return back()->with('success', 'Venta actualizada correctamente');
     }
 
     /**

@@ -16,7 +16,7 @@ class IndexController extends Controller
             ->inRandomOrder()
             ->limit(8)
             ->get();
-        
+
         return view('/index', compact('products'));
     }
 
@@ -28,5 +28,4 @@ class IndexController extends Controller
 
         return $all;
     }
-
 }

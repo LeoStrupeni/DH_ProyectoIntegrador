@@ -33,12 +33,12 @@ class Product extends Model
 
     public function scopeUserDistinct($query)
     {
-        return $query->where('products.user_id','<>', Auth::user()->id);
+        return $query->where('products.user_id', '<>', Auth::user()->id);
     }
-    
+
     public function scopeStock($query)
     {
-        return $query->where('products.Stock','>',0);
+        return $query->where('products.Stock', '>', 0);
     }
 
     public function scopeProductsName($query, $var)
@@ -59,46 +59,44 @@ class Product extends Model
     // Query scopes Filters
 
     public function scopeFilterBrands($query, $filter_Brand)
-    {   
-        if (!is_null($filter_Brand)){
+    {
+        if (!is_null($filter_Brand)) {
             return $query->where('brands.name', $filter_Brand);
         }
     }
 
     public function scopeFilterCategory($query, $filter_Category)
-    {   
-        if (!is_null($filter_Category)){
+    {
+        if (!is_null($filter_Category)) {
             return $query->where('categories.name', $filter_Category);
         }
     }
-    
+
     public function scopeFilterGraduation($query, $filter_Graduation)
-    {   
-        if (!is_null($filter_Graduation)){
+    {
+        if (!is_null($filter_Graduation)) {
             return $query->where('Products.graduation', $filter_Graduation);
         }
     }
 
     public function scopeFilterOrigin($query, $filter_Origin)
-    {   
-        if (!is_null($filter_Origin)){
+    {
+        if (!is_null($filter_Origin)) {
             return $query->where('Products.origin', $filter_Origin);
         }
-    }    
-    
+    }
+
     public function scopeFilterVolume($query, $filter_Volume)
-    {   
-        if (!is_null($filter_Volume)){
+    {
+        if (!is_null($filter_Volume)) {
             return $query->where('Products.volume', $filter_Volume);
         }
-    }   
-    
+    }
+
     public function scopeFilterYear($query, $filter_Year)
-    {   
-        if (!is_null($filter_Year)){
+    {
+        if (!is_null($filter_Year)) {
             return $query->where('Products.volume', $filter_Year);
         }
-    }  
-    
-
+    }
 }

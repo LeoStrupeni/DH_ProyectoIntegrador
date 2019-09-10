@@ -28,10 +28,10 @@ Route::get('/faq', 'FaqController@show')->name('faq');
 
 Route::get('/shopcart', 'ShopCartController@show')->name('shopcart');
 
-Route::get('/shopcart/add','ShopCartController@add')->name('shopcartadd');
+Route::get('/shopcart/add', 'ShopCartController@add')->name('shopcartadd');
 
-Route::get('/shopcart/delete','ShopCartController@delete')->name('shopcartdelete');
+Route::get('/shopcart/delete', 'ShopCartController@delete')->name('shopcartdelete');
 
-Route::get('/shopcart/trash','ShopCartController@trash')->name('cartTrash');
+Route::get('/shopcart/trash', 'ShopCartController@trash')->name('cartTrash');
 
-Route::get('/pay','SalesController@store')->name('pay');
+Route::get('/pay', 'SalesController@store')->name('pay');
