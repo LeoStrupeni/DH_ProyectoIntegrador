@@ -103,9 +103,10 @@
         <div class="row footer-1">
             <div class="list-group list-group-horizontal-lg m-auto text-center">
                 @include('modals.contact')
-                <button type="button" class="list-group-item btn-foot">
+                <div class="list-group-item btn-foot">
                     <a href="{{route('faq')}}" class="text-reset text-decoration-none">Preguntas Frecuentes</a>
-                </button>
+                </div>
+
                 @include('modals.policies')
                 @include('modals.conditions')
             </div>
@@ -138,6 +139,7 @@
     <script src="{{ URL::asset('js/register-validation.js') }}"></script>
     <script src="{{ URL::asset('js/login-validation.js') }}"></script>
     <script src="{{ URL::asset('js/contact-validation.js') }}"></script>
+    
     @yield('js')
 
     <script>
@@ -152,7 +154,7 @@
         });        
     </script>
 
-    <script type="text/javascript">
+    <script>
         function valideKey(evt){
             var code = (evt.which) ? evt.which : evt.keyCode;
             if(code==8) {

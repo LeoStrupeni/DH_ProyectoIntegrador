@@ -2,12 +2,11 @@
     Terminos y Condiciones
 </button>
 
-<div class="modal fade" id="modalConditions" tabindex="-1" role="dialog" aria-labelledby="modalConditionsTitulo"
-    aria-hidden="true">
+<div class="modal fade" id="modalConditions" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title mx-auto" id="modalConditions">Términos y Condiciones de Uso</h4>
+                <h4 class="modal-title mx-auto">Términos y Condiciones de Uso</h4>
                 <button type="button" class="close ml-3" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

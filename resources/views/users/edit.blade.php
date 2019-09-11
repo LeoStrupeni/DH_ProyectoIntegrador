@@ -31,7 +31,7 @@
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="nombre">Nombre</label>
+                            <label>Nombre</label>
                             <input type="text" class="form-control" name="name" placeholder="Su nombre..."
                                 value="{{$user->name}}">
                             @error('name')
@@ -41,7 +41,7 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="apellido">Apellido</label>
+                            <label>Apellido</label>
                             <input type="text" class="form-control" placeholder="Su apellido..."
                                 value="{{$user->surname}}" name="surname">
                             @error('surname')
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="email">Correo Electronico</label>
+                            <label>Correo Electronico</label>
                             <input type="email" class="form-control" placeholder="nombre@email.com"
                                 value="{{$user->email}}" name="email">
                             @error('email')
@@ -80,7 +80,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label>Fecha de nacimiento</label>
-                            <input type="date" class="form-control" placeholder="nombre@email.com"
+                            <input type="date" class="form-control"
                                 value="{{$user->birthday}}" name="birthday">
                             @error('birthday')
                             <span class="invalid-feedback" role="alert">
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="imagen-perfil">Foto de perfil</label>
+                        <label>Foto de perfil</label>
                         <input type="file" class="form-control-file" name="avatar">
                         @error('avatar')
                         <span class="invalid-feedback" role="alert">
@@ -120,7 +120,7 @@
 
                 <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing-tab">
                     <div class="form-group col-md-6 pl-0">
-                        <label for="tipo-comerciante">Tipo de Comerciante</label>
+                        <label>Tipo de Comerciante</label>
                         <select class="custom-select" name="profile_id">
                             @foreach ($profiles as $profile)
                             <option value="{{$profile->id}}" @if ($user->profile_id > 1 && $profile->id==1)
@@ -143,7 +143,7 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-6 pl-0">
-                        <label for="">Pais</label>
+                        <label>Pais</label>
                         <select name="country" id="country" class="form-control">
                             @foreach ($countries as $country)
                             <option value="{{$country}}" {{($country == $user->country ? 'selected' : '')}}>
@@ -194,7 +194,7 @@
                             <div class="row no-gutters">
                                 <div class="col-3 text-center">
                                     <div class="col m-auto">
-                                        <img class="w-100 h-100 p-1"
+                                        <img class="w-100 h-100 p-1" alt="{{$product->name}}"
                                             src="{{is_null($product->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$product->image}}"
                                             data-toggle="popover" data-trigger="hover"
                                             data-content="{{$product->description}}">
@@ -208,7 +208,7 @@
                                         class="form-products">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger" type="submit" class="delete-product">
+                                        <button class="btn btn-danger delete-product" type="submit">
                                             <i class='fa fa-trash-alt' aria-hidden='true'></i>
                                         </button>
                                     </form>

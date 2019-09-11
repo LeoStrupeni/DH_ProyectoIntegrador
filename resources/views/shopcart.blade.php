@@ -10,20 +10,19 @@
 <table class="table table-sm table-warning">
     <tbody>
         <tr>
-            <th width="45%">Producto</th>
-            <th width="10%" class="text-center">Cantidad</th>
-            <th width="20%" class="text-center">Precio</th>
-            <th width="20%" class="text-center">Total</th>
-            <th width="5%">Eliminar</th>
+            <th style="width:45%;">Producto</th>
+            <th style="width:10%;" class="text-center">Cantidad</th>
+            <th style="width:20%;" class="text-center">Precio</th>
+            <th style="width:20%;" class="text-center">Total</th>
+            <th style="width:5%;">Eliminar</th>
         </tr>
         @foreach (Session::get('cart') as $product)
         <tr>
-            <td width="45%">{{$product['name']}}</td>
-            <td width="10%" class="text-center">{{$product['quantity']}}</td>
-            <td width="20%" class="text-center">{{$product['price']}}</td>
-            <td width="20%" class="text-center">{{number_format($product['price'] * $product['quantity'], 2)}}
-            </td>
-            <td width="5%" class="text-center">
+            <td style="width:45%;">{{$product['name']}}</td>
+            <td style="width:10%;" class="text-center">{{$product['quantity']}}</td>
+            <td style="width:20%;" class="text-center">{{$product['price']}}</td>
+            <td style="width:20%;" class="text-center">{{number_format($product['price'] * $product['quantity'], 2)}}</td>
+            <td style="width:5%;" class="text-center">
                 <form method="GET" action="{{route('shopcartdelete')}}">
                     <input type="hidden" name="id" value="{{$product['id']}}">
                     <input type="hidden" name="idStock" value="{{$product['stock']}}">

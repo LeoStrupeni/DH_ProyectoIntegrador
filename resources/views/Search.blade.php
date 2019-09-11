@@ -33,7 +33,7 @@
                 <h5>{{"$". $producto->price}}</h5>
                 <form method="GET" action="{{route('shopcartadd')}}">
                     <div class="form-group">
-                        <label for="cantidad" style="font-size:1vw;">Cantidad</label>
+                        <label style="font-size:1vw;">Cantidad</label>
                         <input type="number" min="1" max={{$producto->Stock}} class="text-right w-25" value="1"
                             name="idquantity" onkeypress="return valideKey(event);" required />
                     </div>
@@ -48,8 +48,8 @@
                     </button>
                 </form>
                 <form method="GET" action="/detail">
-                    <input type="hidden" name="id" id="id" value="{{$producto->id}}">
-                    <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
+                    <input type="hidden" name="id" value="{{$producto->id}}">
+                    <button class="btn btn-warning w-50" type="submit" value="" style="font-size:1vw;">
                         + Detalles
                     </button>
                 </form>
@@ -77,9 +77,9 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Marca</label>
                             <select class="custom-select custom-select-sm" name="filter_marca">
-                                <option value="" selected>
+                                <option value="" selected></option>
                                     @foreach ($brands as $brand)
-                                <option value="{{$brand->id}}">{{$brand->name}}
+                                <option value="{{$brand->id}}">{{$brand->name}}</option>
                                     @endforeach
                             </select>
                         </div>
@@ -87,9 +87,9 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Categoria</label>
                             <select class="custom-select custom-select-sm" name="filter_categoria">
-                                <option value="" selected>
+                                <option value="" selected></option>
                                     @foreach ($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}
+                                <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
                             </select>
                         </div>
@@ -97,9 +97,9 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Graduacion</label>
                             <select class="custom-select custom-select-sm" name="filter_graduacion">
-                                <option value="" selected>
+                                <option value="" selected></option>
                                     @foreach ($graduations as $graduation)
-                                <option value="{{$graduation->graduation}}">{{round($graduation->graduation, 1)}} %
+                                <option value="{{$graduation->graduation}}">{{round($graduation->graduation, 1)}} %</option>
                                     @endforeach
                             </select>
                         </div>
@@ -107,9 +107,9 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Origen-Bodega</label>
                             <select class="custom-select custom-select-sm" name="filter_origin">
-                                <option value="" selected>
+                                <option value="" selected></option>
                                     @foreach ($origins as $origin)
-                                <option value="{{$origin->origin}}">{{$origin->origin}}
+                                <option value="{{$origin->origin}}">{{$origin->origin}}</option>
                                     @endforeach
                             </select>
                         </div>
@@ -117,9 +117,9 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Volumen</label>
                             <select class="custom-select custom-select-sm" name="filter_volume">
-                                <option value="" selected>
+                                <option value="" selected></option>
                                     @foreach ($volumes as $volume)
-                                <option value="{{$volume->volume}}">{{$volume->volume}} ml.
+                                <option value="{{$volume->volume}}">{{$volume->volume}} ml.</option>
                                     @endforeach
                             </select>
                         </div>
@@ -127,9 +127,9 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Cosecha</label>
                             <select class="custom-select custom-select-sm" name="filter_year">
-                                <option value="" selected>
+                                <option value="" selected></option>
                                     @foreach ($years as $year)
-                                <option value="{{$year->year}}">{{$year->year}}
+                                <option value="{{$year->year}}">{{$year->year}}</option>
                                     @endforeach
                             </select>
                         </div>

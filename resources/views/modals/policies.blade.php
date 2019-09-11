@@ -2,12 +2,12 @@
     Politicas de Privacidad
 </button>
 
-<div class="modal fade" id="modalPolicies" tabindex="-1" role="dialog" aria-labelledby="modalPoliciesTitulo"
+<div class="modal fade" id="modalPolicies" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title mx-auto" id="modalPolicies">Politicas de Privacidad</h4>
+                <h4 class="modal-title mx-auto">Politicas de Privacidad</h4>
                 <button type="button" class="close ml-3" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
