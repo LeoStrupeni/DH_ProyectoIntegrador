@@ -3,7 +3,6 @@ $(document).ready(function(){
     $('#email-suscriptor').blur(function(){
         var email = $('#email-suscriptor').val();
         $('.email-exist-alert').remove();
-
         $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -20,6 +19,7 @@ $(document).ready(function(){
                     $('.email-suscriptor-section').append('<span class="invalid-feedback mb-4 email-exist-alert" role="alert">Este email ya se encuentra registrado a nuestro newsletter</span>');
                     $('.form-suscriptor').submit(function (e) {
                         e.preventDefault();
+                        console.log(res);
                     });
                 }
             },
