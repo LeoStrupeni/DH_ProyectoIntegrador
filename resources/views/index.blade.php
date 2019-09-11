@@ -64,7 +64,7 @@
 </div>
 
 
-<div class="row dataindex">
+<div class="row dataindex justify-content-center">
 
     @forelse ($products as $producto)
 
@@ -90,46 +90,43 @@
     <div class="alert alert-success w-100 text-center" role="alert">
         No Hay productos
     </div>
-
     @endforelse
+</div>
 
-    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-        <div>
-            <button type="button" class="btn btn-newsletter shadow rounded-circle"
-                data-pushbar-target="pushbar-newsletter">
-                <i class="far fa-envelope text-white"></i>
-            </button>
+<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+    <div>
+        <button type="button" class="btn btn-newsletter shadow rounded-circle" data-pushbar-target="pushbar-newsletter">
+            <i class="far fa-envelope text-white"></i>
+        </button>
 
-            <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu ">
-                <div class="text-right mr-2">
-                    <i data-pushbar-close class="fas fa-times"></i>
-                </div>
-                <form action="{{route('suscriptors.store')}}" class="form py-4 form-suscriptor" method="POST">
-                    @csrf
-                    <div class="text-center body-suscriptor">
-                        <h4 class="pb-3">Registrate para recibir todas nuestras novedades</h4>
+        <div data-pushbar-id="pushbar-newsletter" class="pushbar from_bottom pushbar-menu ">
+            <div class="text-right mr-2">
+                <i data-pushbar-close class="fas fa-times"></i>
+            </div>
+            <form action="{{route('suscriptors.store')}}" class="form py-4 form-suscriptor" method="POST">
+                @csrf
+                <div class="text-center body-suscriptor">
+                    <h4 class="pb-3">Registrate para recibir todas nuestras novedades</h4>
 
-                        <div class="col-6 m-auto email-suscriptor-section">
-                            <div class="form-group">
-                                <input type="email" name="email" id="email-suscriptor" class="form-control text-center"
-                                    placeholder="Ingresa tu email">
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                    <div class="col-6 m-auto email-suscriptor-section">
+                        <div class="form-group">
+                            <input type="email" name="email" id="email-suscriptor" class="form-control text-center"
+                                placeholder="Ingresa tu email">
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-
-                        <button type="submit" class="btn btn-modal register-button">Registrar</button>
                     </div>
 
-                </form>
-            </div>
+                    <button type="submit" class="btn btn-modal register-button">Registrar</button>
+                </div>
 
+            </form>
         </div>
-    </div>
 
+    </div>
 </div>
 @endsection
 

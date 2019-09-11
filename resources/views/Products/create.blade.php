@@ -91,7 +91,7 @@
                         <div class="form-group row">
                             <label
                                 class="col-4 control-label text-right cut-text m-0 p-1 text-black"><strong>Año:</strong></label>
-                            <input type="number" min="1990" max="<?=date("Y");?>" value="<?=date("Y");?>"
+                            <input type="number" min="1920" max="<?=date("Y");?>" value="<?=date("Y");?>"
                                 class="col-6 form-control" name="year" value="">
                         </div>
                         <div class="form-group row">

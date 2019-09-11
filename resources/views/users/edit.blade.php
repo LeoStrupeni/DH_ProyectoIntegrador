@@ -9,7 +9,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-12 col-md-4" style="min-height:370px;">
+    <div class="col-12 col-md-4 pt-4" style="min-height:370px;">
         <h1 class="text-center">Hola, {{$user->name}}</h1>
         <img src="{{ is_file( public_path('storage\\avatars\\').$user->avatar ) ? url('/storage/avatars/'.$user->avatar) : url('/storage/avatars/profile-placeholder.png')}}"
             alt="profile" class="img-fluid shadow mx-auto mt-1 d-block rounded-circle perfil">
@@ -70,8 +70,8 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label>DNI/CUIT-CUIL</label>
-                            <input type="number" class="form-control" placeholder="37299940"
-                                value="{{$user->personal_id}}" name="personal_id">
+                            <input type="number" class="form-control" placeholder="DNI/CUIT-CUIL"
+                                value="{{$user->personal_id}}" name="personal_id" max="99999999999" min="1">
                             @error('personal_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

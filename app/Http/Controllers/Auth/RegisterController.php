@@ -52,7 +52,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
-            'personal_id' => ['required', 'integer'],
+            'personal_id' => ['required', 'between:1,11'],
             'country' => ['required', 'string', 'max:255'],
             'profile' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -63,6 +63,7 @@ class RegisterController extends Controller
             'name.required' => 'Por favor, ingrese su nombre',
             'surname.required' => 'Por favor, ingrese su apellido',
             'personal_id' => 'Por favor, ingrese su documento',
+            'personal_id.between' => 'Se deben ingresar entre 1 y 10 digitos',
             'country.required' => 'Por favor, seleccione su pais de residencia',
             'profile.required' => 'Por favor, elija la categoria correspondiente',
             'email.required' => 'Por favor, ingrese su correo electronico',
