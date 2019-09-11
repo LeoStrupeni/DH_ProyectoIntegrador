@@ -9,7 +9,7 @@ class SuscriptorsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin')->except('store', 'destroy', 'checkSuscriptorEmail');
+        $this->middleware('admin')->except('store', 'destroy', 'checkEmail');
     }
     /**
      * Display a listing of the resource.
@@ -121,5 +121,6 @@ class SuscriptorsController extends Controller
         } else {
             return response()->json(array("exists" => false));
         }
+        
     }
 }
