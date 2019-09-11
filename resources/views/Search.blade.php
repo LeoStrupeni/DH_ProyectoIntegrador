@@ -33,7 +33,7 @@
                 <h5>{{"$". $producto->price}}</h5>
                 <form method="GET" action="{{route('shopcartadd')}}">
                     <div class="form-group">
-                        <label style="font-size:1vw;">Cantidad</label>
+                        <label>Cantidad</label>
                         <input type="number" min="1" max={{$producto->Stock}} class="text-right w-25" value="1"
                             name="idquantity" onkeypress="return valideKey(event);" required />
                     </div>

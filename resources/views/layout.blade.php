@@ -34,11 +34,14 @@
                                     @endforeach
                                     <hr>
                                     @if (Auth::check())
-                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('suscriptors.index')}}">Suscriptores</a>
-                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('queries.index')}}">Consultas</a>
-                                        @if (Auth::user()->hasRole('admin'))
-                                        <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('users.index')}}">Usuarios</a>
-                                        @endif
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
+                                        href="{{route('suscriptors.index')}}">Suscriptores</a>
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
+                                        href="{{route('queries.index')}}">Consultas</a>
+                                    @if (Auth::user()->hasRole('admin'))
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
+                                        href="{{route('users.index')}}">Usuarios</a>
+                                    @endif
                                     @endif
                                 </div>
                             </div>
@@ -50,20 +53,21 @@
                             <div class="col-10">
                                 <form class="form-inline my-2 my-lg-0" action="{{route('search')}}" method="GET">
                                     <input class="form-control paramBusquedajs" type="search"
-                                        placeholder="Encontra lo que buscas" aria-label="Search" name="PM" list="PM" required>
+                                        placeholder="Encontra lo que buscas" aria-label="Search" name="PM" list="PM"
+                                        required>
                                     <datalist id="PM" class="busquedajs"></datalist>
-                                    <button class="btn btn-search" type="submit">
+                                    <button class="btn btn-search ml-1" type="submit">
                                         <i class="fas fa-search"></i>
                                     </button>
-                                </form>    
+                                </form>
                             </div>
                             <div class="col-2 add-clear my-2 my-lg-0">
-                            
-                            </div>       
+
+                            </div>
                         </div>
-                        
+
                     </div>
-                    
+
 
                     <div class="col-12 col-sm-12 col-lg-5 text-center">
                         @if (Route::has('login'))
@@ -143,7 +147,7 @@
     <script src="{{ URL::asset('js/register-validation.js') }}"></script>
     <script src="{{ URL::asset('js/login-validation.js') }}"></script>
     <script src="{{ URL::asset('js/contact-validation.js') }}"></script>
-    
+
     @yield('js')
 
     <script>

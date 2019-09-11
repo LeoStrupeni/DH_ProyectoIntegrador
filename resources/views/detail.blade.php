@@ -20,15 +20,18 @@
                 <input type="hidden" name="iduser" value="{{$product->first()->user_id}}">
                 <input type="hidden" name="idstock" value="{{$product->first()->Stock}}">
                 <div class="form-group w-25">
-                    <label for="cantidad" style="font-size:1vw;" class="text-right">Cantidad: </label>
+                    <label for="cantidad" class="text-right">Cantidad: </label>
                 </div>
                 <div class="form-group w-50">
                     <input type="number" min="1" max={{$product->first()->Stock}} class="form-control text-right"
                         value="1" name="idquantity" onkeypress="return valideKey(event);" required />
                 </div>
-                <button class="btn btn-success w-25 px-0" type="submit">
-                    Agregar
-                </button>
+                <div class="form-group w-25">
+                    <button class="btn btn-success px-2" type="submit">
+                        Agregar
+                    </button>
+                </div>
+
             </form>
         </div>
 
@@ -101,7 +104,7 @@
 
                     <form method="GET" action="{{route('shopcartadd')}}">
                         <div class="form-group">
-                            <label for="cantidad" style="font-size:1vw;">Cantidad</label>
+                            <label for="cantidad">Cantidad</label>
                             <input type="number" min="1" max={{$related->Stock}} class="text-right w-25" value="1"
                                 name="idquantity" onkeypress="return valideKey(event);" required />
                         </div>
@@ -112,8 +115,8 @@
                         <input type="hidden" name="idstock" value="{{$related->Stock}}">
 
                         <button class="btn btn-success w-50 mb-1 px-0" type="submit">
-                                Agregar
-                            </button>
+                            Agregar
+                        </button>
                     </form>
 
                     <form method="GET" action="/detail">
