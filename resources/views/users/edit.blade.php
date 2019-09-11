@@ -187,6 +187,11 @@
                 <div class="row">
 
                     @if($products->count())
+                    
+                    
+                    {{-- FILTROS DE PRODUCTOS --}}
+
+
                     @foreach($products as $product)
                     <div class="col-12 col-md-6 col-lg-4 my-2">
                         <div class="card p-1 border border-dark">

@@ -26,7 +26,7 @@
                     <input type="number" min="1" max={{$product->first()->Stock}} class="form-control text-right"
                         value="1" name="idquantity" onkeypress="return valideKey(event);" required />
                 </div>
-                <button class="btn btn-success w-25" type="submit" style="font-size:1vw;">
+                <button class="btn btn-success w-25 px-0" type="submit">
                     Agregar
                 </button>
             </form>
@@ -88,7 +88,7 @@
 
     <div class="row">
         @foreach ($relatedWith as $related)
-        <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
+        <div class="col-8 col-sm-5 col-lg-4 col-xl-3 mb-1 mx-auto">
             <div class="card bg-transparent border border-dark rounded-lg">
                 <h4 class="text-center p-1 cut-text"> {{$related->name}}</h4>
                 <img title="{{$related->name}}" alt="{{$related->name}}"
@@ -97,7 +97,7 @@
                     data-content="{{substr($related->description, 0, 500)}}..">
                 <div class="card-img-overlay text-right mt-5">
 
-                    <h4>{{"$ ".$related->price}}</h4>
+                    <h5>{{"$ ".$related->price}}</h5>
 
                     <form method="GET" action="{{route('shopcartadd')}}">
                         <div class="form-group">
@@ -111,17 +111,18 @@
                         <input type="hidden" name="iduser" value="{{$related->user_id}}">
                         <input type="hidden" name="idstock" value="{{$related->Stock}}">
 
-                        <button class="btn btn-success w-50 mb-1" type="submit" style="font-size:1vw;">
-                            Agregar
-                        </button>
+                        <button class="btn btn-success w-50 mb-1 px-0" type="submit">
+                                Agregar
+                            </button>
                     </form>
 
                     <form method="GET" action="/detail">
-                        <input type="hidden" name="id" id="id" value="{{$related->id}}">
-                        <button class="btn btn-warning w-50" type="submit" name="" value="" style="font-size:1vw;">
+                        <input type="hidden" name="id" value="{{$related->id}}">
+                        <button class="btn btn-warning w-50 px-0" type="submit">
                             + Detalles
                         </button>
                     </form>
+
 
                 </div>
             </div>

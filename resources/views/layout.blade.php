@@ -14,7 +14,7 @@
                 </nav>
 
                 <nav class="navbar navbar-light nav-2 py-auto">
-                    <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1">
+                    <div class="col-2 col-md-1">
                         <div>
                             <button class="navbar-toggler" data-pushbar-target="pushbar-menu">
                                 <span class="navbar-toggler-icon"></span>
@@ -48,20 +48,27 @@
                         </div>
                     </div>
 
-                    <div class="col-10 col-sm-10 col-md-5 col-lg-6 col-xl-6 text-center ">
-                        <form class="form-inline my-2 my-lg-0 mx-auto add-clear" action="{{route('search')}}"
-                            method="GET">
-                            <input class="form-control mr-sm-2 mr-2 paramBusquedajs" type="search"
-                                placeholder="Encontra lo que buscas" aria-label="Search" name="PM" list="PM" required>
-                            <datalist id="PM" class="busquedajs"></datalist>
-                            <button class="btn btn-search my-2 my-sm-0" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </form>
-
+                    <div class="col-10 col-sm-10 col-lg-6 text-center">
+                        <div class="row">
+                            <div class="col-10">
+                                <form class="form-inline my-2 my-lg-0" action="{{route('search')}}" method="GET">
+                                    <input class="form-control paramBusquedajs" type="search"
+                                        placeholder="Encontra lo que buscas" aria-label="Search" name="PM" list="PM" required>
+                                    <datalist id="PM" class="busquedajs"></datalist>
+                                    <button class="btn btn-search" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </form>    
+                            </div>
+                            <div class="col-2 add-clear">
+                            
+                            </div>       
+                        </div>
+                        
                     </div>
+                    
 
-                    <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5 text-center">
+                    <div class="col-12 col-sm-12 col-lg-5 text-center">
                         @if (Route::has('login'))
                         <div class="top-right links">
                             @auth

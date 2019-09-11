@@ -22,8 +22,8 @@
 
     @endif
     @foreach ($products as $producto)
-    <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-1">
-        <div class="card bg-transparent border border-dark rounded-lg">
+    <div class="col-8 col-sm-5 col-lg-4 col-xl-3 mb-1 mx-auto">
+        <div class="card bg-transparent border border-dark rounded-lg" style="max-width:312px;">
             <h4 class="text-center p-1 cut-text"> {{$producto->name}} </h4>
             <img title="{{$producto->name}}" alt="{{$producto->name}}"
                 src="{{is_null($producto->image)?'/storage/images/Products/imgND.jpg':'/storage/images/Products/'.$producto->image}}"
@@ -43,13 +43,13 @@
                     <input type="hidden" name="iduser" value="{{$producto->user_id}}">
                     <input type="hidden" name="idstock" value="{{$producto->Stock}}">
 
-                    <button class="btn btn-success w-50 mb-1" type="submit" style="font-size:1vw;">
+                    <button class="btn btn-success w-50 mb-1 px-0" type="submit">
                         Agregar
                     </button>
                 </form>
                 <form method="GET" action="/detail">
                     <input type="hidden" name="id" value="{{$producto->id}}">
-                    <button class="btn btn-warning w-50" type="submit" value="" style="font-size:1vw;">
+                    <button class="btn btn-warning w-50 px-0" type="submit">
                         + Detalles
                     </button>
                 </form>
