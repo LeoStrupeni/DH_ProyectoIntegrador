@@ -34,14 +34,11 @@
                                     @endforeach
                                     <hr>
                                     @if (Auth::check())
-                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
-                                        href="{{route('suscriptors.index')}}">Suscriptores</a>
-                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
-                                        href="{{route('queries.index')}}">Consultas</a>
-                                    @if (Auth::user()->hasRole('admin'))
-                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1"
-                                        href="{{route('users.index')}}">Usuarios</a>
-                                    @endif
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('suscriptors.index')}}">Suscriptores</a>
+                                    <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('queries.index')}}">Consultas</a>
+                                        @if (Auth::user()->hasRole('admin'))
+                                        <a class="nav-item text-dark font-weight-bold ml-3 pb-1" href="{{route('users.index')}}">Usuarios</a>
+                                        @endif
                                     @endif
                                 </div>
                             </div>
@@ -60,7 +57,7 @@
                                     </button>
                                 </form>    
                             </div>
-                            <div class="col-2 add-clear">
+                            <div class="col-2 add-clear my-2 my-lg-0">
                             
                             </div>       
                         </div>

@@ -73,16 +73,42 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
+        $filter_Name = ($request->get('filter_nombre') == 'Productos') ? null :  $request->get('filter_nombre');
+        $filter_Brand = ($request->get('filter_marca') == 'Marcas') ? null : $request->get('filter_marca');
+        $filter_Category = ($request->get('filter_categoria') == 'Categorias') ? null : $request->get('filter_categoria');
+
+        // dd($filter_Name,$filter_Brand,$filter_Category);
+
         $user = User::findOrFail($id);
         $profiles = Profile::all();
         $countries = Countries::all()->pluck('name.common');
 
         $products = Product::where('user_id', '=', Auth::user()->id)
-            ->orderBy('id', 'ASC')->paginate(18);
+                        ->FilterName($filter_Name)
+                        ->FilterBrands($filter_Brand)
+                        ->FilterCategory($filter_Category)
+                        ->orderBy('name')
+                        ->paginate(18);
+        $brands = Product::select('brand_id')
+                        ->distinct()
+                        ->where('user_id', '=', Auth::user()->id)
+                        ->FilterName($filter_Name)
+                        ->FilterBrands($filter_Brand)
+                        ->FilterCategory($filter_Category)
+                        ->orderBy('brand_id')
+                        ->get();
+        $categories = Product::select('category_id')
+                        ->distinct()
+                        ->where('user_id', '=', Auth::user()->id)
+                        ->FilterName($filter_Name)
+                        ->FilterBrands($filter_Brand)
+                        ->FilterCategory($filter_Category)
+                        ->orderBy('category_id')
+                        ->get();        
 
-        return view('users.edit', compact('user', 'profiles', 'countries', 'products'));
+        return view('users.edit', compact('user', 'profiles', 'countries', 'products','brands','categories'));
     }
 
     /**

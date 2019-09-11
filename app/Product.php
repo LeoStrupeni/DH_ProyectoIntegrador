@@ -60,17 +60,24 @@ class Product extends Model
 
     // Query scopes Filters
 
+    public function scopeFilterName($query, $filter_Name)
+    {
+        if (!is_null($filter_Name)) {
+            return $query->where('name', $filter_Name);
+        }
+    }
+
     public function scopeFilterBrands($query, $filter_Brand)
     {
         if (!is_null($filter_Brand)) {
-            return $query->where('brands.name', $filter_Brand);
+            return $query->where('brand_id', $filter_Brand);
         }
     }
 
     public function scopeFilterCategory($query, $filter_Category)
     {
         if (!is_null($filter_Category)) {
-            return $query->where('categories.name', $filter_Category);
+            return $query->where('category_id', $filter_Category);
         }
     }
 

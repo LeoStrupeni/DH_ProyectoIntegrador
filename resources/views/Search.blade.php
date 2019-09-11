@@ -77,7 +77,7 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Marca</label>
                             <select class="custom-select custom-select-sm" name="filter_marca">
-                                <option value="" selected></option>
+                                <option value="Marcas" selected>Marcas ... </option>
                                     @foreach ($brands as $brand)
                                 <option value="{{$brand->id}}">{{$brand->name}}</option>
                                     @endforeach
@@ -87,7 +87,7 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Categoria</label>
                             <select class="custom-select custom-select-sm" name="filter_categoria">
-                                <option value="" selected></option>
+                                <option value="Categorias" selected>Categorias ... </option>
                                     @foreach ($categories as $category)
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                     @endforeach
@@ -97,7 +97,7 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Graduacion</label>
                             <select class="custom-select custom-select-sm" name="filter_graduacion">
-                                <option value="" selected></option>
+                                <option value="Graduaciones" selected>Graduaciones ... </option>
                                     @foreach ($graduations as $graduation)
                                 <option value="{{$graduation->graduation}}">{{round($graduation->graduation, 1)}} %</option>
                                     @endforeach
@@ -107,7 +107,7 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Origen-Bodega</label>
                             <select class="custom-select custom-select-sm" name="filter_origin">
-                                <option value="" selected></option>
+                                <option value="Origenes" selected>Origen ... </option>
                                     @foreach ($origins as $origin)
                                 <option value="{{$origin->origin}}">{{$origin->origin}}</option>
                                     @endforeach
@@ -117,7 +117,7 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Volumen</label>
                             <select class="custom-select custom-select-sm" name="filter_volume">
-                                <option value="" selected></option>
+                                <option value="Volumenes" selected>Volumen ... </option>
                                     @foreach ($volumes as $volume)
                                 <option value="{{$volume->volume}}">{{$volume->volume}} ml.</option>
                                     @endforeach
@@ -127,7 +127,7 @@
                         <div class="col px-3 py-1">
                             <label class="text-white">* Cosecha</label>
                             <select class="custom-select custom-select-sm" name="filter_year">
-                                <option value="" selected></option>
+                                <option value="Cosecha" selected>Cosecha ... </option>
                                     @foreach ($years as $year)
                                 <option value="{{$year->year}}">{{$year->year}}</option>
                                     @endforeach

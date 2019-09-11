@@ -214,16 +214,15 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {
-        $filter_Brand = ($request->get('filter_marca')) ? $request->get('filter_marca') : null;
-        $filter_Category = ($request->get('filter_categoria')) ? $request->get('filter_categoria') : null;
-        $filter_Graduation = ($request->get('filter_graduacion')) ? $request->get('filter_graduacion') : null;
-        $filter_Origin = ($request->get('filter_origin')) ? $request->get('filter_origin') : null;
-        $filter_Volume = ($request->get('filter_volume')) ? $request->get('filter_volume') : null;
-        $filter_Year = ($request->get('filter_year')) ? $request->get('filter_year') : null;
+        $filter_Brand = ($request->get('filter_marca') == 'Marcas') ? null : $request->get('filter_marca');
+        $filter_Category = ($request->get('filter_categoria') == 'Categorias') ? null : $request->get('filter_categoria');
+        $filter_Graduation = ($request->get('filter_graduacion') == 'Graduaciones') ? null : $request->get('filter_graduacion');
+        $filter_Origin = ($request->get('filter_origin') == 'Origenes') ? null : $request->get('filter_origin');
+        $filter_Volume = ($request->get('filter_volume') == 'Volumenes') ? null : $request->get('filter_volume');
+        $filter_Year = ($request->get('filter_year') == 'Cosecha') ? null : $request->get('filter_year');
         $var = $request->input('PM');
 
-        // $prueba = is_null($filter_categoria);
-        // dd($filter_marca,$filter_categoria,$prueba,$filter_graduacion,$filter_origin,$filter_volume,$filter_year,$var);
+        // dd($filter_Brand,$filter_Category,$filter_Graduation,$filter_Origin,$filter_Volume,$filter_Year,$var);
 
         $products = Product::select('Products.id', 'Products.name', 'Products.description', 'Products.price', 'Products.image', 'Products.user_id', 'Products.Stock')
             ->leftJoin('categories', 'category_id', '=', 'categories.id')

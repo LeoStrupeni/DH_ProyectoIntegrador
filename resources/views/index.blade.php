@@ -81,7 +81,7 @@
                 <h5>{{'$'. $producto->price}}</h5>
                 <form method='GET' action='/detail'>
                     <input type='hidden' name='id' value='{{$producto->id}}'>
-                    <button class='btn btn-warning w-50' type='submit'>
+                    <button class='btn btn-warning w-50 p-0' type='submit'>
                         + Detalles
                     </button>
                 </form>

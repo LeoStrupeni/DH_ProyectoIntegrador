@@ -184,14 +184,60 @@
                         </div>
                     </div>
                 </nav>
+                
+                {{-- FILTROS DE PRODUCTOS --}}
+                <nav class="navbar navbar-expand-lg p-2 nav-1 navbar-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filtersProducts" aria-controls="filtersProducts" aria-expanded="false" aria-label="Toggle navigation"> 
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                                
+                    <div class="collapse navbar-collapse justify-content-center" id="filtersProducts">
+                        <form action="{{route('users.edit', Auth::user()->id)}}" method="GET" class="form-inline mx-2">
+                            <div class="form-group mx-1">
+                                <select class="custom-select p-1" name="filter_nombre" style="width:200px;">
+                                    <option value="Productos" selected>Tus Productos ... </option>
+                                        @foreach ($products as $product)
+                                    <option value="{{$product->name}}">{{$product->name}}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success m-auto"><i class="fas fa-redo-alt"></i></button>
+                            </div>
+                        </form>
+                        <form action="{{route('users.edit', Auth::user()->id)}}" method="GET" class="form-inline mx-2">
+                            <div class="form-group mx-1">
+                                <select class="custom-select p-1" name="filter_marca" style="width:200px;">
+                                    <option value="Marcas" selected>Tus Marcas ... </option>
+                                        @foreach ($brands as $marca)
+                                    <option value="{{$marca->brand_id}}">{{$marca->brand->name}}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success m-auto"><i class="fas fa-redo-alt"></i></button>
+                        </div>
+                        </form>    
+                        <form action="{{route('users.edit', Auth::user()->id)}}" method="GET" class="form-inline mx-2">
+                            <div class="form-group mx-1">
+                                <select class="custom-select p-1" name="filter_categoria" style="width:200px;">
+                                    <option value="Categorias" selected>Tus Categorias ... </option>
+                                        @foreach ($categories as $categoria)
+                                    <option value="{{$categoria->category_id}}">{{$categoria->Category->name}}</option>
+                                        @endforeach
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success m-auto"><i class="fas fa-redo-alt"></i></button>
+                            </div>
+                        </form>
+                        <a href="{{route('users.edit', Auth::user()->id)}}" class="btn btn-nav btn-danger">Limpiar</a>
+                    </div>
+                </nav>
+
+                @if($products->count())
+
                 <div class="row">
-
-                    @if($products->count())
-                    
-                    
-                    {{-- FILTROS DE PRODUCTOS --}}
-
-
                     @foreach($products as $product)
                     <div class="col-12 col-md-6 col-lg-4 my-2">
                         <div class="card p-1 border border-dark">
