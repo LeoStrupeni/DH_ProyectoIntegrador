@@ -4,9 +4,7 @@
 
 @section('content')
 
-@section('js')
-<script src="{{ URL::asset('js/suscription-validation.js') }}"></script>
-@endsection
+
 
 <div class="row">
     <div class="col p-0">
@@ -123,7 +121,7 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-modal">Registrar</button>
+                        <button type="submit" class="btn btn-modal register-button">Registrar</button>
                     </div>
 
                 </form>
@@ -133,4 +131,8 @@
     </div>
 
 </div>
+@endsection
+
+@section('js')
+<script src="{{ URL::asset('js/suscription-validation.js') }}"></script>
 @endsection
