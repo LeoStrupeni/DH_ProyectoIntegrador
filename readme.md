@@ -1,5 +1,5 @@
 # Proyecto Integrador - Digital House 2019 - E-Commerce Capone
-Desarrollo de una **pagina e-commerce** bajo el nombre de **Capone S.A** como trabajo integrador del curso **Programador Web Full Stack**, desarrollado en la sede de Rosario de Digital House.
+Desarrollo de una **pagina e-commerce** bajo el nombre de **Capone S.A** como trabajo integrador del curso **Programador Web Full Stack**, desarrollado en la sede de Rosario de [Digital House](https://www.digitalhouse.com/).
 
 > Este curso se llevo a cabo desde el mes de Abril a Septiembre del año 2019
 
@@ -18,7 +18,7 @@ Para poder ejecutar nuestro proyecto en su maquina local, se deben cumplir los s
 * phpMyAdmin >= 4.9.0.1
 * OpenSSL 1.1.1
 * MySQL >= 5
-* [Composer dependency management](https://getcomposer.org/download/)
+* [Composer dependency manager](https://getcomposer.org/download/)
 
 > Para poder cumplir con la mayoria de los requisitos, recomendamos descargar e instalar la herramienta de codigo libre y gratuita [XAMPP](https://www.apachefriends.org/download.html)
 
