@@ -2,6 +2,8 @@
 
 @section('layout')
 
+@include('modals.age-alert')
+
 <body>
     <div class="row mx-0">
         <div class="col p-0">
@@ -145,6 +147,7 @@
     <script src="{{ URL::asset('js/register-validation.js') }}"></script>
     <script src="{{ URL::asset('js/login-validation.js') }}"></script>
     <script src="{{ URL::asset('js/contact-validation.js') }}"></script>
+    <script src="{{ URL::asset('js/age-alert.js') }}"></script>
 
     @yield('js')
 
