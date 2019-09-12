@@ -1,8 +1,8 @@
 
 $(document).ready(function(){
-    var yetVisited = window.localStorage['visited'];
+    var yetVisited = window.sessionStorage['visited'];
     if (!yetVisited) {
         $('#modal-alert').modal('show');
-        localStorage['visited'] = "yes";
+        sessionStorage['visited'] = "yes";
     }
 })
