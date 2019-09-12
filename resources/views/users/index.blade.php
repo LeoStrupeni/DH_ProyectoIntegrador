@@ -26,30 +26,30 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-            <tr>
-                <th scope="row">{{$user->id}}</th>
-                <td>{{$user->name}}</td>
-                <td>{{$user->surname}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->personal_id}}</td>
-                <td>{{$user->birthday}}</td>
-                <td>{{$user->country}}</td>
-                <td>{{$user->created_at->format('d/m/Y')}}</td>
-                <td>{{$user->updated_at->format('d/m/Y')}}</td>
-                <td>{{$user->profile->name}}</td>
-                <td>
-                    @foreach ($user->roles as $role)
-                    {{$role->description }}
-                    @endforeach
-                </td>
-                <td>
-                    <form action="{{route('users.destroy', $user->id)}}" method="POST" class="form-users">
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" class="btn btn-danger py-0 px-1 delete-user" value="Borrar">
-                    </form>
-                </td>
-            </tr>
+                <tr>
+                    <th scope="row">{{$user->id}}</th>
+                    <th>{{$user->name}}</th>
+                    <th>{{$user->surname}}</th>
+                    <th>{{$user->email}}</th>
+                    <th>{{$user->personal_id}}</th>
+                    <th>{{$user->birthday}}</th>
+                    <th>{{$user->country}}</th>
+                    <th>{{$user->created_at->format('d/m/Y')}}</th>
+                    <th>{{$user->updated_at->format('d/m/Y')}}</th>
+                    <th>{{$user->profile->name}}</th>
+                    <th>
+                        @foreach ($user->roles as $role)
+                            {{$role->description }}
+                        @endforeach
+                    </th>
+                    <th>
+                        <form action="{{route('users.destroy', $user->id)}}" method="POST" class="form-users">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" class="btn btn-danger py-0 px-1 delete-user" value="Borrar">
+                        </form>
+                    </th>
+                </tr>
             @endforeach
         </tbody>
     </table>

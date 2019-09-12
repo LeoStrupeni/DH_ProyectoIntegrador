@@ -18,23 +18,23 @@
             @foreach ($suscriptors as $suscriptor)
             <tr>
                 <th scope="row">{{$suscriptor->id}}</th>
-                <td>{{$suscriptor->email}}</td>
-                <td>{{$suscriptor->created_at}}</td>
-                <td>
+                <th>{{$suscriptor->email}}</th>
+                <th>{{$suscriptor->created_at}}</th>
+                <th>
                     @if ($suscriptor->is_active)
                     Si
                     @else
                     No
                     @endif
-                </td>
-                <td>
+                </th>
+                <th>
                     <form action="{{route('suscriptors.destroy', $suscriptor->id)}}" method="POST"
                         class="form-suscriptor">
                         @csrf
                         @method('DELETE')
                         <input type="submit" class="btn btn-danger delete-suscriptor" value="Borrar">
                     </form>
-                </td>
+                </th>
             </tr>
             @endforeach
         </tbody>

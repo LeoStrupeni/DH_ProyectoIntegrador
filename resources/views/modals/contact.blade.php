@@ -2,8 +2,7 @@
     Contacto
 </button>
 
-<div class="modal fade" id="modalContacto" tabindex="-1" role="dialog"
-    aria-hidden="true">
+<div class="modal fade" id="modalContacto" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,7 +23,7 @@
                         <div class="form-group">
                             <label class="font-weight-bold">Nombre</label>
                             <input type="text" name="name" id="nombre-contact" class="form-control"
-                                placeholder="Tu nombre" required>
+                                placeholder="Tu nombre" value="{{Auth::check() ? Auth::user()->name : ""}}" required>
 
                             @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -35,7 +34,7 @@
                         <div class="form-group">
                             <label class="font-weight-bold">Email</label>
                             <input type="email" name="email" id="email-contact" class="form-control"
-                                placeholder="Tu email" required>
+                                placeholder="Tu email" value="{{Auth::check() ? Auth::user()->email : ""}}" required>
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -45,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label class="font-weight-bold">Teléfono</label>
-                            <input class="form-control" id="telefono-contact" type="tel" name="phone" value=""
+                            <input class="form-control" id="telefono-contact" type="tel" name="phone"
                                 {{-- pattern="[1-9]{10}" title="Ingresá tu celular con el formato 3416772339" --}}
                                 placeholder="Tu teléfono" required>
 

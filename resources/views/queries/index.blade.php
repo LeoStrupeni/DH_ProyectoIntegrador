@@ -20,27 +20,27 @@
             @foreach ($queries as $query)
             <tr>
                 <th scope="row">{{$query->id}}</th>
-                <td>{{$query->name}}</td>
-                <td>{{$query->created_at->format('d/m/Y')}}</td>
-                <td>
+                <th>{{$query->name}}</th>
+                <th>{{$query->created_at->format('d/m/Y')}}</th>
+                <th>
                     <a href="mailto:{{$query->email}}">{{$query->email}}</a>
-                </td>
-                <td>{{$query->phone}}</td>
-                <td>
+                </th>
+                <th>{{$query->phone}}</th>
+                <th>
                     @if ($query->is_registered == 1)
                     Si
                     @else
                     No
                     @endif
-                </td>
-                <td>{{substr($query->message, 0, 50)}}</td>
-                <td>
+                </th>
+                <th>{{substr($query->message, 0, 50)}}</th>
+                <th>
                     <form action="{{route('queries.destroy', $query->id)}}" method="POST" class="form-queries">
                         @csrf
                         @method('DELETE')
                         <input type="submit" class="btn btn-danger delete-query" value="Borrar">
                     </form>
-                </td>
+                </th>
             </tr>
             @endforeach
         </tbody>

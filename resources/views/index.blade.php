@@ -111,7 +111,7 @@
                     <div class="col-6 m-auto email-suscriptor-section">
                         <div class="form-group">
                             <input type="email" name="email" id="email-suscriptor" class="form-control text-center"
-                                placeholder="Ingresa tu email">
+                        placeholder="Ingresa tu email" value="{{Auth::check() ? Auth::user()->email : ""}}">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
