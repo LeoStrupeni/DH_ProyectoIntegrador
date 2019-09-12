@@ -44,7 +44,7 @@
                         <div class="form-group row">
                             <label
                                 class="col-4 control-label text-right cut-text m-0 p-1 text-black"><strong>Precio:</strong></label>
-                            <input type="number" class="col-6 form-control text-right" name="price" value="" required>
+                            <input type="number" class="col-6 form-control text-right" name="price" value="" max="999999" min="0" required>
                         </div>
                     </div>
                     <div class="col-12 col-md-3">
@@ -112,7 +112,7 @@
                         <div class="form-group row">
                             <label class="col-4 control-label text-right cut-text m-0 p-1 text-black"><strong>Imagen:
                                 </strong></label>
-                            <input type="file" name="image" class="col-6 form-control-file" required>
+                            <input type="file" name="image" class="col-6 form-control-file">
                         </div>
                     </div>
                 </div>

@@ -196,7 +196,7 @@
                             <div class="form-group mx-1">
                                 <select class="custom-select p-1" name="filter_nombre" style="width:200px;">
                                     <option value="Productos" selected>Tus Productos ... </option>
-                                        @foreach ($products as $product)
+                                        @foreach ($nameProducts as $product)
                                     <option value="{{$product->name}}">{{$product->name}}</option>
                                         @endforeach
                                 </select>

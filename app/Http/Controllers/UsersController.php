@@ -91,6 +91,13 @@ class UsersController extends Controller
                         ->FilterCategory($filter_Category)
                         ->orderBy('name')
                         ->paginate(18);
+        $nameProducts = Product::where('user_id', '=', Auth::user()->id)
+                        ->FilterName($filter_Name)
+                        ->FilterBrands($filter_Brand)
+                        ->FilterCategory($filter_Category)
+                        ->orderBy('name')
+                        ->get();
+
         $brands = Product::select('brand_id')
                         ->distinct()
                         ->where('user_id', '=', Auth::user()->id)
@@ -108,7 +115,7 @@ class UsersController extends Controller
                         ->orderBy('category_id')
                         ->get();        
 
-        return view('users.edit', compact('user', 'profiles', 'countries', 'products','brands','categories'));
+        return view('users.edit', compact('user', 'profiles', 'countries', 'products','brands','categories','nameProducts'));
     }
 
     /**

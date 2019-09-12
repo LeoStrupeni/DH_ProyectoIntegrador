@@ -45,7 +45,7 @@ class ProductController extends Controller
         $this->validate($request, [
             'name' => ['required', 'max:255'],
             'description' => 'required',
-            'price' => ['required', 'numeric'],
+            'price' => ['required', 'numeric','digits_between:1,8'],
             'graduation' => ['required', 'numeric'],
             'origin' => 'required',
             'year' => ['required', 'integer'],

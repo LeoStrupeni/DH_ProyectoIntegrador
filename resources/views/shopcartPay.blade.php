@@ -5,7 +5,7 @@
 @section('content')
 
 
-<div class="jumbotron text-center bg-info">
+<div class="jumbotron text-center bg-info my-2">
     <h1 class="display-4">¡Paso Final!</h1>
     <hr class="my-4">
     <p class="lead">Estas a punto de pagar la cantidad de : <h4>$ {{$total}}</h4>
